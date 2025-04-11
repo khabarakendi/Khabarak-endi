@@ -47,7 +47,7 @@
     font-weight: bold;
     color: #333;
     font-size: 0.95em;
-    padding-right: 100%; /* Ensure space for scrolling */
+    padding-right: 100%;
     animation: ticker-scroll 30s linear infinite;
 }
 
@@ -61,6 +61,9 @@
     text-overflow: ellipsis;
     color: #666;
     font-style: italic;
+    font-size: 0.9em;
+    padding-right: 100%;
+    display: inline-block;
 }
 
 /* Animation for continuous scrolling */
@@ -80,18 +83,18 @@
         align-items: flex-start;
         padding: 8px 12px;
     }
-    
+
     .ticker-label {
         margin-left: 0;
         margin-bottom: 5px;
         font-size: 0.8em;
     }
-    
+
     .ticker-content {
         margin-left: 0;
         width: 100%;
     }
-    
+
     .ticker-scroll-content {
         font-size: 0.85em;
         animation-duration: 20s;
