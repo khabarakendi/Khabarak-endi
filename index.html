@@ -211,5 +211,94 @@
             setInterval(updateBreakingNews, 300000);
         });
     </script>
+    <!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خبرك عندي - Yemen News</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header id="site-header">
+        <div class="header-top">
+            <div class="logo-container">
+                <div class="logo">
+                    <span class="red">خبرك</span>
+                    <span class="green">عندي</span>
+                </div>
+                <div class="datetime" id="current-datetime">
+                    <i class="icon-clock"></i> جاري التحميل...
+                </div>
+            </div>
+        </div>
+        <nav class="categories">
+            <ul>
+                <li><a href="#" class="active" data-category="all">الرئيسية</a></li>
+                <li><a href="#" data-category="local">محلية</a></li>
+                <li><a href="#" data-category="international">دولية</a></li>
+                <li><a href="#" data-category="sports">رياضة</a></li>
+                <li><a href="#" data-category="economic">اقتصادية</a></li>
+                <li><a href="private.html" data-category="private">خاصة</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <div class="news-container" id="news-container">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>جاري تحميل الأخبار اليمنية...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Article Viewer (Full Screen) -->
+    <div class="article-viewer" id="article-viewer">
+        <header class="article-header">
+            <div class="logo">
+                <span class="red">خبرك</span>
+                <span class="green">عندي</span>
+            </div>
+            <button class="return-btn" onclick="closeArticle()">↩ العودة إلى الصفحة الرئيسية</button>
+        </header>
+        <iframe id="article-frame" src=""></iframe>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        function viewArticle(url) {
+            document.getElementById('article-frame').src = url;
+            document.getElementById('article-viewer').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeArticle() {
+            document.getElementById('article-viewer').style.display = 'none';
+            document.getElementById('article-frame').src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        fetch('./data/news.json')
+            .then(res => res.json())
+            .then(data => {
+                const container = document.getElementById('news-container');
+                container.innerHTML = '';
+                data.articles.forEach(item => {
+                    const article = document.createElement('div');
+                    article.className = 'news-item';
+                    article.innerHTML = `
+                        <h3 onclick="viewArticle('${item.url}')">${item.title}</h3>
+                        <p>${item.summary}</p>
+                    `;
+                    container.appendChild(article);
+                });
+            });
+    </script>
+</body>
+</html>
+
 </body>
 </html>
