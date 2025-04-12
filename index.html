@@ -9,7 +9,7 @@
         /* Enhanced Breaking News Ticker Styles */
         .breaking-news-container {
             position: sticky;
-            top: 0;
+            bottom: 0;
             z-index: 1000;
         }
         .breaking-news-ticker {
@@ -87,18 +87,6 @@
         </nav>
     </header>
 
-    <!-- Enhanced Breaking News Ticker - Now sticky and scrolls left-to-right -->
-    <div class="breaking-news-container">
-        <div class="breaking-news-ticker">
-            <div class="ticker-label">أخبار عاجلة:</div>
-            <div class="ticker-content" id="breaking-news-ticker">
-                <span class="ticker-item" onclick="showBreakingNews('iran-usa')">• أول بيان سعودي بشأن محادثات مستقط بين إيران وأمريكا •</span>
-                <span class="ticker-item" onclick="showBreakingNews('temperature')">• ارتفاع في درجات الحرارة يتجاوز 40 درجة في بعض المناطق •</span>
-                <span class="ticker-item" onclick="showBreakingNews('cabinet')">• مجلس الوزراء يعقد اجتماعًا طارئًا اليوم •</span>
-            </div>
-        </div>
-    </div>
-
     <!-- Main Content -->
     <main id="main-content">
         <div class="news-filters">
@@ -162,6 +150,18 @@
             </div>
         </div>
     </footer>
+
+    <!-- Enhanced Breaking News Ticker - Now at bottom of page -->
+    <div class="breaking-news-container">
+        <div class="breaking-news-ticker">
+            <div class="ticker-label">أخبار عاجلة:</div>
+            <div class="ticker-content" id="breaking-news-ticker">
+                <span class="ticker-item" onclick="showBreakingNews('iran-usa')">• أول بيان سعودي بشأن محادثات مستقط بين إيران وأمريكا •</span>
+                <span class="ticker-item" onclick="showBreakingNews('temperature')">• ارتفاع في درجات الحرارة يتجاوز 40 درجة في بعض المناطق •</span>
+                <span class="ticker-item" onclick="showBreakingNews('cabinet')">• مجلس الوزراء يعقد اجتماعًا طارئًا اليوم •</span>
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript Files -->
     <script src="js/utils.js"></script>
