@@ -374,3 +374,22 @@ body {
 .back-button:hover {
     background: #27ae60;
 }
+.return-main-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 1001;
+    background: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.return-main-btn:hover {
+    background: #27ae60;
+}
