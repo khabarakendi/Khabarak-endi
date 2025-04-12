@@ -149,7 +149,7 @@
 
         // Initialize breaking news ticker
         function updateBreakingNews() {
-            fetch('data/news.json')
+            fetch('.data/news.json')
                 .then(response => response.json())
                 .then(data => {
                     const breakingNews = data.articles
