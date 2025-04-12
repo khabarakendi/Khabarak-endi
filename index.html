@@ -11,9 +11,9 @@
             position: sticky;
             bottom: 0;
             z-index: 1000;
+            background-color: #e74c3c;
         }
         .breaking-news-ticker {
-            background-color: #e74c3c;
             color: white;
             padding: 10px;
             overflow: hidden;
@@ -56,6 +56,9 @@
             margin: 20px 0;
             border-radius: 5px;
             border: 1px solid #ddd;
+        }
+        main {
+            margin-bottom: 50px;
         }
     </style>
 </head>
@@ -148,12 +151,12 @@
         </div>
     </footer>
 
-    <!-- Enhanced Breaking News Ticker - Now at bottom of page -->
+    <!-- Breaking News Ticker - Now at bottom of screen -->
     <div class="breaking-news-container">
         <div class="breaking-news-ticker">
             <div class="ticker-label">أخبار عاجلة:</div>
             <div class="ticker-content" id="breaking-news-ticker">
-                <span class="ticker-item">جاري تحميل الأخبار العاجلة...</span>
+                <span class="ticker-item">جاري تحميل آخر الأخبار...</span>
             </div>
         </div>
     </div>
@@ -207,43 +210,30 @@
             }
         });
 
-        // Breaking News Ticker Update - Now gets latest 3 breaking news
+        // Breaking News Ticker Update - Now shows latest 3 articles from main page
         function updateBreakingNews() {
-            fetch('./data/news.json')
-                .then(response => response.json())
-                .then(data => {
-                    // Sort articles by date (newest first)
-                    const sortedArticles = data.articles.sort((a, b) => {
-                        return new Date(b.date) - new Date(a.date);
-                    });
+            const newsContainer = document.getElementById('news-container');
+            const articles = newsContainer.querySelectorAll('.news-article');
+            
+            if (articles.length >= 3) {
+                const latestArticles = Array.from(articles).slice(0, 3);
+                const tickerContent = latestArticles.map(article => {
+                    const title = article.querySelector('h2').textContent;
+                    const url = article.querySelector('h2').getAttribute('onclick').match(/'([^']+)'/)[1];
+                    return `<span class="ticker-item" onclick="viewArticle('${url}')">• ${title} •</span>`;
+                }).join('');
 
-                    // Get latest 3 breaking news
-                    const breakingNews = sortedArticles
-                        .filter(article => article.breaking)
-                        .slice(0, 3);
-
-                    if (breakingNews.length > 0) {
-                        const tickerContent = breakingNews.map(article =>
-                            `<span class="ticker-item" onclick="viewArticle('${article.url}')">• ${article.title} •</span>`
-                        ).join('');
-
-                        document.getElementById('breaking-news-ticker').innerHTML = tickerContent;
-                        
-                        // Restart animation
-                        const ticker = document.getElementById('breaking-news-ticker');
-                        ticker.style.animation = 'none';
-                        void ticker.offsetWidth;
-                        ticker.style.animation = 'ticker 25s linear infinite';
-                    } else {
-                        document.getElementById('breaking-news-ticker').innerHTML = 
-                            '<span class="ticker-item">لا توجد أخبار عاجلة حالياً</span>';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error loading breaking news:', error);
-                    document.getElementById('breaking-news-ticker').innerHTML = 
-                        '<span class="ticker-item">حدث خطأ في تحميل الأخبار العاجلة</span>';
-                });
+                document.getElementById('breaking-news-ticker').innerHTML = tickerContent;
+                
+                // Restart animation
+                const ticker = document.getElementById('breaking-news-ticker');
+                ticker.style.animation = 'none';
+                void ticker.offsetWidth;
+                ticker.style.animation = 'ticker 25s linear infinite';
+            } else {
+                document.getElementById('breaking-news-ticker').innerHTML = 
+                    '<span class="ticker-item">جاري تحميل آخر الأخبار...</span>';
+            }
         }
 
         // News Search Functionality
@@ -270,11 +260,11 @@
             
             // Load initial news
             if (typeof loadNews === 'function') {
-                loadNews();
+                loadNews().then(() => {
+                    // Update breaking news after main news loads
+                    updateBreakingNews();
+                });
             }
-            
-            // Update breaking news
-            updateBreakingNews();
             
             // Set intervals for updates
             setInterval(updateDateTime, 60000);
@@ -319,6 +309,9 @@
                 // Update last updated time
                 document.getElementById('last-updated').textContent = 
                     new Date().toLocaleTimeString('ar-EG');
+                
+                // Update breaking news ticker
+                updateBreakingNews();
             })
             .catch(error => {
                 console.error('Error loading news:', error);
