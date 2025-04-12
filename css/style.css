@@ -349,3 +349,13 @@ body {
         font-size: 0.9em;
     }
 }
+.ticker-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.ticker-link:hover {
+    text-decoration: underline;
+    color: #ffeb3b;
+}
