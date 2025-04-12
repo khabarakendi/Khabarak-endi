@@ -359,3 +359,18 @@ body {
     text-decoration: underline;
     color: #ffeb3b;
 }
+.back-button {
+    background: #2ecc71;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: #27ae60;
+}
