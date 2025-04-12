@@ -6,16 +6,14 @@
     <title>خبرك عندي - Yemen News</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Enhanced Breaking News Ticker Styles - Now at bottom */
+        /* Enhanced Breaking News Ticker Styles */
         .breaking-news-container {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            position: sticky;
+            top: 0;
             z-index: 1000;
-            background-color: #e74c3c;
         }
         .breaking-news-ticker {
+            background-color: #e74c3c;
             color: white;
             padding: 10px;
             overflow: hidden;
@@ -59,10 +57,6 @@
             border-radius: 5px;
             border: 1px solid #ddd;
         }
-        /* Add margin to main content to prevent overlap */
-        main {
-            margin-bottom: 50px;
-        }
     </style>
 </head>
 <body>
@@ -92,6 +86,18 @@
             </ul>
         </nav>
     </header>
+
+    <!-- Enhanced Breaking News Ticker - Now sticky and scrolls left-to-right -->
+    <div class="breaking-news-container">
+        <div class="breaking-news-ticker">
+            <div class="ticker-label">أخبار عاجلة:</div>
+            <div class="ticker-content" id="breaking-news-ticker">
+                <span class="ticker-item" onclick="showBreakingNews('iran-usa')">• أول بيان سعودي بشأن محادثات مستقط بين إيران وأمريكا •</span>
+                <span class="ticker-item" onclick="showBreakingNews('temperature')">• ارتفاع في درجات الحرارة يتجاوز 40 درجة في بعض المناطق •</span>
+                <span class="ticker-item" onclick="showBreakingNews('cabinet')">• مجلس الوزراء يعقد اجتماعًا طارئًا اليوم •</span>
+            </div>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <main id="main-content">
@@ -133,6 +139,9 @@
                 <span class="green">عندي</span>
             </div>
         </div>
+        <div id="breaking-news-content">
+            <!-- Dynamic content will be inserted here -->
+        </div>
         <iframe id="article-frame" src=""></iframe>
     </div>
 
@@ -153,18 +162,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Breaking News Ticker - Now at bottom of screen -->
-    <div class="breaking-news-container">
-        <div class="breaking-news-ticker">
-            <div class="ticker-label">أخبار عاجلة:</div>
-            <div class="ticker-content" id="breaking-news-ticker">
-                <span class="ticker-item" onclick="viewArticle('articles/iran-usa-talks.html')">• أول بيان سعودي بشأن محادثات مستقط بين إيران وأمريكا •</span>
-                <span class="ticker-item" onclick="viewArticle('articles/temperature-rise.html')">• ارتفاع في درجات الحرارة يتجاوز 40 درجة في بعض المناطق •</span>
-                <span class="ticker-item" onclick="viewArticle('articles/cabinet-meeting.html')">• مجلس الوزراء يعقد اجتماعًا طارئًا اليوم •</span>
-            </div>
-        </div>
-    </div>
 
     <!-- JavaScript Files -->
     <script src="js/utils.js"></script>
@@ -198,8 +195,42 @@
         function viewArticle(url) {
             document.getElementById('article-frame').src = url;
             document.getElementById('article-viewer').style.display = 'block';
+            document.getElementById('breaking-news-content').style.display = 'none';
+            document.getElementById('article-frame').style.display = 'block';
             document.body.style.overflow = 'hidden';
             window.scrollTo(0, 0);
+        }
+
+        // Show breaking news content directly
+        function showBreakingNews(newsId) {
+            const newsContent = {
+                'iran-usa': {
+                    title: 'أول بيان سعودي بشأن محادثات مستقط بين إيران وأمريكا',
+                    content: '<h2>أول بيان سعودي بشأن محادثات مستقط بين إيران وأمريكا</h2><p>أصدرت المملكة العربية السعودية اليوم بيانًا رسميًا عبر وزارة الخارجية بشأن المحادثات الجارية بين إيران والولايات المتحدة الأمريكية...</p>'
+                },
+                'temperature': {
+                    title: 'ارتفاع في درجات الحرارة يتجاوز 40 درجة في بعض المناطق',
+                    content: '<h2>ارتفاع في درجات الحرارة يتجاوز 40 درجة في بعض المناطق</h2><p>تتوقع الأرصاد الجوية استمرار موجة الحر في عدة محافظات يمنية حيث من المتوقع أن تصل درجات الحرارة إلى 42 درجة مئوية...</p>'
+                },
+                'cabinet': {
+                    title: 'مجلس الوزراء يعقد اجتماعًا طارئًا اليوم',
+                    content: '<h2>مجلس الوزراء يعقد اجتماعًا طارئًا اليوم</h2><p>عقد مجلس الوزراء اليمني اجتماعًا طارئًا اليوم برئاسة رئيس مجلس الوزراء لمناقشة التطورات الأخيرة في الأوضاع الاقتصادية...</p>'
+                }
+            };
+
+            if (newsContent[newsId]) {
+                document.getElementById('breaking-news-content').innerHTML = `
+                    <div class="breaking-news-article">
+                        ${newsContent[newsId].content}
+                        <button class="return-main-btn" onclick="closeArticle()">العودة إلى الصفحة الرئيسية</button>
+                    </div>
+                `;
+                document.getElementById('breaking-news-content').style.display = 'block';
+                document.getElementById('article-frame').style.display = 'none';
+                document.getElementById('article-viewer').style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                window.scrollTo(0, 0);
+            }
         }
 
         function closeArticle() {
@@ -226,7 +257,7 @@
 
                     if (breakingNews.length > 0) {
                         const tickerContent = breakingNews.map(article =>
-                            `<span class="ticker-item" onclick="viewArticle('${article.url}')">• ${article.title} •</span>`
+                            `<span class="ticker-item" onclick="showBreakingNews('${article.id}')">• ${article.title} •</span>`
                         ).join('');
 
                         document.getElementById('breaking-news-ticker').innerHTML = tickerContent;
