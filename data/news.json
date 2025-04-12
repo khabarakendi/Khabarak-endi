@@ -2,6 +2,29 @@
   "lastUpdated": "2025-04-12T18:06:34.583158Z",
   "articles": [
     {
+      "title": "عاجل: انفجار يهز العاصمة صنعاء",
+      "url": "https://example.com/article1",
+      "breaking": true
+    },
+    {
+      "title": "الرئيس يعلن عن تشكيل حكومة جديدة",
+      "url": "https://example.com/article2",
+      "breaking": true
+    },
+    {
+      "title": "انخفاض كبير في أسعار الوقود هذا الأسبوع",
+      "url": "https://example.com/article3",
+      "breaking": true
+    },
+    {
+      "title": "قافلة مساعدات إنسانية تصل إلى تعز",
+      "url": "https://example.com/article4",
+      "breaking": false
+    }
+  ]
+}
+
+    {
       "title": "بث مباشر وبجودة عالية...مشاهدة مباراة النصر والرياض في دوري روشن السعودي",
       "url": "https://www.almashhadnews.com/313710",
       "source": "www.almashhad-alyemeni.com",
