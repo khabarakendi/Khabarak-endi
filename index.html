@@ -81,7 +81,7 @@
     </header>
 
     <!-- Breaking News Ticker -->
-    <div class="breaking-news-ticker">
+    <div class="breaking-news-ticker" id="breaking-news-wrapper" style="display: none;">
         <div class="ticker-label">أخبار عاجلة:</div>
         <div class="ticker-content" id="breaking-news-ticker"></div>
     </div>
@@ -186,20 +186,25 @@
                 .then(data => {
                     const breakingNews = data.articles
                         .filter(article => article.breaking)
-                        .slice(0, 10); // Limit number of items
+                        .slice(0, 10);
+
+                    const tickerWrapper = document.getElementById('breaking-news-wrapper');
+                    const ticker = document.getElementById('breaking-news-ticker');
 
                     if (breakingNews.length > 0) {
                         const tickerContent = breakingNews.map(article =>
                             `<a href="#" onclick="viewArticle('${article.url}')" class="ticker-link">${article.title}</a>`
                         ).join(' ⚡ ');
 
-                        document.getElementById('breaking-news-ticker').innerHTML = tickerContent;
+                        ticker.innerHTML = tickerContent;
+                        tickerWrapper.style.display = 'flex';
                     } else {
-                        document.getElementById('breaking-news-ticker').innerHTML = '<span>لا توجد أخبار عاجلة حالياً</span>';
+                        tickerWrapper.style.display = 'none';
                     }
                 })
                 .catch(error => {
                     console.error('Error loading breaking news:', error);
+                    document.getElementById('breaking-news-wrapper').style.display = 'none';
                 });
         }
 
