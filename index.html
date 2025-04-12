@@ -128,7 +128,7 @@
     <!-- Footer -->
     <footer id="site-footer">
         <div class="footer-content">
-            <p>جميع الحقوق محفوظة © 2023 موقع خبرك عندي</p>
+            <p>جميع الحقوق محفوظة © 2025 موقع خبرك عندي</p>
             <p>آخر تحديث: <span id="last-updated">جاري التحميل...</span></p>
         </div>
     </footer>
@@ -185,21 +185,34 @@
         }
 
         // Fetch latest 3 news titles for bottom ticker
-        async function loadBottomTicker() {
-            try {
-                const response = await fetch('news.json'); // adjust path if needed
-                const data = await response.json();
-                const latestTitles = data.slice(0, 3).map(item => item.title).join(" ⚫ ");
-                document.getElementById('bottom-ticker-text').textContent = latestTitles;
-            } catch (error) {
-                console.error('Failed to load bottom ticker:', error);
-                document.getElementById('bottom-ticker-text').textContent = "فشل تحميل الأخبار العاجلة";
+<script>
+    // Replace the existing startTickerWithRetry function with this:
+    async function startTickerWithRetry(retryCount = 0) {
+        try {
+            const response = await fetch('data/news.json'); // Updated path
+            const data = await response.json();
+            const tickerContent = document.getElementById('breaking-news-ticker');
+            
+            if (data.articles && data.articles.length > 0) {
+                const tickerItems = data.articles.map(article => 
+                    `${article.title} (${article.source})`
+                ).join(' • ');
+                
+                tickerContent.innerHTML = `
+                    <div class="ticker-scroll-content">
+                        ${tickerItems}
+                    </div>
+                `;
+            } else {
+                tickerContent.innerHTML = '<span>لا توجد أخبار عاجلة حالياً</span>';
+            }
+        } catch (error) {
+            console.error('Ticker failed:', error);
+            if (retryCount < 3) {
+                setTimeout(() => startTickerWithRetry(retryCount + 1), 5000);
             }
         }
-
-        // Load on page start and update every 5 minutes
-        loadBottomTicker();
-        setInterval(loadBottomTicker, 300000);
-    </script>
+    }
+</script>
 </body>
 </html>
