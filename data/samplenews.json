@@ -1,17 +1,24 @@
 {
-    "lastUpdated": "2023-11-20T12:00:00Z",
-    "articles": [
-        {
-            "title": "Yemen Central Bank announces new policies",
-            "url": "https://example.com/news1",
-            "source": "Almasdar Online",
-            "date": "2023-11-20T11:30:00Z"
-        },
-        {
-            "title": "Peace talks resume in Oman",
-            "url": "https://example.com/news2",
-            "source": "Yemen Now",
-            "date": "2023-11-20T10:15:00Z"
-        }
-    ]
+  "articles": [
+    {
+      "title": "عاجل: انفجار يهز العاصمة صنعاء",
+      "url": "https://example.com/article1",
+      "breaking": true
+    },
+    {
+      "title": "الرئيس يعلن عن تشكيل حكومة جديدة",
+      "url": "https://example.com/article2",
+      "breaking": true
+    },
+    {
+      "title": "انخفاض كبير في أسعار الوقود هذا الأسبوع",
+      "url": "https://example.com/article3",
+      "breaking": true
+    },
+    {
+      "title": "قافلة مساعدات إنسانية تصل إلى تعز",
+      "url": "https://example.com/article4",
+      "breaking": false
+    }
+  ]
 }
