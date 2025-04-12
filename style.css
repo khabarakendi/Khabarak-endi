@@ -169,11 +169,24 @@ body {
 .news-item h3 {
     color: #2c3e50;
     margin-top: 0;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
 }
 
 .news-item .meta {
     color: #7f8c8d;
     font-size: 0.9em;
+    display: flex;
+    gap: 15px;
+}
+
+.news-item .source {
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+.news-item .date {
+    font-family: 'Courier New', monospace;
 }
 
 /* ================ */
@@ -187,21 +200,38 @@ body {
     bottom: 0;
     background: white;
     z-index: 950;
-    padding: 80px 20px 20px;
-    overflow-y: auto;
     display: none;
+}
+
+.article-header {
+    background: linear-gradient(135deg, #2c3e50 0%, #1a1a2e 100%);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.article-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.article-logo .red {
+    color: #e74c3c;
+}
+
+.article-logo .green {
+    color: #2ecc71;
 }
 
 .article-viewer iframe {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 55px);
     border: none;
 }
 
 .back-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
     background: #e74c3c;
     color: white;
     border: none;
@@ -209,22 +239,72 @@ body {
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 /* ================ */
-/* FOOTER STYLES */
+/* BREAKING NEWS TICKER */
 /* ================ */
-#site-footer {
-    background: #2c3e50;
-    color: #ecf0f1;
-    padding: 20px;
+.breaking-news-ticker {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #c62828;
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    z-index: 900;
+}
+
+.ticker-label {
+    background: #ffeb3b;
+    color: #c62828;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-weight: bold;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+.ticker-content {
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: bold;
+    animation: ticker-scroll 30s linear infinite;
+}
+
+@keyframes ticker-scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* ================ */
+/* LOAD MORE BUTTON */
+/* ================ */
+.load-more-container {
     text-align: center;
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
+.load-more-btn {
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.load-more-btn:hover {
+    background: #1a1a2e;
+    transform: translateY(-2px);
 }
 
 /* ================ */
@@ -258,5 +338,14 @@ body {
     
     .logo {
         margin-bottom: 10px;
+    }
+    
+    .ticker-label {
+        font-size: 0.8em;
+        margin-left: 5px;
+    }
+    
+    .ticker-content {
+        font-size: 0.9em;
     }
 }
