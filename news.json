@@ -1,23 +1,17 @@
-{
-  "lastUpdated": "2025-04-11T10:00:00Z",
-  "articles": [
+[
     {
-      "title": "العملة اليمنية تواجه ضغوطاً جديدة",
-      "url": "https://almasdaronline.com/article/123",
-      "source": "المصدر أونلاين",
-      "date": "2024-06-15T10:30:00Z"
+        "title": "عنوان الخبر الأول",
+        "source": "المشهد اليمني",
+        "date": "2023-11-15T12:00:00Z",
+        "url": "https://example.com/article1",
+        "breaking": true
     },
     {
-      "title": "اجتماع حكومي لبحث الأزمة الاقتصادية",
-      "url": "https://yemennow.com/article/456",
-      "source": "اليمن الآن",
-      "date": "2024-06-15T12:45:00Z"
+        "title": "عنوان الخبر الثاني",
+        "source": "الموقع بوست",
+        "date": "2023-11-15T11:30:00Z",
+        "url": "https://example.com/article2"
     },
-    {
-      "title": "تقرير: تحسن في أسعار السلع الأساسية",
-      "url": "https://24ye.com/article/789",
-      "source": "24 Yemen",
-      "date": "2024-06-15T09:15:00Z"
-    }
-  ]
-}
+    // Add 150+ articles in the same format
+    // Set "breaking": true for breaking news items
+]
