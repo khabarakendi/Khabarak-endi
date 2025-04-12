@@ -9,7 +9,7 @@
         /* Enhanced Breaking News Ticker Styles */
         .breaking-news-container {
             position: sticky;
-            top: 0;
+            bottom: 0;
             z-index: 1000;
         }
         .breaking-news-ticker {
@@ -87,18 +87,6 @@
         </nav>
     </header>
 
-    <!-- Enhanced Breaking News Ticker - Now sticky and scrolls left-to-right -->
-    <div class="breaking-news-container">
-        <div class="breaking-news-ticker">
-            <div class="ticker-label">أخبار عاجلة:</div>
-            <div class="ticker-content" id="breaking-news-ticker">
-                <span class="ticker-item" onclick="showBreakingNews('iran-usa')">• أول بيان سعودي بشأن محادثات مستقط بين إيران وأمريكا •</span>
-                <span class="ticker-item" onclick="showBreakingNews('temperature')">• ارتفاع في درجات الحرارة يتجاوز 40 درجة في بعض المناطق •</span>
-                <span class="ticker-item" onclick="showBreakingNews('cabinet')">• مجلس الوزراء يعقد اجتماعًا طارئًا اليوم •</span>
-            </div>
-        </div>
-    </div>
-
     <!-- Main Content -->
     <main id="main-content">
         <div class="news-filters">
@@ -139,9 +127,6 @@
                 <span class="green">عندي</span>
             </div>
         </div>
-        <div id="breaking-news-content">
-            <!-- Dynamic content will be inserted here -->
-        </div>
         <iframe id="article-frame" src=""></iframe>
     </div>
 
@@ -162,6 +147,16 @@
             </div>
         </div>
     </footer>
+
+    <!-- Enhanced Breaking News Ticker - Now at bottom of page -->
+    <div class="breaking-news-container">
+        <div class="breaking-news-ticker">
+            <div class="ticker-label">أخبار عاجلة:</div>
+            <div class="ticker-content" id="breaking-news-ticker">
+                <span class="ticker-item">جاري تحميل الأخبار العاجلة...</span>
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript Files -->
     <script src="js/utils.js"></script>
@@ -195,42 +190,8 @@
         function viewArticle(url) {
             document.getElementById('article-frame').src = url;
             document.getElementById('article-viewer').style.display = 'block';
-            document.getElementById('breaking-news-content').style.display = 'none';
-            document.getElementById('article-frame').style.display = 'block';
             document.body.style.overflow = 'hidden';
             window.scrollTo(0, 0);
-        }
-
-        // Show breaking news content directly
-        function showBreakingNews(newsId) {
-            const newsContent = {
-                'iran-usa': {
-                    title: 'أول بيان سعودي بشأن محادثات مستقط بين إيران وأمريكا',
-                    content: '<h2>أول بيان سعودي بشأن محادثات مستقط بين إيران وأمريكا</h2><p>أصدرت المملكة العربية السعودية اليوم بيانًا رسميًا عبر وزارة الخارجية بشأن المحادثات الجارية بين إيران والولايات المتحدة الأمريكية...</p>'
-                },
-                'temperature': {
-                    title: 'ارتفاع في درجات الحرارة يتجاوز 40 درجة في بعض المناطق',
-                    content: '<h2>ارتفاع في درجات الحرارة يتجاوز 40 درجة في بعض المناطق</h2><p>تتوقع الأرصاد الجوية استمرار موجة الحر في عدة محافظات يمنية حيث من المتوقع أن تصل درجات الحرارة إلى 42 درجة مئوية...</p>'
-                },
-                'cabinet': {
-                    title: 'مجلس الوزراء يعقد اجتماعًا طارئًا اليوم',
-                    content: '<h2>مجلس الوزراء يعقد اجتماعًا طارئًا اليوم</h2><p>عقد مجلس الوزراء اليمني اجتماعًا طارئًا اليوم برئاسة رئيس مجلس الوزراء لمناقشة التطورات الأخيرة في الأوضاع الاقتصادية...</p>'
-                }
-            };
-
-            if (newsContent[newsId]) {
-                document.getElementById('breaking-news-content').innerHTML = `
-                    <div class="breaking-news-article">
-                        ${newsContent[newsId].content}
-                        <button class="return-main-btn" onclick="closeArticle()">العودة إلى الصفحة الرئيسية</button>
-                    </div>
-                `;
-                document.getElementById('breaking-news-content').style.display = 'block';
-                document.getElementById('article-frame').style.display = 'none';
-                document.getElementById('article-viewer').style.display = 'block';
-                document.body.style.overflow = 'hidden';
-                window.scrollTo(0, 0);
-            }
         }
 
         function closeArticle() {
@@ -246,18 +207,24 @@
             }
         });
 
-        // Breaking News Ticker Update
+        // Breaking News Ticker Update - Now gets latest 3 breaking news
         function updateBreakingNews() {
             fetch('./data/news.json')
                 .then(response => response.json())
                 .then(data => {
-                    const breakingNews = data.articles
+                    // Sort articles by date (newest first)
+                    const sortedArticles = data.articles.sort((a, b) => {
+                        return new Date(b.date) - new Date(a.date);
+                    });
+
+                    // Get latest 3 breaking news
+                    const breakingNews = sortedArticles
                         .filter(article => article.breaking)
-                        .slice(0, 5);
+                        .slice(0, 3);
 
                     if (breakingNews.length > 0) {
                         const tickerContent = breakingNews.map(article =>
-                            `<span class="ticker-item" onclick="showBreakingNews('${article.id}')">• ${article.title} •</span>`
+                            `<span class="ticker-item" onclick="viewArticle('${article.url}')">• ${article.title} •</span>`
                         ).join('');
 
                         document.getElementById('breaking-news-ticker').innerHTML = tickerContent;
@@ -267,10 +234,15 @@
                         ticker.style.animation = 'none';
                         void ticker.offsetWidth;
                         ticker.style.animation = 'ticker 25s linear infinite';
+                    } else {
+                        document.getElementById('breaking-news-ticker').innerHTML = 
+                            '<span class="ticker-item">لا توجد أخبار عاجلة حالياً</span>';
                     }
                 })
                 .catch(error => {
                     console.error('Error loading breaking news:', error);
+                    document.getElementById('breaking-news-ticker').innerHTML = 
+                        '<span class="ticker-item">حدث خطأ في تحميل الأخبار العاجلة</span>';
                 });
         }
 
@@ -306,7 +278,7 @@
             
             // Set intervals for updates
             setInterval(updateDateTime, 60000);
-            setInterval(updateBreakingNews, 300000);
+            setInterval(updateBreakingNews, 300000); // Update breaking news every 5 minutes
             
             // Initialize pagination
             if (typeof initPagination === 'function') {
@@ -324,8 +296,13 @@
                 // Clear loading indicator
                 newsContainer.innerHTML = '';
                 
+                // Sort articles by date (newest first)
+                const sortedArticles = news.articles.sort((a, b) => {
+                    return new Date(b.date) - new Date(a.date);
+                });
+                
                 // Add news articles
-                news.articles.forEach(item => {
+                sortedArticles.forEach(item => {
                     const article = document.createElement('div');
                     article.className = 'news-article';
                     article.innerHTML = `
