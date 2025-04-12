@@ -4,45 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خبرك عندي - Yemen News</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: #f5f5f5;
-            color: #333;
-            direction: rtl;
-        }
-        .loading {
-            text-align: center;
-            padding: 40px;
-            font-size: 1.2rem;
-        }
-        .error {
-            background: #ffecec;
-            padding: 20px;
-            margin: 20px;
-            border-radius: 5px;
-            text-align: center;
-            color: #d00;
-        }
-        .spinner {
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #3498db;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Special News Section -->
+    <div class="special-news">
+        <h2>أخبار خاصة</h2>
+        <div id="special-news-container">
+            <div class="special-news-item">
+                <h3>أهم الأخبار</h3>
+                <p>يمكنك تعديل هذا الخبر يدوياً في ملف HTML</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Header Section -->
     <header id="site-header">
         <div class="header-top">
@@ -52,7 +27,7 @@
                     <span class="green">عندي</span>
                 </div>
                 <div class="datetime" id="current-datetime">
-                    <i class="icon-clock"></i> Loading...
+                    <i class="icon-clock"></i> جاري التحميل...
                 </div>
             </div>
         </div>
@@ -97,19 +72,26 @@
     <!-- Footer -->
     <footer id="site-footer">
         <div class="footer-content">
-            <p>جميع الحقوق محفوظة © 2023 موقع خبرك عندي</p>
+            <p>جميع الحقوق محفوظة © <span id="current-year">2023</span> موقع خبرك عندي</p>
             <p>آخر تحديث: <span id="last-updated">جاري التحميل...</span></p>
         </div>
     </footer>
+
+    <!-- Article Viewer -->
+    <div class="article-viewer" id="article-viewer">
+        <button class="back-button" onclick="closeArticle()">العودة إلى الرئيسية</button>
+        <iframe id="article-frame" src=""></iframe>
+    </div>
 
     <!-- JavaScript -->
     <script src="js/utils.js"></script>
     <script src="js/news-loader.js"></script>
 
     <script>
+        // Update date/time display
         function updateDateTime() {
             const now = new Date();
-            const options = {
+            const dateStr = now.toLocaleDateString('ar-EG', {
                 weekday: 'short',
                 year: 'numeric',
                 month: 'short',
@@ -117,16 +99,36 @@
                 hour: '2-digit',
                 minute: '2-digit',
                 hour12: true
-            };
+            })
+            .replace(/،/g, ' ')
+            .replace(/٫/g, '-')
+            .replace(/ص/g, '')
+            .replace(/م/g, 'م');
+            
             document.getElementById('current-datetime').innerHTML = 
-                `<i class="icon-clock"></i> ${now.toLocaleDateString('ar-EG', options)}`;
+                `<i class="icon-clock"></i> ${dateStr}`;
         }
 
+        // Article viewer functions
+        function viewArticle(url) {
+            document.getElementById('article-frame').src = url;
+            document.getElementById('article-viewer').style.display = 'block';
+        }
+
+        function closeArticle() {
+            document.getElementById('article-viewer').style.display = 'none';
+            document.getElementById('article-frame').src = '';
+        }
+
+        // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             updateDateTime();
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
             if (typeof loadNews === 'function') {
                 loadNews();
             }
+            
             setInterval(updateDateTime, 60000);
         });
     </script>
