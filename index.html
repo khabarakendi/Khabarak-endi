@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خبرك عندي - Yemen News</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Special News Section -->
@@ -67,6 +67,10 @@
             <div class="pages" id="page-numbers"></div>
             <button class="next">التالي</button>
         </div>
+        
+        <div class="load-more-container">
+            <button id="load-more" class="load-more-btn">عرض المزيد من الأخبار</button>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -77,9 +81,23 @@
         </div>
     </footer>
 
+    <!-- Breaking News Ticker -->
+    <div class="breaking-news-ticker">
+        <div class="ticker-label">أخبار عاجلة:</div>
+        <div class="ticker-content" id="breaking-news-ticker"></div>
+    </div>
+
     <!-- Article Viewer -->
     <div class="article-viewer" id="article-viewer">
-        <button class="back-button" onclick="closeArticle()">العودة إلى الرئيسية</button>
+        <div class="article-header">
+            <button class="back-button" onclick="closeArticle()">
+                <span>← العودة إلى الرئيسية</span>
+            </button>
+            <div class="article-logo">
+                <span class="red">خبرك</span>
+                <span class="green">عندي</span>
+            </div>
+        </div>
         <iframe id="article-frame" src=""></iframe>
     </div>
 
@@ -113,11 +131,42 @@
         function viewArticle(url) {
             document.getElementById('article-frame').src = url;
             document.getElementById('article-viewer').style.display = 'block';
+            document.body.style.overflow = 'hidden';
         }
 
         function closeArticle() {
             document.getElementById('article-viewer').style.display = 'none';
             document.getElementById('article-frame').src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Load more news function
+        document.getElementById('load-more').addEventListener('click', function() {
+            if (typeof loadMoreNews === 'function') {
+                loadMoreNews();
+            }
+        });
+
+        // Initialize breaking news ticker
+        function updateBreakingNews() {
+            fetch('data/news.json')
+                .then(response => response.json())
+                .then(data => {
+                    const breakingNews = data.articles
+                        .filter(article => article.breaking)
+                        .slice(0, 3);
+                    
+                    if (breakingNews.length > 0) {
+                        const tickerContent = breakingNews.map(article => 
+                            `${article.title} ⚡`
+                        ).join(' ⚡ ');
+                        
+                        document.getElementById('breaking-news-ticker').innerHTML = tickerContent;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading breaking news:', error);
+                });
         }
 
         // Initialize
@@ -129,7 +178,9 @@
                 loadNews();
             }
             
+            updateBreakingNews();
             setInterval(updateDateTime, 60000);
+            setInterval(updateBreakingNews, 300000); // Update every 5 minutes
         });
     </script>
 </body>
