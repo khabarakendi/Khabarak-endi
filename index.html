@@ -166,6 +166,38 @@
                 });
         }
 
+        // Your added script for full dynamic rendering
+        fetch('data/news.json')
+            .then(response => response.json())
+            .then(news => {
+                const newsContainer = document.getElementById('news-container');
+                const breakingNewsBar = document.getElementById('breaking-news-ticker');
+                const privateNewsList = document.getElementById('private-news-list'); // If exists on page
+
+                news.articles.forEach(item => {
+                    const article = document.createElement('article');
+                    article.innerHTML = `
+                        <h2>${item.title}</h2>
+                        <p>${item.summary}</p>
+                        <a href="${item.url}" target="news-frame">Read more</a>
+                    `;
+                    newsContainer.appendChild(article);
+
+                    if (item.breaking) {
+                        const tickerItem = document.createElement('div');
+                        tickerItem.className = 'ticker-item';
+                        tickerItem.textContent = item.title;
+                        breakingNewsBar.appendChild(tickerItem);
+                    }
+
+                    if (item.private && privateNewsList) {
+                        const privateItem = document.createElement('li');
+                        privateItem.textContent = item.title;
+                        privateNewsList.appendChild(privateItem);
+                    }
+                });
+            });
+
         document.addEventListener('DOMContentLoaded', function () {
             updateDateTime();
             document.getElementById('current-year').textContent = new Date().getFullYear();
