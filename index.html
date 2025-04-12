@@ -106,7 +106,6 @@
     <script src="js/news-loader.js"></script>
 
     <script>
-        // Update date/time display
         function updateDateTime() {
             const now = new Date();
             const dateStr = now.toLocaleDateString('ar-EG', {
@@ -122,12 +121,11 @@
             .replace(/٫/g, '-')
             .replace(/ص/g, '')
             .replace(/م/g, 'م');
-            
-            document.getElementById('current-datetime').innerHTML = 
+
+            document.getElementById('current-datetime').innerHTML =
                 `<i class="icon-clock"></i> ${dateStr}`;
         }
 
-        // Article viewer functions
         function viewArticle(url) {
             document.getElementById('article-frame').src = url;
             document.getElementById('article-viewer').style.display = 'block';
@@ -140,27 +138,25 @@
             document.body.style.overflow = 'auto';
         }
 
-        // Load more news function
-        document.getElementById('load-more').addEventListener('click', function() {
+        document.getElementById('load-more').addEventListener('click', function () {
             if (typeof loadMoreNews === 'function') {
                 loadMoreNews();
             }
         });
 
-        // Initialize breaking news ticker
         function updateBreakingNews() {
-            fetch('.data/news.json')
+            fetch('./data/news.json')
                 .then(response => response.json())
                 .then(data => {
                     const breakingNews = data.articles
                         .filter(article => article.breaking)
                         .slice(0, 3);
-                    
+
                     if (breakingNews.length > 0) {
-                        const tickerContent = breakingNews.map(article => 
-                            `${article.title} ⚡`
+                        const tickerContent = breakingNews.map(article =>
+                            `<a href="#" onclick="viewArticle('${article.url}')" class="ticker-link">${article.title}</a>`
                         ).join(' ⚡ ');
-                        
+
                         document.getElementById('breaking-news-ticker').innerHTML = tickerContent;
                     }
                 })
@@ -169,18 +165,17 @@
                 });
         }
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             updateDateTime();
             document.getElementById('current-year').textContent = new Date().getFullYear();
-            
+
             if (typeof loadNews === 'function') {
                 loadNews();
             }
-            
+
             updateBreakingNews();
             setInterval(updateDateTime, 60000);
-            setInterval(updateBreakingNews, 300000); // Update every 5 minutes
+            setInterval(updateBreakingNews, 300000);
         });
     </script>
 </body>
