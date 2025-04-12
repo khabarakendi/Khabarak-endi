@@ -5,6 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خبرك عندي - Yemen News</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .breaking-news-ticker {
+            background-color: #c62828;
+            color: white;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 10px;
+            font-size: 16px;
+            direction: rtl;
+            white-space: nowrap;
+        }
+
+        .ticker-label {
+            font-weight: bold;
+            margin-left: 15px;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            animation: scroll-left 30s linear infinite;
+        }
+
+        .ticker-link {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            white-space: nowrap;
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
 </head>
 <body>
     <!-- Special News Section -->
@@ -45,6 +80,12 @@
         </nav>
     </header>
 
+    <!-- Breaking News Ticker -->
+    <div class="breaking-news-ticker">
+        <div class="ticker-label">أخبار عاجلة:</div>
+        <div class="ticker-content" id="breaking-news-ticker"></div>
+    </div>
+
     <!-- Main Content -->
     <main id="main-content">
         <div class="news-filters">
@@ -80,12 +121,6 @@
             <p>آخر تحديث: <span id="last-updated">جاري التحميل...</span></p>
         </div>
     </footer>
-
-    <!-- Breaking News Ticker -->
-    <div class="breaking-news-ticker">
-        <div class="ticker-label">أخبار عاجلة:</div>
-        <div class="ticker-content" id="breaking-news-ticker"></div>
-    </div>
 
     <!-- Article Viewer -->
     <div class="article-viewer" id="article-viewer">
@@ -151,7 +186,7 @@
                 .then(data => {
                     const breakingNews = data.articles
                         .filter(article => article.breaking)
-                        .slice(0, 3);
+                        .slice(0, 10); // Limit number of items
 
                     if (breakingNews.length > 0) {
                         const tickerContent = breakingNews.map(article =>
@@ -159,6 +194,8 @@
                         ).join(' ⚡ ');
 
                         document.getElementById('breaking-news-ticker').innerHTML = tickerContent;
+                    } else {
+                        document.getElementById('breaking-news-ticker').innerHTML = '<span>لا توجد أخبار عاجلة حالياً</span>';
                     }
                 })
                 .catch(error => {
