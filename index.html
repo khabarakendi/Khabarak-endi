@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خبرك عندي</title>
+    <title>خبرك عندي - الأخبار اليمنية المحلية</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -24,6 +24,7 @@
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+            padding-bottom: 50px; /* Space for breaking news ticker */
         }
         .logo {
             font-size: 24px;
@@ -61,8 +62,20 @@
             background-color: #d82a2a;
             color: white;
             padding: 10px;
-            margin: 15px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
             font-weight: bold;
+        }
+        .breaking-news a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .breaking-news a:hover {
+            text-decoration: underline;
         }
         .section-title {
             border-right: 3px solid #d82a2a;
@@ -198,12 +211,12 @@
             <a href="#" class="logo" onclick="showMainPage()">خبرك عندي</a>
             <ul class="nav-menu">
                 <li><a href="#" onclick="showMainPage()">الرئيسية</a></li>
-                <li><a href="#">المشهد الرياضي</a></li>
-                <li><a href="#">المشهد السياسي</a></li>
-                <li><a href="#">المشهد السعودي</a></li>
-                <li><a href="#">المشهد العالمي</a></li>
-                <li><a href="#">المشهد الديني</a></li>
-                <li><a href="#">علوم وتكنولوجيا</a></li>
+                <li><a href="#">أخبار العاصمة</a></li>
+                <li><a href="#">أخبار الجنوب</a></li>
+                <li><a href="#">أخبار الشمال</a></li>
+                <li><a href="#">أخبار الحديدة</a></li>
+                <li><a href="#">أخبار تعز</a></li>
+                <li><a href="#">أخبار مأرب</a></li>
             </ul>
         </div>
     </div>
@@ -211,18 +224,14 @@
     <div class="container">
         <!-- Main Page Content -->
         <div class="main-page" id="mainPage">
-            <div class="breaking-news">
-                <marquee>إسرائيل تعلن عن مخططات جديدة لبناء مستوطنات في الضفة الغربية | الرئيس الأمريكي يعلن عن حزمة مساعدات جديدة لأوكرانيا | انطلاق مناورات عسكرية مشتركة بين السعودية ومصر</marquee>
-            </div>
-
-            <h2 class="section-title">أهم الأخبار</h2>
+            <h2 class="section-title">أهم الأخبار اليمنية</h2>
             <div class="news-container">
                 <div class="news-item">
                     <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
                     <div class="news-content">
-                        <h3 class="news-title"><a href="#" onclick="showArticle('article1')">دخل لإطعامها.. أُعدى في حديقة تباعث طبيبًا بلدغة قاتلة وتنفي حياته على الفور</a></h3>
+                        <h3 class="news-title"><a href="#" onclick="showArticle('article1')">انفجار عبوة ناسفة في شارع الزبيري بالعاصمة صنعاء</a></h3>
                         <div class="news-meta">
-                            <span>المصدر: العربية</span>
+                            <span>المصدر: الموقع بوست</span>
                             <span>1446 ص. 15 ش. يف 10:01</span>
                         </div>
                         <div class="news-meta">
@@ -234,9 +243,9 @@
                 <div class="news-item">
                     <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
                     <div class="news-content">
-                        <h3 class="news-title"><a href="#" onclick="showArticle('article2')">تغيير قواعد الاشتباك .. الضربات الأمريكية ضد الحوثيين تدخل مرحلة جديدة</a></h3>
+                        <h3 class="news-title"><a href="#" onclick="showArticle('article2')">أزمة وقود حادة تعود إلى محطات تعز بعد توقف صهاريج النفط</a></h3>
                         <div class="news-meta">
-                            <span>المصدر: صحيفة عكاظ</span>
+                            <span>المصدر: يمن مونيتور</span>
                             <span>1446 ص. 15 ش. يف 09:45</span>
                         </div>
                         <div class="news-meta">
@@ -248,9 +257,9 @@
                 <div class="news-item">
                     <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
                     <div class="news-content">
-                        <h3 class="news-title"><a href="#" onclick="showArticle('article3')">اليمن على حافة كارثة إنسانية وبيئية بسبب تسرب النفط من السفينة صافر</a></h3>
+                        <h3 class="news-title"><a href="#" onclick="showArticle('article3')">إغلاق 12 مستودع أدوية مغشوشة في الحديدة</a></h3>
                         <div class="news-meta">
-                            <span>المصدر: الجزيرة</span>
+                            <span>المصدر: المصدر أونلاين</span>
                             <span>1446 ص. 15 ش. يف 08:30</span>
                         </div>
                         <div class="news-meta">
@@ -262,9 +271,9 @@
                 <div class="news-item">
                     <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
                     <div class="news-content">
-                        <h3 class="news-title"><a href="#" onclick="showArticle('article4')">من مشارنجاري إلى مقننة النجوم: قصة نجاح الممثلة الشابة في هوليوود</a></h3>
+                        <h3 class="news-title"><a href="#" onclick="showArticle('article4')">إصابة 5 مدنيين في قصف للحوثيين على أطراف مأرب</a></h3>
                         <div class="news-meta">
-                            <span>المصدر: الشرق الأوسط</span>
+                            <span>المصدر: المشهد اليمني</span>
                             <span>1446 ص. 15 ش. يف 07:15</span>
                         </div>
                         <div class="news-meta">
@@ -276,9 +285,9 @@
                 <div class="news-item">
                     <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
                     <div class="news-content">
-                        <h3 class="news-title"><a href="#" onclick="showArticle('article5')">إعصار قوي يضرب سواحل عمان ويتجه نحو الإمارات</a></h3>
+                        <h3 class="news-title"><a href="#" onclick="showArticle('article5')">انقطاع الكهرباء عن عدن لأكثر من 20 ساعة متواصلة</a></h3>
                         <div class="news-meta">
-                            <span>المصدر: الرؤية</span>
+                            <span>المصدر: عدن الغد</span>
                             <span>1446 ص. 15 ش. يف 06:50</span>
                         </div>
                         <div class="news-meta">
@@ -290,9 +299,9 @@
                 <div class="news-item">
                     <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
                     <div class="news-content">
-                        <h3 class="news-title"><a href="#" onclick="showArticle('article6')">اكتشاف أثري جديد في منطقة العلا يعود إلى حضارة الأنباط</a></h3>
+                        <h3 class="news-title"><a href="#" onclick="showArticle('article6')">تدشين حملة تطعيم ضد شلل الأطفال في 12 محافظة يمنية</a></h3>
                         <div class="news-meta">
-                            <span>المصدر: الوطن</span>
+                            <span>المصدر: سبأ نت</span>
                             <span>1446 ص. 15 ش. يف 05:20</span>
                         </div>
                         <div class="news-meta">
@@ -307,9 +316,9 @@
                 <div class="news-item">
                     <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
                     <div class="news-content">
-                        <h3 class="news-title"><a href="#" onclick="showArticle('article7')">تحذيرات من موجة حر شديدة تضرب المنطقة الأسبوع القادم</a></h3>
+                        <h3 class="news-title"><a href="#" onclick="showArticle('article7')">انهيار جزئي لسور مدرسة بنات في إب بسبب الأمطار</a></h3>
                         <div class="news-meta">
-                            <span>المصدر: اليوم</span>
+                            <span>المصدر: يمن شباب</span>
                             <span>1446 ص. 14 ش. يف 22:30</span>
                         </div>
                         <div class="news-meta">
@@ -321,9 +330,9 @@
                 <div class="news-item">
                     <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
                     <div class="news-content">
-                        <h3 class="news-title"><a href="#" onclick="showArticle('article8')">أسعار النفط ترتفع بنسبة 3% بعد قرار أوبك+ خفض الإنتاج</a></h3>
+                        <h3 class="news-title"><a href="#" onclick="showArticle('article8')">ارتفاع أسعار المواد الغذائية بنسبة 30% في أسواق صنعاء</a></h3>
                         <div class="news-meta">
-                            <span>المصدر: الاقتصادية</span>
+                            <span>المصدر: الاقتصادي اليمني</span>
                             <span>1446 ص. 14 ش. يف 21:15</span>
                         </div>
                         <div class="news-meta">
@@ -337,27 +346,27 @@
         <!-- Article Content (hidden by default) -->
         <div class="article-page" id="articlePage">
             <div class="article-container">
-                <h1 class="article-title" id="articleTitle">دخل لإطعامها.. أُعدى في حديقة تباعث طبيبًا بلدغة قاتلة وتنفي حياته على الفور</h1>
+                <h1 class="article-title" id="articleTitle">انفجار عبوة ناسفة في شارع الزبيري بالعاصمة صنعاء</h1>
                 <div class="article-meta">
-                    <span id="articleSource">المصدر: العربية</span>
+                    <span id="articleSource">المصدر: الموقع بوست</span>
                     <span id="articleDate">1446 ص. 15 ش. يف 10:01</span>
                     <span id="articleViews">عدد القراءات: 1,245</span>
                 </div>
                 <img src="https://via.placeholder.com/800x450" alt="Article Image" class="article-image" id="articleImage">
                 <div class="article-content" id="articleContent">
-                    <p>في حادثة مأساوية هزت مدينة تبوك، لقي طبيب مصرعه بعد تعرضه للدغة قاتلة من أفعى سامة كان يحاول إطعامها في حديقة منزله. الحادثة التي وقعت مساء أمس، أثارت صدمة بين أهالي المنطقة الذين عرفوا الطبيب بإنسانيته وحبه للحيوانات.</p>
+                    <p>تعرض شارع الزبيري في العاصمة اليمنية صنعاء مساء اليوم لانفجار عبوة ناسفة كانت مزروعة على جانب الطريق، مما أدى إلى إلحاق أضرار مادية بعدد من المركبات دون وقوع إصابات بشرية.</p>
                     
-                    <p>ووفقاً للمصادر الأمنية، فإن الطبيب (45 عاماً) كان معروفاً باهتمامه بالحيوانات وخاصة الزواحف، حيث كان يمتلك عدة أفاعي غير سامة في منزله. وقد عثر عليه أفراد عائلته في حالة حرجة بعد تعرضه للدغة من أفعى من نوع الكوبرا العربية التي كانت قد وصلت إليه حديثاً.</p>
+                    <p>وقال مصدر أمني لـ"الموقع بوست" إن العبوة الناسفة انفجرت عند مرور موكب حوثي في المنطقة، مشيراً إلى أن الانفجار وقع في منطقة مزدحمة بالقرب من سوق شعبي لكنه لم يسفر عن سقوط ضحايا.</p>
                     
-                    <p>ونقل الطبيب على الفور إلى مستشفى الملك خالد بتبوك، لكنه توفي بعد دقائق من وصوله بسبب تأثير السم القاتل على جهازه العصبي. وأكد مسؤولون في المستشفى أن السم كان شديد الخطورة ولم يكن هناك وقت كافٍ لتلقي العلاج المناسب.</p>
+                    <p>وأضاف المصدر أن قوات الأمن التابعة للحوثيين حضرت إلى موقع الانفجار وأغلقت الشارع أمام حركة المرور، كما قامت بنقل الشظايا والمتفجرات إلى جهة غير معروفة.</p>
                     
-                    <p>وقال الناطق الإعلامي بشرطة منطقة تبوك العقيد خالد الحربي: "تبين من التحقيقات الأولية أن الحادثة وقعت بالصدفة عندما كان الطبيب يحاول إطعام الأفعى التي كانت قد وصلت إليه قبل أيام قليلة، حيث انقضت عليه فجأة ولدغته في يده".</p>
+                    <p>من جهته، اتهم المتحدث الرسمي للحوثيين الانفجار بـ"خلايا التكفيريين المدعومة من تحالف العدوان"، دون أن يقدم أي أدلة على ذلك. كما هدد بـ"رد قاس" على ما وصفه بـ"أعمال الإرهاب".</p>
                     
-                    <p>وأضاف الحربي: "تم التحفظ على الأفعى وستتم إحالتها إلى الجهات المختصة. كما تم تحويل الواقعة إلى النيابة العامة للتحقيق في ملابسات الحادثة".</p>
+                    <p>يذكر أن هذا الحادث هو الثالث من نوعه خلال أسبوع في العاصمة صنعاء، حيث شهدت المدينة انفجارين مماثلين في منطقتي الروضة والسبعين، مما يثير مخاوف السكان من تصاعد العمليات الأمنية في المدينة.</p>
                     
-                    <p>من جانبه، نعى زملاء الطبيب في مستشفى القوات المسلحة بتبوك زميلهم الذي وصفوه بـ"الإنسان الطيب والمتميز في عمله". وقال أحد زملائه: "كان مثالاً للطبيب المتفاني في عمله، محبوباً من الجميع، وكان له دور كبير في إنقاذ حياة العديد من المرضى".</p>
+                    <p>ويأتي هذا الانفجار في وقت تشهد فيه العاصمة صنعاء توتراً أمنياً متصاعداً، مع تزايد عمليات الاغتيال والتفجيرات التي تستهدف مسؤولين حوثيين وقواتهم الأمنية.</p>
                     
-                    <p>يذكر أن الكوبرا العربية تعتبر من أخطر الأفاعي في المنطقة، حيث يمكن أن يؤدي سمها إلى الوفاة خلال ساعات إذا لم يتم تدارك الأمر بسرعة. وتنصح الجهات المختصة بعدم الاحتفاظ بهذه الأنواع من الزواحف في المنازل بسبب خطورتها الشديدة.</p>
+                    <p>وحذر نشطاء على مواقع التواصل الاجتماعي من احتمالية أن تكون هذه الحوادث مقدمة لموجة عنف جديدة في المدينة، داعيين السكان إلى توخي الحذر وتجنب التجمعات بالقرب من المنشآت الحكومية والمواكب الرسمية.</p>
                 </div>
                 
                 <a href="#" class="back-to-home" onclick="showMainPage()">العودة إلى الرئيسية</a>
@@ -365,19 +374,29 @@
                 <div class="related-news">
                     <h3 class="related-title">أخبار ذات صلة</h3>
                     <ul class="related-list">
-                        <li><a href="#" onclick="showArticle('article9')">تحذيرات من انتشار الأفاعي السامة في المنازل مع ارتفاع الحرارة</a></li>
-                        <li><a href="#" onclick="showArticle('article10')">وفاة شاب بعد تعرضه لعضة كلب مسعور في الرياض</a></li>
-                        <li><a href="#" onclick="showArticle('article11')">خبير زواحف يحذر من تربية الحيوانات المفترسة في المنازل</a></li>
-                        <li><a href="#" onclick="showArticle('article12')">إنقاذ طفل من لدغة عقرب في منطقة عسير</a></li>
+                        <li><a href="#" onclick="showArticle('article9')">الحوثيون يشنون حملة اعتقالات في صنعاء بعد تفجير الزبيري</a></li>
+                        <li><a href="#" onclick="showArticle('article10')">استنفار أمني غير مسبوق في شوارع العاصمة صنعاء</a></li>
+                        <li><a href="#" onclick="showArticle('article11')">خبير أمني يحذر من تصاعد العمليات الانتحارية في المدن اليمنية</a></li>
+                        <li><a href="#" onclick="showArticle('article12')">تقرير: 42 عملية تفجيرية في صنعاء خلال 6 أشهر</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Breaking News Ticker -->
+    <div class="breaking-news">
+        <div class="breaking-news-content">
+            <a href="#" onclick="showArticle('breaking1')">عاجل: انفجار عنيف يهز منطقة دار سعد في عدن</a> | 
+            <a href="#" onclick="showArticle('breaking2')">الحكومة اليمنية تعلن عن إجراءات جديدة لمواجهة ارتفاع الأسعار</a> | 
+            <a href="#" onclick="showArticle('breaking3')">مصادر: مفاوضات غير مباشرة بين الحوثيين والتحالف في مسقط</a> | 
+            <a href="#" onclick="showArticle('breaking4')">إعصار مكونو يتجه نحو سقطرى وتحذيرات من أمطار غزيرة</a>
+        </div>
+    </div>
+
     <div class="footer">
         <div class="container">
-            <p>© 2025 خبرك عندي. جميع الحقوق محفوظة.</p>
+            <p>© 2025 خبرك عندي - شبكة الأخبار اليمنية. جميع الحقوق محفوظة.</p>
             <p>آخر تحديث: 1446 ص. 15 ش. يف 10:29</p>
         </div>
     </div>
@@ -404,6 +423,28 @@
         
         // Initialize by showing main page
         showMainPage();
+        
+        // Function to rotate breaking news (optional)
+        function rotateBreakingNews() {
+            const breakingNews = [
+                {title: "عاجل: انفجار عنيف يهز منطقة دار سعد في عدن", id: "breaking1"},
+                {title: "الحكومة اليمنية تعلن عن إجراءات جديدة لمواجهة ارتفاع الأسعار", id: "breaking2"},
+                {title: "مصادر: مفاوضات غير مباشرة بين الحوثيين والتحالف في مسقط", id: "breaking3"},
+                {title: "إعصار مكونو يتجه نحو سقطرى وتحذيرات من أمطار غزيرة", id: "breaking4"}
+            ];
+            
+            let current = 0;
+            const ticker = document.querySelector('.breaking-news-content');
+            
+            setInterval(() => {
+                current = (current + 1) % breakingNews.length;
+                const news = breakingNews[current];
+                ticker.innerHTML = `<a href="#" onclick="showArticle('${news.id}')">${news.title}</a>`;
+            }, 5000);
+        }
+        
+        // Start rotating breaking news
+        rotateBreakingNews();
     </script>
 </body>
 </html>
