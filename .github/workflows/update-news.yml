@@ -2,10 +2,10 @@ name: Update Yemeni News
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Every 5 minutes
-  workflow_dispatch:
+    - cron: '*/5 * * * *'  # Runs every 5 minutes
+  workflow_dispatch:       # Allows manual triggers
   push:
-    branches: [ main ]
+    branches: [ main ]     # Run when code changes
 
 permissions:
   contents: write
@@ -35,100 +35,7 @@ jobs:
       - name: Scrape news
         run: |
           mkdir -p data
-          python -c "
-          import feedparser
-          import json
-          from datetime import datetime
-          from bs4 import BeautifulSoup
-          import requests
-
-          HEADERS = {'User-Agent': 'Mozilla/5.0'}
-          now = datetime.utcnow().isoformat() + 'Z'
-
-          RSS_FEEDS = [
-              'https://www.almashhad-alyemeni.com/feed',
-              'https://yemennownews.com/feed',
-              'https://www.24-post.com/feed',
-              'https://www.anbaaden.com/feed',
-              'https://huna-aden.com/feed',
-              'https://taiztoday.net/feed',
-              'https://www.lahjnews.net/feed',
-              'https://almasdaronline.com/feed',
-              'https://www.marebpress.net/feed',
-              'https://www.yemeneconomist.com/feed',
-              'https://yemen-press.net/feed',
-              'https://alsahwa-yemen.net/feed'
-          ]
-
-          NON_RSS_SITES = [
-              {'url': 'https://www.aljazeera.net/', 'selector': 'h1 a'},
-              {'url': 'https://www.france24.com/ar/', 'selector': 'article a'},
-              {'url': 'https://sahaafa.net/', 'selector': 'div.content h3 a'},
-              {'url': 'https://sa24.co/', 'selector': 'article h3 a'},
-              {'url': 'https://www.awraqpress.net/portal/', 'selector': 'div.post-title a'},
-              {'url': 'https://almethaq.net/news/', 'selector': 'div.news-content h2 a'},
-          ]
-
-          articles = []
-          seen_urls = set()
-
-          def add_article(title, url, source):
-              if url not in seen_urls and title:
-                  articles.append({
-                      'title': title.strip(),
-                      'url': url.strip(),
-                      'source': source,
-                      'date': now
-                  })
-                  seen_urls.add(url)
-
-          # Fetch from RSS feeds
-          def get_feed(url):
-              try:
-                  response = requests.get(url, headers=HEADERS, timeout=10)
-                  return feedparser.parse(response.content)
-              except Exception as e:
-                  print(f'RSS Error [{url}]: {e}')
-                  return None
-
-          for feed_url in RSS_FEEDS:
-              feed = get_feed(feed_url)
-              if feed and feed.entries:
-                  for entry in feed.entries[:25]:  # Fetch more from each
-                      try:
-                          title = BeautifulSoup(entry.title, 'html.parser').get_text()
-                          url = entry.link
-                          source = feed_url.split('//')[1].split('/')[0]
-                          add_article(title, url, source)
-                      except Exception as e:
-                          print(f'Entry error [{feed_url}]: {e}')
-                          continue
-
-          # Scrape from non-RSS sites
-          for site in NON_RSS_SITES:
-              try:
-                  html = requests.get(site['url'], headers=HEADERS, timeout=10).text
-                  soup = BeautifulSoup(html, 'html.parser')
-                  links = soup.select(site['selector'])
-                  for link in links[:25]:
-                      href = link.get('href')
-                      title = link.get_text(strip=True)
-                      if href and title:
-                          if href.startswith('/'):
-                              href = site['url'].rstrip('/') + href
-                          source = site['url'].split('//')[1].split('/')[0]
-                          add_article(title, href, source)
-              except Exception as e:
-                  print(f'Scraping error [{site["url"]}]: {e}')
-                  continue
-
-          # Save only the latest 150 articles
-          with open('data/news.json', 'w', encoding='utf-8') as f:
-              json.dump({
-                  'lastUpdated': now,
-                  'articles': articles[:150]
-              }, f, ensure_ascii=False, indent=2)
-          "
+          python scripts/scrape_news.py
 
       - name: Commit and push
         env:
@@ -144,6 +51,4 @@ jobs:
 
           git add data/news.json
           git commit -m "Auto-update news [skip ci]"
-          git fetch origin
-          git rebase origin/main
           git push origin HEAD:main
