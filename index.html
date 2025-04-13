@@ -50,23 +50,16 @@
             color: #ffcc00;
             text-decoration: underline;
         }
-        .special-news-footer {
-            background: #f8f9fa;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
         main {
             margin-bottom: 50px;
         }
         
-        /* New Article Viewer Header */
+        /* Article Viewer Header - UPDATED */
         .article-header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: #2c3e50;
+            background: linear-gradient(135deg, #2c3e50 0%, #1a1a2e 100%);
             padding: 15px;
             z-index: 1001;
             display: flex;
@@ -74,7 +67,8 @@
             align-items: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        .article-header .return-main-btn {
+        .return-main-btn {
+            order: 1; /* Forces button to left in RTL */
             background: #e74c3c;
             color: white;
             border: none;
@@ -82,20 +76,41 @@
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
+            margin-right: auto; /* Pushes button left */
         }
-        .article-header .article-logo {
+        .article-logo {
+            order: 2; /* Forces logo to right in RTL */
             font-size: 1.5rem;
             font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            margin-left: auto; /* Pushes logo right */
         }
-        .article-header .article-logo .red {
-            color: #e74c3c;
-        }
-        .article-header .article-logo .green {
-            color: #2ecc71;
+        .article-logo .red { color: #e74c3c; }
+        .article-logo .green { color: #2ecc71; }
+        
+        /* Article Viewer - UPDATED */
+        .article-viewer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            z-index: 1000;
+            display: none;
         }
         #article-frame {
+            width: 100%;
+            height: calc(100% - 60px);
             margin-top: 60px;
-            height: calc(100vh - 60px);
+            border: none;
+        }
+        
+        @media (max-width: 768px) {
+            body { padding-top: 160px; }
+            .article-header {
+                flex-direction: row; /* Maintains button left, logo right on mobile */
+            }
         }
     </style>
 </head>
@@ -155,7 +170,7 @@
         </div>
     </main>
 
-    <!-- Article Viewer -->
+    <!-- Article Viewer - UPDATED -->
     <div class="article-viewer" id="article-viewer">
         <div class="article-header">
             <button class="return-main-btn" onclick="closeArticle()">← العودة إلى الرئيسية</button>
@@ -167,7 +182,7 @@
         <iframe id="article-frame" src=""></iframe>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer - UPDATED (removed special news section) -->
     <footer id="site-footer">
         <div class="footer-bottom">
             <p>جميع الحقوق محفوظة © <span id="current-year">2023</span> موقع خبرك عندي</p>
@@ -175,7 +190,7 @@
         </div>
     </footer>
 
-    <!-- Breaking News Ticker - Now at bottom of screen -->
+    <!-- Breaking News Ticker -->
     <div class="breaking-news-container">
         <div class="breaking-news-ticker">
             <div class="ticker-label">أخبار عاجلة:</div>
@@ -234,7 +249,7 @@
             }
         });
 
-        // Breaking News Ticker Update - Now shows latest 3 articles from main page
+        // Breaking News Ticker Update
         function updateBreakingNews() {
             const newsContainer = document.getElementById('news-container');
             const articles = newsContainer.querySelectorAll('.news-article');
