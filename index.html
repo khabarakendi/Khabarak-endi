@@ -4,242 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خبرك عندي - Yemen News</title>
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Base Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        
-        /* Header Styles */
-        #site-header {
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .header-top {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        .logo-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .logo .red {
-            color: #e74c3c;
-        }
-        .logo .green {
-            color: #27ae60;
-        }
-        .datetime {
-            color: #666;
-            font-size: 14px;
-        }
-        
-        /* Navigation */
-        .categories ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-        }
-        .categories li {
-            margin-left: 20px;
-        }
-        .categories a {
-            text-decoration: none;
-            color: #333;
-            padding: 15px 0;
-            display: inline-block;
-            font-weight: bold;
-        }
-        .categories a.active {
-            color: #e74c3c;
-            border-bottom: 2px solid #e74c3c;
-        }
-        
-        /* Main Content */
-        #main-content {
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .news-filters {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-        #news-search {
-            padding: 10px;
-            width: 60%;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        #news-sort {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        .news-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .news-article {
-            background: #fff;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            padding: 15px;
-        }
-        .news-article h2 {
-            margin: 0 0 10px 0;
-            font-size: 18px;
-            cursor: pointer;
-            color: #222;
-        }
-        .news-article p {
-            margin: 10px 0;
-            color: #555;
-            line-height: 1.5;
-        }
-        .article-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            color: #666;
-            margin-top: 10px;
-        }
-        .source {
-            font-weight: bold;
-            color: #e74c3c;
-        }
-        .time {
-            color: #666;
-        }
-        .category {
-            background: #eee;
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-size: 11px;
-        }
-        .local { background: #d4edff; color: #0066cc; }
-        .international { background: #ffe8e8; color: #cc0000; }
-        .sports { background: #e8ffea; color: #00aa44; }
-        .economic { background: #fff3e0; color: #ff6d00; }
-        .private { background: #f3e5ff; color: #6a1b9a; }
-        
-        /* Pagination */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin: 30px 0;
-        }
-        .pagination button {
-            padding: 8px 15px;
-            margin: 0 5px;
-            border: 1px solid #ddd;
-            background: #fff;
-            cursor: pointer;
-            border-radius: 3px;
-        }
-        .pagination button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        .pages {
-            display: flex;
-        }
-        .pages a {
-            padding: 8px 12px;
-            margin: 0 2px;
-            border: 1px solid #ddd;
-            background: #fff;
-            text-decoration: none;
-            color: #333;
-            border-radius: 3px;
-        }
-        .pages a.active {
-            background: #e74c3c;
-            color: #fff;
-            border-color: #e74c3c;
-        }
-        
-        /* Article Viewer */
-        .article-viewer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: #fff;
-            z-index: 2000;
-            display: none;
-            flex-direction: column;
-        }
-        .article-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            background: #fff;
-            border-bottom: 1px solid #eee;
-            position: sticky;
-            top: 0;
-            z-index: 1;
-        }
-        .back-button {
-            background: none;
-            border: none;
-            color: #e74c3c;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-        }
-        .back-button span {
-            margin-right: 5px;
-        }
-        .article-logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .article-logo .red {
-            color: #e74c3c;
-        }
-        .article-logo .green {
-            color: #27ae60;
-        }
-        #article-frame {
-            flex: 1;
-            border: none;
-            width: 100%;
-        }
-        .article-source-time {
-            font-size: 14px;
-            color: #666;
-            margin: 5px 0;
-            text-align: center;
-            width: 100%;
-        }
-        
-        /* Breaking News Ticker */
+        /* Enhanced Breaking News Ticker Styles */
         .breaking-news-container {
-            position: fixed;
+            position: sticky;
             bottom: 0;
-            left: 0;
-            right: 0;
             z-index: 1000;
             background-color: #e74c3c;
         }
@@ -280,49 +50,15 @@
             color: #ffcc00;
             text-decoration: underline;
         }
-        
-        /* Footer */
-        #site-footer {
-            background: #222;
-            color: #fff;
+        .special-news-footer {
+            background: #f8f9fa;
             padding: 20px;
-            margin-top: 30px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
         }
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .footer-bottom {
-            text-align: center;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            font-size: 14px;
-        }
-        
-        /* Loading Spinner */
-        .loading {
-            text-align: center;
-            padding: 30px;
-        }
-        .spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-left-color: #e74c3c;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 15px;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        /* Error Message */
-        .error {
-            color: #e74c3c;
-            text-align: center;
-            padding: 20px;
+        main {
+            margin-bottom: 50px;
         }
     </style>
 </head>
@@ -336,7 +72,7 @@
                     <span class="green">عندي</span>
                 </div>
                 <div class="datetime" id="current-datetime">
-                    <span>جاري التحميل...</span>
+                    <i class="icon-clock"></i> جاري التحميل...
                 </div>
             </div>
         </div>
@@ -349,7 +85,7 @@
                 <li><a href="#" data-category="international">دولية</a></li>
                 <li><a href="#" data-category="sports">رياضة</a></li>
                 <li><a href="#" data-category="economic">اقتصادية</a></li>
-                <li><a href="#" data-category="private">خاصة</a></li>
+                <li><a href="private.html" data-category="private">خاصة</a></li>
             </ul>
         </nav>
     </header>
@@ -384,11 +120,11 @@
 
     <!-- Article Viewer -->
     <div class="article-viewer" id="article-viewer">
+        <button class="return-main-btn" onclick="closeArticle()">العودة إلى الصفحة الرئيسية</button>
         <div class="article-header">
             <button class="back-button" onclick="closeArticle()">
-                <span>← العودة إلى الصفحة الرئيسية</span>
+                <span>← العودة إلى الرئيسية</span>
             </button>
-            <div class="article-source-time" id="article-source-time"></div>
             <div class="article-logo">
                 <span class="red">خبرك</span>
                 <span class="green">عندي</span>
@@ -397,9 +133,17 @@
         <iframe id="article-frame" src=""></iframe>
     </div>
 
-    <!-- Footer -->
+    <!-- Special News Section (Moved to Footer) -->
     <footer id="site-footer">
         <div class="footer-content">
+            <div class="special-news-footer">
+                <h2>أخبار خاصة</h2>
+                <div class="special-news-item">
+                    <h3>أهم الأخبار</h3>
+                    <p>يمكنك تعديل هذا الخبر يدوياً في ملف HTML</p>
+                </div>
+            </div>
+            
             <div class="footer-bottom">
                 <p>جميع الحقوق محفوظة © <span id="current-year">2023</span> موقع خبرك عندي</p>
                 <p>آخر تحديث: <span id="last-updated">جاري التحميل...</span></p>
@@ -407,7 +151,7 @@
         </div>
     </footer>
 
-    <!-- Breaking News Ticker -->
+    <!-- Breaking News Ticker - Now at bottom of screen -->
     <div class="breaking-news-container">
         <div class="breaking-news-ticker">
             <div class="ticker-label">أخبار عاجلة:</div>
@@ -417,7 +161,13 @@
         </div>
     </div>
 
-    <!-- JavaScript -->
+    <!-- JavaScript Files -->
+    <script src="js/utils.js"></script>
+    <script src="js/news-loader.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/pagination.js"></script>
+
+    <!-- Main Script -->
     <script>
         // Current Date and Time
         function updateDateTime() {
@@ -435,15 +185,15 @@
                 .replace(/ص/g, 'ص')
                 .replace(/م/g, 'م');
 
-            document.getElementById('current-datetime').innerHTML = dateStr;
+            document.getElementById('current-datetime').innerHTML = 
+                `<i class="icon-clock"></i> ${dateStr}`;
         }
 
         // Article Viewer Functions
-        function viewArticle(url, title, source, time) {
+        function viewArticle(url) {
             document.getElementById('article-frame').src = url;
-            document.getElementById('article-viewer').style.display = 'flex';
+            document.getElementById('article-viewer').style.display = 'block';
             document.body.style.overflow = 'hidden';
-            document.getElementById('article-source-time').textContent = `${source} - ${time}`;
             window.scrollTo(0, 0);
         }
 
@@ -455,240 +205,39 @@
 
         // Load More News Button
         document.getElementById('load-more').addEventListener('click', function() {
-            loadMoreNews();
+            if (typeof loadMoreNews === 'function') {
+                loadMoreNews();
+            }
         });
 
-        // Breaking News Ticker - Shows latest 3 articles from main page
+        // Breaking News Ticker Update - Now shows latest 3 articles from main page
         function updateBreakingNews() {
-            const newsContainer = document.getElementById('news-container');
-            const articles = newsContainer.querySelectorAll('.news-article');
-            
-            if (articles.length >= 3) {
-                const latestArticles = Array.from(articles).slice(0, 3);
-                const tickerContent = latestArticles.map(article => {
-                    const title = article.querySelector('h2').textContent;
-                    const onclickAttr = article.querySelector('h2').getAttribute('onclick');
-                    const url = onclickAttr.match(/'([^']+)'/)[1];
-                    const source = article.querySelector('.source').textContent;
-                    const time = article.querySelector('.time').textContent;
-                    return `<span class="ticker-item" onclick="viewArticle('${url}', '${title.replace(/'/g, "\\'")}', '${source}', '${time}')">• ${title} •</span>`;
+            const articles = document.querySelectorAll('.news-article');
+	    if (articles.length >= 3) {
+	        const latestArticles = Array.from(articles).slice(0, 3);
+	        const tickerContent = latestArticles.map(article => {
+ 	            const title = article.querySelector('h2').textContent;
+                    const url = article.querySelector('h2').getAttribute('onclick').match(/'([^']+)'/)[1];
+	            return `<span class="ticker-item" onclick="viewArticle('${url}')">• ${title} •</span>`;
                 }).join('');
+                		document.getElementById('breaking-news-ticker').innerHTML = tickerContent;
 
-                document.getElementById('breaking-news-ticker').innerHTML = tickerContent;
-                
-                // Restart animation
-                const ticker = document.getElementById('breaking-news-ticker');
-                ticker.style.animation = 'none';
-                void ticker.offsetWidth;
-                ticker.style.animation = 'ticker 25s linear infinite';
-            }
-        }
+           }
+       }
 
         // News Search Functionality
         document.getElementById('news-search').addEventListener('input', function(e) {
-            filterNews(e.target.value);
+            if (typeof filterNews === 'function') {
+                filterNews(e.target.value);
+            }
         });
 
         // Sort News Functionality
         document.getElementById('news-sort').addEventListener('change', function(e) {
-            sortNews(e.target.value);
+            if (typeof sortNews === 'function') {
+                sortNews(e.target.value);
+            }
         });
-
-        // News Data (150 articles)
-        const newsData = {
-            articles: [
-                // Article 1
-                {
-                    title: "انفجار عبوة ناسفة في شارع الزبيري بالعاصمة صنعاء",
-                    summary: "تعرض شارع الزبيري في العاصمة اليمنية صنعاء مساء اليوم لانفجار عبوة ناسفة كانت مزروعة على جانب الطريق، مما أدى إلى إلحاق أضرار مادية بعدد من المركبات دون وقوع إصابات بشرية.",
-                    url: "article1.html",
-                    source: "نيوز لاين (أخبار اليمن)",
-                    date: new Date(Date.now() - 1000 * 60 * 60 * 1.5), // 1.5 hours ago
-                    category: "local"
-                },
-                // Article 2
-                {
-                    title: "أزمة وقود حادة تعود إلى محطات تعز بعد توقف صهاريج النفط",
-                    summary: "عادت أزمة الوقود لتضرب محطات تعز من جديد بعد توقف وصول صهاريج النفط إلى المحافظة بسبب إغلاق الطرق من قبل الجماعات المسلحة.",
-                    url: "article2.html",
-                    source: "اليمن اليوم",
-                    date: new Date(Date.now() - 1000 * 60 * 120), // 2 hours ago
-                    category: "local"
-                },
-                // Article 3
-                {
-                    title: "إغلاق 12 مستودع أدوية مغشوشة في الحديدة",
-                    summary: "أغلقت السلطات الصحية في الحديدة 12 مستودعاً للأدوية المغشوشة والمجهولة المصدر في حملة مفاجئة شملت أحياء المدينة.",
-                    url: "article3.html",
-                    source: "الصحة الآن",
-                    date: new Date(Date.now() - 1000 * 60 * 180), // 3 hours ago
-                    category: "local"
-                },
-                // Add 147 more articles following the same format...
-                // ... (additional articles would be added here)
-            ]
-        };
-
-        // Format time as "قبل X ساعة و Y دقيقة"
-        function formatTimeAgo(date) {
-            const now = new Date();
-            const diffMinutes = Math.floor((now - date) / (1000 * 60));
-            const hours = Math.floor(diffMinutes / 60);
-            const minutes = diffMinutes % 60;
-            
-            if (hours > 0 && minutes > 0) {
-                return `قبل ${hours} ساعة و ${minutes} دقيقة`;
-            } else if (hours > 0) {
-                return `قبل ${hours} ساعة`;
-            } else {
-                return `قبل ${minutes} دقيقة`;
-            }
-        }
-
-        // Load News Function
-        function loadNews() {
-            const newsContainer = document.getElementById('news-container');
-            
-            // Clear loading indicator
-            newsContainer.innerHTML = '';
-            
-            // Sort articles by date (newest first)
-            const sortedArticles = newsData.articles.sort((a, b) => {
-                return new Date(b.date) - new Date(a.date);
-            });
-            
-            // Add news articles
-            sortedArticles.forEach(item => {
-                const timeAgo = formatTimeAgo(item.date);
-                
-                const article = document.createElement('div');
-                article.className = 'news-article';
-                article.innerHTML = `
-                    <h2 onclick="viewArticle('${item.url}', '${item.title.replace(/'/g, "\\'")}', '${item.source}', '${timeAgo}')">${item.title}</h2>
-                    <div class="article-meta">
-                        <span class="source">${item.source}</span>
-                        <span class="time">${timeAgo}</span>
-                    </div>
-                    <p>${item.summary}</p>
-                    <div class="article-meta">
-                        <span class="category ${item.category}">${item.category}</span>
-                        <span class="date">${item.date.toLocaleDateString('ar-EG')}</span>
-                    </div>
-                `;
-                newsContainer.appendChild(article);
-            });
-            
-            // Update last updated time
-            document.getElementById('last-updated').textContent = 
-                new Date().toLocaleTimeString('ar-EG');
-            
-            // Update breaking news ticker
-            updateBreakingNews();
-            
-            // Initialize pagination
-            initPagination();
-        }
-
-        // Filter News Function
-        function filterNews(searchTerm) {
-            const articles = document.querySelectorAll('.news-article');
-            const term = searchTerm.toLowerCase();
-            
-            articles.forEach(article => {
-                const title = article.querySelector('h2').textContent.toLowerCase();
-                const summary = article.querySelector('p').textContent.toLowerCase();
-                
-                if (title.includes(term) || summary.includes(term)) {
-                    article.style.display = 'block';
-                } else {
-                    article.style.display = 'none';
-                }
-            });
-        }
-
-        // Sort News Function
-        function sortNews(order) {
-            const newsContainer = document.getElementById('news-container');
-            const articles = Array.from(newsContainer.querySelectorAll('.news-article'));
-            
-            articles.sort((a, b) => {
-                const aTime = a.querySelector('.time').textContent;
-                const bTime = b.querySelector('.time').textContent;
-                
-                // This is a simplified sort - in a real app you would compare actual dates
-                if (order === 'newest') {
-                    return aTime.localeCompare(bTime);
-                } else {
-                    return bTime.localeCompare(aTime);
-                }
-            });
-            
-            // Re-append sorted articles
-            articles.forEach(article => {
-                newsContainer.appendChild(article);
-            });
-        }
-
-        // Pagination Functions
-        function initPagination() {
-            const articles = document.querySelectorAll('.news-article');
-            const totalPages = Math.ceil(articles.length / 10);
-            const pageNumbers = document.getElementById('page-numbers');
-            
-            pageNumbers.innerHTML = '';
-            
-            for (let i = 1; i <= totalPages; i++) {
-                const pageLink = document.createElement('a');
-                pageLink.href = '#';
-                pageLink.textContent = i;
-                if (i === 1) pageLink.className = 'active';
-                
-                pageLink.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    showPage(i);
-                });
-                
-                pageNumbers.appendChild(pageLink);
-            }
-            
-            // Show first page by default
-            showPage(1);
-        }
-
-        function showPage(pageNumber) {
-            const articles = document.querySelectorAll('.news-article');
-            const itemsPerPage = 10;
-            const startIndex = (pageNumber - 1) * itemsPerPage;
-            const endIndex = startIndex + itemsPerPage;
-            
-            // Hide all articles
-            articles.forEach(article => {
-                article.style.display = 'none';
-            });
-            
-            // Show articles for current page
-            for (let i = startIndex; i < endIndex && i < articles.length; i++) {
-                articles[i].style.display = 'block';
-            }
-            
-            // Update active page link
-            const pageLinks = document.querySelectorAll('.pages a');
-            pageLinks.forEach(link => {
-                link.classList.remove('active');
-                if (parseInt(link.textContent) === pageNumber) {
-                    link.classList.add('active');
-                }
-            });
-            
-            // Update prev/next buttons
-            document.querySelector('.prev').disabled = pageNumber === 1;
-            document.querySelector('.next').disabled = pageNumber === pageLinks.length;
-        }
-
-        function loadMoreNews() {
-            // In a real implementation, this would load additional news from server
-            alert("سيتم تحميل المزيد من الأخبار في التطبيق الكامل");
-        }
 
         // Initialize Page
         document.addEventListener('DOMContentLoaded', function() {
@@ -699,14 +248,65 @@
             updateDateTime();
             
             // Load initial news
-            loadNews();
+            if (typeof loadNews === 'function') {
+                loadNews().then(() => {
+                    // Update breaking news after main news loads
+                    updateBreakingNews();
+                });
+            }
             
-            // Set interval for date/time updates
+            // Set intervals for updates
             setInterval(updateDateTime, 60000);
+            setInterval(updateBreakingNews, 300000); // Update breaking news every 5 minutes
             
-            // Set interval for breaking news updates
-            setInterval(updateBreakingNews, 300000); // Every 5 minutes
+            // Initialize pagination
+            if (typeof initPagination === 'function') {
+                initPagination();
+            }
         });
+
+        // Additional News Loading from JSON
+        fetch('data/news.json')
+            .then(response => response.json())
+            .then(news => {
+                const newsContainer = document.getElementById('news-container');
+                const breakingNewsBar = document.getElementById('breaking-news-ticker');
+                
+                // Clear loading indicator
+                newsContainer.innerHTML = '';
+                
+                // Sort articles by date (newest first)
+                const sortedArticles = news.articles.sort((a, b) => {
+                    return new Date(b.date) - new Date(a.date);
+                });
+                
+                // Add news articles
+                sortedArticles.slice(0, 150).forEach(item => {
+                    const article = document.createElement('div');
+                    article.className = 'news-article';
+                    article.innerHTML = `
+                        <h2 onclick="viewArticle('${item.url}')">${item.title}</h2>
+                        <p>${item.summary}</p>
+                        <div class="article-meta">
+                            <span class="category ${item.category}">${item.category}</span>
+                            <span class="date">${item.date}</span>
+                        </div>
+                    `;
+                    newsContainer.appendChild(article);
+                });
+                
+                // Update last updated time
+                document.getElementById('last-updated').textContent = 
+                    new Date().toLocaleTimeString('ar-EG');
+                
+                // Update breaking news ticker
+                updateBreakingNews();
+            })
+            .catch(error => {
+                console.error('Error loading news:', error);
+                document.getElementById('news-container').innerHTML = 
+                    '<p class="error">حدث خطأ أثناء تحميل الأخبار. يرجى المحاولة لاحقاً.</p>';
+            });
     </script>
 </body>
 </html>
