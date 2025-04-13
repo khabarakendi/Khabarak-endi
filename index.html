@@ -60,6 +60,43 @@
         main {
             margin-bottom: 50px;
         }
+        
+        /* New Article Viewer Header */
+        .article-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #2c3e50;
+            padding: 15px;
+            z-index: 1001;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .article-header .return-main-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .article-header .article-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .article-header .article-logo .red {
+            color: #e74c3c;
+        }
+        .article-header .article-logo .green {
+            color: #2ecc71;
+        }
+        #article-frame {
+            margin-top: 60px;
+            height: calc(100vh - 60px);
+        }
     </style>
 </head>
 <body>
@@ -120,11 +157,8 @@
 
     <!-- Article Viewer -->
     <div class="article-viewer" id="article-viewer">
-        <button class="return-main-btn" onclick="closeArticle()">العودة إلى الصفحة الرئيسية</button>
         <div class="article-header">
-            <button class="back-button" onclick="closeArticle()">
-                <span>← العودة إلى الرئيسية</span>
-            </button>
+            <button class="return-main-btn" onclick="closeArticle()">← العودة إلى الرئيسية</button>
             <div class="article-logo">
                 <span class="red">خبرك</span>
                 <span class="green">عندي</span>
@@ -133,21 +167,11 @@
         <iframe id="article-frame" src=""></iframe>
     </div>
 
-    <!-- Special News Section (Moved to Footer) -->
+    <!-- Footer -->
     <footer id="site-footer">
-        <div class="footer-content">
-            <div class="special-news-footer">
-                <h2>أخبار خاصة</h2>
-                <div class="special-news-item">
-                    <h3>أهم الأخبار</h3>
-                    <p>يمكنك تعديل هذا الخبر يدوياً في ملف HTML</p>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>جميع الحقوق محفوظة © <span id="current-year">2023</span> موقع خبرك عندي</p>
-                <p>آخر تحديث: <span id="last-updated">جاري التحميل...</span></p>
-            </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة © <span id="current-year">2023</span> موقع خبرك عندي</p>
+            <p>آخر تحديث: <span id="last-updated">جاري التحميل...</span></p>
         </div>
     </footer>
 
