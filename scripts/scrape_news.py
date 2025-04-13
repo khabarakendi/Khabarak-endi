@@ -4,138 +4,77 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 import requests
 
-FEEDS = [
-    'https://www.almashhad-alyemeni.com/feed',
-    'https://yemennownews.com/feed',
-    'https://www.24-post.com/feed',
-    'https://www.anbaaden.com/feed',
-    'https://huna-aden.com/feed',
-    'https://taiztoday.net/feed',
-    'https://www.lahjnews.net/feed',
-    'https://almasdaronline.com/feed',
-    'https://www.marebpress.net/feed',
-    'https://www.yemeneconomist.com/feed',
-    'https://yemen-press.net/feed',
-    'https://alsahwa-yemen.net/feed'
+rss_feeds = [
+    "https://www.almashhad-alyemeni.com/feed",
+    "https://yemennownews.com/feed",
+    "https://www.24-post.com/feed",
+    "https://www.anbaaden.com/feed",
+    "https://huna-aden.com/feed",
+    "https://taiztoday.net/feed",
+    "https://www.lahjnews.net/feed",
+    "https://almasdaronline.com/feed",
+    "https://www.marebpress.net/feed",
+    "https://www.yemeneconomist.com/feed",
+    "https://yemen-press.net/feed",
+    "https://alsahwa-yemen.net/feed"
 ]
 
-NON_RSS_SITES = [
-    {
-        'name': 'Al Jazeera',
-        'url': 'https://www.aljazeera.com/where/yemen/',
-        'article_selector': 'div.gc__content > a',
-        'title_selector': 'h3.gc__title',
-        'link_attr': 'href'
-    },
-    {
-        'name': 'France24',
-        'url': 'https://www.france24.com/ar/',
-        'article_selector': 'a.article__link',
-        'title_selector': 'h3.article__title',
-        'link_attr': 'href'
-    },
-    {
-        'name': 'Sahaafa',
-        'url': 'https://sahaafa.net/',
-        'article_selector': 'div.news-item > a',
-        'title_selector': 'h2.news-title',
-        'link_attr': 'href'
-    },
-    {
-        'name': 'SA24',
-        'url': 'https://sa24.co/',
-        'article_selector': 'div.post > a',
-        'title_selector': 'h2.post-title',
-        'link_attr': 'href'
-    },
-    {
-        'name': 'AwraqPress',
-        'url': 'https://www.awraqpress.net/portal/',
-        'article_selector': 'div.article > a',
-        'title_selector': 'h2.article-title',
-        'link_attr': 'href'
-    },
-    {
-        'name': 'Almethaq',
-        'url': 'https://almethaq.net/news/',
-        'article_selector': 'div.news-item > a',
-        'title_selector': 'h2.news-title',
-        'link_attr': 'href'
-    },
-    {
-        'name': 'Itlobni',
-        'url': 'https://itlobni.com/',
-        'article_selector': 'div.news-item > a',
-        'title_selector': 'h2.news-title',
-        'link_attr': 'href'
-    }
-]
+non_rss_sites = {
+    "aljazeera": "https://www.aljazeera.net/",
+    "france24": "https://www.france24.com/ar/",
+    "sahafah": "https://sahaafa.net/",
+    "sa24": "https://sa24.co/",
+    "awraqpress": "https://www.awraqpress.net/portal/",
+    "methaq": "https://almethaq.net/news/"
+}
 
-def get_feed_articles(url):
+articles = []
+
+def parse_rss(url):
     try:
-        headers = {'User-Agent': 'Mozilla/5.0'}
-        response = requests.get(url, headers=headers, timeout=10)
-        feed = feedparser.parse(response.content)
-        articles = []
-        for entry in feed.entries[:30]:
+        feed = feedparser.parse(url)
+        for entry in feed.entries[:20]:
             articles.append({
-                'title': entry.title,
-                'url': entry.link,
-                'source': url,
-                'date': datetime.utcnow().isoformat() + 'Z'
+                "title": BeautifulSoup(entry.title, "html.parser").get_text(),
+                "url": entry.link,
+                "source": url.split("//")[1].split("/")[0],
+                "date": datetime.utcnow().isoformat() + "Z"
             })
-        return articles
     except Exception as e:
-        print(f'Error fetching RSS feed {url}: {str(e)}')
-        return []
+        print(f"Error parsing RSS feed {url}: {e}")
 
-def scrape_site(site):
+def scrape_site(url, site_key):
     try:
-        headers = {'User-Agent': 'Mozilla/5.0'}
-        response = requests.get(site['url'], headers=headers, timeout=10)
-        soup = BeautifulSoup(response.content, 'html.parser')
-        articles = []
-        for article_tag in soup.select(site['article_selector'])[:30]:
-            title_tag = article_tag.select_one(site['title_selector'])
-            if title_tag:
-                title = title_tag.get_text(strip=True)
-                link = article_tag.get(site['link_attr'])
-                if link and not link.startswith('http'):
-                    link = site['url'].rstrip('/') + '/' + link.lstrip('/')
+        headers = {"User-Agent": "Mozilla/5.0"}
+        response = requests.get(url, headers=headers, timeout=10)
+        soup = BeautifulSoup(response.text, "html.parser")
+        links = soup.find_all("a", href=True)
+        count = 0
+        for link in links:
+            href = link["href"]
+            text = link.get_text(strip=True)
+            if len(text) >= 15 and "http" in href and site_key in href and count < 10:
                 articles.append({
-                    'title': title,
-                    'url': link,
-                    'source': site['name'],
-                    'date': datetime.utcnow().isoformat() + 'Z'
+                    "title": text,
+                    "url": href,
+                    "source": site_key,
+                    "date": datetime.utcnow().isoformat() + "Z"
                 })
-        return articles
+                count += 1
     except Exception as e:
-        print(f'Error scraping site {site["name"]}: {str(e)}')
-        return []
+        print(f"Error scraping {url}: {e}")
 
-def main():
-    all_articles = []
+# Fetch from RSS feeds
+for feed_url in rss_feeds:
+    parse_rss(feed_url)
 
-    for feed_url in FEEDS:
-        all_articles.extend(get_feed_articles(feed_url))
+# Scrape from non-RSS sites
+for key, site_url in non_rss_sites.items():
+    scrape_site(site_url, key)
 
-    for site in NON_RSS_SITES:
-        all_articles.extend(scrape_site(site))
-
-    # Remove duplicates based on URL
-    seen_urls = set()
-    unique_articles = []
-    for article in all_articles:
-        if article['url'] not in seen_urls:
-            seen_urls.add(article['url'])
-            unique_articles.append(article)
-
-    # Sort articles by date (most recent first)
-    unique_articles.sort(key=lambda x: x['date'], reverse=True)
-
-    # Limit to 150 articles
-    final_articles = unique_articles[:150]
-
-    with open('data/news.json', 'w', encoding='utf-8'):
-::contentReference[oaicite:4]{index=4}
- 
+# Save to JSON
+with open('data/news.json', 'w', encoding='utf-8') as f:
+    json.dump({
+        "lastUpdated": datetime.utcnow().isoformat() + "Z",
+        "articles": articles[:200]  # Keep top 200
+    }, f, ensure_ascii=False, indent=2)
