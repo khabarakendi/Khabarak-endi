@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خبرك عندي - الصفحة الرئيسية</title>
+    <title>خبرك عندي</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -52,6 +52,23 @@
         .nav-menu li a:hover {
             color: #d82a2a;
         }
+        
+        /* Main Page Styles */
+        .main-page {
+            display: block;
+        }
+        .breaking-news {
+            background-color: #d82a2a;
+            color: white;
+            padding: 10px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        .section-title {
+            border-right: 3px solid #d82a2a;
+            padding-right: 10px;
+            margin: 20px 0;
+        }
         .news-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -91,6 +108,81 @@
             display: flex;
             justify-content: space-between;
         }
+        
+        /* Article Page Styles */
+        .article-page {
+            display: none;
+        }
+        .article-container {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .article-title {
+            font-size: 24px;
+            color: #222;
+            margin-bottom: 10px;
+        }
+        .article-meta {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+        .article-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .article-content {
+            line-height: 1.8;
+            font-size: 16px;
+        }
+        .article-content p {
+            margin-bottom: 20px;
+        }
+        .back-to-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 15px;
+            background-color: #d82a2a;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-to-home:hover {
+            background-color: #b82222;
+        }
+        .related-news {
+            margin-top: 30px;
+        }
+        .related-title {
+            border-right: 3px solid #d82a2a;
+            padding-right: 10px;
+        }
+        .related-list {
+            list-style: none;
+            padding: 0;
+        }
+        .related-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .related-list li a {
+            text-decoration: none;
+            color: #333;
+        }
+        .related-list li a:hover {
+            color: #d82a2a;
+        }
+        
         .footer {
             background-color: #222;
             color: #fff;
@@ -98,26 +190,14 @@
             margin-top: 30px;
             text-align: center;
         }
-        .breaking-news {
-            background-color: #d82a2a;
-            color: white;
-            padding: 10px;
-            margin: 15px 0;
-            font-weight: bold;
-        }
-        .section-title {
-            border-right: 3px solid #d82a2a;
-            padding-right: 10px;
-            margin: 20px 0;
-        }
     </style>
 </head>
 <body>
     <div class="header">
         <div class="container">
-            <a href="index.html" class="logo">خبرك عندي</a>
+            <a href="#" class="logo" onclick="showMainPage()">خبرك عندي</a>
             <ul class="nav-menu">
-                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="#" onclick="showMainPage()">الرئيسية</a></li>
                 <li><a href="#">المشهد الرياضي</a></li>
                 <li><a href="#">المشهد السياسي</a></li>
                 <li><a href="#">المشهد السعودي</a></li>
@@ -129,124 +209,167 @@
     </div>
 
     <div class="container">
-        <div class="breaking-news">
-            <marquee>إسرائيل تعلن عن مخططات جديدة لبناء مستوطنات في الضفة الغربية | الرئيس الأمريكي يعلن عن حزمة مساعدات جديدة لأوكرانيا | انطلاق مناورات عسكرية مشتركة بين السعودية ومصر</marquee>
+        <!-- Main Page Content -->
+        <div class="main-page" id="mainPage">
+            <div class="breaking-news">
+                <marquee>إسرائيل تعلن عن مخططات جديدة لبناء مستوطنات في الضفة الغربية | الرئيس الأمريكي يعلن عن حزمة مساعدات جديدة لأوكرانيا | انطلاق مناورات عسكرية مشتركة بين السعودية ومصر</marquee>
+            </div>
+
+            <h2 class="section-title">أهم الأخبار</h2>
+            <div class="news-container">
+                <div class="news-item">
+                    <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
+                    <div class="news-content">
+                        <h3 class="news-title"><a href="#" onclick="showArticle('article1')">دخل لإطعامها.. أُعدى في حديقة تباعث طبيبًا بلدغة قاتلة وتنفي حياته على الفور</a></h3>
+                        <div class="news-meta">
+                            <span>المصدر: العربية</span>
+                            <span>1446 ص. 15 ش. يف 10:01</span>
+                        </div>
+                        <div class="news-meta">
+                            <span>عدد القراءات: 1,245</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
+                    <div class="news-content">
+                        <h3 class="news-title"><a href="#" onclick="showArticle('article2')">تغيير قواعد الاشتباك .. الضربات الأمريكية ضد الحوثيين تدخل مرحلة جديدة</a></h3>
+                        <div class="news-meta">
+                            <span>المصدر: صحيفة عكاظ</span>
+                            <span>1446 ص. 15 ش. يف 09:45</span>
+                        </div>
+                        <div class="news-meta">
+                            <span>عدد القراءات: 892</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
+                    <div class="news-content">
+                        <h3 class="news-title"><a href="#" onclick="showArticle('article3')">اليمن على حافة كارثة إنسانية وبيئية بسبب تسرب النفط من السفينة صافر</a></h3>
+                        <div class="news-meta">
+                            <span>المصدر: الجزيرة</span>
+                            <span>1446 ص. 15 ش. يف 08:30</span>
+                        </div>
+                        <div class="news-meta">
+                            <span>عدد القراءات: 1,532</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
+                    <div class="news-content">
+                        <h3 class="news-title"><a href="#" onclick="showArticle('article4')">من مشارنجاري إلى مقننة النجوم: قصة نجاح الممثلة الشابة في هوليوود</a></h3>
+                        <div class="news-meta">
+                            <span>المصدر: الشرق الأوسط</span>
+                            <span>1446 ص. 15 ش. يف 07:15</span>
+                        </div>
+                        <div class="news-meta">
+                            <span>عدد القراءات: 2,104</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
+                    <div class="news-content">
+                        <h3 class="news-title"><a href="#" onclick="showArticle('article5')">إعصار قوي يضرب سواحل عمان ويتجه نحو الإمارات</a></h3>
+                        <div class="news-meta">
+                            <span>المصدر: الرؤية</span>
+                            <span>1446 ص. 15 ش. يف 06:50</span>
+                        </div>
+                        <div class="news-meta">
+                            <span>عدد القراءات: 3,421</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
+                    <div class="news-content">
+                        <h3 class="news-title"><a href="#" onclick="showArticle('article6')">اكتشاف أثري جديد في منطقة العلا يعود إلى حضارة الأنباط</a></h3>
+                        <div class="news-meta">
+                            <span>المصدر: الوطن</span>
+                            <span>1446 ص. 15 ش. يف 05:20</span>
+                        </div>
+                        <div class="news-meta">
+                            <span>عدد القراءات: 1,789</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">الأكثر قراءة</h2>
+            <div class="news-container">
+                <div class="news-item">
+                    <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
+                    <div class="news-content">
+                        <h3 class="news-title"><a href="#" onclick="showArticle('article7')">تحذيرات من موجة حر شديدة تضرب المنطقة الأسبوع القادم</a></h3>
+                        <div class="news-meta">
+                            <span>المصدر: اليوم</span>
+                            <span>1446 ص. 14 ش. يف 22:30</span>
+                        </div>
+                        <div class="news-meta">
+                            <span>عدد القراءات: 5,632</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-item">
+                    <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
+                    <div class="news-content">
+                        <h3 class="news-title"><a href="#" onclick="showArticle('article8')">أسعار النفط ترتفع بنسبة 3% بعد قرار أوبك+ خفض الإنتاج</a></h3>
+                        <div class="news-meta">
+                            <span>المصدر: الاقتصادية</span>
+                            <span>1446 ص. 14 ش. يف 21:15</span>
+                        </div>
+                        <div class="news-meta">
+                            <span>عدد القراءات: 4,987</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <h2 class="section-title">أهم الأخبار</h2>
-        <div class="news-container">
-            <div class="news-item">
-                <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
-                <div class="news-content">
-                    <h3 class="news-title"><a href="article.html">دخل لإطعامها.. أُعدى في حديقة تباعث طبيبًا بلدغة قاتلة وتنفي حياته على الفور</a></h3>
-                    <div class="news-meta">
-                        <span>المصدر: العربية</span>
-                        <span>1446 ص. 15 ش. يف 10:01</span>
-                    </div>
-                    <div class="news-meta">
-                        <span>عدد القراءات: 1,245</span>
-                    </div>
+        <!-- Article Content (hidden by default) -->
+        <div class="article-page" id="articlePage">
+            <div class="article-container">
+                <h1 class="article-title" id="articleTitle">دخل لإطعامها.. أُعدى في حديقة تباعث طبيبًا بلدغة قاتلة وتنفي حياته على الفور</h1>
+                <div class="article-meta">
+                    <span id="articleSource">المصدر: العربية</span>
+                    <span id="articleDate">1446 ص. 15 ش. يف 10:01</span>
+                    <span id="articleViews">عدد القراءات: 1,245</span>
                 </div>
-            </div>
-
-            <div class="news-item">
-                <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
-                <div class="news-content">
-                    <h3 class="news-title"><a href="#">تغيير قواعد الاشتباك .. الضربات الأمريكية ضد الحوثيين تدخل مرحلة جديدة</a></h3>
-                    <div class="news-meta">
-                        <span>المصدر: صحيفة عكاظ</span>
-                        <span>1446 ص. 15 ش. يف 09:45</span>
-                    </div>
-                    <div class="news-meta">
-                        <span>عدد القراءات: 892</span>
-                    </div>
+                <img src="https://via.placeholder.com/800x450" alt="Article Image" class="article-image" id="articleImage">
+                <div class="article-content" id="articleContent">
+                    <p>في حادثة مأساوية هزت مدينة تبوك، لقي طبيب مصرعه بعد تعرضه للدغة قاتلة من أفعى سامة كان يحاول إطعامها في حديقة منزله. الحادثة التي وقعت مساء أمس، أثارت صدمة بين أهالي المنطقة الذين عرفوا الطبيب بإنسانيته وحبه للحيوانات.</p>
+                    
+                    <p>ووفقاً للمصادر الأمنية، فإن الطبيب (45 عاماً) كان معروفاً باهتمامه بالحيوانات وخاصة الزواحف، حيث كان يمتلك عدة أفاعي غير سامة في منزله. وقد عثر عليه أفراد عائلته في حالة حرجة بعد تعرضه للدغة من أفعى من نوع الكوبرا العربية التي كانت قد وصلت إليه حديثاً.</p>
+                    
+                    <p>ونقل الطبيب على الفور إلى مستشفى الملك خالد بتبوك، لكنه توفي بعد دقائق من وصوله بسبب تأثير السم القاتل على جهازه العصبي. وأكد مسؤولون في المستشفى أن السم كان شديد الخطورة ولم يكن هناك وقت كافٍ لتلقي العلاج المناسب.</p>
+                    
+                    <p>وقال الناطق الإعلامي بشرطة منطقة تبوك العقيد خالد الحربي: "تبين من التحقيقات الأولية أن الحادثة وقعت بالصدفة عندما كان الطبيب يحاول إطعام الأفعى التي كانت قد وصلت إليه قبل أيام قليلة، حيث انقضت عليه فجأة ولدغته في يده".</p>
+                    
+                    <p>وأضاف الحربي: "تم التحفظ على الأفعى وستتم إحالتها إلى الجهات المختصة. كما تم تحويل الواقعة إلى النيابة العامة للتحقيق في ملابسات الحادثة".</p>
+                    
+                    <p>من جانبه، نعى زملاء الطبيب في مستشفى القوات المسلحة بتبوك زميلهم الذي وصفوه بـ"الإنسان الطيب والمتميز في عمله". وقال أحد زملائه: "كان مثالاً للطبيب المتفاني في عمله، محبوباً من الجميع، وكان له دور كبير في إنقاذ حياة العديد من المرضى".</p>
+                    
+                    <p>يذكر أن الكوبرا العربية تعتبر من أخطر الأفاعي في المنطقة، حيث يمكن أن يؤدي سمها إلى الوفاة خلال ساعات إذا لم يتم تدارك الأمر بسرعة. وتنصح الجهات المختصة بعدم الاحتفاظ بهذه الأنواع من الزواحف في المنازل بسبب خطورتها الشديدة.</p>
                 </div>
-            </div>
-
-            <div class="news-item">
-                <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
-                <div class="news-content">
-                    <h3 class="news-title"><a href="#">اليمن على حافة كارثة إنسانية وبيئية بسبب تسرب النفط من السفينة صافر</a></h3>
-                    <div class="news-meta">
-                        <span>المصدر: الجزيرة</span>
-                        <span>1446 ص. 15 ش. يف 08:30</span>
-                    </div>
-                    <div class="news-meta">
-                        <span>عدد القراءات: 1,532</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
-                <div class="news-content">
-                    <h3 class="news-title"><a href="#">من مشارنجاري إلى مقننة النجوم: قصة نجاح الممثلة الشابة في هوليوود</a></h3>
-                    <div class="news-meta">
-                        <span>المصدر: الشرق الأوسط</span>
-                        <span>1446 ص. 15 ش. يف 07:15</span>
-                    </div>
-                    <div class="news-meta">
-                        <span>عدد القراءات: 2,104</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
-                <div class="news-content">
-                    <h3 class="news-title"><a href="#">إعصار قوي يضرب سواحل عمان ويتجه نحو الإمارات</a></h3>
-                    <div class="news-meta">
-                        <span>المصدر: الرؤية</span>
-                        <span>1446 ص. 15 ش. يف 06:50</span>
-                    </div>
-                    <div class="news-meta">
-                        <span>عدد القراءات: 3,421</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
-                <div class="news-content">
-                    <h3 class="news-title"><a href="#">اكتشاف أثري جديد في منطقة العلا يعود إلى حضارة الأنباط</a></h3>
-                    <div class="news-meta">
-                        <span>المصدر: الوطن</span>
-                        <span>1446 ص. 15 ش. يف 05:20</span>
-                    </div>
-                    <div class="news-meta">
-                        <span>عدد القراءات: 1,789</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <h2 class="section-title">الأكثر قراءة</h2>
-        <div class="news-container">
-            <div class="news-item">
-                <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
-                <div class="news-content">
-                    <h3 class="news-title"><a href="#">تحذيرات من موجة حر شديدة تضرب المنطقة الأسبوع القادم</a></h3>
-                    <div class="news-meta">
-                        <span>المصدر: اليوم</span>
-                        <span>1446 ص. 14 ش. يف 22:30</span>
-                    </div>
-                    <div class="news-meta">
-                        <span>عدد القراءات: 5,632</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
-                <div class="news-content">
-                    <h3 class="news-title"><a href="#">أسعار النفط ترتفع بنسبة 3% بعد قرار أوبك+ خفض الإنتاج</a></h3>
-                    <div class="news-meta">
-                        <span>المصدر: الاقتصادية</span>
-                        <span>1446 ص. 14 ش. يف 21:15</span>
-                    </div>
-                    <div class="news-meta">
-                        <span>عدد القراءات: 4,987</span>
-                    </div>
+                
+                <a href="#" class="back-to-home" onclick="showMainPage()">العودة إلى الرئيسية</a>
+                
+                <div class="related-news">
+                    <h3 class="related-title">أخبار ذات صلة</h3>
+                    <ul class="related-list">
+                        <li><a href="#" onclick="showArticle('article9')">تحذيرات من انتشار الأفاعي السامة في المنازل مع ارتفاع الحرارة</a></li>
+                        <li><a href="#" onclick="showArticle('article10')">وفاة شاب بعد تعرضه لعضة كلب مسعور في الرياض</a></li>
+                        <li><a href="#" onclick="showArticle('article11')">خبير زواحف يحذر من تربية الحيوانات المفترسة في المنازل</a></li>
+                        <li><a href="#" onclick="showArticle('article12')">إنقاذ طفل من لدغة عقرب في منطقة عسير</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -258,5 +381,29 @@
             <p>آخر تحديث: 1446 ص. 15 ش. يف 10:29</p>
         </div>
     </div>
+
+    <script>
+        // Show main page and hide article page
+        function showMainPage() {
+            document.getElementById('mainPage').style.display = 'block';
+            document.getElementById('articlePage').style.display = 'none';
+            window.scrollTo(0, 0);
+            return false;
+        }
+        
+        // Show article page and hide main page
+        function showArticle(articleId) {
+            document.getElementById('mainPage').style.display = 'none';
+            document.getElementById('articlePage').style.display = 'block';
+            window.scrollTo(0, 0);
+            
+            // Here you would typically load different articles based on the articleId
+            // For now we're just showing the same article for all links
+            return false;
+        }
+        
+        // Initialize by showing main page
+        showMainPage();
+    </script>
 </body>
 </html>
