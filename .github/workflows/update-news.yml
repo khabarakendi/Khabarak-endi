@@ -2,8 +2,8 @@ name: Update News Automatically
 
 on:
   schedule:
-    - cron: '0 */4 * * *'  # Runs every 4 hours
-  workflow_dispatch:  # Allows manual triggering
+    - cron: '*/5 * * * *'  # Runs every 5 minutes
+  workflow_dispatch:  # Still allows manual triggering
 
 jobs:
   scrape-news:
@@ -30,5 +30,5 @@ jobs:
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
         git add data/news.json
-        git commit -m "Auto-update news [skip ci]"
+        git commit -m "Auto-update news [skip ci]" || echo "No changes to commit"
         git push
