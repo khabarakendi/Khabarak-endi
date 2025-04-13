@@ -60,6 +60,46 @@
         main {
             margin-bottom: 50px;
         }
+        
+        /* Updated Article Viewer Header */
+        .article-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+        }
+        .article-logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .article-logo .red {
+            color: #e74c3c;
+        }
+        .article-logo .green {
+            color: #27ae60;
+        }
+        .back-button {
+            background: none;
+            border: none;
+            color: #e74c3c;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+        .back-button span {
+            margin-right: 5px;
+        }
+        
+        /* News Meta Styles */
+        .article-source-time {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0 15px;
+        }
     </style>
 </head>
 <body>
@@ -120,10 +160,9 @@
 
     <!-- Article Viewer -->
     <div class="article-viewer" id="article-viewer">
-        <button class="return-main-btn" onclick="closeArticle()">العودة إلى الصفحة الرئيسية</button>
         <div class="article-header">
             <button class="back-button" onclick="closeArticle()">
-                <span>← العودة إلى الرئيسية</span>
+                <span>← العودة إلى الصفحة الرئيسية</span>
             </button>
             <div class="article-logo">
                 <span class="red">خبرك</span>
@@ -190,11 +229,26 @@
         }
 
         // Article Viewer Functions
-        function viewArticle(url) {
+        function viewArticle(url, title, source, time) {
             document.getElementById('article-frame').src = url;
             document.getElementById('article-viewer').style.display = 'block';
             document.body.style.overflow = 'hidden';
             window.scrollTo(0, 0);
+            
+            // Update article header with source and time
+            const articleHeader = document.querySelector('.article-header');
+            const sourceTimeElement = document.createElement('div');
+            sourceTimeElement.className = 'article-source-time';
+            sourceTimeElement.textContent = `${source} - ${time}`;
+            
+            // Remove existing source-time if it exists
+            const existingSourceTime = articleHeader.querySelector('.article-source-time');
+            if (existingSourceTime) {
+                articleHeader.removeChild(existingSourceTime);
+            }
+            
+            // Insert after title
+            articleHeader.insertBefore(sourceTimeElement, articleHeader.children[1]);
         }
 
         function closeArticle() {
@@ -210,7 +264,7 @@
             }
         });
 
-        // Breaking News Ticker Update - Now shows latest 3 articles from main page
+        // Breaking News Ticker Update - Shows latest 3 articles from main page
         function updateBreakingNews() {
             const newsContainer = document.getElementById('news-container');
             const articles = newsContainer.querySelectorAll('.news-article');
@@ -276,7 +330,7 @@
             }
         });
 
-        // Additional News Loading from JSON
+        // Additional News Loading from JSON (Updated with 150 articles)
         fetch('data/news.json')
             .then(response => response.json())
             .then(news => {
@@ -289,14 +343,29 @@
                 // Sort articles by date (newest first)
                 const sortedArticles = news.articles.sort((a, b) => {
                     return new Date(b.date) - new Date(a.date);
-                });
+                }).slice(0, 150); // Limit to 150 articles
                 
                 // Add news articles
                 sortedArticles.forEach(item => {
                     const article = document.createElement('div');
                     article.className = 'news-article';
+                    
+                    // Format time as "قبل X ساعة و Y دقيقة"
+                    const articleDate = new Date(item.date);
+                    const now = new Date();
+                    const diffMinutes = Math.floor((now - articleDate) / (1000 * 60));
+                    const hours = Math.floor(diffMinutes / 60);
+                    const minutes = diffMinutes % 60;
+                    const timeAgo = hours > 0 ? 
+                        `قبل ${hours} ساعة و ${minutes} دقيقة` : 
+                        `قبل ${minutes} دقيقة`;
+                    
                     article.innerHTML = `
-                        <h2 onclick="viewArticle('${item.url}')">${item.title}</h2>
+                        <h2 onclick="viewArticle('${item.url}', '${item.title.replace(/'/g, "\\'")}', '${item.source}', '${timeAgo}')">${item.title}</h2>
+                        <div class="article-meta">
+                            <span class="source">${item.source}</span>
+                            <span class="time">${timeAgo}</span>
+                        </div>
                         <p>${item.summary}</p>
                         <div class="article-meta">
                             <span class="category ${item.category}">${item.category}</span>
@@ -310,7 +379,7 @@
                 document.getElementById('last-updated').textContent = 
                     new Date().toLocaleTimeString('ar-EG');
                 
-                // Update breaking news ticker
+                // Update breaking news ticker with latest 3 articles
                 updateBreakingNews();
             })
             .catch(error => {
