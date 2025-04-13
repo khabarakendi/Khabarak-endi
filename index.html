@@ -1,450 +1,323 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html dir="rtl" lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خبرك عندي - الأخبار اليمنية المحلية</title>
+    <title>خبرك عندي - Yemen News</title>
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        .header {
-            background-color: #fff;
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        /* Enhanced Breaking News Ticker Styles */
+        .breaking-news-container {
             position: sticky;
-            top: 0;
-            z-index: 100;
+            bottom: 0;
+            z-index: 1000;
+            background-color: #e74c3c;
         }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-bottom: 50px; /* Space for breaking news ticker */
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #d82a2a;
-            text-decoration: none;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            border-top: 1px solid #eee;
-            padding-top: 10px;
-        }
-        .nav-menu li {
-            margin-left: 20px;
-        }
-        .nav-menu li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
-        .nav-menu li a:hover {
-            color: #d82a2a;
-        }
-        
-        /* Main Page Styles */
-        .main-page {
-            display: block;
-        }
-        .breaking-news {
-            background-color: #d82a2a;
+        .breaking-news-ticker {
             color: white;
             padding: 10px;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
+            overflow: hidden;
+            position: relative;
             font-weight: bold;
         }
-        .breaking-news a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
+        .ticker-label {
+            display: inline-block;
+            background: #c0392b;
+            padding: 3px 10px;
+            margin-left: 15px;
+            border-radius: 3px;
+            position: absolute;
+            z-index: 2;
         }
-        .breaking-news a:hover {
+        .ticker-content {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 120px;
+            animation: ticker 25s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        .ticker-item {
+            display: inline-block;
+            padding: 0 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .ticker-item:hover {
+            color: #ffcc00;
             text-decoration: underline;
         }
-        .section-title {
-            border-right: 3px solid #d82a2a;
-            padding-right: 10px;
-            margin: 20px 0;
-        }
-        .news-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .news-item {
-            background-color: #fff;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        .news-item:hover {
-            transform: translateY(-5px);
-        }
-        .news-image {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-        .news-content {
-            padding: 15px;
-        }
-        .news-title {
-            font-size: 18px;
-            margin: 0 0 10px 0;
-            color: #222;
-        }
-        .news-title a {
-            text-decoration: none;
-            color: inherit;
-        }
-        .news-meta {
-            font-size: 12px;
-            color: #666;
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        /* Article Page Styles */
-        .article-page {
-            display: none;
-        }
-        .article-container {
-            background-color: #fff;
+        .special-news-footer {
+            background: #f8f9fa;
             padding: 20px;
             margin: 20px 0;
             border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
         }
-        .article-title {
-            font-size: 24px;
-            color: #222;
-            margin-bottom: 10px;
-        }
-        .article-meta {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-        }
-        .article-image {
-            width: 100%;
-            max-height: 500px;
-            object-fit: cover;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-        .article-content {
-            line-height: 1.8;
-            font-size: 16px;
-        }
-        .article-content p {
-            margin-bottom: 20px;
-        }
-        .back-to-home {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 8px 15px;
-            background-color: #d82a2a;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .back-to-home:hover {
-            background-color: #b82222;
-        }
-        .related-news {
-            margin-top: 30px;
-        }
-        .related-title {
-            border-right: 3px solid #d82a2a;
-            padding-right: 10px;
-        }
-        .related-list {
-            list-style: none;
-            padding: 0;
-        }
-        .related-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-        }
-        .related-list li a {
-            text-decoration: none;
-            color: #333;
-        }
-        .related-list li a:hover {
-            color: #d82a2a;
-        }
-        
-        .footer {
-            background-color: #222;
-            color: #fff;
-            padding: 20px 0;
-            margin-top: 30px;
-            text-align: center;
+        main {
+            margin-bottom: 50px;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="container">
-            <a href="#" class="logo" onclick="showMainPage()">خبرك عندي</a>
-            <ul class="nav-menu">
-                <li><a href="#" onclick="showMainPage()">الرئيسية</a></li>
-                <li><a href="#">أخبار العاصمة</a></li>
-                <li><a href="#">أخبار الجنوب</a></li>
-                <li><a href="#">أخبار الشمال</a></li>
-                <li><a href="#">أخبار الحديدة</a></li>
-                <li><a href="#">أخبار تعز</a></li>
-                <li><a href="#">أخبار مأرب</a></li>
+    <!-- Header Section -->
+    <header id="site-header">
+        <div class="header-top">
+            <div class="logo-container">
+                <div class="logo">
+                    <span class="red">خبرك</span>
+                    <span class="green">عندي</span>
+                </div>
+                <div class="datetime" id="current-datetime">
+                    <i class="icon-clock"></i> جاري التحميل...
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="categories">
+            <ul>
+                <li><a href="#" class="active" data-category="all">الرئيسية</a></li>
+                <li><a href="#" data-category="local">محلية</a></li>
+                <li><a href="#" data-category="international">دولية</a></li>
+                <li><a href="#" data-category="sports">رياضة</a></li>
+                <li><a href="#" data-category="economic">اقتصادية</a></li>
+                <li><a href="private.html" data-category="private">خاصة</a></li>
             </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <div class="news-filters">
+            <input type="text" id="news-search" placeholder="ابحث في الأخبار...">
+            <select id="news-sort">
+                <option value="newest">الأحدث أولاً</option>
+                <option value="oldest">الأقدم أولاً</option>
+            </select>
         </div>
+        
+        <div class="news-container" id="news-container">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>جاري تحميل الأخبار اليمنية...</p>
+            </div>
+        </div>
+        
+        <div class="pagination" id="pagination">
+            <button class="prev" disabled>السابق</button>
+            <div class="pages" id="page-numbers"></div>
+            <button class="next">التالي</button>
+        </div>
+        
+        <div class="load-more-container">
+            <button id="load-more" class="load-more-btn">عرض المزيد من الأخبار</button>
+        </div>
+    </main>
+
+    <!-- Article Viewer -->
+    <div class="article-viewer" id="article-viewer">
+        <button class="return-main-btn" onclick="closeArticle()">العودة إلى الصفحة الرئيسية</button>
+        <div class="article-header">
+            <button class="back-button" onclick="closeArticle()">
+                <span>← العودة إلى الرئيسية</span>
+            </button>
+            <div class="article-logo">
+                <span class="red">خبرك</span>
+                <span class="green">عندي</span>
+            </div>
+        </div>
+        <iframe id="article-frame" src=""></iframe>
     </div>
 
-    <div class="container">
-        <!-- Main Page Content -->
-        <div class="main-page" id="mainPage">
-            <h2 class="section-title">أهم الأخبار اليمنية</h2>
-            <div class="news-container">
-                <div class="news-item">
-                    <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
-                    <div class="news-content">
-                        <h3 class="news-title"><a href="#" onclick="showArticle('article1')">انفجار عبوة ناسفة في شارع الزبيري بالعاصمة صنعاء</a></h3>
-                        <div class="news-meta">
-                            <span>المصدر: الموقع بوست</span>
-                            <span>1446 ص. 15 ش. يف 10:01</span>
-                        </div>
-                        <div class="news-meta">
-                            <span>عدد القراءات: 1,245</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
-                    <div class="news-content">
-                        <h3 class="news-title"><a href="#" onclick="showArticle('article2')">أزمة وقود حادة تعود إلى محطات تعز بعد توقف صهاريج النفط</a></h3>
-                        <div class="news-meta">
-                            <span>المصدر: يمن مونيتور</span>
-                            <span>1446 ص. 15 ش. يف 09:45</span>
-                        </div>
-                        <div class="news-meta">
-                            <span>عدد القراءات: 892</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
-                    <div class="news-content">
-                        <h3 class="news-title"><a href="#" onclick="showArticle('article3')">إغلاق 12 مستودع أدوية مغشوشة في الحديدة</a></h3>
-                        <div class="news-meta">
-                            <span>المصدر: المصدر أونلاين</span>
-                            <span>1446 ص. 15 ش. يف 08:30</span>
-                        </div>
-                        <div class="news-meta">
-                            <span>عدد القراءات: 1,532</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
-                    <div class="news-content">
-                        <h3 class="news-title"><a href="#" onclick="showArticle('article4')">إصابة 5 مدنيين في قصف للحوثيين على أطراف مأرب</a></h3>
-                        <div class="news-meta">
-                            <span>المصدر: المشهد اليمني</span>
-                            <span>1446 ص. 15 ش. يف 07:15</span>
-                        </div>
-                        <div class="news-meta">
-                            <span>عدد القراءات: 2,104</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
-                    <div class="news-content">
-                        <h3 class="news-title"><a href="#" onclick="showArticle('article5')">انقطاع الكهرباء عن عدن لأكثر من 20 ساعة متواصلة</a></h3>
-                        <div class="news-meta">
-                            <span>المصدر: عدن الغد</span>
-                            <span>1446 ص. 15 ش. يف 06:50</span>
-                        </div>
-                        <div class="news-meta">
-                            <span>عدد القراءات: 3,421</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
-                    <div class="news-content">
-                        <h3 class="news-title"><a href="#" onclick="showArticle('article6')">تدشين حملة تطعيم ضد شلل الأطفال في 12 محافظة يمنية</a></h3>
-                        <div class="news-meta">
-                            <span>المصدر: سبأ نت</span>
-                            <span>1446 ص. 15 ش. يف 05:20</span>
-                        </div>
-                        <div class="news-meta">
-                            <span>عدد القراءات: 1,789</span>
-                        </div>
-                    </div>
+    <!-- Special News Section (Moved to Footer) -->
+    <footer id="site-footer">
+        <div class="footer-content">
+            <div class="special-news-footer">
+                <h2>أخبار خاصة</h2>
+                <div class="special-news-item">
+                    <h3>أهم الأخبار</h3>
+                    <p>يمكنك تعديل هذا الخبر يدوياً في ملف HTML</p>
                 </div>
             </div>
-
-            <h2 class="section-title">الأكثر قراءة</h2>
-            <div class="news-container">
-                <div class="news-item">
-                    <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
-                    <div class="news-content">
-                        <h3 class="news-title"><a href="#" onclick="showArticle('article7')">انهيار جزئي لسور مدرسة بنات في إب بسبب الأمطار</a></h3>
-                        <div class="news-meta">
-                            <span>المصدر: يمن شباب</span>
-                            <span>1446 ص. 14 ش. يف 22:30</span>
-                        </div>
-                        <div class="news-meta">
-                            <span>عدد القراءات: 5,632</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="news-item">
-                    <img src="https://via.placeholder.com/300x180" alt="News Image" class="news-image">
-                    <div class="news-content">
-                        <h3 class="news-title"><a href="#" onclick="showArticle('article8')">ارتفاع أسعار المواد الغذائية بنسبة 30% في أسواق صنعاء</a></h3>
-                        <div class="news-meta">
-                            <span>المصدر: الاقتصادي اليمني</span>
-                            <span>1446 ص. 14 ش. يف 21:15</span>
-                        </div>
-                        <div class="news-meta">
-                            <span>عدد القراءات: 4,987</span>
-                        </div>
-                    </div>
-                </div>
+            
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة © <span id="current-year">2023</span> موقع خبرك عندي</p>
+                <p>آخر تحديث: <span id="last-updated">جاري التحميل...</span></p>
             </div>
         </div>
+    </footer>
 
-        <!-- Article Content (hidden by default) -->
-        <div class="article-page" id="articlePage">
-            <div class="article-container">
-                <h1 class="article-title" id="articleTitle">انفجار عبوة ناسفة في شارع الزبيري بالعاصمة صنعاء</h1>
-                <div class="article-meta">
-                    <span id="articleSource">المصدر: الموقع بوست</span>
-                    <span id="articleDate">1446 ص. 15 ش. يف 10:01</span>
-                    <span id="articleViews">عدد القراءات: 1,245</span>
-                </div>
-                <img src="https://via.placeholder.com/800x450" alt="Article Image" class="article-image" id="articleImage">
-                <div class="article-content" id="articleContent">
-                    <p>تعرض شارع الزبيري في العاصمة اليمنية صنعاء مساء اليوم لانفجار عبوة ناسفة كانت مزروعة على جانب الطريق، مما أدى إلى إلحاق أضرار مادية بعدد من المركبات دون وقوع إصابات بشرية.</p>
-                    
-                    <p>وقال مصدر أمني لـ"الموقع بوست" إن العبوة الناسفة انفجرت عند مرور موكب حوثي في المنطقة، مشيراً إلى أن الانفجار وقع في منطقة مزدحمة بالقرب من سوق شعبي لكنه لم يسفر عن سقوط ضحايا.</p>
-                    
-                    <p>وأضاف المصدر أن قوات الأمن التابعة للحوثيين حضرت إلى موقع الانفجار وأغلقت الشارع أمام حركة المرور، كما قامت بنقل الشظايا والمتفجرات إلى جهة غير معروفة.</p>
-                    
-                    <p>من جهته، اتهم المتحدث الرسمي للحوثيين الانفجار بـ"خلايا التكفيريين المدعومة من تحالف العدوان"، دون أن يقدم أي أدلة على ذلك. كما هدد بـ"رد قاس" على ما وصفه بـ"أعمال الإرهاب".</p>
-                    
-                    <p>يذكر أن هذا الحادث هو الثالث من نوعه خلال أسبوع في العاصمة صنعاء، حيث شهدت المدينة انفجارين مماثلين في منطقتي الروضة والسبعين، مما يثير مخاوف السكان من تصاعد العمليات الأمنية في المدينة.</p>
-                    
-                    <p>ويأتي هذا الانفجار في وقت تشهد فيه العاصمة صنعاء توتراً أمنياً متصاعداً، مع تزايد عمليات الاغتيال والتفجيرات التي تستهدف مسؤولين حوثيين وقواتهم الأمنية.</p>
-                    
-                    <p>وحذر نشطاء على مواقع التواصل الاجتماعي من احتمالية أن تكون هذه الحوادث مقدمة لموجة عنف جديدة في المدينة، داعيين السكان إلى توخي الحذر وتجنب التجمعات بالقرب من المنشآت الحكومية والمواكب الرسمية.</p>
-                </div>
-                
-                <a href="#" class="back-to-home" onclick="showMainPage()">العودة إلى الرئيسية</a>
-                
-                <div class="related-news">
-                    <h3 class="related-title">أخبار ذات صلة</h3>
-                    <ul class="related-list">
-                        <li><a href="#" onclick="showArticle('article9')">الحوثيون يشنون حملة اعتقالات في صنعاء بعد تفجير الزبيري</a></li>
-                        <li><a href="#" onclick="showArticle('article10')">استنفار أمني غير مسبوق في شوارع العاصمة صنعاء</a></li>
-                        <li><a href="#" onclick="showArticle('article11')">خبير أمني يحذر من تصاعد العمليات الانتحارية في المدن اليمنية</a></li>
-                        <li><a href="#" onclick="showArticle('article12')">تقرير: 42 عملية تفجيرية في صنعاء خلال 6 أشهر</a></li>
-                    </ul>
-                </div>
+    <!-- Breaking News Ticker - Now at bottom of screen -->
+    <div class="breaking-news-container">
+        <div class="breaking-news-ticker">
+            <div class="ticker-label">أخبار عاجلة:</div>
+            <div class="ticker-content" id="breaking-news-ticker">
+                <span class="ticker-item">جاري تحميل آخر الأخبار...</span>
             </div>
         </div>
     </div>
 
-    <!-- Breaking News Ticker -->
-    <div class="breaking-news">
-        <div class="breaking-news-content">
-            <a href="#" onclick="showArticle('breaking1')">عاجل: انفجار عنيف يهز منطقة دار سعد في عدن</a> | 
-            <a href="#" onclick="showArticle('breaking2')">الحكومة اليمنية تعلن عن إجراءات جديدة لمواجهة ارتفاع الأسعار</a> | 
-            <a href="#" onclick="showArticle('breaking3')">مصادر: مفاوضات غير مباشرة بين الحوثيين والتحالف في مسقط</a> | 
-            <a href="#" onclick="showArticle('breaking4')">إعصار مكونو يتجه نحو سقطرى وتحذيرات من أمطار غزيرة</a>
-        </div>
-    </div>
+    <!-- JavaScript Files -->
+    <script src="js/utils.js"></script>
+    <script src="js/news-loader.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/pagination.js"></script>
 
-    <div class="footer">
-        <div class="container">
-            <p>© 2025 خبرك عندي - شبكة الأخبار اليمنية. جميع الحقوق محفوظة.</p>
-            <p>آخر تحديث: 1446 ص. 15 ش. يف 10:29</p>
-        </div>
-    </div>
-
+    <!-- Main Script -->
     <script>
-        // Show main page and hide article page
-        function showMainPage() {
-            document.getElementById('mainPage').style.display = 'block';
-            document.getElementById('articlePage').style.display = 'none';
+        // Current Date and Time
+        function updateDateTime() {
+            const now = new Date();
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            };
+            const dateStr = now.toLocaleDateString('ar-EG', options)
+                .replace(/،/g, ' - ')
+                .replace(/ص/g, 'ص')
+                .replace(/م/g, 'م');
+
+            document.getElementById('current-datetime').innerHTML = 
+                `<i class="icon-clock"></i> ${dateStr}`;
+        }
+
+        // Article Viewer Functions
+        function viewArticle(url) {
+            document.getElementById('article-frame').src = url;
+            document.getElementById('article-viewer').style.display = 'block';
+            document.body.style.overflow = 'hidden';
             window.scrollTo(0, 0);
-            return false;
         }
-        
-        // Show article page and hide main page
-        function showArticle(articleId) {
-            document.getElementById('mainPage').style.display = 'none';
-            document.getElementById('articlePage').style.display = 'block';
-            window.scrollTo(0, 0);
-            
-            // Here you would typically load different articles based on the articleId
-            // For now we're just showing the same article for all links
-            return false;
+
+        function closeArticle() {
+            document.getElementById('article-viewer').style.display = 'none';
+            document.getElementById('article-frame').src = '';
+            document.body.style.overflow = 'auto';
         }
-        
-        // Initialize by showing main page
-        showMainPage();
-        
-        // Function to rotate breaking news (optional)
-        function rotateBreakingNews() {
-            const breakingNews = [
-                {title: "عاجل: انفجار عنيف يهز منطقة دار سعد في عدن", id: "breaking1"},
-                {title: "الحكومة اليمنية تعلن عن إجراءات جديدة لمواجهة ارتفاع الأسعار", id: "breaking2"},
-                {title: "مصادر: مفاوضات غير مباشرة بين الحوثيين والتحالف في مسقط", id: "breaking3"},
-                {title: "إعصار مكونو يتجه نحو سقطرى وتحذيرات من أمطار غزيرة", id: "breaking4"}
-            ];
+
+        // Load More News Button
+        document.getElementById('load-more').addEventListener('click', function() {
+            if (typeof loadMoreNews === 'function') {
+                loadMoreNews();
+            }
+        });
+
+        // Breaking News Ticker Update - Now shows latest 3 articles from main page
+        function updateBreakingNews() {
+            const newsContainer = document.getElementById('news-container');
+            const articles = newsContainer.querySelectorAll('.news-article');
             
-            let current = 0;
-            const ticker = document.querySelector('.breaking-news-content');
-            
-            setInterval(() => {
-                current = (current + 1) % breakingNews.length;
-                const news = breakingNews[current];
-                ticker.innerHTML = `<a href="#" onclick="showArticle('${news.id}')">${news.title}</a>`;
-            }, 5000);
+            if (articles.length >= 3) {
+                const latestArticles = Array.from(articles).slice(0, 3);
+                const tickerContent = latestArticles.map(article => {
+                    const title = article.querySelector('h2').textContent;
+                    const url = article.querySelector('h2').getAttribute('onclick').match(/'([^']+)'/)[1];
+                    return `<span class="ticker-item" onclick="viewArticle('${url}')">• ${title} •</span>`;
+                }).join('');
+
+                document.getElementById('breaking-news-ticker').innerHTML = tickerContent;
+                
+                // Restart animation
+                const ticker = document.getElementById('breaking-news-ticker');
+                ticker.style.animation = 'none';
+                void ticker.offsetWidth;
+                ticker.style.animation = 'ticker 25s linear infinite';
+            } else {
+                document.getElementById('breaking-news-ticker').innerHTML = 
+                    '<span class="ticker-item">جاري تحميل آخر الأخبار...</span>';
+            }
         }
-        
-        // Start rotating breaking news
-        rotateBreakingNews();
+
+        // News Search Functionality
+        document.getElementById('news-search').addEventListener('input', function(e) {
+            if (typeof filterNews === 'function') {
+                filterNews(e.target.value);
+            }
+        });
+
+        // Sort News Functionality
+        document.getElementById('news-sort').addEventListener('change', function(e) {
+            if (typeof sortNews === 'function') {
+                sortNews(e.target.value);
+            }
+        });
+
+        // Initialize Page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Initial date/time update
+            updateDateTime();
+            
+            // Load initial news
+            if (typeof loadNews === 'function') {
+                loadNews().then(() => {
+                    // Update breaking news after main news loads
+                    updateBreakingNews();
+                });
+            }
+            
+            // Set intervals for updates
+            setInterval(updateDateTime, 60000);
+            setInterval(updateBreakingNews, 300000); // Update breaking news every 5 minutes
+            
+            // Initialize pagination
+            if (typeof initPagination === 'function') {
+                initPagination();
+            }
+        });
+
+        // Additional News Loading from JSON
+        fetch('data/news.json')
+            .then(response => response.json())
+            .then(news => {
+                const newsContainer = document.getElementById('news-container');
+                const breakingNewsBar = document.getElementById('breaking-news-ticker');
+                
+                // Clear loading indicator
+                newsContainer.innerHTML = '';
+                
+                // Sort articles by date (newest first)
+                const sortedArticles = news.articles.sort((a, b) => {
+                    return new Date(b.date) - new Date(a.date);
+                });
+                
+                // Add news articles
+                sortedArticles.forEach(item => {
+                    const article = document.createElement('div');
+                    article.className = 'news-article';
+                    article.innerHTML = `
+                        <h2 onclick="viewArticle('${item.url}')">${item.title}</h2>
+                        <p>${item.summary}</p>
+                        <div class="article-meta">
+                            <span class="category ${item.category}">${item.category}</span>
+                            <span class="date">${item.date}</span>
+                        </div>
+                    `;
+                    newsContainer.appendChild(article);
+                });
+                
+                // Update last updated time
+                document.getElementById('last-updated').textContent = 
+                    new Date().toLocaleTimeString('ar-EG');
+                
+                // Update breaking news ticker
+                updateBreakingNews();
+            })
+            .catch(error => {
+                console.error('Error loading news:', error);
+                document.getElementById('news-container').innerHTML = 
+                    '<p class="error">حدث خطأ أثناء تحميل الأخبار. يرجى المحاولة لاحقاً.</p>';
+            });
     </script>
 </body>
 </html>
