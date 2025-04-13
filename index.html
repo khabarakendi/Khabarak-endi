@@ -60,6 +60,12 @@
         main {
             margin-bottom: 50px;
         }
+        .error-message {
+            color: #e74c3c;
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -263,6 +269,10 @@
                 loadNews().then(() => {
                     // Update breaking news after main news loads
                     updateBreakingNews();
+                }).catch(error => {
+                    console.error('Error loading news:', error);
+                    document.getElementById('news-container').innerHTML = 
+                        '<p class="error-message">حدث خطأ أثناء تحميل الأخبار. يرجى المحاولة لاحقاً.</p>';
                 });
             }
             
@@ -274,50 +284,72 @@
             if (typeof initPagination === 'function') {
                 initPagination();
             }
+
+            // Load news from JSON with error handling
+            loadNewsFromJSON();
         });
 
-        // Additional News Loading from JSON
-        fetch('data/news.json')
-            .then(response => response.json())
-            .then(news => {
-                const newsContainer = document.getElementById('news-container');
-                const breakingNewsBar = document.getElementById('breaking-news-ticker');
-                
-                // Clear loading indicator
-                newsContainer.innerHTML = '';
-                
-                // Sort articles by date (newest first)
-                const sortedArticles = news.articles.sort((a, b) => {
-                    return new Date(b.date) - new Date(a.date);
+        // Improved News Loading from JSON with better error handling
+        function loadNewsFromJSON() {
+            fetch('data/news.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(news => {
+                    const newsContainer = document.getElementById('news-container');
+                    
+                    // Clear loading indicator
+                    newsContainer.innerHTML = '';
+                    
+                    // Check if news data is valid
+                    if (!news || !news.articles || !Array.isArray(news.articles)) {
+                        throw new Error('Invalid news data format');
+                    }
+                    
+                    // Sort articles by date (newest first)
+                    const sortedArticles = news.articles.sort((a, b) => {
+                        return new Date(b.date) - new Date(a.date);
+                    });
+                    
+                    // Add news articles
+                    sortedArticles.forEach(item => {
+                        const article = document.createElement('div');
+                        article.className = 'news-article';
+                        article.innerHTML = `
+                            <h2 onclick="viewArticle('${item.url}')">${item.title}</h2>
+                            <p>${item.summary}</p>
+                            <div class="article-meta">
+                                <span class="category ${item.category}">${item.category}</span>
+                                <span class="date">${item.date}</span>
+                            </div>
+                        `;
+                        newsContainer.appendChild(article);
+                    });
+                    
+                    // Update last updated time
+                    document.getElementById('last-updated').textContent = 
+                        new Date().toLocaleTimeString('ar-EG');
+                    
+                    // Update breaking news ticker
+                    updateBreakingNews();
+                })
+                .catch(error => {
+                    console.error('Error loading news:', error);
+                    document.getElementById('news-container').innerHTML = 
+                        '<p class="error-message">حدث خطأ أثناء تحميل الأخبار. يرجى المحاولة لاحقاً.</p>';
+                    
+                    // Create a retry button
+                    const retryButton = document.createElement('button');
+                    retryButton.textContent = 'إعادة المحاولة';
+                    retryButton.className = 'load-more-btn';
+                    retryButton.onclick = loadNewsFromJSON;
+                    
+                    document.getElementById('news-container').appendChild(retryButton);
                 });
-                
-                // Add news articles
-                sortedArticles.forEach(item => {
-                    const article = document.createElement('div');
-                    article.className = 'news-article';
-                    article.innerHTML = `
-                        <h2 onclick="viewArticle('${item.url}')">${item.title}</h2>
-                        <p>${item.summary}</p>
-                        <div class="article-meta">
-                            <span class="category ${item.category}">${item.category}</span>
-                            <span class="date">${item.date}</span>
-                        </div>
-                    `;
-                    newsContainer.appendChild(article);
-                });
-                
-                // Update last updated time
-                document.getElementById('last-updated').textContent = 
-                    new Date().toLocaleTimeString('ar-EG');
-                
-                // Update breaking news ticker
-                updateBreakingNews();
-            })
-            .catch(error => {
-                console.error('Error loading news:', error);
-                document.getElementById('news-container').innerHTML = 
-                    '<p class="error">حدث خطأ أثناء تحميل الأخبار. يرجى المحاولة لاحقاً.</p>';
-            });
+        }
     </script>
 </body>
 </html>
