@@ -212,18 +212,29 @@
 
         // Breaking News Ticker Update - Now shows latest 3 articles from main page
         function updateBreakingNews() {
-            const articles = document.querySelectorAll('.news-article');
-	    if (articles.length >= 3) {
-	        const latestArticles = Array.from(articles).slice(0, 3);
-	        const tickerContent = latestArticles.map(article => {
- 	            const title = article.querySelector('h2').textContent;
+            const newsContainer = document.getElementById('news-container');
+            const articles = newsContainer.querySelectorAll('.news-article');
+            
+            if (articles.length >= 3) {
+                const latestArticles = Array.from(articles).slice(0, 3);
+                const tickerContent = latestArticles.map(article => {
+                    const title = article.querySelector('h2').textContent;
                     const url = article.querySelector('h2').getAttribute('onclick').match(/'([^']+)'/)[1];
-	            return `<span class="ticker-item" onclick="viewArticle('${url}')">• ${title} •</span>`;
+                    return `<span class="ticker-item" onclick="viewArticle('${url}')">• ${title} •</span>`;
                 }).join('');
-                		document.getElementById('breaking-news-ticker').innerHTML = tickerContent;
 
-           }
-       }
+                document.getElementById('breaking-news-ticker').innerHTML = tickerContent;
+                
+                // Restart animation
+                const ticker = document.getElementById('breaking-news-ticker');
+                ticker.style.animation = 'none';
+                void ticker.offsetWidth;
+                ticker.style.animation = 'ticker 25s linear infinite';
+            } else {
+                document.getElementById('breaking-news-ticker').innerHTML = 
+                    '<span class="ticker-item">جاري تحميل آخر الأخبار...</span>';
+            }
+        }
 
         // News Search Functionality
         document.getElementById('news-search').addEventListener('input', function(e) {
@@ -281,7 +292,7 @@
                 });
                 
                 // Add news articles
-                sortedArticles.slice(0, 150).forEach(item => {
+                sortedArticles.forEach(item => {
                     const article = document.createElement('div');
                     article.className = 'news-article';
                     article.innerHTML = `
