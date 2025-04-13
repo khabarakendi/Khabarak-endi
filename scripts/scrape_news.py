@@ -136,6 +136,6 @@ def main():
     # Limit to 150 articles
     final_articles = unique_articles[:150]
 
-    with open('data/news.json', 'w', encoding='utf-8')
+    with open('data/news.json', 'w', encoding='utf-8'):
 ::contentReference[oaicite:4]{index=4}
  
