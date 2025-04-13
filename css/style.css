@@ -260,3 +260,13 @@ body {
         margin-bottom: 10px;
     }
 }
+body, html {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 100%;
+    max-width: 100%;
+    padding: 15px;
+}
