@@ -76,9 +76,9 @@ body {
 /* ================ */
 /* DATE/TIME STYLE */
 /* ================ */
-.datetime {
-    color: #ecf0f1;
-    font-size: 0.9rem;
+.time {
+    color: #666;
+    font-size: 0.9em;
 }
 
 #current-datetime {
@@ -89,8 +89,11 @@ body {
 /* NAVIGATION MENU */
 /* ================ */
 .categories {
-    background: #34495e;
-    padding: 0 20px;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    margin-top: 5px;
 }
 
 .categories ul {
@@ -99,7 +102,11 @@ body {
     margin: 0;
     padding: 0;
 }
-
+.category.local { background: #e6f3ff; color: #0066cc; }
+.category.international { background: #ffebee; color: #c62828; }
+.category.sports { background: #e8f5e9; color: #2e7d32; }
+.category.economic { background: #fff8e1; color: #f57f17; }
+.category.private { background: #f3e5f5; color: #6a1b9a; }
 .categories li {
     margin: 0;
 }
@@ -157,12 +164,12 @@ body {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
     cursor: pointer;
 }
 
 .news-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
