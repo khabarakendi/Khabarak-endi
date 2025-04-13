@@ -2,7 +2,7 @@ import feedparser
 import json
 from datetime import datetime
 
-# Yemeni RSS feeds
+# List of RSS feeds
 FEEDS = [
     "https://www.almashhad-alyemeni.com/feed",
     "https://yemennownews.com/feed",
@@ -22,24 +22,35 @@ FEEDS = [
     "https://sa24.co/",
     "https://www.awraqpress.net/portal/",
     "https://almethaq.net/news/"
-
 ]
 
 articles = []
 
 for feed_url in FEEDS:
-    feed = feedparser.parse(feed_url)
-    for entry in feed.entries[:50]:  # Get latest 50 per feed
-        articles.append({
-            "title": entry.title,
-            "url": entry.link,
-            "source": feed_url.split('//')[1].split('/')[0],
-            "date": datetime.utcnow().isoformat() + "Z"
-        })
+    try:
+        feed = feedparser.parse(feed_url)
+        source_name = feed.feed.get('title') or feed_url.split("//")[1].split("/")[0]
 
-# Save to JSON
-with open('data/news.json', 'w') as f:
-    json.dump({
-        "lastUpdated": datetime.utcnow().isoformat() + "Z",
-        "articles": articles
-    }, f, ensure_ascii=False)
+        for entry in feed.entries[:50]:  # Limit to 50 articles per source
+            pub_date = entry.get("published", datetime.utcnow().isoformat() + "Z")
+
+            articles.append({
+                "title": entry.get("title", "No Title"),
+                "url": entry.get("link", ""),
+                "source": source_name,
+                "date": pub_date
+            })
+
+    except Exception as e:
+        print(f"Failed to parse {feed_url}: {e}")
+
+# Save to JSON file
+output_data = {
+    "lastUpdated": datetime.utcnow().isoformat() + "Z",
+    "articles": articles
+}
+
+with open('data/news.json', 'w', encoding='utf-8') as f:
+    json.dump(output_data, f, ensure_ascii=False, indent=2)
+
+print("News data updated successfully.")
