@@ -5,7 +5,7 @@ function loadNews() {
             const container = document.getElementById('news-container');
             container.innerHTML = '';
 
-            const newsItems = data.articles.slice(0, 1000); // Load first 1000 articles
+            const newsItems = data.articles.slice(0, 150); // Load first 150 articles
 
             newsItems.forEach(article => {
                 const item = document.createElement('div');
