@@ -1,4 +1,5 @@
-name: Update Yemeni News
+name: Update Yemeni News  # Keeping one valid workflow name
+
 on:
   schedule:
     - cron: '*/5 * * * *'  # Runs every 5 minutes
@@ -13,7 +14,7 @@ jobs:
   update-news:
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    
+
     steps:
       # Step 1: Checkout with proper token
       - name: Checkout repository
@@ -46,9 +47,9 @@ jobs:
           import requests
           
           FEEDS = [
-              'https://www.almashhad-alyemeni.com/feed',
-              'https://yemennownews.com/feed',
-              'https://www.24-post.com/feed'
+              'http://www.bbc.co.uk/arabic/index.xml',
+              'https://www.aljazeera.com/xml/rss/all.xml',
+              'https://www.reutersagency.com/feed/?best-regions=Middle-East'
           ]
           
           def get_feed(url):
@@ -102,7 +103,7 @@ jobs:
           git add data/news.json
           git commit -m "Auto-update news [skip ci]"
           
-          # Push changes (force push if needed)
+          # Push changes (force push to override conflicts)
           git fetch origin
-          git rebase origin/main
-          git push origin HEAD:main
+          git rebase origin/main || git reset --hard HEAD
+          git push --force
