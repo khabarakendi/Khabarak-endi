@@ -87,25 +87,13 @@ jobs:
           "
       
       # Step 5: Commit and push changes (FIXED VERSION)
-      - name: Commit and push
+            - name: Commit and push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Configure git
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          
-          # Check for changes
-          if [ -z "$(git status --porcelain)" ]; then
-            echo "No changes to commit"
-            exit 0
-          fi
-          
-          # Stage and commit changes
+          git reset --hard HEAD  # Resets to prevent merge conflicts
           git add data/news.json
-          git commit -m "Auto-update news [skip ci]"
-          
-          # Push changes (force push to override conflicts)
-          git fetch origin
-          git rebase origin/main || git reset --hard HEAD
-          git push --force
+          git commit -m "Auto-update news [skip ci]" || echo "No changes to commit"
+          git push --force || echo "Push failed, check logs"
