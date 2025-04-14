@@ -48,7 +48,6 @@ jobs:
           
           # Define both RSS feeds and websites that need direct scraping
           SOURCES = [
-              {"name": "BBC Arabic", "url": "http://www.bbc.co.uk/arabic/index.xml", "type": "rss"},
               {"name": "Al Jazeera", "url": "https://www.aljazeera.com/xml/rss/all.xml", "type": "rss"},
               {"name": "Reuters", "url": "https://www.reutersagency.com/feed/?best-regions=Middle-East", "type": "rss"},
               {"name": "Crater Sky", "url": "https://crater-sky.net", "type": "web"},
