@@ -141,7 +141,7 @@ def main():
         print(f"{name.ljust(25)}: {status}")
     
     # Save results
-    with open('news.json', 'w', encoding='utf-8') as f:
+    with open('data/news.json', 'w', encoding='utf-8') as f:
         json.dump(all_articles, f, ensure_ascii=False, indent=2)
     print("\n💾 Results saved to news.json")
 
