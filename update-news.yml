@@ -38,7 +38,7 @@ jobs:
         run: mkdir -p data
       
       # Step 5: Run scraper
-      - name: Scrape Yemeni news
+      - name: Scrape news
         run: |
           echo '
           import feedparser
@@ -48,8 +48,8 @@ jobs:
           import requests
           
           FEEDS = [
-              "Otad News": "https://crater-sky.net/",
-              "Hamodi News": "https://sahaafa.net/",
+              "https://crater-sky.net/rss",
+              "https://sahaafa.net/rss"
           ]
           
           def get_feed(url):
@@ -65,12 +65,12 @@ jobs:
           for feed_url in FEEDS:
               feed = get_feed(feed_url)
               if feed and feed.entries:
-                  for entry in feed.entries[:10]:
+                  for entry in feed.entries[:10]:  # Limit to 10 articles per source
                       try:
                           articles.append({
                               "title": BeautifulSoup(entry.title, "html.parser").get_text(),
                               "url": entry.link,
-                              "source": feed_url.split("//")[1].split("/")[0],
+                              "source": feed_url,  # Correctly references the feed URL
                               "date": datetime.utcnow().isoformat() + "Z"
                           })
                       except Exception as e:
@@ -80,13 +80,13 @@ jobs:
           with open("data/news.json", "w", encoding="utf-8") as f:
               json.dump({
                   "lastUpdated": datetime.utcnow().isoformat() + "Z",
-                  "articles": articles[:150]
+                  "articles": articles
               }, f, ensure_ascii=False, indent=2)
           ' > scrape_news.py
           
           python scrape_news.py
       
-      # Step 6: Commit changes
+      # Step 6: Commit and push changes
       - name: Commit and push
         run: |
           git config --global user.name "GitHub Actions"
@@ -95,5 +95,3 @@ jobs:
           git add data/news.json
           git commit -m "Auto-update news [skip ci]" || echo "No changes to commit"
           git push --force || echo "Push failed, check logs"
-
-
