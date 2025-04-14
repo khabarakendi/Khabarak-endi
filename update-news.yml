@@ -53,7 +53,7 @@ jobs:
               {"name": "Al Jazeera", "url": "https://www.aljazeera.com/xml/rss/all.xml", "type": "rss"},
               {"name": "Reuters", "url": "https://www.reutersagency.com/feed/?best-regions=Middle-East", "type": "rss"},
               {"name": "Crater Sky", "url": "https://crater-sky.net", "type": "web"},
-              {"name": "Sahaafa News", "url": "https://sahaafa.net", "type": "web"},
+              {"name": "Sahaafa News", "url": "https://sahaafa.net", "type": "web"}
           ]
           
           # Function to fetch articles from RSS feeds
