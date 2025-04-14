@@ -48,9 +48,9 @@ jobs:
           import requests
           
           FEEDS = [
-              "https://www.almashhad-alyemeni.com/feed",
-              "https://yemennownews.com/feed",
-              "https://www.24-post.com/feed"
+              "http://www.bbc.co.uk/arabic/index.xml",
+              "https://www.aljazeera.com/xml/rss/all.xml",
+              "https://www.reutersagency.com/feed/?best-regions=Middle-East"
           ]
           
           def get_feed(url):
