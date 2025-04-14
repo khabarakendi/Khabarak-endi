@@ -51,7 +51,7 @@ jobs:
               'https://ym-now.net/',
               'https://www.24-post.com/',
               'https://almahrahonline.net/',
-              'https://almasdaronline.com/
+              'https://almasdaronline.com/,
           ]
           
           def get_feed(url):
