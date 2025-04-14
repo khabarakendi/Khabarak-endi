@@ -48,8 +48,10 @@ jobs:
           
           FEEDS = [
               'http://www.bbc.co.uk/arabic/index.xml',
-              'https://www.aljazeera.com/xml/rss/all.xml',
-              'https://www.reutersagency.com/feed/?best-regions=Middle-East'
+              'https://ym-now.net/',
+              'https://www.24-post.com/',
+              'https://almahrahonline.net/',
+              'https://almasdaronline.com/,
           ]
           
           def get_feed(url):
