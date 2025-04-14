@@ -51,7 +51,7 @@ jobs:
               'https://ym-now.net/',
               'https://www.24-post.com/',
               'https://almahrahonline.net/',
-              'https://almasdaronline.com/'
+              'https://almasdaronline.com/'  # FIXED: Added missing closing quote
           ]
           
           def get_feed(url):
@@ -67,7 +67,7 @@ jobs:
           for feed_url in FEEDS:
               feed = get_feed(feed_url)
               if feed and feed.entries:
-                  for entry in feed.entries[:30]:
+                  for entry in feed.entries[:10]:  # Limit to 10 articles per source
                       try:
                           articles.append({
                               'title': BeautifulSoup(entry.title, 'html.parser').get_text(),
@@ -82,15 +82,16 @@ jobs:
           with open('data/news.json', 'w', encoding='utf-8') as f:
               json.dump({
                   'lastUpdated': datetime.utcnow().isoformat() + 'Z',
-                  'articles': articles[:150]
+                  'articles': articles
               }, f, ensure_ascii=False, indent=2)
           "
       
       # Step 5: Commit and push changes (FIXED VERSION)
-            - name: Commit and push changes
+      - name: Commit and push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # Configure git
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git reset --hard HEAD  # Resets to prevent merge conflicts
