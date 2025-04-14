@@ -47,11 +47,10 @@ jobs:
           import requests
           
           FEEDS = [
-              'http://www.bbc.co.uk/arabic/index.xml',
               'https://ym-now.net/',
               'https://www.24-post.com/',
               'https://almahrahonline.net/',
-              'https://almasdaronline.com/'  # FIXED: Added missing closing quote
+              'https://almasdaronline.com/'
           ]
           
           def get_feed(url):
