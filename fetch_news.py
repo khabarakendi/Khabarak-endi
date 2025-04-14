@@ -6,7 +6,6 @@ from datetime import datetime
 SOURCES = {
     "Otad News": "https://crater-sky.net/",
     "Hamodi News": "https://sahaafa.net/",
-    "BBC Arabic": "http://www.bbc.co.uk/arabic/index.xml",
     "Al Jazeera": "https://www.aljazeera.com/xml/rss/all.xml",
     "Reuters": "https://www.reutersagency.com/feed/?best-regions=Middle-East"
 }
