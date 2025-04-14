@@ -51,6 +51,8 @@ jobs:
               "http://www.bbc.co.uk/arabic/index.xml",
               "https://www.aljazeera.com/xml/rss/all.xml",
               "https://www.reutersagency.com/feed/?best-regions=Middle-East"
+              "Otad News": "https://crater-sky.net/",
+              "Hamodi News": "https://sahaafa.net/",
           ]
           
           def get_feed(url):
