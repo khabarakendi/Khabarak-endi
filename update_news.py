@@ -146,4 +146,8 @@ def main():
     print("\n💾 Results saved to news.json")
 
 if __name__ == "__main__":
-    main()
+    main()with open('scrape_errors.log', 'w', encoding='utf-8') as f:
+    f.write("Errors during scraping:\n")
+    for source in SOURCES:
+        if source['name'] not in [a['source'] for a in all_articles]:
+            f.write(f"{source['name']} failed\n")
