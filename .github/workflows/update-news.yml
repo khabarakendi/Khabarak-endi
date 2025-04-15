@@ -3,7 +3,7 @@ name: Update News
 on:
   schedule:
     - cron: '*/5 * * * *'  # Run every 5 minutes
-  workflow_dispatch:       # Allow manual trigger from GitHub
+  workflow_dispatch:       # Allow manual trigger
 
 jobs:
   fetch-news:
@@ -29,9 +29,13 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin main
+          git rebase origin/main || git rebase --abort
+
           git add data/news.json
           git diff --cached --quiet || git commit -m "🔄 Update news articles"
-          git pull --rebase origin main
-          git push
+
+          git push origin HEAD:main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
