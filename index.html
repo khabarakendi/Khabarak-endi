@@ -3,100 +3,44 @@ layout: default
 title: Home
 pagination:
   enabled: true
-  per_page: 10
 ---
 
-<main class="home">
-  <!-- Featured Article (Optional) -->
-  {% assign featured = site.posts.first %}
-  <section class="featured-article">
-    <h2>Featured Story</h2>
-    <article>
-      <a href="{{ featured.url }}">
-        <img src="{{ featured.image | default: '/images/default-featured.jpg' | relative_url }}" 
-             alt="{{ featured.title }}" class="featured-image">
-      </a>
-      <div class="featured-content">
-        <h3><a href="{{ featured.url }}">{{ featured.title }}</a></h3>
-        <p class="excerpt">{{ featured.excerpt | strip_html | truncatewords: 30 }}</p>
-        <div class="meta">
-          <span class="date">{{ featured.date | date: "%B %d, %Y" }}</span>
-          <a href="{{ featured.url }}" class="read-more">Read Full Story →</a>
-        </div>
-      </div>
-    </article>
-  </section>
+<div class="news-container">
+  <h1>Latest News</h1>
+  
+  {% for post in paginator.posts %}
+  <article class="news-item">
+    <a href="{{ post.url }}" class="news-title">{{ post.title }}</a>
+    <p class="news-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+    <div class="news-meta">
+      <span class="news-date">{{ post.date | date: "%B %d, %Y" }}</span>
+    </div>
+  </article>
+  {% endfor %}
 
-  <!-- News Listing -->
-  <section class="news-listing">
-    <h2>Latest News</h2>
+  <!-- Pagination -->
+  {% if paginator.total_pages > 1 %}
+  <div class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path }}" class="prev">← Previous</a>
+    {% endif %}
     
-    <div class="news-grid">
-      {% for post in paginator.posts offset:1 %}
-      <article class="news-card">
-        <a href="{{ post.url }}">
-          <img src="{{ post.image | default: '/images/default-thumbnail.jpg' | relative_url }}" 
-               alt="{{ post.title }}" class="news-thumbnail">
-        </a>
-        <div class="news-content">
-          <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-          <p class="excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
-          <div class="meta">
-            <span class="date">{{ post.date | date: "%b %d, %Y" }}</span>
-            <span class="comments">💬 {{ post.id | modulo:15 }} comments</span>
-          </div>
-        </div>
-      </article>
-      {% endfor %}
-    </div>
+    <span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+    
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path }}" class="next">Next →</a>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
 
-    <!-- Pagination -->
-    <div class="pagination">
-      {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path }}" class="prev">← Previous</a>
-      {% endif %}
-      
-      <span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
-      
-      {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path }}" class="next">Next →</a>
-      {% endif %}
-    </div>
-  </section>
-
-  <!-- Category Sections -->
-  <section class="category-sections">
-    <div class="category">
-      <h3>Politics</h3>
-      {% assign politics = site.posts | where: "category", "politics" | limit: 3 %}
-      {% for post in politics %}
-        <div class="category-item">
-          <a href="{{ post.url }}">{{ post.title }}</a>
-          <span class="date">{{ post.date | date: "%b %d" }}</span>
-        </div>
-      {% endfor %}
-    </div>
-    
-    <div class="category">
-      <h3>Technology</h3>
-      {% assign tech = site.posts | where: "category", "technology" | limit: 3 %}
-      {% for post in tech %}
-        <div class="category-item">
-          <a href="{{ post.url }}">{{ post.title }}</a>
-          <span class="date">{{ post.date | date: "%b %d" }}</span>
-        </div>
-      {% endfor %}
-    </div>
-    
-    <div class="category">
-      <h3>Business</h3>
-      {% assign business = site.posts | where: "category", "business" | limit: 3 %}
-      {% for post in business %}
-        <div class="category-item">
-          <a href="{{ post.url }}">{{ post.title }}</a>
-          <span class="date">{{ post.date | date: "%b %d" }}</span>
-        </div>
-      {% endfor %}
-    </div>
-  </section>
-</main>
+<script>
+// Add google_vignette anchor to all article links
+document.querySelectorAll('.news-title').forEach(link => {
+  link.addEventListener('click', function(e) {
+    if(!this.href.includes('#')) {
+      this.href = this.href + '#google_vignette';
+    }
+  });
+});
+</script>
