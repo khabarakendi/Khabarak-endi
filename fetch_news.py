@@ -2,10 +2,11 @@ import feedparser
 import json
 import os
 import random
+import hashlib
 from datetime import datetime
 from bs4 import BeautifulSoup
 
-# Define RSS feed sources
+# Define RSS or site homepage sources
 SOURCES = {
     "كريتر سكاي": "https://crater-sky.net/",
     "صحافة نت": "https://sahaafa.net/",
@@ -32,6 +33,11 @@ def extract_image(entry):
             return img_tag['src']
     return None
 
+# Function to generate local URL for article
+def generate_local_url(title):
+    hash_id = hashlib.md5(title.encode('utf-8')).hexdigest()
+    return f"show{hash_id}.html"
+
 # Fetch and process news from sources
 news_articles = []
 
@@ -46,9 +52,10 @@ for source_name, url in SOURCES.items():
         selected_entries = random.sample(entries, min(10, len(entries)))
 
         for entry in selected_entries:
+            title = getattr(entry, "title", "No Title")
             article = {
-                "title": getattr(entry, "title", "No Title"),
-                "url": getattr(entry, "link", "#"),
+                "title": title,
+                "url": generate_local_url(title),
                 "source": source_name,
                 "date": getattr(entry, "published", datetime.now().isoformat()),
                 "image": extract_image(entry)
