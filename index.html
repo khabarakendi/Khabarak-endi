@@ -398,5 +398,24 @@ if (window.location.pathname.includes('/show/')) {
 if (window.location.pathname.includes('/show/')) {
     window.location.href = '/'; // Redirect to homepage
 }
+    function adjustTextSize(action) {
+    const frame = document.getElementById('article-frame');
+    frame.contentDocument.body.style.fontSize = action === 'increase' ? 
+        (parseInt(frame.contentDocument.body.style.fontSize || 16) + 2 + 'px' :
+        (parseInt(frame.contentDocument.body.style.fontSize || 16) - 2 + 'px';
+}
+
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    const frame = document.getElementById('article-frame');
+    if (frame.contentDocument) {
+        frame.contentDocument.body.classList.toggle('dark-mode');
+    }
+}
+
+function printArticle() {
+    const frame = document.getElementById('article-frame');
+    frame.contentWindow.print();
+}
 </body>
 </html>
