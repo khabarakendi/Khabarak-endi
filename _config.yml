@@ -1,12 +1,15 @@
 title: Your News Site
-description: News website like Sahafah.net
+description: A news website like Sahafah.net
 baseurl: ""
-url: "https://yourusername.github.io" # Change to your repo name
-permalink: /show:id.html#google_vignette
+url: "" # Leave empty for GitHub Pages
+permalink: /show:id.html
 
+# Only use plugins supported by GitHub Pages
 plugins:
   - jekyll-feed
+  - jekyll-paginate
 
+# Defaults
 defaults:
   - scope:
       path: ""
@@ -16,3 +19,7 @@ defaults:
       path: "_posts"
     values:
       layout: post
+
+# Pagination (for index.html)
+paginate: 10
+paginate_path: "/page:num"
