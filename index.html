@@ -306,7 +306,7 @@
                 <li><a href="#" data-category="international">دولية</a></li>
                 <li><a href="#" data-category="sports">رياضة</a></li>
                 <li><a href="#" data-category="economic">اقتصادية</a></li>
-                <li><a href="private.html" data-category="private">خاصة</a></li>
+                <li><a href="#" onclick="loadSpecialNews(); return false;" data-category="private">خاصة</a></li>
             </ul>
         </nav>
     </header>
@@ -417,7 +417,39 @@
                 closeArticle();
             }
         });
+// Special News Viewer Modal
+const specialNewsModal = document.createElement('div');
+specialNewsModal.id = 'special-news-modal';
+specialNewsModal.style.display = 'none';
+specialNewsModal.style.position = 'fixed';
+specialNewsModal.style.top = '0';
+specialNewsModal.style.left = '0';
+specialNewsModal.style.right = '0';
+specialNewsModal.style.bottom = '0';
+specialNewsModal.style.backgroundColor = 'rgba(0,0,0,0.8)';
+specialNewsModal.style.zIndex = '1002';
+specialNewsModal.style.padding = '80px 20px 20px';
+specialNewsModal.style.overflowY = 'auto';
+document.body.appendChild(specialNewsModal);
 
+function showSpecialNews(content) {
+  specialNewsModal.innerHTML = `
+    <div style="background:white; max-width:800px; margin:0 auto; padding:20px; border-radius:5px;">
+      <button onclick="closeSpecialNews()" style="background:#e74c3c; color:white; border:none; 
+        padding:8px 15px; border-radius:5px; cursor:pointer; margin-bottom:15px;">
+        ← العودة
+      </button>
+      <div class="special-news-content">${content}</div>
+    </div>
+  `;
+  specialNewsModal.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSpecialNews() {
+  specialNewsModal.style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
         document.addEventListener('DOMContentLoaded', function() {
             // Set current year
             document.getElementById('current-year').textContent = new Date().getFullYear();
@@ -563,5 +595,44 @@
             }
         });
     </script>
+    function loadSpecialNews() {
+  fetch('data/news.json')
+    .then(response => response.json())
+    .then(data => {
+      const newsContainer = document.getElementById('news-container');
+      if (data.special_articles && data.special_articles.length > 0) {
+        newsContainer.innerHTML = data.special_articles.map(article => `
+          <div class="news-article">
+            <h2 onclick="showSpecialNews('${escapeHtml(article.content)}')">
+              ${article.title}
+            </h2>
+            <div class="article-meta">
+              <span class="date">${formatDate(article.date)}</span>
+            </div>
+          </div>
+        `).join('');
+        
+        // Update active nav item
+        document.querySelectorAll('.categories li a').forEach(link => {
+          link.classList.remove('active');
+        });
+        document.querySelector('[data-category="private"]').classList.add('active');
+      } else {
+        newsContainer.innerHTML = `
+          <div style="grid-column:1/-1;text-align:center;padding:20px;">
+            لا توجد أخبار خاصة متاحة حالياً
+          </div>
+        `;
+      }
+    })
+    .catch(error => {
+      console.error('Error loading special news:', error);
+      document.getElementById('news-container').innerHTML = `
+        <div style="grid-column:1/-1;text-align:center;padding:20px;color:red">
+          حدث خطأ في تحميل الأخبار الخاصة
+        </div>
+      `;
+    });
+}
 </body>
 </html>
