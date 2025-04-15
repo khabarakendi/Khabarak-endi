@@ -409,3 +409,20 @@ body, html {
         width: 100%;
     }
 }
+/* Special News Styles */
+#special-news-modal .special-news-content {
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+#special-news-modal .special-news-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+  #special-news-modal {
+    padding: 60px 10px 10px;
+  }
+}
