@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<article class="post">
+    <h1>{{ page.title }}</h1>
+    
+    <div class="post-meta">
+        Published on {{ page.date | date: "%B %d, %Y" }}
+        {% if page.author %} • {{ page.author }}{% endif %}
+    </div>
+    
+    {% if page.image %}
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="post-image">
+    {% endif %}
+    
+    <div class="post-content">
+        {{ content }}
+    </div>
+    
+    <div id="google_vignette" class="ad-container">
+        <!-- Ad content will go here -->
+    </div>
+    
+    <div class="social-share">
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url | url_encode }}" target="_blank">Share on Facebook</a>
+        <a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url | url_encode }}&text={{ page.title | url_encode }}" target="_blank">Share on Twitter</a>
+    </div>
+</article>
