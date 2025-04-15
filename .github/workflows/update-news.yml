@@ -48,7 +48,8 @@ jobs:
           FEEDS = [
               'https://www.almashhad-alyemeni.com/feed',
               'https://yemennownews.com/feed',
-              'https://www.24-post.com/feed'
+              'https://www.24-post.com/feed',
+              'https://bawabatii.net/'
           ]
           
           def get_feed(url):
