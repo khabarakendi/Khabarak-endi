@@ -1,108 +1,36 @@
-name: Update Yemeni News
+name: Update News
+
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Runs every 5 minutes
-  workflow_dispatch:       # Allows manual triggers
-  push:
-    branches: [ main ]     # Run when code changes
-
-permissions:
-  contents: write
+    - cron: '*/5 * * * *'  # Run every 5 minutes
+  workflow_dispatch:       # Allow manual trigger from GitHub
 
 jobs:
-  update-news:
+  fetch-news:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
-    
+
     steps:
-      # Step 1: Checkout with proper token
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
-      
-      # Step 2: Set up Python
-      - name: Set up Python 3.10
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-      
-      # Step 3: Install dependencies
-      - name: Install packages
+          python-version: '3.11'
+
+      - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install feedparser beautifulsoup4 requests
-      
-      # Step 4: Run scraper
-      - name: Scrape news
+          pip install feedparser beautifulsoup4
+
+      - name: Run fetch_news.py
+        run: python fetch_news.py
+
+      - name: Commit and push changes
         run: |
-          mkdir -p data
-          python -c "
-          import feedparser
-          import json
-          from datetime import datetime
-          from bs4 import BeautifulSoup
-          import requests
-          
-          FEEDS = [
-              'https://www.almashhad-alyemeni.com/feed',
-              'https://yemennownews.com/feed',
-              'https://www.24-post.com/feed'
-          ]
-          
-          def get_feed(url):
-              try:
-                  headers = {'User-Agent': 'Mozilla/5.0'}
-                  response = requests.get(url, headers=headers, timeout=10)
-                  return feedparser.parse(response.content)
-              except Exception as e:
-                  print(f'Error fetching {url}: {str(e)}')
-                  return None
-                  
-          articles = []
-          for feed_url in FEEDS:
-              feed = get_feed(feed_url)
-              if feed and feed.entries:
-                  for entry in feed.entries[:30]:
-                      try:
-                          articles.append({
-                              'title': BeautifulSoup(entry.title, 'html.parser').get_text(),
-                              'url': entry.link,
-                              'source': feed_url.split('//')[1].split('/')[0],
-                              'date': datetime.utcnow().isoformat() + 'Z'
-                          })
-                      except Exception as e:
-                          print(f'Error processing entry from {feed_url}: {str(e)}')
-                          continue
-                          
-          with open('data/news.json', 'w', encoding='utf-8') as f:
-              json.dump({
-                  'lastUpdated': datetime.utcnow().isoformat() + 'Z',
-                  'articles': articles[:150]
-              }, f, ensure_ascii=False, indent=2)
-          "
-      
-      # Step 5: Commit and push changes (FIXED VERSION)
-      - name: Commit and push
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/news.json
+          git commit -m "🔄 Update news articles"
+          git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Configure git
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          
-          # Check for changes
-          if [ -z "$(git status --porcelain)" ]; then
-            echo "No changes to commit"
-            exit 0
-          fi
-          
-          # Stage and commit changes
-          git add data/news.json
-          git commit -m "Auto-update news [skip ci]"
-          
-          # Push changes (force push if needed)
-          git fetch origin
-          git rebase origin/main
-          git push origin HEAD:main
