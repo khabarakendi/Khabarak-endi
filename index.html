@@ -171,6 +171,16 @@
     </main>
 
     <!-- Article Viewer - UPDATED -->
+    <div class="article-toolbar">
+    <button class="toolbar-btn" onclick="adjustTextSize('increase')">A+</button>
+    <button class="toolbar-btn" onclick="adjustTextSize('decrease')">A-</button>
+    <button class="toolbar-btn" onclick="toggleDarkMode()">
+        <i class="icon-moon"></i>
+    </button>
+    <button class="toolbar-btn" onclick="printArticle()">
+        <i class="icon-printer"></i>
+    </button>
+</div>
     <div class="article-viewer" id="article-viewer">
         <div class="article-header">
             <button class="return-main-btn" onclick="closeArticle()">← العودة إلى الرئيسية</button>
@@ -376,6 +386,12 @@ function viewArticle(url) {
 window.addEventListener('popstate', function() {
     closeArticle(); // Your existing function
 });
+
+// ====== OPTIONAL: FORCE CLEAN URL ON PAGE LOAD ======
+// If someone visits www.itlobni.com/show/123.html, redirect to main page
+if (window.location.pathname.includes('/show/')) {
+    window.location.href = '/'; // Redirect to homepage
+}
 
 // ====== OPTIONAL: FORCE CLEAN URL ON PAGE LOAD ======
 // If someone visits www.itlobni.com/show/123.html, redirect to main page
