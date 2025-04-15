@@ -275,29 +275,30 @@ function viewArticle(url, title) {
 
         // Breaking News Ticker Update
         function updateBreakingNews() {
-            const newsContainer = document.getElementById('news-container');
-            const articles = newsContainer.querySelectorAll('.news-article');
-            
-            if (articles.length >= 3) {
-                const latestArticles = Array.from(articles).slice(0, 3);
-                const tickerContent = latestArticles.map(article => {
-                    const title = article.querySelector('h2').textContent;
-                    const url = article.querySelector('h2').getAttribute('onclick').match(/'([^']+)'/)[1];
-                    return `<span class="ticker-item" onclick="viewArticle('${url}')">• ${title} •</span>`;
-                }).join('');
+    const newsContainer = document.getElementById('news-container');
+    const articles = newsContainer.querySelectorAll('.news-article');
+    
+    if (articles.length >= 3) {
+        const latestArticles = Array.from(articles).slice(0, 5); // Show 5 items
+        const tickerContent = latestArticles.map(article => {
+            const title = article.querySelector('h2').textContent;
+            const url = article.querySelector('h2').getAttribute('onclick')
+                          .match(/viewArticle\('([^']+)'/)[1];
+            return `<span class="ticker-item" onclick="viewArticle('${url}', '${title.replace(/'/g, "\\'")}')">${title}</span>`;
+        }).join('');
 
-                document.getElementById('breaking-news-ticker').innerHTML = tickerContent;
-                
-                // Restart animation
-                const ticker = document.getElementById('breaking-news-ticker');
-                ticker.style.animation = 'none';
-                void ticker.offsetWidth;
-                ticker.style.animation = 'ticker 25s linear infinite';
-            } else {
-                document.getElementById('breaking-news-ticker').innerHTML = 
-                    '<span class="ticker-item">جاري تحميل آخر الأخبار...</span>';
-            }
-        }
+        document.getElementById('breaking-news-ticker').innerHTML = tickerContent;
+        
+        // Restart animation
+        const ticker = document.getElementById('breaking-news-ticker');
+        ticker.style.animation = 'none';
+        void ticker.offsetWidth; // Trigger reflow
+        ticker.style.animation = 'ticker 25s linear infinite';
+    } else {
+        document.getElementById('breaking-news-ticker').innerHTML = 
+            '<span class="ticker-item">جاري تحميل آخر الأخبار...</span>';
+    }
+}
 
         // News Search Functionality
         document.getElementById('news-search').addEventListener('input', function(e) {
