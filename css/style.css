@@ -231,12 +231,14 @@ body {
 /* RESPONSIVE DESIGN */
 /* ================ */
 @media (max-width: 768px) {
-    .special-news {
-        width: 100%;
-        height: auto;
-        position: relative;
-        margin-bottom: 20px;
+    .ticker-item {
+        padding: 0 15px;
+        font-size: 0.9em;
     }
+    .ticker-item:after {
+        left: -3px !important;
+    }
+}
     
     .categories ul {
         flex-wrap: wrap;
