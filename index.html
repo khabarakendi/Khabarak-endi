@@ -229,12 +229,36 @@
         }
 
         // Article Viewer Functions
-        function viewArticle(url) {
-            document.getElementById('article-frame').src = url;
-            document.getElementById('article-viewer').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-            window.scrollTo(0, 0);
-        }
+function viewArticle(url, title) {
+    // Show loading indicator
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'iframe-loading';
+    loadingDiv.innerHTML = '<div class="spinner"></div>';
+    document.body.appendChild(loadingDiv);
+    
+    // Load article
+    const iframe = document.getElementById('article-frame');
+    iframe.onload = function() {
+        document.body.removeChild(loadingDiv);
+    };
+    iframe.src = url;
+    
+    // Generate article ID from URL
+    const articleId = url.match(/\d+/)?.[0] || Math.floor(Math.random() * 10000);
+    
+    // Update browser URL
+    window.history.pushState(
+        { articleUrl: url, articleTitle: title },
+        title,
+        `/show/${articleId}.html`
+    );
+    
+    // Show article viewer
+    document.getElementById('article-viewer').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    document.title = `${title} - خبرك عندي`;
+    window.scrollTo(0, 0);
+}
 
         function closeArticle() {
             document.getElementById('article-viewer').style.display = 'none';
