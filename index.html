@@ -428,15 +428,24 @@ window.addEventListener('popstate', function(event) {
 
 // Check URL on page load
 function checkInitialURL() {
+    // Handle /show/123.html URLs
     const pathMatch = window.location.pathname.match(/\/show\/(\d+)\.html$/);
     if (pathMatch) {
         const articleId = pathMatch[1];
         const article = allArticles.find(a => a.url.includes(articleId));
         if (article) {
             viewArticle(article.url, article.title);
-        } else {
-            // If article not found, redirect to home
-            window.location.href = '/';
+            return;
+        }
+    }
+    
+    // Handle index.html#show=123 URLs (GitHub Pages fallback)
+    const hashMatch = window.location.hash.match(/show=(\d+)/);
+    if (hashMatch) {
+        const articleId = hashMatch[1];
+        const article = allArticles.find(a => a.url.includes(articleId));
+        if (article) {
+            viewArticle(article.url, article.title);
         }
     }
 }
