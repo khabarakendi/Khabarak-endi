@@ -86,17 +86,27 @@ jobs:
               }, f, ensure_ascii=False, indent=2)
           "
 
-      # Step 5: Commit and push changes (Fixed Version)
-      - name: Commit and push changes (Fixed Version)
+      # Step 5: Commit and push changes (FIXED VERSION)
+      - name: Commit and push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # Configure git
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-
-          git fetch origin
-          git reset --hard origin/main  # Avoids rebase failures
-
+          
+          # Check for changes
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          
+          # Stage and commit changes
           git add data/news.json
-          git commit -m "🔄 Auto-update news articles" || echo "No new articles to commit"
-          git push origin HEAD:main || echo "Push failed, check logs"
+          git commit -m "Auto-update news [skip ci]"
+          
+          # Push changes (force push if needed)
+          git fetch origin
+          git rebase origin/main
+          git push origin HEAD:main
+
