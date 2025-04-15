@@ -279,18 +279,26 @@ function viewArticle(url, title) {
     const articles = newsContainer.querySelectorAll('.news-article');
     
     if (articles.length >= 3) {
-        const latestArticles = Array.from(articles).slice(0, 5); // Show 5 items
+        // Get the 3 most recent articles
+        const latestArticles = Array.from(articles).slice(0, 3);
+        
+        // Create ticker items with proper formatting
         const tickerContent = latestArticles.map(article => {
             const title = article.querySelector('h2').textContent;
             const url = article.querySelector('h2').getAttribute('onclick')
                           .match(/viewArticle\('([^']+)'/)[1];
-            return `<span class="ticker-item" onclick="viewArticle('${url}', '${title.replace(/'/g, "\\'")}')">${title}</span>`;
+            return `
+                <span class="ticker-item" onclick="viewArticle('${url}', '${title.replace(/'/g, "\\'")}')">
+                    ⚡ ${title}
+                </span>
+            `;
         }).join('');
-
-        document.getElementById('breaking-news-ticker').innerHTML = tickerContent;
+        
+        // Update the ticker
+        const ticker = document.getElementById('breaking-news-ticker');
+        ticker.innerHTML = tickerContent;
         
         // Restart animation
-        const ticker = document.getElementById('breaking-news-ticker');
         ticker.style.animation = 'none';
         void ticker.offsetWidth; // Trigger reflow
         ticker.style.animation = 'ticker 25s linear infinite';
