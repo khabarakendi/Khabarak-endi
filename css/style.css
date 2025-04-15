@@ -305,7 +305,8 @@ body, html {
     bottom: 0;
     z-index: 1000;
     background-color: #e74c3c;
-    direction: rtl; /* Ensure RTL for Arabic */
+    direction: rtl;
+    padding: 5px 0;
 }
 
 .breaking-news-ticker {
@@ -318,30 +319,30 @@ body, html {
 }
 
 .ticker-label {
-    display: inline-block;
     background: #c0392b;
     padding: 3px 10px;
     margin-left: 15px;
     border-radius: 3px;
     position: absolute;
+    right: 0;
     z-index: 2;
-    right: 0; /* RTL adjustment */
 }
 
 .ticker-content {
     display: inline-block;
-    padding-right: 120px; /* Adjusted for RTL */
-    animation: ticker 25s linear infinite;
+    padding-right: 120px;
+    white-space: nowrap;
+    animation: ticker 30s linear infinite;
 }
 
 @keyframes ticker {
-    0% { transform: translateX(30%); } /* RTL adjustment */
+    0% { transform: translateX(30%); }
     100% { transform: translateX(-100%); }
 }
 
 .ticker-item {
     display: inline-block;
-    padding: 0 25px;
+    padding: 0 15px;
     position: relative;
     cursor: pointer;
     transition: all 0.3s;
@@ -365,7 +366,6 @@ body, html {
 
 .ticker-item:hover {
     color: #ffcc00;
-    text-decoration: underline;
 }
 @media (max-width: 768px) {
     /* Fix header alignment */
