@@ -49,8 +49,39 @@ jobs:
               'https://www.almashhad-alyemeni.com/feed',
               'https://yemennownews.com/feed',
               'https://www.24-post.com/feed',
-              'https://bawabatii.net/'
-          ]
+              'https://bawabatii.net/',
+              'https://www.almashhad-alyemeni.com/',
+              'https://www.yemen-arabic.com/',
+              'https://www.sahafah.net/',
+              'https://almahranews.com/',
+              'https://almahriah.net/',
+              'https://www.24-post.com/',
+              'https://www.anbaaden.com/',
+              'https://huna-aden.com/',
+              'https://taiztoday.net/',
+              'https://www.lahjnews.net/news/',
+              'https://almasdaronline.com/',
+              'https://www.marebpress.net/',
+              'https://www.yemeneconomist.com/',
+              'https://yemen-press.net/',
+              'https://alsahwa-yemen.net/',
+              'https://www.aljazeera.net/',
+              'https://sa24.co/',
+              'https://www.awraqpress.net/portal/',
+              'https://almethaq.net/news/',
+              'https://www.saba.ye/ar',
+              'https://www.yemeninews.net/',
+              'https://al-omana.net/',
+              'https://khabaragency.net/',
+              'https://albaath-ye.net/',
+              'https://www.ibb-news.com/',
+              'https://www.dhala.net/',
+              'https://www.26sep.net/',
+              'https://althawrah.ye/',
+              'https://www.adngad.net/',
+              'https://crater-news.net/',
+              'https://crater-sky.net/'
+                ]
           
           def get_feed(url):
               try:
