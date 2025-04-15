@@ -347,6 +347,13 @@ body, html {
 
 /* Red Lightning Separator */
 .ticker-item:not(:last-child):after {
+    content: "";
+    background: url('lightning-icon.png') no-repeat;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: -10px;
+}{
     content: "⚡";
     color: #ffcc00;
     position: absolute;
