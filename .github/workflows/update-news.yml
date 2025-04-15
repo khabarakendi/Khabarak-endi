@@ -1,40 +1,111 @@
-name: Update News
+name: Update Yemeni News  # Keeping one valid workflow name
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Run every 5 minutes
-  workflow_dispatch:       # Allow manual trigger
+    - cron: '*/5 * * * *'  # Runs every 5 minutes
+  workflow_dispatch:       # Allows manual triggers
+  push:
+    branches: [ main ]     # Run when code changes
+
+permissions:
+  contents: write
 
 jobs:
-  fetch-news:
+  update-news:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      # Step 1: Checkout repository with proper token
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          python-version: '3.11'
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install dependencies
+      # Step 2: Set up Python
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # Step 3: Install dependencies
+      - name: Install packages
         run: |
-          pip install feedparser beautifulsoup4 requests  # Fixed missing dependency
+          python -m pip install --upgrade pip
+          pip install feedparser beautifulsoup4 requests
 
-      - name: Run fetch_news.py
-        run: python fetch_news.py  # Make sure this script writes valid JSON to data/news.json
+      # Step 4: Run scraper
+      - name: Scrape news
+        run: |
+          mkdir -p data
+          python -c "
+          import feedparser
+          import json
+          from datetime import datetime
+          from bs4 import BeautifulSoup
+          import requests
 
-      - name: Commit and push changes (Fixed Version)
+          FEEDS = [
+              'http://www.bbc.co.uk/arabic/index.xml',
+              'https://ym-now.net/',
+              'https://www.24-post.com/',
+              'https://almahrahonline.net/',
+              'https://almasdaronline.com/'  # FIXED: Added missing closing quote
+          ]
+
+          def get_feed(url):
+              try:
+                  headers = {'User-Agent': 'Mozilla/5.0'}
+                  response = requests.get(url, headers=headers, timeout=10)
+                  return feedparser.parse(response.content)
+              except Exception as e:
+                  print(f'Error fetching {url}: {str(e)}')
+                  return None
+
+          articles = []
+          for feed_url in FEEDS:
+              feed = get_feed(feed_url)
+              if feed and feed.entries:
+                  for entry in feed.entries[:30]:  # Limit to 30 articles per source
+                      try:
+                          articles.append({
+                              'title': BeautifulSoup(entry.title, 'html.parser').get_text(),
+                              'url': entry.link,
+                              'source': feed_url.split('//')[1].split('/')[0],
+                              'date': datetime.utcnow().isoformat() + 'Z'
+                          })
+                      except Exception as e:
+                          print(f'Error processing entry from {feed_url}: {str(e)}')
+                          continue
+
+          with open('data/news.json', 'w', encoding='utf-8') as f:
+              json.dump({
+                  'lastUpdated': datetime.utcnow().isoformat() + 'Z',
+                  'articles': articles[:150]  # Ensuring only the latest 150 articles are stored
+              }, f, ensure_ascii=False, indent=2)
+          "
+
+      # Step 5: Commit and push changes (Fixed Version)
+      - name: Commit and push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Configure git
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
 
-          git fetch origin
-          git reset --hard origin/main  # Avoids rebase failures
+          # Check for changes
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes to commit"
+            exit 0
+          fi
 
+          # Stage and commit changes
           git add data/news.json
-          git commit -m "🔄 Auto-update news articles" || echo "No new articles to commit, forcing push"
-          git push --force || echo "Push failed, check logs"
+          git commit -m "Auto-update news [skip ci]"
+
+          # Push changes (force push to override conflicts)
+          git fetch origin
+          git rebase origin/main || git reset --hard HEAD
+          git push --force
