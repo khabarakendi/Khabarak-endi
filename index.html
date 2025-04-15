@@ -359,17 +359,16 @@ function viewArticle(url, title) {
             const article = document.createElement('div');
             article.className = 'news-article';
             article.innerHTML = `
-                <h2 onclick="viewArticle('${item.url}', '${item.title.replace(/'/g, "\\'")}')">
-                    ${item.title}
-                </h2>
-                <p>${item.summary || ''}</p>
+                <h2 onclick="viewArticle('${item.url}')">${item.title}</h2>
+                <p>${item.summary}</p>
                 <div class="article-meta">
-                    <span class="source">${item.source}</span>
-                    <span class="date">${new Date(item.date).toLocaleString('ar-EG')}</span>
+                    <span class="category ${item.category}">${item.category}</span>
+                    <span class="date">${item.date}</span>
                 </div>
             `;
             newsContainer.appendChild(article);
         });
+    });
         
         // Update breaking news after loading
         updateBreakingNews();
