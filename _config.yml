@@ -1,0 +1,18 @@
+title: Your News Site
+description: News website like Sahafah.net
+baseurl: ""
+url: "https://yourusername.github.io" # Change to your repo name
+permalink: /show:id.html#google_vignette
+
+plugins:
+  - jekyll-feed
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: "_posts"
+    values:
+      layout: post
