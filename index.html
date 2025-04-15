@@ -6,25 +6,35 @@
     <title>خبرك عندي - Yemen News</title>
     <style>
         /* Basic Styles */
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
-            padding: 120px 0 60px;
-            background: #f5f5f5;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        /* Header */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f5f5;
+            padding-top: 120px;
+        }
+        
+        /* Header Styles */
         #site-header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: #2c3e50;
-            color: white;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             z-index: 1000;
         }
         
         .header-top {
             padding: 15px;
+            background: #2c3e50;
+            color: white;
+        }
+        
+        .logo-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -38,13 +48,16 @@
         .red { color: #e74c3c; }
         .green { color: #2ecc71; }
         
+        .datetime {
+            font-size: 0.9rem;
+        }
+        
         /* Navigation */
         .categories ul {
             display: flex;
             list-style: none;
             background: #34495e;
-            padding: 0;
-            margin: 0;
+            padding: 0 15px;
         }
         
         .categories li a {
@@ -52,8 +65,10 @@
             text-decoration: none;
             padding: 12px 15px;
             display: block;
+            transition: background 0.3s;
         }
         
+        .categories li a:hover, 
         .categories li a.active {
             background: #e74c3c;
         }
@@ -61,6 +76,7 @@
         /* Main Content */
         main {
             padding: 20px;
+            min-height: calc(100vh - 200px);
         }
         
         .news-filters {
@@ -73,13 +89,13 @@
             flex: 1;
             padding: 10px;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 5px;
         }
         
         #news-sort {
             padding: 10px;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 5px;
         }
         
         .news-container {
@@ -93,11 +109,16 @@
             border-radius: 5px;
             overflow: hidden;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .news-article:hover {
+            transform: translateY(-5px);
         }
         
         .news-article h2 {
             padding: 15px;
-            margin: 0;
+            font-size: 1.2rem;
             cursor: pointer;
             color: #2c3e50;
         }
@@ -105,6 +126,7 @@
         .news-article p {
             padding: 0 15px 15px;
             color: #666;
+            line-height: 1.5;
         }
         
         .article-meta {
@@ -116,18 +138,25 @@
             color: #777;
         }
         
-        .load-more-container {
+        .loading {
             text-align: center;
-            margin-top: 30px;
+            padding: 50px;
+            grid-column: 1 / -1;
         }
         
-        .load-more-btn {
-            background: #e74c3c;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
+        .spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #e74c3c;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         /* Breaking News Ticker */
@@ -138,6 +167,7 @@
             background: #e74c3c;
             color: white;
             z-index: 1000;
+            direction: rtl;
         }
         
         .breaking-news-ticker {
@@ -182,26 +212,13 @@
             100% { transform: translateX(-100%); }
         }
         
-        /* Loading State */
-        .loading {
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
             text-align: center;
-            padding: 50px;
-            grid-column: 1 / -1;
-        }
-        
-        .spinner {
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #e74c3c;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            padding: 15px;
+            margin-top: 20px;
         }
         
         /* Responsive */
@@ -217,6 +234,11 @@
             .news-filters {
                 flex-direction: column;
             }
+            
+            .ticker-item {
+                padding: 0 10px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -224,12 +246,14 @@
     <!-- Header Section -->
     <header id="site-header">
         <div class="header-top">
-            <div class="logo">
-                <span class="red">خبرك</span>
-                <span class="green">عندي</span>
-            </div>
-            <div class="datetime" id="current-datetime">
-                جاري التحميل...
+            <div class="logo-container">
+                <div class="logo">
+                    <span class="red">خبرك</span>
+                    <span class="green">عندي</span>
+                </div>
+                <div class="datetime" id="current-datetime">
+                    <i class="icon-clock"></i> جاري التحميل...
+                </div>
             </div>
         </div>
         
@@ -288,6 +312,29 @@
 
     <!-- JavaScript -->
     <script>
+        // Helper function to escape HTML
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        // Article viewing function with redirection
+        function viewArticle(url, title) {
+            // Generate clean URL for history
+            const articleId = url.match(/\d+/)?.[0] || Math.floor(Math.random() * 10000);
+            window.history.pushState({}, title, `/show/${articleId}.html`);
+            
+            // Open the article in a new tab
+            window.open(url, '_blank');
+            
+            // Update page title
+            document.title = `${title} - خبرك عندي`;
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             // Set current year
             document.getElementById('current-year').textContent = new Date().getFullYear();
@@ -303,11 +350,17 @@
                     hour: '2-digit',
                     minute: '2-digit'
                 };
-                const dateStr = now.toLocaleDateString('ar-EG', options);
-                document.getElementById('current-datetime').textContent = dateStr;
+                const dateStr = now.toLocaleDateString('ar-EG', options)
+                    .replace(/،/g, ' - ')
+                    .replace(/ص/g, 'ص')
+                    .replace(/م/g, 'م');
+
+                document.getElementById('current-datetime').innerHTML = 
+                    `<i class="icon-clock"></i> ${dateStr}`;
                 document.getElementById('last-updated').textContent = now.toLocaleTimeString('ar-EG');
             }
             updateDateTime();
+            setInterval(updateDateTime, 60000);
             
             // Load news from JSON
             function loadNews() {
@@ -352,7 +405,7 @@
                 
                 newsContainer.innerHTML = sortedArticles.map(article => `
                     <div class="news-article">
-                        <h2 onclick="viewArticle('${article.url}', '${escapeHtml(article.title)}')">
+                        <h2 onclick="viewArticle('${escapeHtml(article.url)}', '${escapeHtml(article.title)}')">
                             ${article.title}
                         </h2>
                         <p>${article.summary || 'لا يوجد ملخص متاح'}</p>
@@ -383,12 +436,11 @@
                     return;
                 }
                 
-                // In the updateBreakingNews function:
                 ticker.innerHTML = articles.map(article => `
-                    <span class="ticker-item" onclick="viewArticle('${article.url}', '${escapeHtml(article.title)}')">
+                    <span class="ticker-item" onclick="viewArticle('${escapeHtml(article.url)}', '${escapeHtml(article.title)}')">
                         ⚡ ${article.title}
                     </span>
-                `).join('');    
+                `).join('');
                 
                 // Restart animation
                 ticker.style.animation = 'none';
@@ -396,18 +448,30 @@
                 ticker.style.animation = 'ticker 30s linear infinite';
             }
             
-            // View article function
-            function viewArticle(url, title) {
-    // Generate clean URL for history
-    const articleId = url.match(/\d+/)?.[0] || Math.floor(Math.random() * 10000);
-    window.history.pushState({}, title, `/show/${articleId}.html`);
-    
-    // Open the article in a new tab
-    window.open(url, '_blank');
-    
-    // Update page title
-    document.title = `${title} - خبرك عندي`;
-}
+            // Handle back button
+            window.addEventListener('popstate', function() {
+                if (!window.location.pathname.includes('/show/')) {
+                    document.title = 'خبرك عندي - Yemen News';
+                }
+            });
+
+            // Load More News Button
+            document.getElementById('load-more').addEventListener('click', function() {
+                // Implement your load more functionality here
+                alert('سيتم تحميل المزيد من الأخبار');
+            });
+
+            // News Search Functionality
+            document.getElementById('news-search').addEventListener('input', function(e) {
+                // Implement search functionality here
+                console.log('Searching for:', e.target.value);
+            });
+
+            // Sort News Functionality
+            document.getElementById('news-sort').addEventListener('change', function(e) {
+                // Implement sort functionality here
+                console.log('Sorting by:', e.target.value);
+            });
             
             // Initial load
             loadNews();
