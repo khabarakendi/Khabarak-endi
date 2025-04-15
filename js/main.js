@@ -58,3 +58,17 @@ function escapeHtml(unsafe) {
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
 }
+// Handle hash-based navigation
+window.addEventListener('hashchange', handleHash);
+window.addEventListener('load', handleHash);
+
+function handleHash() {
+    const match = window.location.hash.match(/^#show\/(\d+)/);
+    if (match) {
+        const articleId = match[1];
+        loadArticle(articleId);
+        
+        // Update the URL without reload (show.html?id=XXX)
+        history.replaceState(null, null, `show.html?id=${articleId}#google_vignette`);
+    }
+}
