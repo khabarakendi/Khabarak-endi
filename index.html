@@ -4,38 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خبرك عندي - Yemen News</title>
-    <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Basic Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        /* Basic Styles */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 120px 0 60px;
             background: #f5f5f5;
-            padding-top: 120px;
         }
         
-        /* Header Styles */
+        /* Header */
         #site-header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: #2c3e50;
+            color: white;
             z-index: 1000;
         }
         
         .header-top {
             padding: 15px;
-            background: #2c3e50;
-            color: white;
-        }
-        
-        .logo-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -49,16 +38,13 @@
         .red { color: #e74c3c; }
         .green { color: #2ecc71; }
         
-        .datetime {
-            font-size: 0.9rem;
-        }
-        
         /* Navigation */
         .categories ul {
             display: flex;
             list-style: none;
             background: #34495e;
-            padding: 0 15px;
+            padding: 0;
+            margin: 0;
         }
         
         .categories li a {
@@ -66,10 +52,8 @@
             text-decoration: none;
             padding: 12px 15px;
             display: block;
-            transition: background 0.3s;
         }
         
-        .categories li a:hover, 
         .categories li a.active {
             background: #e74c3c;
         }
@@ -77,7 +61,6 @@
         /* Main Content */
         main {
             padding: 20px;
-            min-height: calc(100vh - 200px);
         }
         
         .news-filters {
@@ -90,13 +73,13 @@
             flex: 1;
             padding: 10px;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 4px;
         }
         
         #news-sort {
             padding: 10px;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 4px;
         }
         
         .news-container {
@@ -110,16 +93,11 @@
             border-radius: 5px;
             overflow: hidden;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .news-article:hover {
-            transform: translateY(-5px);
         }
         
         .news-article h2 {
             padding: 15px;
-            font-size: 1.2rem;
+            margin: 0;
             cursor: pointer;
             color: #2c3e50;
         }
@@ -127,7 +105,6 @@
         .news-article p {
             padding: 0 15px 15px;
             color: #666;
-            line-height: 1.5;
         }
         
         .article-meta {
@@ -139,25 +116,18 @@
             color: #777;
         }
         
-        .loading {
+        .load-more-container {
             text-align: center;
-            padding: 50px;
-            grid-column: 1 / -1;
+            margin-top: 30px;
         }
         
-        .spinner {
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #e74c3c;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .load-more-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
         }
         
         /* Breaking News Ticker */
@@ -168,7 +138,6 @@
             background: #e74c3c;
             color: white;
             z-index: 1000;
-            direction: rtl;
         }
         
         .breaking-news-ticker {
@@ -213,48 +182,26 @@
             100% { transform: translateX(-100%); }
         }
         
-        /* Article Viewer */
-        .article-viewer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: white;
-            z-index: 1001;
-            display: none;
-        }
-        
-        .article-header {
-            background: #2c3e50;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .return-main-btn {
-            background: #e74c3c;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        
-        #article-frame {
-            width: 100%;
-            height: calc(100% - 60px);
-            border: none;
-        }
-        
-        /* Footer */
-        footer {
-            background: #2c3e50;
-            color: white;
+        /* Loading State */
+        .loading {
             text-align: center;
-            padding: 15px;
-            margin-top: 20px;
+            padding: 50px;
+            grid-column: 1 / -1;
+        }
+        
+        .spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #e74c3c;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         /* Responsive */
@@ -270,11 +217,6 @@
             .news-filters {
                 flex-direction: column;
             }
-            
-            .ticker-item {
-                padding: 0 10px;
-                font-size: 0.9rem;
-            }
         }
     </style>
 </head>
@@ -282,14 +224,12 @@
     <!-- Header Section -->
     <header id="site-header">
         <div class="header-top">
-            <div class="logo-container">
-                <div class="logo">
-                    <span class="red">خبرك</span>
-                    <span class="green">عندي</span>
-                </div>
-                <div class="datetime" id="current-datetime">
-                    <i class="icon-clock"></i> جاري التحميل...
-                </div>
+            <div class="logo">
+                <span class="red">خبرك</span>
+                <span class="green">عندي</span>
+            </div>
+            <div class="datetime" id="current-datetime">
+                جاري التحميل...
             </div>
         </div>
         
@@ -328,18 +268,6 @@
         </div>
     </main>
 
-    <!-- Article Viewer -->
-    <div class="article-viewer" id="article-viewer">
-        <div class="article-header">
-            <button class="return-main-btn" onclick="closeArticle()">← العودة إلى الرئيسية</button>
-            <div class="article-logo">
-                <span class="red">خبرك</span>
-                <span class="green">عندي</span>
-            </div>
-        </div>
-        <iframe id="article-frame" src=""></iframe>
-    </div>
-
     <!-- Footer -->
     <footer id="site-footer">
         <div class="footer-bottom">
@@ -360,7 +288,6 @@
 
     <!-- JavaScript -->
     <script>
-        // Simple News Loading (replace with your actual implementation)
         document.addEventListener('DOMContentLoaded', function() {
             // Set current year
             document.getElementById('current-year').textContent = new Date().getFullYear();
@@ -381,62 +308,106 @@
                 document.getElementById('last-updated').textContent = now.toLocaleTimeString('ar-EG');
             }
             updateDateTime();
-            setInterval(updateDateTime, 60000);
             
-            // Simulate news loading
-            setTimeout(function() {
-                const newsContainer = document.getElementById('news-container');
-                newsContainer.innerHTML = `
-                    <div class="news-article">
-                        <h2 onclick="viewArticle('news1.html', 'عنوان الخبر الأول')">عنوان الخبر الأول</h2>
-                        <p>محتوى مختصر للخبر الأول هنا...</p>
-                        <div class="article-meta">
-                            <span class="source">مصدر الخبر</span>
-                            <span class="date">${new Date().toLocaleString('ar-EG')}</span>
-                        </div>
-                    </div>
-                    <div class="news-article">
-                        <h2 onclick="viewArticle('news2.html', 'عنوان الخبر الثاني')">عنوان الخبر الثاني</h2>
-                        <p>محتوى مختصر للخبر الثاني هنا...</p>
-                        <div class="article-meta">
-                            <span class="source">مصدر الخبر</span>
-                            <span class="date">${new Date().toLocaleString('ar-EG')}</span>
-                        </div>
-                    </div>
-                `;
-                
-                // Update breaking news
-                document.getElementById('breaking-news-ticker').innerHTML = `
-                    <span class="ticker-item" onclick="viewArticle('news1.html', 'عنوان الخبر الأول')">⚡ عنوان الخبر الأول</span>
-                    <span class="ticker-item" onclick="viewArticle('news2.html', 'عنوان الخبر الثاني')">⚡ عنوان الخبر الثاني</span>
-                `;
-            }, 1500);
-        });
-        
-        // Article Viewer Functions
-        function viewArticle(url, title) {
-            // Generate clean URL
-            const articleId = url.match(/\d+/) || Math.floor(Math.random() * 10000);
-            history.pushState({}, '', `/show/${articleId}.html`);
-            
-            // Show article
-            document.getElementById('article-frame').src = url;
-            document.getElementById('article-viewer').style.display = 'block';
-            document.title = `${title} - خبرك عندي`;
-        }
-        
-        function closeArticle() {
-            document.getElementById('article-viewer').style.display = 'none';
-            document.getElementById('article-frame').src = '';
-            history.pushState({}, '', '/');
-            document.title = 'خبرك عندي - Yemen News';
-        }
-        
-        // Handle back button
-        window.addEventListener('popstate', function() {
-            if (!window.location.pathname.includes('/show/')) {
-                closeArticle();
+            // Load news from JSON
+            function loadNews() {
+                fetch('data/news.json')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(newsData => {
+                        displayNews(newsData.articles);
+                        updateBreakingNews(newsData.articles.slice(0, 3));
+                    })
+                    .catch(error => {
+                        console.error('Error loading news:', error);
+                        document.getElementById('news-container').innerHTML = `
+                            <div class="error" style="grid-column:1/-1;text-align:center;padding:20px;color:red">
+                                حدث خطأ في تحميل الأخبار. يرجى المحاولة لاحقاً.
+                            </div>
+                        `;
+                    });
             }
+            
+            // Display news articles
+            function displayNews(articles) {
+                const newsContainer = document.getElementById('news-container');
+                
+                if (!articles || articles.length === 0) {
+                    newsContainer.innerHTML = `
+                        <div style="grid-column:1/-1;text-align:center;padding:20px;">
+                            لا توجد أخبار متاحة حالياً.
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Sort by date (newest first)
+                const sortedArticles = [...articles].sort((a, b) => {
+                    return new Date(b.date) - new Date(a.date);
+                });
+                
+                newsContainer.innerHTML = sortedArticles.map(article => `
+                    <div class="news-article">
+                        <h2 onclick="viewArticle('${article.url}', '${article.title.replace(/'/g, "\\'")}')">
+                            ${article.title}
+                        </h2>
+                        <p>${article.summary || 'لا يوجد ملخص متاح'}</p>
+                        <div class="article-meta">
+                            <span class="source">${article.source || 'مصدر غير معروف'}</span>
+                            <span class="date">${formatDate(article.date)}</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            // Format date
+            function formatDate(dateString) {
+                try {
+                    const date = new Date(dateString);
+                    return date.toLocaleString('ar-EG');
+                } catch (e) {
+                    return dateString || 'تاريخ غير معروف';
+                }
+            }
+            
+            // Update breaking news ticker
+            function updateBreakingNews(articles) {
+                const ticker = document.getElementById('breaking-news-ticker');
+                
+                if (!articles || articles.length === 0) {
+                    ticker.innerHTML = '<span class="ticker-item">لا توجد أخبار عاجلة</span>';
+                    return;
+                }
+                
+                ticker.innerHTML = articles.map(article => `
+                    <span class="ticker-item" onclick="viewArticle('${article.url}', '${article.title.replace(/'/g, "\\'")}')">
+                        ${article.title}
+                    </span>
+                `).join('');
+                
+                // Restart animation
+                ticker.style.animation = 'none';
+                void ticker.offsetWidth;
+                ticker.style.animation = 'ticker 30s linear infinite';
+            }
+            
+            // View article function
+            function viewArticle(url, title) {
+                // Generate clean URL
+                const articleId = url.match(/\d+/)?.[0] || Math.floor(Math.random() * 10000);
+                history.pushState({}, '', `/show/${articleId}.html`);
+                
+                // In a real implementation, you would show the article here
+                console.log(`Viewing article: ${title} (${url})`);
+                alert(`سيتم عرض المقال: ${title}\nURL: ${url}`);
+            }
+            
+            // Initial load
+            loadNews();
         });
     </script>
 </body>
