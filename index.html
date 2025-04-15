@@ -18,7 +18,7 @@
             padding-top: 120px;
         }
         
-        /* Header Styles */
+        /* Main Header */
         #site-header {
             position: fixed;
             top: 0;
@@ -32,9 +32,6 @@
             padding: 15px;
             background: #2c3e50;
             color: white;
-        }
-        
-        .logo-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -51,30 +48,6 @@
         
         .datetime {
             font-size: 0.9rem;
-        }
-        
-        /* Article Viewer Header */
-        .article-viewer-header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: #2c3e50;
-            color: white;
-            padding: 15px;
-            z-index: 1001;
-            display: none;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .return-btn {
-            background: #e74c3c;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
         }
         
         /* Navigation */
@@ -96,6 +69,23 @@
         .categories li a:hover, 
         .categories li a.active {
             background: #e74c3c;
+        }
+        
+        /* Article Frame Container */
+        .article-container {
+            position: fixed;
+            top: 120px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+            z-index: 999;
+        }
+        
+        #article-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
         
         /* Main Content */
@@ -251,6 +241,21 @@
             margin-top: 20px;
         }
         
+        /* Return Button */
+        .return-main-btn {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            display: none;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             body {
@@ -269,21 +274,27 @@
                 padding: 0 10px;
                 font-size: 0.9rem;
             }
+            
+            .return-main-btn {
+                left: 10px;
+                top: 10px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Return Button (shown when viewing articles) -->
+    <button class="return-main-btn" onclick="closeArticle()">← العودة للصفحة الرئيسية</button>
+
     <!-- Main Header -->
     <header id="site-header">
         <div class="header-top">
-            <div class="logo-container">
-                <div class="logo" onclick="window.location.href='/'">
-                    <span class="red">خبرك</span>
-                    <span class="green">عندي</span>
-                </div>
-                <div class="datetime" id="current-datetime">
-                    <i class="icon-clock"></i> جاري التحميل...
-                </div>
+            <div class="logo" onclick="window.location.href='/'">
+                <span class="red">خبرك</span>
+                <span class="green">عندي</span>
+            </div>
+            <div class="datetime" id="current-datetime">
+                <i class="icon-clock"></i> جاري التحميل...
             </div>
         </div>
         
@@ -300,13 +311,9 @@
         </nav>
     </header>
 
-    <!-- Article Viewer Header -->
-    <div class="article-viewer-header" id="article-viewer-header">
-        <button class="return-btn" onclick="window.location.href='/'">← العودة للصفحة الرئيسية</button>
-        <div class="logo" onclick="window.location.href='/'">
-            <span class="red">خبرك</span>
-            <span class="green">عندي</span>
-        </div>
+    <!-- Article Frame Container -->
+    <div class="article-container" id="article-container">
+        <iframe id="article-frame" src=""></iframe>
     </div>
 
     <!-- Main Content -->
@@ -361,18 +368,55 @@
                 .replace(/'/g, "&#039;");
         }
 
-        // Article viewing function with redirection
+        // Article viewing function
         function viewArticle(url, title) {
-            // Show article viewer header
-            document.getElementById('article-viewer-header').style.display = 'flex';
-            document.getElementById('site-header').style.display = 'none';
+            // Show article container and return button
+            document.getElementById('article-container').style.display = 'block';
+            document.querySelector('.return-main-btn').style.display = 'block';
             
-            // Open the article in a new tab
-            window.open(url, '_blank');
+            // Hide main content
+            document.getElementById('main-content').style.display = 'none';
+            document.getElementById('site-footer').style.display = 'none';
+            document.querySelector('.breaking-news-container').style.display = 'none';
+            
+            // Load article in iframe
+            document.getElementById('article-frame').src = url;
             
             // Update page title
             document.title = `${title} - خبرك عندي`;
+            
+            // Push to history
+            const articleId = url.match(/\d+/)?.[0] || Math.floor(Math.random() * 10000);
+            window.history.pushState({ article: true }, title, `/show/${articleId}.html`);
         }
+
+        // Close article view
+        function closeArticle() {
+            // Hide article container and return button
+            document.getElementById('article-container').style.display = 'none';
+            document.querySelector('.return-main-btn').style.display = 'none';
+            
+            // Show main content
+            document.getElementById('main-content').style.display = 'block';
+            document.getElementById('site-footer').style.display = 'block';
+            document.querySelector('.breaking-news-container').style.display = 'block';
+            
+            // Clear iframe
+            document.getElementById('article-frame').src = '';
+            
+            // Update page title
+            document.title = 'خبرك عندي - Yemen News';
+            
+            // Push to history
+            window.history.pushState({}, '', '/');
+        }
+
+        // Handle back button
+        window.addEventListener('popstate', function(event) {
+            if (event.state && event.state.article) {
+                closeArticle();
+            }
+        });
 
         document.addEventListener('DOMContentLoaded', function() {
             // Set current year
@@ -490,13 +534,6 @@
                 ticker.style.animation = 'ticker 30s linear infinite';
             }
             
-            // Handle back button
-            window.addEventListener('popstate', function() {
-                document.getElementById('article-viewer-header').style.display = 'none';
-                document.getElementById('site-header').style.display = 'block';
-                document.title = 'خبرك عندي - Yemen News';
-            });
-
             // Load More News Button
             document.getElementById('load-more').addEventListener('click', function() {
                 // Implement your load more functionality here
@@ -517,6 +554,13 @@
             
             // Initial load
             loadNews();
+            
+            // Check if we're viewing an article on page load
+            if (window.location.pathname.includes('/show/')) {
+                // You would need to implement logic to load the specific article here
+                // For now, we'll just show the main page
+                window.history.replaceState({}, '', '/');
+            }
         });
     </script>
 </body>
