@@ -6,96 +6,212 @@
     <title>خبرك عندي - Yemen News</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Enhanced Breaking News Ticker Styles */
-        .breaking-news-container {
-            position: sticky;
-            bottom: 0;
-            z-index: 1000;
-            background-color: #e74c3c;
-            direction: rtl;
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .breaking-news-ticker {
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f5f5;
+            padding-top: 120px;
+        }
+        
+        /* Header Styles */
+        #site-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .header-top {
+            padding: 15px;
+            background: #2c3e50;
             color: white;
-            padding: 12px 10px;
-            overflow: hidden;
-            position: relative;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
             font-weight: bold;
         }
+        
+        .red { color: #e74c3c; }
+        .green { color: #2ecc71; }
+        
+        .datetime {
+            font-size: 0.9rem;
+        }
+        
+        /* Navigation */
+        .categories ul {
+            display: flex;
+            list-style: none;
+            background: #34495e;
+            padding: 0 15px;
+        }
+        
+        .categories li a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 15px;
+            display: block;
+            transition: background 0.3s;
+        }
+        
+        .categories li a:hover, 
+        .categories li a.active {
+            background: #e74c3c;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 20px;
+            min-height: calc(100vh - 200px);
+        }
+        
+        .news-filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        #news-search {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        #news-sort {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .news-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .news-article {
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .news-article:hover {
+            transform: translateY(-5px);
+        }
+        
+        .news-article h2 {
+            padding: 15px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #2c3e50;
+        }
+        
+        .news-article p {
+            padding: 0 15px 15px;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 15px;
+            background: #f9f9f9;
+            font-size: 0.8rem;
+            color: #777;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 50px;
+            grid-column: 1 / -1;
+        }
+        
+        .spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #e74c3c;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Breaking News Ticker */
+        .breaking-news-container {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #e74c3c;
+            color: white;
+            z-index: 1000;
+            direction: rtl;
+        }
+        
+        .breaking-news-ticker {
+            padding: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
         .ticker-label {
-            display: inline-block;
             background: #c0392b;
             padding: 3px 10px;
-            margin-left: 15px;
             border-radius: 3px;
             position: absolute;
-            right: 0;
-            z-index: 2;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
         }
+        
         .ticker-content {
             display: inline-block;
-            padding-right: 120px;
             white-space: nowrap;
+            padding-right: 120px;
             animation: ticker 30s linear infinite;
         }
+        
         .ticker-item {
             display: inline-block;
-            padding: 0 15px;
+            padding: 0 20px;
             position: relative;
             cursor: pointer;
-            transition: all 0.3s;
         }
+        
         .ticker-item:not(:last-child):after {
             content: "⚡";
             color: #ffcc00;
             position: absolute;
             left: -5px;
-            text-shadow: 0 0 3px #ff0000;
         }
-        .ticker-item:hover {
-            color: #ffcc00;
-        }
+        
         @keyframes ticker {
             0% { transform: translateX(30%); }
             100% { transform: translateX(-100%); }
         }
-        
-        main {
-            margin-bottom: 50px;
-        }
-        
-        /* Article Viewer Header */
-        .article-header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: linear-gradient(135deg, #2c3e50 0%, #1a1a2e 100%);
-            padding: 15px;
-            z-index: 1001;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .return-main-btn {
-            order: 1;
-            background: #e74c3c;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-right: auto;
-        }
-        .article-logo {
-            order: 2;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-            margin-left: auto;
-        }
-        .article-logo .red { color: #e74c3c; }
-        .article-logo .green { color: #2ecc71; }
         
         /* Article Viewer */
         .article-viewer {
@@ -105,88 +221,59 @@
             right: 0;
             bottom: 0;
             background: white;
-            z-index: 1000;
+            z-index: 1001;
             display: none;
         }
+        
+        .article-header {
+            background: #2c3e50;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .return-main-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
         #article-frame {
             width: 100%;
             height: calc(100% - 60px);
-            margin-top: 60px;
             border: none;
         }
         
-        /* Article Toolbar */
-        .article-toolbar {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.7);
-            border-radius: 50px;
-            padding: 10px;
-            z-index: 1002;
-            display: flex;
-            gap: 10px;
-        }
-        .toolbar-btn {
+        /* Footer */
+        footer {
             background: #2c3e50;
             color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
         }
         
-        /* Dark Mode */
-        body.dark-mode {
-            background: #121212;
-            color: #f0f0f0;
-        }
-        body.dark-mode .article-viewer {
-            background: #1e1e1e;
-        }
-        
-        /* Loading Indicator */
-        .iframe-loading {
-            position: fixed;
-            top: 60px;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255,255,255,0.9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1002;
-        }
-        .iframe-loading .spinner {
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #e74c3c;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
+        /* Responsive */
         @media (max-width: 768px) {
-            body { padding-top: 160px; }
-            .article-header {
-                flex-direction: row;
+            body {
+                padding-top: 160px;
             }
+            
+            .news-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .news-filters {
+                flex-direction: column;
+            }
+            
             .ticker-item {
                 padding: 0 10px;
-                font-size: 0.9em;
-            }
-            .ticker-item:after {
-                left: -3px !important;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -236,12 +323,6 @@
             </div>
         </div>
         
-        <div class="pagination" id="pagination">
-            <button class="prev" disabled>السابق</button>
-            <div class="pages" id="page-numbers"></div>
-            <button class="next">التالي</button>
-        </div>
-        
         <div class="load-more-container">
             <button id="load-more" class="load-more-btn">عرض المزيد من الأخبار</button>
         </div>
@@ -257,12 +338,6 @@
             </div>
         </div>
         <iframe id="article-frame" src=""></iframe>
-    </div>
-    <div class="article-toolbar">
-        <button class="toolbar-btn" onclick="adjustTextSize('increase')">A+</button>
-        <button class="toolbar-btn" onclick="adjustTextSize('decrease')">A-</button>
-        <button class="toolbar-btn" onclick="toggleDarkMode()">☀</button>
-        <button class="toolbar-btn" onclick="printArticle()">🖶</button>
     </div>
 
     <!-- Footer -->
@@ -283,223 +358,84 @@
         </div>
     </div>
 
-    <!-- JavaScript Files -->
-    <script src="js/utils.js"></script>
-    <script src="js/news-loader.js"></script>
-    <script src="js/search.js"></script>
-    <script src="js/pagination.js"></script>
-
-    <!-- Main Script -->
+    <!-- JavaScript -->
     <script>
-        // Store articles in memory
-        let allArticles = [];
-        
-        // Current Date and Time
-        function updateDateTime() {
-            const now = new Date();
-            const options = {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            };
-            const dateStr = now.toLocaleDateString('ar-EG', options)
-                .replace(/،/g, ' - ')
-                .replace(/ص/g, 'ص')
-                .replace(/م/g, 'م');
-
-            document.getElementById('current-datetime').innerHTML = 
-                `<i class="icon-clock"></i> ${dateStr}`;
-        }
-
-        // Enhanced Article Viewer with Clean URLs
-        function viewArticle(url, title) {
-            // Show loading indicator
-            const loadingDiv = document.createElement('div');
-            loadingDiv.className = 'iframe-loading';
-            loadingDiv.innerHTML = '<div class="spinner"></div>';
-            document.body.appendChild(loadingDiv);
-            
-            // Find article in our stored data
-            const article = allArticles.find(a => a.url === url);
-            
-            // Generate a unique ID
-            const articleId = article ? 
-                article.url.match(/\d+/)[0] || 
-                Math.floor(Math.random() * 10000).toString().padStart(4, '0');
-            
-            // Update browser URL
-            window.history.pushState(
-                { articleUrl: url, articleTitle: title }, 
-                title, 
-                `/show/${articleId}.html`
-            );
-            
-            // Load article
-            const iframe = document.getElementById('article-frame');
-            iframe.onload = function() {
-                document.body.removeChild(loadingDiv);
-            };
-            iframe.src = url;
-            
-            // Show viewer
-            document.getElementById('article-viewer').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-            document.title = `${title} - خبرك عندي`;
-        }
-
-        function closeArticle() {
-            document.getElementById('article-viewer').style.display = 'none';
-            document.getElementById('article-frame').src = '';
-            document.body.style.overflow = 'auto';
-            document.title = 'خبرك عندي - Yemen News';
-            window.history.pushState({}, '', '/');
-        }
-
-        // Handle browser navigation
-        window.addEventListener('popstate', function(event) {
-            if (event.state && event.state.articleUrl) {
-                viewArticle(event.state.articleUrl, event.state.articleTitle);
-            } else {
-                closeArticle();
-            }
-        });
-
-        // Check URL on load
-        function checkInitialURL() {
-            const pathMatch = window.location.pathname.match(/\/show\/(\d+)\.html$/);
-            if (pathMatch) {
-                const articleId = pathMatch[1];
-                const article = allArticles.find(a => a.url.includes(articleId));
-                if (article) {
-                    viewArticle(article.url, article.title);
-                } else {
-                    window.location.href = '/';
-                }
-            }
-        }
-
-        // Article Tools
-        function adjustTextSize(action) {
-            const frame = document.getElementById('article-frame');
-            if (frame.contentDocument) {
-                const currentSize = parseInt(frame.contentDocument.body.style.fontSize || 16);
-                frame.contentDocument.body.style.fontSize = 
-                    (action === 'increase' ? currentSize + 2 : currentSize - 2) + 'px';
-            }
-        }
-
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            const frame = document.getElementById('article-frame');
-            if (frame.contentDocument) {
-                frame.contentDocument.body.classList.toggle('dark-mode');
-            }
-        }
-
-        function printArticle() {
-            const frame = document.getElementById('article-frame');
-            if (frame.contentWindow) {
-                frame.contentWindow.print();
-            }
-        }
-
-        // Breaking News Ticker
-        function updateBreakingNews() {
-            if (allArticles.length >= 3) {
-                const latestArticles = allArticles.slice(0, 3);
-                const tickerContent = latestArticles.map(article => {
-                    return `<span class="ticker-item" onclick="viewArticle('${article.url}', '${article.title.replace(/'/g, "\\'")}')">⚡ ${article.title}</span>`;
-                }).join('');
-
-                const ticker = document.getElementById('breaking-news-ticker');
-                ticker.innerHTML = tickerContent;
-                ticker.style.animation = 'none';
-                void ticker.offsetWidth;
-                ticker.style.animation = 'ticker 30s linear infinite';
-            }
-        }
-
-        // News Search Functionality
-        document.getElementById('news-search').addEventListener('input', function(e) {
-            if (typeof filterNews === 'function') {
-                filterNews(e.target.value);
-            }
-        });
-
-        // Sort News Functionality
-        document.getElementById('news-sort').addEventListener('change', function(e) {
-            if (typeof sortNews === 'function') {
-                sortNews(e.target.value);
-            }
-        });
-
-        // Load More News Button
-        document.getElementById('load-more').addEventListener('click', function() {
-            if (typeof loadMoreNews === 'function') {
-                loadMoreNews();
-            }
-        });
-
-        // Initialize Page
+        // Simple News Loading (replace with your actual implementation)
         document.addEventListener('DOMContentLoaded', function() {
             // Set current year
             document.getElementById('current-year').textContent = new Date().getFullYear();
             
-            // Initial date/time update
+            // Update datetime
+            function updateDateTime() {
+                const now = new Date();
+                const options = {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                };
+                const dateStr = now.toLocaleDateString('ar-EG', options);
+                document.getElementById('current-datetime').textContent = dateStr;
+                document.getElementById('last-updated').textContent = now.toLocaleTimeString('ar-EG');
+            }
             updateDateTime();
-            
-            // Load news
-            fetch('data/news.json')
-                .then(response => response.json())
-                .then(news => {
-                    allArticles = news.articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-                    
-                    // Render articles
-                    const newsContainer = document.getElementById('news-container');
-                    newsContainer.innerHTML = '';
-                    
-                    allArticles.forEach(item => {
-                        const article = document.createElement('div');
-                        article.className = 'news-article';
-                        article.innerHTML = `
-                            <h2 onclick="viewArticle('${item.url}', '${item.title.replace(/'/g, "\\'")}')">
-                                ${item.title}
-                            </h2>
-                            <p>${item.summary || ''}</p>
-                            <div class="article-meta">
-                                <span class="source">${item.source}</span>
-                                <span class="date">${new Date(item.date).toLocaleString('ar-EG')}</span>
-                            </div>
-                        `;
-                        newsContainer.appendChild(article);
-                    });
-                    
-                    // Update last updated time
-                    document.getElementById('last-updated').textContent = 
-                        new Date().toLocaleTimeString('ar-EG');
-                    
-                    // Update breaking news
-                    updateBreakingNews();
-                    
-                    // Check if we loaded an article URL directly
-                    checkInitialURL();
-                })
-                .catch(error => {
-                    console.error('Error loading news:', error);
-                    document.getElementById('news-container').innerHTML = 
-                        '<p class="error">حدث خطأ أثناء تحميل الأخبار. يرجى المحاولة لاحقاً.</p>';
-                });
-            
-            // Set intervals for updates
             setInterval(updateDateTime, 60000);
-            setInterval(updateBreakingNews, 300000);
             
-            // Initialize pagination
-            if (typeof initPagination === 'function') {
-                initPagination();
+            // Simulate news loading
+            setTimeout(function() {
+                const newsContainer = document.getElementById('news-container');
+                newsContainer.innerHTML = `
+                    <div class="news-article">
+                        <h2 onclick="viewArticle('news1.html', 'عنوان الخبر الأول')">عنوان الخبر الأول</h2>
+                        <p>محتوى مختصر للخبر الأول هنا...</p>
+                        <div class="article-meta">
+                            <span class="source">مصدر الخبر</span>
+                            <span class="date">${new Date().toLocaleString('ar-EG')}</span>
+                        </div>
+                    </div>
+                    <div class="news-article">
+                        <h2 onclick="viewArticle('news2.html', 'عنوان الخبر الثاني')">عنوان الخبر الثاني</h2>
+                        <p>محتوى مختصر للخبر الثاني هنا...</p>
+                        <div class="article-meta">
+                            <span class="source">مصدر الخبر</span>
+                            <span class="date">${new Date().toLocaleString('ar-EG')}</span>
+                        </div>
+                    </div>
+                `;
+                
+                // Update breaking news
+                document.getElementById('breaking-news-ticker').innerHTML = `
+                    <span class="ticker-item" onclick="viewArticle('news1.html', 'عنوان الخبر الأول')">⚡ عنوان الخبر الأول</span>
+                    <span class="ticker-item" onclick="viewArticle('news2.html', 'عنوان الخبر الثاني')">⚡ عنوان الخبر الثاني</span>
+                `;
+            }, 1500);
+        });
+        
+        // Article Viewer Functions
+        function viewArticle(url, title) {
+            // Generate clean URL
+            const articleId = url.match(/\d+/) || Math.floor(Math.random() * 10000);
+            history.pushState({}, '', `/show/${articleId}.html`);
+            
+            // Show article
+            document.getElementById('article-frame').src = url;
+            document.getElementById('article-viewer').style.display = 'block';
+            document.title = `${title} - خبرك عندي`;
+        }
+        
+        function closeArticle() {
+            document.getElementById('article-viewer').style.display = 'none';
+            document.getElementById('article-frame').src = '';
+            history.pushState({}, '', '/');
+            document.title = 'خبرك عندي - Yemen News';
+        }
+        
+        // Handle back button
+        window.addEventListener('popstate', function() {
+            if (!window.location.pathname.includes('/show/')) {
+                closeArticle();
             }
         });
     </script>
