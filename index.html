@@ -358,5 +358,29 @@
                     '<p class="error">حدث خطأ أثناء تحميل الأخبار. يرجى المحاولة لاحقاً.</p>';
             });
     </script>
+    // ====== ENHANCED ARTICLE VIEWING WITH CLEAN URLS ======
+function viewArticle(url) {
+    // Extract ID from URL or generate a random one (if no digits exist)
+    const articleId = url.match(/\d+/)?.[0] || Math.floor(Math.random() * 10000);
+    
+    // Update URL in the address bar (e.g., www.itlobni.com/show/123.html)
+    window.history.pushState({}, '', `/show/${articleId}.html`);
+    
+    // Load the article in the iframe
+    document.getElementById('article-frame').src = url;
+    document.getElementById('article-viewer').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+// Handle browser back button
+window.addEventListener('popstate', function() {
+    closeArticle(); // Your existing function
+});
+
+// ====== OPTIONAL: FORCE CLEAN URL ON PAGE LOAD ======
+// If someone visits www.itlobni.com/show/123.html, redirect to main page
+if (window.location.pathname.includes('/show/')) {
+    window.location.href = '/'; // Redirect to homepage
+}
 </body>
 </html>
