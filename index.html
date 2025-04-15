@@ -53,27 +53,6 @@
             font-size: 0.9rem;
         }
         
-        /* Navigation */
-        .categories ul {
-            display: flex;
-            list-style: none;
-            background: #34495e;
-            padding: 0 15px;
-        }
-        
-        .categories li a {
-            color: white;
-            text-decoration: none;
-            padding: 12px 15px;
-            display: block;
-            transition: background 0.3s;
-        }
-        
-        .categories li a:hover, 
-        .categories li a.active {
-            background: #e74c3c;
-        }
-        
         /* Article Viewer Header */
         .article-viewer-header {
             position: fixed;
@@ -96,6 +75,27 @@
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
+        }
+        
+        /* Navigation */
+        .categories ul {
+            display: flex;
+            list-style: none;
+            background: #34495e;
+            padding: 0 15px;
+        }
+        
+        .categories li a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 15px;
+            display: block;
+            transition: background 0.3s;
+        }
+        
+        .categories li a:hover, 
+        .categories li a.active {
+            background: #e74c3c;
         }
         
         /* Main Content */
@@ -367,10 +367,6 @@
             document.getElementById('article-viewer-header').style.display = 'flex';
             document.getElementById('site-header').style.display = 'none';
             
-            // Generate clean URL for history
-            const articleId = url.match(/\d+/)?.[0] || Math.floor(Math.random() * 10000);
-            window.history.pushState({}, title, `/show/${articleId}.html`);
-            
             // Open the article in a new tab
             window.open(url, '_blank');
             
@@ -496,11 +492,9 @@
             
             // Handle back button
             window.addEventListener('popstate', function() {
-                if (!window.location.pathname.includes('/show/')) {
-                    document.getElementById('article-viewer-header').style.display = 'none';
-                    document.getElementById('site-header').style.display = 'block';
-                    document.title = 'خبرك عندي - Yemen News';
-                }
+                document.getElementById('article-viewer-header').style.display = 'none';
+                document.getElementById('site-header').style.display = 'block';
+                document.title = 'خبرك عندي - Yemen News';
             });
 
             // Load More News Button
