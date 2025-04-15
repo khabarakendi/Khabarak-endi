@@ -12,10 +12,11 @@
             bottom: 0;
             z-index: 1000;
             background-color: #e74c3c;
+            direction: rtl;
         }
         .breaking-news-ticker {
             color: white;
-            padding: 10px;
+            padding: 12px 10px;
             overflow: hidden;
             position: relative;
             font-weight: bold;
@@ -27,34 +28,42 @@
             margin-left: 15px;
             border-radius: 3px;
             position: absolute;
+            right: 0;
             z-index: 2;
         }
         .ticker-content {
             display: inline-block;
+            padding-right: 120px;
             white-space: nowrap;
-            padding-left: 120px;
-            animation: ticker 25s linear infinite;
-        }
-        @keyframes ticker {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+            animation: ticker 30s linear infinite;
         }
         .ticker-item {
             display: inline-block;
-            padding: 0 25px;
+            padding: 0 15px;
+            position: relative;
             cursor: pointer;
             transition: all 0.3s;
-            position: relative;
+        }
+        .ticker-item:not(:last-child):after {
+            content: "⚡";
+            color: #ffcc00;
+            position: absolute;
+            left: -5px;
+            text-shadow: 0 0 3px #ff0000;
         }
         .ticker-item:hover {
             color: #ffcc00;
-            text-decoration: underline;
         }
+        @keyframes ticker {
+            0% { transform: translateX(30%); }
+            100% { transform: translateX(-100%); }
+        }
+        
         main {
             margin-bottom: 50px;
         }
         
-        /* Article Viewer Header - UPDATED */
+        /* Article Viewer Header */
         .article-header {
             position: fixed;
             top: 0;
@@ -68,7 +77,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .return-main-btn {
-            order: 1; /* Forces button to left in RTL */
+            order: 1;
             background: #e74c3c;
             color: white;
             border: none;
@@ -76,19 +85,19 @@
             border-radius: 5px;
             cursor: pointer;
             font-weight: bold;
-            margin-right: auto; /* Pushes button left */
+            margin-right: auto;
         }
         .article-logo {
-            order: 2; /* Forces logo to right in RTL */
+            order: 2;
             font-size: 1.5rem;
             font-weight: bold;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-            margin-left: auto; /* Pushes logo right */
+            margin-left: auto;
         }
         .article-logo .red { color: #e74c3c; }
         .article-logo .green { color: #2ecc71; }
         
-        /* Article Viewer - UPDATED */
+        /* Article Viewer */
         .article-viewer {
             position: fixed;
             top: 0;
@@ -106,10 +115,78 @@
             border: none;
         }
         
+        /* Article Toolbar */
+        .article-toolbar {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            border-radius: 50px;
+            padding: 10px;
+            z-index: 1002;
+            display: flex;
+            gap: 10px;
+        }
+        .toolbar-btn {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Dark Mode */
+        body.dark-mode {
+            background: #121212;
+            color: #f0f0f0;
+        }
+        body.dark-mode .article-viewer {
+            background: #1e1e1e;
+        }
+        
+        /* Loading Indicator */
+        .iframe-loading {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1002;
+        }
+        .iframe-loading .spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #e74c3c;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
         @media (max-width: 768px) {
             body { padding-top: 160px; }
             .article-header {
-                flex-direction: row; /* Maintains button left, logo right on mobile */
+                flex-direction: row;
+            }
+            .ticker-item {
+                padding: 0 10px;
+                font-size: 0.9em;
+            }
+            .ticker-item:after {
+                left: -3px !important;
             }
         }
     </style>
@@ -170,17 +247,7 @@
         </div>
     </main>
 
-    <!-- Article Viewer - UPDATED -->
-    <div class="article-toolbar">
-    <button class="toolbar-btn" onclick="adjustTextSize('increase')">A+</button>
-    <button class="toolbar-btn" onclick="adjustTextSize('decrease')">A-</button>
-    <button class="toolbar-btn" onclick="toggleDarkMode()">
-        <i class="icon-moon"></i>
-    </button>
-    <button class="toolbar-btn" onclick="printArticle()">
-        <i class="icon-printer"></i>
-    </button>
-</div>
+    <!-- Article Viewer -->
     <div class="article-viewer" id="article-viewer">
         <div class="article-header">
             <button class="return-main-btn" onclick="closeArticle()">← العودة إلى الرئيسية</button>
@@ -191,8 +258,14 @@
         </div>
         <iframe id="article-frame" src=""></iframe>
     </div>
+    <div class="article-toolbar">
+        <button class="toolbar-btn" onclick="adjustTextSize('increase')">A+</button>
+        <button class="toolbar-btn" onclick="adjustTextSize('decrease')">A-</button>
+        <button class="toolbar-btn" onclick="toggleDarkMode()">☀</button>
+        <button class="toolbar-btn" onclick="printArticle()">🖶</button>
+    </div>
 
-    <!-- Footer - UPDATED (removed special news section) -->
+    <!-- Footer -->
     <footer id="site-footer">
         <div class="footer-bottom">
             <p>جميع الحقوق محفوظة © <span id="current-year">2023</span> موقع خبرك عندي</p>
@@ -218,6 +291,9 @@
 
     <!-- Main Script -->
     <script>
+        // Store articles in memory
+        let allArticles = [];
+        
         // Current Date and Time
         function updateDateTime() {
             const now = new Date();
@@ -238,50 +314,111 @@
                 `<i class="icon-clock"></i> ${dateStr}`;
         }
 
-        // Article Viewer Functions
-        function viewArticle(url) {
-            document.getElementById('article-frame').src = url;
+        // Enhanced Article Viewer with Clean URLs
+        function viewArticle(url, title) {
+            // Show loading indicator
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'iframe-loading';
+            loadingDiv.innerHTML = '<div class="spinner"></div>';
+            document.body.appendChild(loadingDiv);
+            
+            // Find article in our stored data
+            const article = allArticles.find(a => a.url === url);
+            
+            // Generate a unique ID
+            const articleId = article ? 
+                article.url.match(/\d+/)[0] || 
+                Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+            
+            // Update browser URL
+            window.history.pushState(
+                { articleUrl: url, articleTitle: title }, 
+                title, 
+                `/show/${articleId}.html`
+            );
+            
+            // Load article
+            const iframe = document.getElementById('article-frame');
+            iframe.onload = function() {
+                document.body.removeChild(loadingDiv);
+            };
+            iframe.src = url;
+            
+            // Show viewer
             document.getElementById('article-viewer').style.display = 'block';
             document.body.style.overflow = 'hidden';
-            window.scrollTo(0, 0);
+            document.title = `${title} - خبرك عندي`;
         }
 
         function closeArticle() {
             document.getElementById('article-viewer').style.display = 'none';
             document.getElementById('article-frame').src = '';
             document.body.style.overflow = 'auto';
+            document.title = 'خبرك عندي - Yemen News';
+            window.history.pushState({}, '', '/');
         }
 
-        // Load More News Button
-        document.getElementById('load-more').addEventListener('click', function() {
-            if (typeof loadMoreNews === 'function') {
-                loadMoreNews();
+        // Handle browser navigation
+        window.addEventListener('popstate', function(event) {
+            if (event.state && event.state.articleUrl) {
+                viewArticle(event.state.articleUrl, event.state.articleTitle);
+            } else {
+                closeArticle();
             }
         });
 
-        // Breaking News Ticker Update
+        // Check URL on load
+        function checkInitialURL() {
+            const pathMatch = window.location.pathname.match(/\/show\/(\d+)\.html$/);
+            if (pathMatch) {
+                const articleId = pathMatch[1];
+                const article = allArticles.find(a => a.url.includes(articleId));
+                if (article) {
+                    viewArticle(article.url, article.title);
+                } else {
+                    window.location.href = '/';
+                }
+            }
+        }
+
+        // Article Tools
+        function adjustTextSize(action) {
+            const frame = document.getElementById('article-frame');
+            if (frame.contentDocument) {
+                const currentSize = parseInt(frame.contentDocument.body.style.fontSize || 16);
+                frame.contentDocument.body.style.fontSize = 
+                    (action === 'increase' ? currentSize + 2 : currentSize - 2) + 'px';
+            }
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const frame = document.getElementById('article-frame');
+            if (frame.contentDocument) {
+                frame.contentDocument.body.classList.toggle('dark-mode');
+            }
+        }
+
+        function printArticle() {
+            const frame = document.getElementById('article-frame');
+            if (frame.contentWindow) {
+                frame.contentWindow.print();
+            }
+        }
+
+        // Breaking News Ticker
         function updateBreakingNews() {
-            const newsContainer = document.getElementById('news-container');
-            const articles = newsContainer.querySelectorAll('.news-article');
-            
-            if (articles.length >= 3) {
-                const latestArticles = Array.from(articles).slice(0, 3);
+            if (allArticles.length >= 3) {
+                const latestArticles = allArticles.slice(0, 3);
                 const tickerContent = latestArticles.map(article => {
-                    const title = article.querySelector('h2').textContent;
-                    const url = article.querySelector('h2').getAttribute('onclick').match(/'([^']+)'/)[1];
-                    return `<span class="ticker-item" onclick="viewArticle('${url}')">• ${title} •</span>`;
+                    return `<span class="ticker-item" onclick="viewArticle('${article.url}', '${article.title.replace(/'/g, "\\'")}')">⚡ ${article.title}</span>`;
                 }).join('');
 
-                document.getElementById('breaking-news-ticker').innerHTML = tickerContent;
-                
-                // Restart animation
                 const ticker = document.getElementById('breaking-news-ticker');
+                ticker.innerHTML = tickerContent;
                 ticker.style.animation = 'none';
                 void ticker.offsetWidth;
-                ticker.style.animation = 'ticker 25s linear infinite';
-            } else {
-                document.getElementById('breaking-news-ticker').innerHTML = 
-                    '<span class="ticker-item">جاري تحميل آخر الأخبار...</span>';
+                ticker.style.animation = 'ticker 30s linear infinite';
             }
         }
 
@@ -299,6 +436,13 @@
             }
         });
 
+        // Load More News Button
+        document.getElementById('load-more').addEventListener('click', function() {
+            if (typeof loadMoreNews === 'function') {
+                loadMoreNews();
+            }
+        });
+
         // Initialize Page
         document.addEventListener('DOMContentLoaded', function() {
             // Set current year
@@ -307,115 +451,57 @@
             // Initial date/time update
             updateDateTime();
             
-            // Load initial news
-            if (typeof loadNews === 'function') {
-                loadNews().then(() => {
-                    // Update breaking news after main news loads
+            // Load news
+            fetch('data/news.json')
+                .then(response => response.json())
+                .then(news => {
+                    allArticles = news.articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    
+                    // Render articles
+                    const newsContainer = document.getElementById('news-container');
+                    newsContainer.innerHTML = '';
+                    
+                    allArticles.forEach(item => {
+                        const article = document.createElement('div');
+                        article.className = 'news-article';
+                        article.innerHTML = `
+                            <h2 onclick="viewArticle('${item.url}', '${item.title.replace(/'/g, "\\'")}')">
+                                ${item.title}
+                            </h2>
+                            <p>${item.summary || ''}</p>
+                            <div class="article-meta">
+                                <span class="source">${item.source}</span>
+                                <span class="date">${new Date(item.date).toLocaleString('ar-EG')}</span>
+                            </div>
+                        `;
+                        newsContainer.appendChild(article);
+                    });
+                    
+                    // Update last updated time
+                    document.getElementById('last-updated').textContent = 
+                        new Date().toLocaleTimeString('ar-EG');
+                    
+                    // Update breaking news
                     updateBreakingNews();
+                    
+                    // Check if we loaded an article URL directly
+                    checkInitialURL();
+                })
+                .catch(error => {
+                    console.error('Error loading news:', error);
+                    document.getElementById('news-container').innerHTML = 
+                        '<p class="error">حدث خطأ أثناء تحميل الأخبار. يرجى المحاولة لاحقاً.</p>';
                 });
-            }
             
             // Set intervals for updates
             setInterval(updateDateTime, 60000);
-            setInterval(updateBreakingNews, 300000); // Update breaking news every 5 minutes
+            setInterval(updateBreakingNews, 300000);
             
             // Initialize pagination
             if (typeof initPagination === 'function') {
                 initPagination();
             }
         });
-
-        // Additional News Loading from JSON
-        fetch('data/news.json')
-            .then(response => response.json())
-            .then(news => {
-                const newsContainer = document.getElementById('news-container');
-                const breakingNewsBar = document.getElementById('breaking-news-ticker');
-                
-                // Clear loading indicator
-                newsContainer.innerHTML = '';
-                
-                // Sort articles by date (newest first)
-                const sortedArticles = news.articles.sort((a, b) => {
-                    return new Date(b.date) - new Date(a.date);
-                });
-                
-                // Add news articles
-                sortedArticles.forEach(item => {
-                    const article = document.createElement('div');
-                    article.className = 'news-article';
-                    article.innerHTML = `
-                        <h2 onclick="viewArticle('${item.url}')">${item.title}</h2>
-                        <p>${item.summary}</p>
-                        <div class="article-meta">
-                            <span class="category ${item.category}">${item.category}</span>
-                            <span class="date">${item.date}</span>
-                        </div>
-                    `;
-                    newsContainer.appendChild(article);
-                });
-                
-                // Update last updated time
-                document.getElementById('last-updated').textContent = 
-                    new Date().toLocaleTimeString('ar-EG');
-                
-                // Update breaking news ticker
-                updateBreakingNews();
-            })
-            .catch(error => {
-                console.error('Error loading news:', error);
-                document.getElementById('news-container').innerHTML = 
-                    '<p class="error">حدث خطأ أثناء تحميل الأخبار. يرجى المحاولة لاحقاً.</p>';
-            });
     </script>
-    // ====== ENHANCED ARTICLE VIEWING WITH CLEAN URLS ======
-function viewArticle(url) {
-    // Extract ID from URL or generate a random one (if no digits exist)
-    const articleId = url.match(/\d+/)?.[0] || Math.floor(Math.random() * 10000);
-    
-    // Update URL in the address bar (e.g., www.itlobni.com/show/123.html)
-    window.history.pushState({}, '', `/show/${articleId}.html`);
-    
-    // Load the article in the iframe
-    document.getElementById('article-frame').src = url;
-    document.getElementById('article-viewer').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
-
-// Handle browser back button
-window.addEventListener('popstate', function() {
-    closeArticle(); // Your existing function
-});
-
-// ====== OPTIONAL: FORCE CLEAN URL ON PAGE LOAD ======
-// If someone visits www.itlobni.com/show/123.html, redirect to main page
-if (window.location.pathname.includes('/show/')) {
-    window.location.href = '/'; // Redirect to homepage
-}
-
-// ====== OPTIONAL: FORCE CLEAN URL ON PAGE LOAD ======
-// If someone visits www.itlobni.com/show/123.html, redirect to main page
-if (window.location.pathname.includes('/show/')) {
-    window.location.href = '/'; // Redirect to homepage
-}
-    function adjustTextSize(action) {
-    const frame = document.getElementById('article-frame');
-    frame.contentDocument.body.style.fontSize = action === 'increase' ? 
-        (parseInt(frame.contentDocument.body.style.fontSize || 16) + 2 + 'px' :
-        (parseInt(frame.contentDocument.body.style.fontSize || 16) - 2 + 'px';
-}
-
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    const frame = document.getElementById('article-frame');
-    if (frame.contentDocument) {
-        frame.contentDocument.body.classList.toggle('dark-mode');
-    }
-}
-
-function printArticle() {
-    const frame = document.getElementById('article-frame');
-    frame.contentWindow.print();
-}
 </body>
 </html>
