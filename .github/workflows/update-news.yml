@@ -81,7 +81,7 @@ jobs:
               'https://www.adngad.net/',
               'https://crater-news.net/',
               'https://crater-sky.net/'
-                ]
+                  ]
           
           def get_feed(url):
               try:
