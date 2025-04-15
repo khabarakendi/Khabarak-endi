@@ -43,6 +43,7 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
+            cursor: pointer;
         }
         
         .red { color: #e74c3c; }
@@ -71,6 +72,30 @@
         .categories li a:hover, 
         .categories li a.active {
             background: #e74c3c;
+        }
+        
+        /* Article Viewer Header */
+        .article-viewer-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            z-index: 1001;
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .return-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
         }
         
         /* Main Content */
@@ -127,6 +152,11 @@
             padding: 0 15px 15px;
             color: #666;
             line-height: 1.5;
+            display: none; /* Hide summary if empty */
+        }
+        
+        .news-article p:not(:empty) {
+            display: block; /* Show summary if not empty */
         }
         
         .article-meta {
@@ -243,11 +273,11 @@
     </style>
 </head>
 <body>
-    <!-- Header Section -->
+    <!-- Main Header -->
     <header id="site-header">
         <div class="header-top">
             <div class="logo-container">
-                <div class="logo">
+                <div class="logo" onclick="window.location.href='/'">
                     <span class="red">خبرك</span>
                     <span class="green">عندي</span>
                 </div>
@@ -269,6 +299,15 @@
             </ul>
         </nav>
     </header>
+
+    <!-- Article Viewer Header -->
+    <div class="article-viewer-header" id="article-viewer-header">
+        <button class="return-btn" onclick="window.location.href='/'">← العودة للصفحة الرئيسية</button>
+        <div class="logo" onclick="window.location.href='/'">
+            <span class="red">خبرك</span>
+            <span class="green">عندي</span>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <main id="main-content">
@@ -324,6 +363,10 @@
 
         // Article viewing function with redirection
         function viewArticle(url, title) {
+            // Show article viewer header
+            document.getElementById('article-viewer-header').style.display = 'flex';
+            document.getElementById('site-header').style.display = 'none';
+            
             // Generate clean URL for history
             const articleId = url.match(/\d+/)?.[0] || Math.floor(Math.random() * 10000);
             window.history.pushState({}, title, `/show/${articleId}.html`);
@@ -403,18 +446,21 @@
                     return new Date(b.date) - new Date(a.date);
                 });
                 
-                newsContainer.innerHTML = sortedArticles.map(article => `
+                newsContainer.innerHTML = sortedArticles.map(article => {
+                    const summaryHtml = article.summary ? `<p>${article.summary}</p>` : '';
+                    return `
                     <div class="news-article">
                         <h2 onclick="viewArticle('${escapeHtml(article.url)}', '${escapeHtml(article.title)}')">
                             ${article.title}
                         </h2>
-                        <p>${article.summary || 'لا يوجد ملخص متاح'}</p>
+                        ${summaryHtml}
                         <div class="article-meta">
                             <span class="source">${article.source || 'مصدر غير معروف'}</span>
                             <span class="date">${formatDate(article.date)}</span>
                         </div>
                     </div>
-                `).join('');
+                    `;
+                }).join('');
             }
             
             // Format date
@@ -451,6 +497,8 @@
             // Handle back button
             window.addEventListener('popstate', function() {
                 if (!window.location.pathname.includes('/show/')) {
+                    document.getElementById('article-viewer-header').style.display = 'none';
+                    document.getElementById('site-header').style.display = 'block';
                     document.title = 'خبرك عندي - Yemen News';
                 }
             });
