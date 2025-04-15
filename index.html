@@ -229,36 +229,12 @@
         }
 
         // Article Viewer Functions
-function viewArticle(url, title) {
-    // Show loading indicator
-    const loadingDiv = document.createElement('div');
-    loadingDiv.className = 'iframe-loading';
-    loadingDiv.innerHTML = '<div class="spinner"></div>';
-    document.body.appendChild(loadingDiv);
-    
-    // Load article
-    const iframe = document.getElementById('article-frame');
-    iframe.onload = function() {
-        document.body.removeChild(loadingDiv);
-    };
-    iframe.src = url;
-    
-    // Generate article ID from URL
-    const articleId = url.match(/\d+/)?.[0] || Math.floor(Math.random() * 10000);
-    
-    // Update browser URL
-    window.history.pushState(
-        { articleUrl: url, articleTitle: title },
-        title,
-        `/show/${articleId}.html`
-    );
-    
-    // Show article viewer
-    document.getElementById('article-viewer').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-    document.title = `${title} - خبرك عندي`;
-    window.scrollTo(0, 0);
-}
+        function viewArticle(url) {
+            document.getElementById('article-frame').src = url;
+            document.getElementById('article-viewer').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            window.scrollTo(0, 0);
+        }
 
         function closeArticle() {
             document.getElementById('article-viewer').style.display = 'none';
@@ -275,38 +251,29 @@ function viewArticle(url, title) {
 
         // Breaking News Ticker Update
         function updateBreakingNews() {
-    const newsContainer = document.getElementById('news-container');
-    const articles = newsContainer.querySelectorAll('.news-article');
-    
-    if (articles.length >= 3) {
-        // Get the 3 most recent articles
-        const latestArticles = Array.from(articles).slice(0, 3);
-        
-        // Create ticker items with proper formatting
-        const tickerContent = latestArticles.map(article => {
-            const title = article.querySelector('h2').textContent;
-            const url = article.querySelector('h2').getAttribute('onclick')
-                          .match(/viewArticle\('([^']+)'/)[1];
-            return `
-                <span class="ticker-item" onclick="viewArticle('${url}', '${title.replace(/'/g, "\\'")}')">
-                    ⚡ ${title}
-                </span>
-            `;
-        }).join('');
-        
-        // Update the ticker
-        const ticker = document.getElementById('breaking-news-ticker');
-        ticker.innerHTML = tickerContent;
-        
-        // Restart animation
-        ticker.style.animation = 'none';
-        void ticker.offsetWidth; // Trigger reflow
-        ticker.style.animation = 'ticker 25s linear infinite';
-    } else {
-        document.getElementById('breaking-news-ticker').innerHTML = 
-            '<span class="ticker-item">جاري تحميل آخر الأخبار...</span>';
-    }
-}
+            const newsContainer = document.getElementById('news-container');
+            const articles = newsContainer.querySelectorAll('.news-article');
+            
+            if (articles.length >= 3) {
+                const latestArticles = Array.from(articles).slice(0, 3);
+                const tickerContent = latestArticles.map(article => {
+                    const title = article.querySelector('h2').textContent;
+                    const url = article.querySelector('h2').getAttribute('onclick').match(/'([^']+)'/)[1];
+                    return `<span class="ticker-item" onclick="viewArticle('${url}')">• ${title} •</span>`;
+                }).join('');
+
+                document.getElementById('breaking-news-ticker').innerHTML = tickerContent;
+                
+                // Restart animation
+                const ticker = document.getElementById('breaking-news-ticker');
+                ticker.style.animation = 'none';
+                void ticker.offsetWidth;
+                ticker.style.animation = 'ticker 25s linear infinite';
+            } else {
+                document.getElementById('breaking-news-ticker').innerHTML = 
+                    '<span class="ticker-item">جاري تحميل آخر الأخبار...</span>';
+            }
+        }
 
         // News Search Functionality
         document.getElementById('news-search').addEventListener('input', function(e) {
@@ -350,30 +317,33 @@ function viewArticle(url, title) {
 
         // Additional News Loading from JSON
         fetch('data/news.json')
-    .then(response => response.json())
-    .then(news => {
-        const newsContainer = document.getElementById('news-container');
-        newsContainer.innerHTML = '';
-        
-        news.articles.forEach(item => {
-            const article = document.createElement('div');
-            article.className = 'news-article';
-            article.innerHTML = `
-                <h2 onclick="viewArticle('${item.url}')">${item.title}</h2>
-                <p>${item.summary}</p>
-                <div class="article-meta">
-                    <span class="category ${item.category}">${item.category}</span>
-                    <span class="date">${item.date}</span>
-                </div>
-            `;
-            newsContainer.appendChild(article);
-        });
-    });
-        
-        // Update breaking news after loading
-        updateBreakingNews();
-    });
-
+            .then(response => response.json())
+            .then(news => {
+                const newsContainer = document.getElementById('news-container');
+                const breakingNewsBar = document.getElementById('breaking-news-ticker');
+                
+                // Clear loading indicator
+                newsContainer.innerHTML = '';
+                
+                // Sort articles by date (newest first)
+                const sortedArticles = news.articles.sort((a, b) => {
+                    return new Date(b.date) - new Date(a.date);
+                });
+                
+                // Add news articles
+                sortedArticles.forEach(item => {
+                    const article = document.createElement('div');
+                    article.className = 'news-article';
+                    article.innerHTML = `
+                        <h2 onclick="viewArticle('${item.url}')">${item.title}</h2>
+                        <p>${item.summary}</p>
+                        <div class="article-meta">
+                            <span class="category ${item.category}">${item.category}</span>
+                            <span class="date">${item.date}</span>
+                        </div>
+                    `;
+                    newsContainer.appendChild(article);
+                });
                 
                 // Update last updated time
                 document.getElementById('last-updated').textContent = 
@@ -388,132 +358,5 @@ function viewArticle(url, title) {
                     '<p class="error">حدث خطأ أثناء تحميل الأخبار. يرجى المحاولة لاحقاً.</p>';
             });
     </script>
-    // ====== ENHANCED ARTICLE VIEWING WITH CLEAN URLS ======
-function viewArticle(url) {
-    // Extract ID from URL or generate a random one (if no digits exist)
-    const articleId = url.match(/\d+/)?.[0] || Math.floor(Math.random() * 10000);
-    
-    // Update URL in the address bar (e.g., www.itlobni.com/show/123.html)
-    window.history.pushState({}, '', `/show/${articleId}.html`);
-    
-    // Load the article in the iframe
-    document.getElementById('article-frame').src = url;
-    document.getElementById('article-viewer').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
-
-// Handle browser back button
-window.addEventListener('popstate', function() {
-    closeArticle(); // Your existing function
-});
-
-// ====== OPTIONAL: FORCE CLEAN URL ON PAGE LOAD ======
-// If someone visits www.itlobni.com/show/123.html, redirect to main page
-if (window.location.pathname.includes('/show/')) {
-    window.location.href = '/'; // Redirect to homepage
-}
-    // ====== ARTICLE ROUTING SYSTEM ======
-// Store articles in memory for quick access
-let allArticles = [];
-
-// Enhanced viewArticle function with routing
-function viewArticle(url, title) {
-    // Find article in our stored data
-    const article = allArticles.find(a => a.url === url);
-    
-    // Generate a unique ID for this article (using URL hash or random number)
-    const articleId = article ? 
-        article.url.match(/\d+/)[0] || 
-        Math.floor(Math.random() * 10000).toString().padStart(4, '0');
-    
-    // Update browser URL (won't reload page)
-    window.history.pushState(
-        { articleUrl: url, articleTitle: title }, 
-        title, 
-        `/show/${articleId}.html`
-    );
-    
-    // Load article in iframe
-    document.getElementById('article-frame').src = url;
-    document.getElementById('article-viewer').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-    
-    // Update page title
-    document.title = `${title} - خبرك عندي`;
-}
-
-// Handle browser back/forward buttons
-window.addEventListener('popstate', function(event) {
-    if (event.state && event.state.articleUrl) {
-        // User navigated back to an article
-        document.getElementById('article-frame').src = event.state.articleUrl;
-        document.getElementById('article-viewer').style.display = 'block';
-        document.body.style.overflow = 'hidden';
-        document.title = `${event.state.articleTitle} - خبرك عندي`;
-    } else {
-        // User navigated back to main page
-        closeArticle();
-    }
-});
-
-// Check URL on page load
-function checkInitialURL() {
-    // Handle /show/123.html URLs
-    const pathMatch = window.location.pathname.match(/\/show\/(\d+)\.html$/);
-    if (pathMatch) {
-        const articleId = pathMatch[1];
-        const article = allArticles.find(a => a.url.includes(articleId));
-        if (article) {
-            viewArticle(article.url, article.title);
-            return;
-        }
-    }
-    
-    // Handle index.html#show=123 URLs (GitHub Pages fallback)
-    const hashMatch = window.location.hash.match(/show=(\d+)/);
-    if (hashMatch) {
-        const articleId = hashMatch[1];
-        const article = allArticles.find(a => a.url.includes(articleId));
-        if (article) {
-            viewArticle(article.url, article.title);
-        }
-    }
-}
-
-// ====== INITIALIZATION ======
-document.addEventListener('DOMContentLoaded', function() {
-    // Load news data
-    fetch('data/news.json')
-        .then(response => response.json())
-        .then(news => {
-            allArticles = news.articles;
-            
-            // Render news articles (your existing code)
-            const newsContainer = document.getElementById('news-container');
-            newsContainer.innerHTML = '';
-            
-            news.articles.forEach(item => {
-    const article = document.createElement('div');
-    article.className = 'news-article';
-    article.innerHTML = `
-        <h2 onclick="viewArticle('${item.url}', '${item.title.replace(/'/g, "\\'")}')">${item.title}</h2>
-        <p>${item.summary || ''}</p>
-        <div class="article-meta">
-            <span class="source">${item.source}</span>
-            <span class="date">${new Date(item.date).toLocaleDateString('ar-EG')}</span>
-        </div>
-    `;
-    newsContainer.appendChild(article);
-});
-            
-            // Check if we loaded an article URL directly
-            checkInitialURL();
-        })
-        .catch(error => {
-            console.error('Error loading news:', error);
-            document.getElementById('news-container').innerHTML = 
-                '<p class="error">حدث خطأ أثناء تحميل الأخبار. يرجى المحاولة لاحقاً.</p>';
-        });
-});
 </body>
 </html>
