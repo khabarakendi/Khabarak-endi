@@ -352,7 +352,7 @@
                 
                 newsContainer.innerHTML = sortedArticles.map(article => `
                     <div class="news-article">
-                        <h2 onclick="viewArticle('${article.url}', '${article.title.replace(/'/g, "\\'")}')">
+                        <h2 onclick="viewArticle('${article.url}', '${escapeHtml(article.title)}')">
                             ${article.title}
                         </h2>
                         <p>${article.summary || 'لا يوجد ملخص متاح'}</p>
@@ -383,11 +383,12 @@
                     return;
                 }
                 
+                // In the updateBreakingNews function:
                 ticker.innerHTML = articles.map(article => `
-                    <span class="ticker-item" onclick="viewArticle('${article.url}', '${article.title.replace(/'/g, "\\'")}')">
-                        ${article.title}
+                    <span class="ticker-item" onclick="viewArticle('${article.url}', '${escapeHtml(article.title)}')">
+                        ⚡ ${article.title}
                     </span>
-                `).join('');
+                `).join('');    
                 
                 // Restart animation
                 ticker.style.animation = 'none';
@@ -397,14 +398,16 @@
             
             // View article function
             function viewArticle(url, title) {
-                // Generate clean URL
-                const articleId = url.match(/\d+/)?.[0] || Math.floor(Math.random() * 10000);
-                history.pushState({}, '', `/show/${articleId}.html`);
-                
-                // In a real implementation, you would show the article here
-                console.log(`Viewing article: ${title} (${url})`);
-                alert(`سيتم عرض المقال: ${title}\nURL: ${url}`);
-            }
+    // Generate clean URL for history
+    const articleId = url.match(/\d+/)?.[0] || Math.floor(Math.random() * 10000);
+    window.history.pushState({}, title, `/show/${articleId}.html`);
+    
+    // Open the article in a new tab
+    window.open(url, '_blank');
+    
+    // Update page title
+    document.title = `${title} - خبرك عندي`;
+}
             
             // Initial load
             loadNews();
