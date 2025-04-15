@@ -382,5 +382,99 @@ window.addEventListener('popstate', function() {
 if (window.location.pathname.includes('/show/')) {
     window.location.href = '/'; // Redirect to homepage
 }
+    // ====== ARTICLE ROUTING SYSTEM ======
+// Store articles in memory for quick access
+let allArticles = [];
+
+// Enhanced viewArticle function with routing
+function viewArticle(url, title) {
+    // Find article in our stored data
+    const article = allArticles.find(a => a.url === url);
+    
+    // Generate a unique ID for this article (using URL hash or random number)
+    const articleId = article ? 
+        article.url.match(/\d+/)[0] || 
+        Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+    
+    // Update browser URL (won't reload page)
+    window.history.pushState(
+        { articleUrl: url, articleTitle: title }, 
+        title, 
+        `/show/${articleId}.html`
+    );
+    
+    // Load article in iframe
+    document.getElementById('article-frame').src = url;
+    document.getElementById('article-viewer').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    
+    // Update page title
+    document.title = `${title} - خبرك عندي`;
+}
+
+// Handle browser back/forward buttons
+window.addEventListener('popstate', function(event) {
+    if (event.state && event.state.articleUrl) {
+        // User navigated back to an article
+        document.getElementById('article-frame').src = event.state.articleUrl;
+        document.getElementById('article-viewer').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        document.title = `${event.state.articleTitle} - خبرك عندي`;
+    } else {
+        // User navigated back to main page
+        closeArticle();
+    }
+});
+
+// Check URL on page load
+function checkInitialURL() {
+    const pathMatch = window.location.pathname.match(/\/show\/(\d+)\.html$/);
+    if (pathMatch) {
+        const articleId = pathMatch[1];
+        const article = allArticles.find(a => a.url.includes(articleId));
+        if (article) {
+            viewArticle(article.url, article.title);
+        } else {
+            // If article not found, redirect to home
+            window.location.href = '/';
+        }
+    }
+}
+
+// ====== INITIALIZATION ======
+document.addEventListener('DOMContentLoaded', function() {
+    // Load news data
+    fetch('data/news.json')
+        .then(response => response.json())
+        .then(news => {
+            allArticles = news.articles;
+            
+            // Render news articles (your existing code)
+            const newsContainer = document.getElementById('news-container');
+            newsContainer.innerHTML = '';
+            
+            news.articles.forEach(item => {
+                const article = document.createElement('div');
+                article.className = 'news-article';
+                article.innerHTML = `
+                    <h2 onclick="viewArticle('${item.url}', '${item.title.replace(/'/g, "\\'")}')">${item.title}</h2>
+                    <p>${item.summary || ''}</p>
+                    <div class="article-meta">
+                        <span class="source">${item.source}</span>
+                        <span class="date">${new Date(item.date).toLocaleDateString('ar-EG')}</span>
+                    </div>
+                `;
+                newsContainer.appendChild(article);
+            });
+            
+            // Check if we loaded an article URL directly
+            checkInitialURL();
+        })
+        .catch(error => {
+            console.error('Error loading news:', error);
+            document.getElementById('news-container').innerHTML = 
+                '<p class="error">حدث خطأ أثناء تحميل الأخبار. يرجى المحاولة لاحقاً.</p>';
+        });
+});
 </body>
 </html>
