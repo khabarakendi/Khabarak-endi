@@ -207,10 +207,10 @@
         }
         
         .ticker-content {
+            animation: ticker 30s linear infinite;
             display: inline-block;
             white-space: nowrap;
-            padding-right: 120px;
-            animation: ticker 30s linear infinite;
+            padding-left: 120px; /* Changed from padding-right */
         }
         
         .ticker-item {
@@ -228,8 +228,8 @@
         }
         
         @keyframes ticker {
-            0% { transform: translateX(30%); }
-            100% { transform: translateX(-100%); }
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
         
         /* Footer */
@@ -554,7 +554,7 @@
             
             // Initial load
             loadNews();
-            
+
             // Check if we're viewing an article on page load
             if (window.location.pathname.includes('/show/')) {
                 // You would need to implement logic to load the specific article here
