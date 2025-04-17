@@ -287,6 +287,21 @@
                 left: 10px;
                 top: 10px;
             }
+            /* View Counter Styles */
+            .view-counter {
+                font-size: 0.8rem;
+                color: #777;
+                margin: -10px 15px 10px;
+                font-style: italic;
+            }
+
+            [data-article] {
+                transition: transform 0.2s;
+            }
+
+[data-article]:hover {
+    transform: translateY(-3px);
+}
         }
     </style>
 </head>
@@ -478,13 +493,63 @@
             
             function displayNews(articles) {
     const newsContainer = document.getElementById('news-container');
+    const viewsData = await fetch(VIEWS_FILE).then(res => res.json()).catch(() => ({}));
     
     if (!articles || articles.length === 0) {
-        newsContainer.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:20px;">
+        newsContainer.innerHTML = `<div style="text-align:center;padding:20px;">
             لا توجد أخبار متاحة حالياً.
         </div>`;
         return;
     }
+    newsContainer.innerHTML = articles.map(article => {
+        const articleId = article.url.split('/').pop().split('.')[0];
+        const viewCount = viewsData[articleId] || 0;
+        const summaryHtml = article.summary ? `<p>${article.summary}</p>` : '';
+        return `
+        <div class="news-article" data-article="${articleId}">
+            <h2 onclick="trackView('${articleId}', '${escapeHtml(article.url)}', '${escapeHtml(article.title)}')">
+                ${article.title}
+            </h2>
+            <div class="view-counter">${viewCount} ${viewCount === 1 ? 'قراءة' : 'قراءات'}</div>
+            ${summaryHtml}
+            <div class="article-meta">
+                <span class="source">${article.source || 'مصدر غير معروف'}</span>
+                <span class="date">${formatDate(article.date)}</span>
+                </div>
+        </div>
+        `;
+    }).join('');
+}
+            // Track article views
+async function trackView(articleId, url, title) {
+    // Update counter immediately
+    const counterEl = document.querySelector(`[data-article="${articleId}"] .view-counter`);
+    if (counterEl) {
+        const current = parseInt(counterEl.textContent) || 0;
+        counterEl.textContent = `${current + 1} ${current === 0 ? 'قراءة' : 'قراءات'}`;
+    }
+
+    // Send view to GitHub
+    try {
+        await fetch(`https://api.github.com/repos/khabarakendi/khabarak-endi/dispatches`, {
+            method: 'POST',
+            headers: {
+                'Authorization': 'token ' + 'YOUR_PAT_HERE', // ← REPLACE WITH YOUR PAT
+                'Accept': 'application/vnd.github.everest-preview+json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                event_type: 'update_views',
+                client_payload: { articleId }
+            })
+        });
+    } catch (error) {
+        console.log("View counted offline - will sync later");
+    }
+
+    // Open article
+    viewArticle(url, title);
+}
 
     // Group articles by source
     const articlesBySource = {};
@@ -585,6 +650,10 @@
                 window.history.replaceState({}, '', '/');
             }
         });
+        // View Counter Configuration
+        const REPO_OWNER = "khabarakendi";
+        const REPO_NAME = "khabarak-endi";
+        const VIEWS_FILE = "https://raw.githubusercontent.com/khabarakendi/khabarak-endi/main/data/views.json";
     </script>
 </body>
 </html>
