@@ -1,0 +1,16 @@
+# Site Configuration
+title: Khabarak Endi
+description: Yemeni News Source
+baseurl: "/khabarak-endi"
+url: "https://khabarakendi.github.io"
+lang: ar
+rtl: true
+
+# Jekyll Settings
+theme: minima
+plugins:
+  - jekyll-paginate
+
+# Pagination
+paginate: 100
+paginate_path: "/news/page:num/"
