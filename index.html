@@ -477,14 +477,62 @@
             }
             
             function displayNews(articles) {
-    const newsContainer = document.getElementById('news-container');
+                const newsContainer = document.getElementById('news-container');
+  
+  // Load view counts
+  const views = await fetch('data/views.json')
+    .then(res => res.json())
+    .catch(() => ({})); // Fallback if file doesn't exist
+
+  newsContainer.innerHTML = articles.map(article => {
+    const articleId = article.url.split('/').pop().split('.')[0];
+    const viewCount = views[articleId] || 0;
     
-    if (!articles || articles.length === 0) {
-        newsContainer.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:20px;">
-            لا توجد أخبار متاحة حالياً.
-        </div>`;
-        return;
+    return `
+    <div class="news-article">
+      <h2 onclick="trackView('${articleId}', '${escapeHtml(article.url)}', '${escapeHtml(article.title)}')">
+        ${article.title}
+      </h2>
+      <div class="view-counter">${viewCount} ${viewCount === 1 ? 'قراءة' : 'قراءات'}</div>
+      ${article.summary ? `<p>${article.summary}</p>` : ''}
+      <div class="article-meta">
+        <span class="source">${article.source || 'مصدر غير معروف'}</span>
+        <span class="date">${formatDate(article.date)}</span>
+      </div>
+    </div>
+    `;
+  }).join('');
+}
+
+// Track views via GitHub API
+async function trackView(articleId, url, title) {
+  try {
+    // Update locally first for instant feedback
+    const counter = document.querySelector(`[data-article="${articleId}"] .view-counter`);
+    if (counter) {
+      const current = parseInt(counter.textContent) || 0;
+      counter.textContent = `${current + 1} ${current === 0 ? 'قراءة' : 'قراءات'}`;
     }
+
+    // Trigger GitHub Action to update counts
+    await fetch('https://api.github.com/repos/YOUR_USERNAME/YOUR_REPO/dispatches', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'token YOUR_PAT',
+        'Accept': 'application/vnd.github.everest-preview+json'
+      },
+      body: JSON.stringify({
+        event_type: 'update_views',
+        client_payload: { articleId }
+      })
+    });
+
+    // Open article
+    viewArticle(url, title);
+  } catch (error) {
+    console.error('Tracking error:', error);
+    viewArticle(url, title); // Still open article if tracking fails
+  }
 
     // Group articles by source
     const articlesBySource = {};
