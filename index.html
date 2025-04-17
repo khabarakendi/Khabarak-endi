@@ -449,83 +449,79 @@
 
         // Track article views
         async function trackView(articleId, url, title) {
-            // Update counter immediately
+            // Update counter immediately (optimistic update)
             const counterEl = document.querySelector(`[data-article="${articleId}"] .view-counter`);
             if (counterEl) {
-                const current = parseInt(counterEl.textContent) || 0;    
+                const current = parseInt(counterEl.textContent) || 0;
                 counterEl.textContent = `${current + 1} ${current === 0 ? 'قراءة' : 'قراءات'}`;
             }
 
-            // Send view to GitHub
+            // Send view to GitHub with cache-busting
             try {
-                const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/dispatches`,
-                        {
-            method: 'POST',
-            headers: {
-                'Authorization': 'token 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', // Keep this secure!
-                'Accept': 'application/vnd.github.everest-preview+json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                event_type: 'update_views',
-                client_payload: { articleId }
-            })
-        });
-        
-        if (!response.ok) {
-            throw new Error('Failed to update view count');
-        }
-        
-        // Force refresh the view counts after update
-        await refreshViewCounts();
-    } catch (error) {
-        console.error("View count update error:", error);
-        // You might want to implement a retry mechanism or offline storage here
-    }
-
-    // Open article
-    viewArticle(url, title);
-}
-
-// Add this new function to refresh view counts
-async function refreshViewCounts() {
-    try {
-        // Add cache-busting parameter to ensure fresh data
-        const timestamp = new Date().getTime();
-        const response = await fetch(`${VIEWS_FILE}?t=${timestamp}`);
-        const viewsData = await response.json();
-        
-        // Update all counters on the page
-        document.querySelectorAll('[data-article]').forEach(articleEl => {
-            const articleId = articleEl.getAttribute('data-article');
-            const counterEl = articleEl.querySelector('.view-counter');
-            if (counterEl) {
-                const viewCount = viewsData[articleId] || 0;
-                counterEl.textContent = `${viewCount} ${viewCount === 1 ? 'قراءة' : 'قراءات'}`;
+                const response = await fetch(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/dispatches`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'token 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',
+                        'Accept': 'application/vnd.github.everest-preview+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        event_type: 'update_views',
+                        client_payload: { articleId }
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to update view count');
+                }
+                
+                // Force refresh the view counts after update
+                await refreshViewCounts();
+            } catch (error) {
+                console.error("View count update error:", error);
+                // Store view count locally if GitHub update fails
+                localStorage.setItem(`view_${articleId}`, parseInt(localStorage.getItem(`view_${articleId}`) || 0 + 1);
             }
-        });
-    } catch (error) {
-        console.error("Could not refresh view counts:", error);
-    }
-}
-
 
             // Open article
             viewArticle(url, title);
+        }
+
+        // Add this new function to refresh view counts
+        async function refreshViewCounts() {
+            try {
+                // Add cache-busting parameter to ensure fresh data
+                const timestamp = new Date().getTime();
+                const response = await fetch(`${VIEWS_FILE}?t=${timestamp}`);
+                const viewsData = await response.json();
+                
+                // Update all counters on the page
+                document.querySelectorAll('[data-article]').forEach(articleEl => {
+                    const articleId = articleEl.getAttribute('data-article');
+                    const counterEl = articleEl.querySelector('.view-counter');
+                    if (counterEl) {
+                        // Combine GitHub views with any local views
+                        const gitHubViews = viewsData[articleId] || 0;
+                        const localViews = parseInt(localStorage.getItem(`view_${articleId}`)) || 0;
+                        const totalViews = gitHubViews + localViews;
+                        counterEl.textContent = `${totalViews} ${totalViews === 1 ? 'قراءة' : 'قراءات'}`;
+                    }
+                });
+            } catch (error) {
+                console.error("Could not refresh view counts:", error);
+            }
         }
 
         // Display news articles
         async function displayNews(articles) {
             const newsContainer = document.getElementById('news-container');
             let viewsData = {};
-                
+            
             try {
+                // Add cache-busting parameter
                 const timestamp = new Date().getTime();
                 const response = await fetch(`${VIEWS_FILE}?t=${timestamp}`);
                 viewsData = await response.json();
-            } catch (error) {
-                console.log("Could not load view counts, using defaults");
-            }
             } catch (error) {
                 console.log("Could not load view counts, using defaults");
             }
@@ -561,7 +557,10 @@ async function refreshViewCounts() {
 
             newsContainer.innerHTML = diversifiedArticles.map(article => {
                 const articleId = article.url.split('/').pop().split('.')[0];
-                const viewCount = viewsData[articleId] || 0;
+                // Combine GitHub views with any local views
+                const gitHubViews = viewsData[articleId] || 0;
+                const localViews = parseInt(localStorage.getItem(`view_${articleId}`)) || 0;
+                const viewCount = gitHubViews + localViews;
                 const summaryHtml = article.summary ? `<p>${article.summary}</p>` : '';
                 
                 return `
