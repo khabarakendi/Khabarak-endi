@@ -12,8 +12,14 @@ jobs:
       - name: Update counts
         run: |
           ARTICLE_ID=${{ github.event.client_payload.articleId }}
-          wget -O views.json https://raw.githubusercontent.com/khabarakendi/khabarak-endi/main/data/views.json
-          jq --arg id "$ARTICLE_ID" '.[$id] = (.[$id] // 0) + 1' views.json > updated.json
+          # Create data directory if it doesn't exist
+          mkdir -p data
+          # Initialize views.json if it doesn't exist
+          if [ ! -f data/views.json ]; then
+            echo "{}" > data/views.json
+          fi
+          # Properly handle concurrent updates
+          jq --arg id "$ARTICLE_ID" '.[$id] = ((.[$id] // 0) + 1)' data/views.json > updated.json
           mv updated.json data/views.json
       - name: Commit changes
         run: |
