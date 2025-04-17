@@ -534,7 +534,7 @@ async function trackView(articleId, url, title) {
         await fetch(`https://api.github.com/repos/khabarakendi/khabarak-endi/dispatches`, {
             method: 'POST',
             headers: {
-                'Authorization': 'token ' + 'YOUR_PAT_HERE', // ← REPLACE WITH YOUR PAT
+                'Authorization': 'token ' + 'token ' + secrets.UPDATE_VIEWS_TOKEN,
                 'Accept': 'application/vnd.github.everest-preview+json',
                 'Content-Type': 'application/json'
             },
