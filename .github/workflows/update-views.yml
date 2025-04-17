@@ -1,0 +1,31 @@
+name: Update View Counts
+
+on:
+  repository_dispatch:
+    types: [update_views]
+
+jobs:
+  update_views:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Update view count
+        run: |
+          # Get article ID from workflow trigger
+          ARTICLE_ID=${{ github.event.client_payload.articleId }}
+          
+          # Download current views.json
+          curl -o views.json https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/data/views.json
+          
+          # Update count (using jq - install first)
+          sudo apt-get install jq
+          jq --arg id "$ARTICLE_ID" '.[$id] = (.[$id] // 0) + 1' views.json > updated.json
+          
+          # Commit changes
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          mv updated.json data/views.json
+          git add data/views.json
+          git commit -m "Update view count for article $ARTICLE_ID"
+          git push
