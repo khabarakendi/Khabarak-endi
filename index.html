@@ -465,7 +465,7 @@
 
         // Pagination variables
         let currentPage = 1;
-        const articlesPerPage = 50;
+        const articlesPerPage = 10;
         let allArticles = [];
 
         // Format date
@@ -476,6 +476,16 @@
             } catch (e) {
                 return dateString || 'تاريخ غير معروف';
             }
+        }
+
+        // Function to shuffle array randomly
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
         }
 
         // Update news display with pagination
@@ -492,11 +502,14 @@
                 return;
             }
 
+            // Shuffle articles to randomize sources
+            const shuffledArticles = shuffleArray(allArticles);
+
             // Calculate pagination
-            const totalPages = Math.ceil(allArticles.length / articlesPerPage);
+            const totalPages = Math.ceil(shuffledArticles.length / articlesPerPage);
             const startIndex = (currentPage - 1) * articlesPerPage;
-            const endIndex = Math.min(startIndex + articlesPerPage, allArticles.length);
-            const pageArticles = allArticles.slice(startIndex, endIndex);
+            const endIndex = Math.min(startIndex + articlesPerPage, shuffledArticles.length);
+            const pageArticles = shuffledArticles.slice(startIndex, endIndex);
 
             // Display articles for current page
             newsContainer.innerHTML = pageArticles.map(article => {
