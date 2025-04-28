@@ -502,14 +502,11 @@
                 return;
             }
 
-            // Shuffle articles to randomize sources
-            const shuffledArticles = shuffleArray(allArticles);
-
             // Calculate pagination
-            const totalPages = Math.ceil(shuffledArticles.length / articlesPerPage);
+            const totalPages = Math.ceil(allArticles.length / articlesPerPage);
             const startIndex = (currentPage - 1) * articlesPerPage;
-            const endIndex = Math.min(startIndex + articlesPerPage, shuffledArticles.length);
-            const pageArticles = shuffledArticles.slice(startIndex, endIndex);
+            const endIndex = Math.min(startIndex + articlesPerPage, allArticles.length);
+            const pageArticles = allArticles.slice(startIndex, endIndex);
 
             // Display articles for current page
             newsContainer.innerHTML = pageArticles.map(article => {
@@ -567,54 +564,59 @@
             pagination.style.display = totalPages > 1 ? 'block' : 'none';
         }
 
-        // Load news from JSON with unlimited retrieval
-        async function loadNews() {
-            try {
-                // Initial load
-                let response = await fetch('data/news.json');
-                if (!response.ok) throw new Error('Network response was not ok');
-                
-                let newsData = await response.json();
-                allArticles = newsData.articles || [];
-                
-                // Continuous loading mechanism for unlimited news
-                while (true) {
-                    if (allArticles.length >= 500) { // You can adjust or remove this limit
-                        break;
+        // Load news from JSON
+        function loadNews() {
+            // Sample news data - REPLACE THIS WITH YOUR ACTUAL NEWS DATA SOURCE
+            const sampleNews = {
+                articles: [
+                    {
+                        title: "عنوان الخبر الأول",
+                        url: "https://example.com/news1",
+                        source: "مصدر الخبر",
+                        date: "2023-05-15",
+                        summary: "ملخص الخبر الأول يظهر هنا"
+                    },
+                    {
+                        title: "عنوان الخبر الثاني",
+                        url: "https://example.com/news2",
+                        source: "مصدر آخر",
+                        date: "2023-05-14",
+                        summary: "ملخص الخبر الثاني يظهر هنا"
+                    },
+                    {
+                        title: "عنوان الخبر الثالث",
+                        url: "https://example.com/news3",
+                        source: "مصدر ثالث",
+                        date: "2023-05-13",
+                        summary: "ملخص الخبر الثالث يظهر هنا"
                     }
-                    
-                    // Load more articles from additional sources if available
-                    // This can be modified to fetch from different JSON files
-                    response = await fetch('data/news.json');
-                    if (!response.ok) break;
-                    
-                    const moreData = await response.json();
-                    if (!moreData.articles || moreData.articles.length === 0) break;
-                    
-                    // Merge new articles avoiding duplicates
-                    const newArticles = moreData.articles.filter(newArticle => 
-                        !allArticles.some(existingArticle => 
-                            existingArticle.url === newArticle.url
-                        )
-                    );
-                    
-                    allArticles = [...allArticles, ...newArticles];
-                    
-                    // Small delay to prevent browser freezing
-                    await new Promise(resolve => setTimeout(resolve, 100));
-                }
-                
-                updateNewsDisplay();
-                updateBreakingNews(allArticles.slice(0, 3));
-                
-            } catch (error) {
-                console.error('Error loading news:', error);
-                document.getElementById('news-container').innerHTML = `
-                    <div class="error" style="grid-column:1/-1;text-align:center;padding:20px;color:red">
-                        حدث خطأ في تحميل الأخبار. يرجى المحاولة لاحقاً.
-                    </div>
-                `;
-            }
+                ]
+            };
+
+            // Use sample data if fetch fails
+            allArticles = sampleNews.articles;
+            updateNewsDisplay();
+            updateBreakingNews(allArticles.slice(0, 3));
+
+            // Try to fetch actual news data
+            fetch('data/news.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(newsData => {
+                    if (newsData.articles && newsData.articles.length > 0) {
+                        allArticles = newsData.articles;
+                        updateNewsDisplay();
+                        updateBreakingNews(allArticles.slice(0, 3));
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading news:', error);
+                    // Already using sample data as fallback
+                });
         }
 
         // Update breaking news ticker
@@ -668,11 +670,6 @@
             // News Search Functionality
             document.getElementById('news-search').addEventListener('input', function(e) {
                 const searchTerm = e.target.value.toLowerCase();
-                if (searchTerm === '') {
-                    updateNewsDisplay();
-                    return;
-                }
-                
                 const filteredArticles = allArticles.filter(article => 
                     article.title.toLowerCase().includes(searchTerm) || 
                     (article.summary && article.summary.toLowerCase().includes(searchTerm))
