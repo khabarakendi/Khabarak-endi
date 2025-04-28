@@ -414,6 +414,14 @@
                 .replace(/'/g, "&#039;");
         }
 
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 120, // Scroll to just below the fixed header
+                behavior: 'smooth'
+            });
+        }
+
         // Article viewing function
         function viewArticle(url, title) {
             // Show article container and return button
@@ -455,6 +463,9 @@
             
             // Push to history
             window.history.pushState({}, '', '/');
+            
+            // Scroll to top
+            scrollToTop();
         }
 
         // Handle back button
@@ -548,6 +559,7 @@
                     e.preventDefault();
                     currentPage = 1;
                     updateNewsDisplay();
+                    scrollToTop();
                 };
                 pageNumbers.appendChild(firstPageLink);
                 
@@ -568,6 +580,7 @@
                     e.preventDefault();
                     currentPage = i;
                     updateNewsDisplay();
+                    scrollToTop();
                 };
                 pageNumbers.appendChild(pageLink);
             }
@@ -588,6 +601,7 @@
                     e.preventDefault();
                     currentPage = totalPages;
                     updateNewsDisplay();
+                    scrollToTop();
                 };
                 pageNumbers.appendChild(lastPageLink);
             }
@@ -598,6 +612,7 @@
                 if (currentPage > 1) {
                     currentPage--;
                     updateNewsDisplay();
+                    scrollToTop();
                 }
             };
 
@@ -606,6 +621,7 @@
                 if (currentPage < totalPages) {
                     currentPage++;
                     updateNewsDisplay();
+                    scrollToTop();
                 }
             };
 
@@ -755,6 +771,7 @@
                 currentPage = 1;
                 updateNewsDisplay();
                 allArticles = originalArticles;
+                scrollToTop();
             });
 
             // Sort News Functionality
@@ -769,6 +786,7 @@
                 }
                 currentPage = 1;
                 updateNewsDisplay();
+                scrollToTop();
             });
             
             // Setup infinite scroll
