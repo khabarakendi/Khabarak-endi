@@ -465,7 +465,7 @@
 
         // Pagination variables
         let currentPage = 1;
-        const articlesPerPage = 50;
+        const articlesPerPage = 10;
         let allArticles = [];
 
         // Format date
@@ -567,28 +567,54 @@
             pagination.style.display = totalPages > 1 ? 'block' : 'none';
         }
 
-        // Load news from JSON
-        function loadNews() {
-            fetch('data/news.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
+        // Load news from JSON with unlimited retrieval
+        async function loadNews() {
+            try {
+                // Initial load
+                let response = await fetch('data/news.json');
+                if (!response.ok) throw new Error('Network response was not ok');
+                
+                let newsData = await response.json();
+                allArticles = newsData.articles || [];
+                
+                // Continuous loading mechanism for unlimited news
+                while (true) {
+                    if (allArticles.length >= 500) { // You can adjust or remove this limit
+                        break;
                     }
-                    return response.json();
-                })
-                .then(newsData => {
-                    allArticles = newsData.articles || [];
-                    updateNewsDisplay();
-                    updateBreakingNews(allArticles.slice(0, 3));
-                })
-                .catch(error => {
-                    console.error('Error loading news:', error);
-                    document.getElementById('news-container').innerHTML = `
-                        <div class="error" style="grid-column:1/-1;text-align:center;padding:20px;color:red">
-                            حدث خطأ في تحميل الأخبار. يرجى المحاولة لاحقاً.
-                        </div>
-                    `;
-                });
+                    
+                    // Load more articles from additional sources if available
+                    // This can be modified to fetch from different JSON files
+                    response = await fetch('data/news.json');
+                    if (!response.ok) break;
+                    
+                    const moreData = await response.json();
+                    if (!moreData.articles || moreData.articles.length === 0) break;
+                    
+                    // Merge new articles avoiding duplicates
+                    const newArticles = moreData.articles.filter(newArticle => 
+                        !allArticles.some(existingArticle => 
+                            existingArticle.url === newArticle.url
+                        )
+                    );
+                    
+                    allArticles = [...allArticles, ...newArticles];
+                    
+                    // Small delay to prevent browser freezing
+                    await new Promise(resolve => setTimeout(resolve, 100));
+                }
+                
+                updateNewsDisplay();
+                updateBreakingNews(allArticles.slice(0, 3));
+                
+            } catch (error) {
+                console.error('Error loading news:', error);
+                document.getElementById('news-container').innerHTML = `
+                    <div class="error" style="grid-column:1/-1;text-align:center;padding:20px;color:red">
+                        حدث خطأ في تحميل الأخبار. يرجى المحاولة لاحقاً.
+                    </div>
+                `;
+            }
         }
 
         // Update breaking news ticker
@@ -641,14 +667,35 @@
             
             // News Search Functionality
             document.getElementById('news-search').addEventListener('input', function(e) {
-                // Implement search functionality here
-                console.log('Searching for:', e.target.value);
+                const searchTerm = e.target.value.toLowerCase();
+                if (searchTerm === '') {
+                    updateNewsDisplay();
+                    return;
+                }
+                
+                const filteredArticles = allArticles.filter(article => 
+                    article.title.toLowerCase().includes(searchTerm) || 
+                    (article.summary && article.summary.toLowerCase().includes(searchTerm))
+                );
+                
+                // Temporarily replace allArticles with filtered results
+                const originalArticles = [...allArticles];
+                allArticles = filteredArticles;
+                currentPage = 1;
+                updateNewsDisplay();
+                allArticles = originalArticles;
             });
 
             // Sort News Functionality
             document.getElementById('news-sort').addEventListener('change', function(e) {
-                // Implement sort functionality here
-                console.log('Sorting by:', e.target.value);
+                const sortBy = e.target.value;
+                if (sortBy === 'newest') {
+                    allArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
+                } else if (sortBy === 'oldest') {
+                    allArticles.sort((a, b) => new Date(a.date) - new Date(b.date));
+                }
+                currentPage = 1;
+                updateNewsDisplay();
             });
             
             // Initial load
