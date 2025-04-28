@@ -465,8 +465,9 @@
 
         // Pagination variables
         let currentPage = 1;
-        const articlesPerPage = 150;
+        const articlesPerPage = 10;
         let allArticles = [];
+        let newsSources = ['data/news.json']; // Add more sources as needed
 
         // Format date
         function formatDate(dateString) {
@@ -495,18 +496,21 @@
             const pageNumbers = document.getElementById('page-numbers');
             
             if (!allArticles || allArticles.length === 0) {
-                newsContainer.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:20px;">
+                newsContainer.innerHTML = `<div style="text-align:center;padding:20px;">
                     لا توجد أخبار متاحة حالياً.
                 </div>`;
                 pagination.style.display = 'none';
                 return;
             }
 
+            // Shuffle articles to randomize sources
+            const shuffledArticles = shuffleArray(allArticles);
+
             // Calculate pagination
-            const totalPages = Math.ceil(allArticles.length / articlesPerPage);
+            const totalPages = Math.ceil(shuffledArticles.length / articlesPerPage);
             const startIndex = (currentPage - 1) * articlesPerPage;
-            const endIndex = Math.min(startIndex + articlesPerPage, allArticles.length);
-            const pageArticles = allArticles.slice(startIndex, endIndex);
+            const endIndex = Math.min(startIndex + articlesPerPage, shuffledArticles.length);
+            const pageArticles = shuffledArticles.slice(startIndex, endIndex);
 
             // Display articles for current page
             newsContainer.innerHTML = pageArticles.map(article => {
@@ -564,59 +568,70 @@
             pagination.style.display = totalPages > 1 ? 'block' : 'none';
         }
 
-        // Load news from JSON
-        function loadNews() {
-            // Sample news data - REPLACE THIS WITH YOUR ACTUAL NEWS DATA SOURCE
-            const sampleNews = {
-                articles: [
-                    {
-                        title: "عنوان الخبر الأول",
-                        url: "https://example.com/news1",
-                        source: "مصدر الخبر",
-                        date: "2023-05-15",
-                        summary: "ملخص الخبر الأول يظهر هنا"
-                    },
-                    {
-                        title: "عنوان الخبر الثاني",
-                        url: "https://example.com/news2",
-                        source: "مصدر آخر",
-                        date: "2023-05-14",
-                        summary: "ملخص الخبر الثاني يظهر هنا"
-                    },
-                    {
-                        title: "عنوان الخبر الثالث",
-                        url: "https://example.com/news3",
-                        source: "مصدر ثالث",
-                        date: "2023-05-13",
-                        summary: "ملخص الخبر الثالث يظهر هنا"
-                    }
-                ]
-            };
+        // Load news from JSON with unlimited retrieval
+        async function loadNews() {
+            try {
+                // Load from all sources
+                const promises = newsSources.map(source => 
+                    fetch(source)
+                        .then(response => {
+                            if (!response.ok) return null;
+                            return response.json();
+                        })
+                        .catch(() => null)
+                );
 
-            // Use sample data if fetch fails
-            allArticles = sampleNews.articles;
-            updateNewsDisplay();
-            updateBreakingNews(allArticles.slice(0, 3));
+                const results = await Promise.all(promises);
+                
+                // Combine all articles from all sources
+                allArticles = results.reduce((acc, result) => {
+                    if (result && result.articles) {
+                        return [...acc, ...result.articles];
+                    }
+                    return acc;
+                }, []);
 
-            // Try to fetch actual news data
-            fetch('data/news.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
+                // Remove duplicate articles
+                const uniqueUrls = new Set();
+                allArticles = allArticles.filter(article => {
+                    if (!article.url || uniqueUrls.has(article.url)) {
+                        return false;
                     }
-                    return response.json();
-                })
-                .then(newsData => {
-                    if (newsData.articles && newsData.articles.length > 0) {
-                        allArticles = newsData.articles;
-                        updateNewsDisplay();
-                        updateBreakingNews(allArticles.slice(0, 3));
-                    }
-                })
-                .catch(error => {
-                    console.error('Error loading news:', error);
-                    // Already using sample data as fallback
+                    uniqueUrls.add(article.url);
+                    return true;
                 });
+
+                // If no articles loaded, use fallback
+                if (allArticles.length === 0) {
+                    allArticles = [
+                        {
+                            title: "عنوان الخبر الأول",
+                            url: "https://example.com/news1",
+                            source: "مصدر الخبر",
+                            date: new Date().toISOString(),
+                            summary: "ملخص الخبر الأول يظهر هنا"
+                        },
+                        {
+                            title: "عنوان الخبر الثاني",
+                            url: "https://example.com/news2",
+                            source: "مصدر آخر",
+                            date: new Date().toISOString(),
+                            summary: "ملخص الخبر الثاني يظهر هنا"
+                        }
+                    ];
+                }
+
+                updateNewsDisplay();
+                updateBreakingNews(shuffleArray(allArticles).slice(0, 3));
+
+            } catch (error) {
+                console.error('Error loading news:', error);
+                document.getElementById('news-container').innerHTML = `
+                    <div style="text-align:center;padding:20px;color:red">
+                        حدث خطأ في تحميل الأخبار. يرجى المحاولة لاحقاً.
+                    </div>
+                `;
+            }
         }
 
         // Update breaking news ticker
