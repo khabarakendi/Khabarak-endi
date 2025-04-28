@@ -470,6 +470,7 @@
         const maxArticlesToKeep = 100000; // Maximum articles to store
         let currentPage = 1;
         const articlesPerPage = 100;
+        let breakingNews = [];
 
         // Format date
         function formatDate(dateString) {
@@ -648,13 +649,16 @@
                 // Shuffle the articles for random order
                 allArticles = shuffleArray(allArticles);
                 
+                // Store breaking news separately
+                breakingNews = newArticles.filter(article => article.isBreaking || false);
+                
                 // Trim the array if it gets too large
                 if (allArticles.length > maxArticlesToKeep) {
                     allArticles = allArticles.slice(0, maxArticlesToKeep);
                 }
                 
                 updateNewsDisplay();
-                updateBreakingNews(newArticles.slice(0, 3));
+                updateBreakingNews();
                 
             } catch (error) {
                 console.error('Error loading news:', error);
@@ -681,17 +685,26 @@
         }
 
         // Update breaking news ticker
-        function updateBreakingNews(articles) {
+        function updateBreakingNews() {
             const ticker = document.getElementById('breaking-news-ticker');
             
-            if (!articles || articles.length === 0) {
-                ticker.innerHTML = '<span class="ticker-item">لا توجد أخبار عاجلة</span>';
+            // Always show at least 3 breaking news items if available
+            let itemsToShow = breakingNews.slice(0, 3);
+            
+            // If no breaking news, show the latest 3 regular news items
+            if (itemsToShow.length === 0 && allArticles.length > 0) {
+                itemsToShow = allArticles.slice(0, 3);
+            }
+            
+            // If still no items, show a default message
+            if (itemsToShow.length === 0) {
+                ticker.innerHTML = '<span class="ticker-item">تابعونا لأحدث الأخبار</span>';
                 return;
             }
             
-            ticker.innerHTML = articles.map(article => `
+            ticker.innerHTML = itemsToShow.map(article => `
                 <span class="ticker-item" onclick="viewArticle('${escapeHtml(article.url)}', '${escapeHtml(article.title)}')">
-                    ⚡ ${article.title}
+                    ${article.isBreaking ? '⚡ ' : ''}${article.title}
                 </span>
             `).join('');
             
