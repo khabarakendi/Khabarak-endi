@@ -463,11 +463,12 @@
             }
         });
 
-        // Pagination variables
-        let currentPage = 1;
-        const articlesPerPage = 100;
+        // News variables
         let allArticles = [];
-        let newsSources = ['data/news.json']; // Add more sources as needed
+        let isLoadingMore = false;
+        const maxArticlesToKeep = 1000; // Maximum articles to store
+        let currentPage = 1;
+        const articlesPerPage = 10;
 
         // Format date
         function formatDate(dateString) {
@@ -503,14 +504,11 @@
                 return;
             }
 
-            // Shuffle articles to randomize sources
-            const shuffledArticles = shuffleArray(allArticles);
-
             // Calculate pagination
-            const totalPages = Math.ceil(shuffledArticles.length / articlesPerPage);
+            const totalPages = Math.ceil(allArticles.length / articlesPerPage);
             const startIndex = (currentPage - 1) * articlesPerPage;
-            const endIndex = Math.min(startIndex + articlesPerPage, shuffledArticles.length);
-            const pageArticles = shuffledArticles.slice(startIndex, endIndex);
+            const endIndex = Math.min(startIndex + articlesPerPage, allArticles.length);
+            const pageArticles = allArticles.slice(startIndex, endIndex);
 
             // Display articles for current page
             newsContainer.innerHTML = pageArticles.map(article => {
@@ -531,7 +529,35 @@
 
             // Update pagination controls
             pageNumbers.innerHTML = '';
-            for (let i = 1; i <= totalPages; i++) {
+            const maxPagesToShow = 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow/2));
+            let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+            
+            if (endPage - startPage + 1 < maxPagesToShow) {
+                startPage = Math.max(1, endPage - maxPagesToShow + 1);
+            }
+
+            if (startPage > 1) {
+                const firstPageLink = document.createElement('a');
+                firstPageLink.href = '#';
+                firstPageLink.className = 'page-num';
+                firstPageLink.textContent = '1';
+                firstPageLink.onclick = (e) => {
+                    e.preventDefault();
+                    currentPage = 1;
+                    updateNewsDisplay();
+                };
+                pageNumbers.appendChild(firstPageLink);
+                
+                if (startPage > 2) {
+                    const ellipsis = document.createElement('span');
+                    ellipsis.textContent = '...';
+                    ellipsis.style.padding = '0 5px';
+                    pageNumbers.appendChild(ellipsis);
+                }
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
                 const pageLink = document.createElement('a');
                 pageLink.href = '#';
                 pageLink.className = 'page-num' + (i === currentPage ? ' current-page' : '');
@@ -540,9 +566,28 @@
                     e.preventDefault();
                     currentPage = i;
                     updateNewsDisplay();
-                    window.scrollTo(0, 0);
                 };
                 pageNumbers.appendChild(pageLink);
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    const ellipsis = document.createElement('span');
+                    ellipsis.textContent = '...';
+                    ellipsis.style.padding = '0 5px';
+                    pageNumbers.appendChild(ellipsis);
+                }
+                
+                const lastPageLink = document.createElement('a');
+                lastPageLink.href = '#';
+                lastPageLink.className = 'page-num';
+                lastPageLink.textContent = totalPages;
+                lastPageLink.onclick = (e) => {
+                    e.preventDefault();
+                    currentPage = totalPages;
+                    updateNewsDisplay();
+                };
+                pageNumbers.appendChild(lastPageLink);
             }
 
             // Update prev/next buttons
@@ -551,7 +596,6 @@
                 if (currentPage > 1) {
                     currentPage--;
                     updateNewsDisplay();
-                    window.scrollTo(0, 0);
                 }
             };
 
@@ -560,7 +604,6 @@
                 if (currentPage < totalPages) {
                     currentPage++;
                     updateNewsDisplay();
-                    window.scrollTo(0, 0);
                 }
             };
 
@@ -569,69 +612,68 @@
         }
 
         // Load news from JSON with unlimited retrieval
-        async function loadNews() {
+        async function loadNews(initialLoad = true) {
             try {
-                // Load from all sources
-                const promises = newsSources.map(source => 
-                    fetch(source)
-                        .then(response => {
-                            if (!response.ok) return null;
-                            return response.json();
-                        })
-                        .catch(() => null)
-                );
-
-                const results = await Promise.all(promises);
+                if (isLoadingMore) return;
+                isLoadingMore = true;
                 
-                // Combine all articles from all sources
-                allArticles = results.reduce((acc, result) => {
-                    if (result && result.articles) {
-                        return [...acc, ...result.articles];
-                    }
-                    return acc;
-                }, []);
-
-                // Remove duplicate articles
-                const uniqueUrls = new Set();
-                allArticles = allArticles.filter(article => {
-                    if (!article.url || uniqueUrls.has(article.url)) {
-                        return false;
-                    }
-                    uniqueUrls.add(article.url);
-                    return true;
-                });
-
-                // If no articles loaded, use fallback
-                if (allArticles.length === 0) {
-                    allArticles = [
-                        {
-                            title: "عنوان الخبر الأول",
-                            url: "https://example.com/news1",
-                            source: "مصدر الخبر",
-                            date: new Date().toISOString(),
-                            summary: "ملخص الخبر الأول يظهر هنا"
-                        },
-                        {
-                            title: "عنوان الخبر الثاني",
-                            url: "https://example.com/news2",
-                            source: "مصدر آخر",
-                            date: new Date().toISOString(),
-                            summary: "ملخص الخبر الثاني يظهر هنا"
-                        }
-                    ];
+                // Show loading indicator only on initial load
+                if (initialLoad) {
+                    document.getElementById('news-container').innerHTML = `
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <p>جاري تحميل الأخبار اليمنية...</p>
+                        </div>
+                    `;
                 }
 
+                // Load from your news source
+                const response = await fetch('data/news.json');
+                if (!response.ok) throw new Error('Network response was not ok');
+                
+                const newsData = await response.json();
+                if (!newsData.articles) throw new Error('Invalid news format');
+                
+                // Filter out duplicates and add new articles to the beginning
+                const newArticles = newsData.articles.filter(newArticle => 
+                    !allArticles.some(existingArticle => 
+                        existingArticle.url === newArticle.url
+                    )
+                );
+                
+                // Add new articles to the beginning of the array
+                allArticles = [...newArticles, ...allArticles];
+                
+                // Trim the array if it gets too large
+                if (allArticles.length > maxArticlesToKeep) {
+                    allArticles = allArticles.slice(0, maxArticlesToKeep);
+                }
+                
                 updateNewsDisplay();
-                updateBreakingNews(shuffleArray(allArticles).slice(0, 3));
-
+                updateBreakingNews(newArticles.slice(0, 3));
+                
             } catch (error) {
                 console.error('Error loading news:', error);
-                document.getElementById('news-container').innerHTML = `
-                    <div style="text-align:center;padding:20px;color:red">
-                        حدث خطأ في تحميل الأخبار. يرجى المحاولة لاحقاً.
-                    </div>
-                `;
+                if (allArticles.length === 0) {
+                    document.getElementById('news-container').innerHTML = `
+                        <div style="text-align:center;padding:20px;color:red">
+                            حدث خطأ في تحميل الأخبار. يرجى المحاولة لاحقاً.
+                        </div>
+                    `;
+                }
+            } finally {
+                isLoadingMore = false;
             }
+        }
+
+        // Setup infinite scroll
+        function setupInfiniteScroll() {
+            window.addEventListener('scroll', () => {
+                const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+                if (scrollTop + clientHeight >= scrollHeight - 100 && !isLoadingMore) {
+                    loadNews(false);
+                }
+            });
         }
 
         // Update breaking news ticker
@@ -710,8 +752,11 @@
                 updateNewsDisplay();
             });
             
+            // Setup infinite scroll
+            setupInfiniteScroll();
+            
             // Initial load
-            loadNews();
+            loadNews(true);
 
             // Check if we're viewing an article on page load
             if (window.location.pathname.includes('/show/')) {
