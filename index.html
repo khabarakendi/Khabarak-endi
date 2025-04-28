@@ -364,6 +364,7 @@
             <select id="news-sort">
                 <option value="newest">الأحدث أولاً</option>
                 <option value="oldest">الأقدم أولاً</option>
+                <option value="random" selected>عشوائي</option>
             </select>
         </div>
         
@@ -644,6 +645,9 @@
                 // Add new articles to the beginning of the array
                 allArticles = [...newArticles, ...allArticles];
                 
+                // Shuffle the articles for random order
+                allArticles = shuffleArray(allArticles);
+                
                 // Trim the array if it gets too large
                 if (allArticles.length > maxArticlesToKeep) {
                     allArticles = allArticles.slice(0, maxArticlesToKeep);
@@ -747,6 +751,8 @@
                     allArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
                 } else if (sortBy === 'oldest') {
                     allArticles.sort((a, b) => new Date(a.date) - new Date(b.date));
+                } else if (sortBy === 'random') {
+                    allArticles = shuffleArray(allArticles);
                 }
                 currentPage = 1;
                 updateNewsDisplay();
