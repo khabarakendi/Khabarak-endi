@@ -216,6 +216,36 @@ jobs:
                   'articles': articles[:150]
               }, f, ensure_ascii=False, indent=2)
           "
+ # Twitter via Nitter
+          def get_financialjuice_tweets():
+              try:
+                  nitter_url = 'https://nitter.net/financialjuice/rss'
+                  headers = {'User-Agent': 'Mozilla/5.0'}
+                  response = requests.get(nitter_url, headers=headers, timeout=15)
+                  feed = feedparser.parse(response.content)
+                  
+                  tweets = []
+                  for entry in feed.entries[:20]:  # Limit to 20 tweets
+                      try:
+                          # Clean tweet text (remove "FinancialJuice:" prefix)
+                          title = re.sub(r'^.*?:', '', entry.title).strip()
+                          # Convert Nitter link to Twitter
+                          url = entry.link.replace('nitter.net', 'twitter.com')
+                          
+                          tweets.append({
+                              'title': title[:250] + ('...' if len(title) > 250 else ''),
+                              'url': url,
+                              'source': 'FinancialJuice (Twitter)',
+                              'date': entry.published,
+                              'isBreaking': True,
+                              'category': 'economic'
+                          })
+                      except:
+                          continue
+                  return tweets
+              except Exception as e:
+                  print(f'Twitter RSS Error: {e}')
+                  return []
       
       # Step 5: Commit and push changes (FIXED VERSION)
       - name: Commit and push
