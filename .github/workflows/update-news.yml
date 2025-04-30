@@ -47,6 +47,7 @@ jobs:
           
           FEEDS = [
               'https://www.almashhad-alyemeni.com/feed',
+              'https://www.financialjuice.com/home/feed',
               'https://www.ababiil.net/feed',
               'https://www.ahdathnet.net/feed',
               'https://www.anbaaden.net/feed',
