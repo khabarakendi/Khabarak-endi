@@ -1,3 +1,8 @@
+function extractArticleId(url) {
+    const match = url.match(/(\d+)/);
+    return match ? match[1] : null;
+}
+
 function loadNews() {
     fetch('/data/news.json')
         .then(response => response.json())
@@ -10,6 +15,10 @@ function loadNews() {
             newsItems.forEach(article => {
                 const item = document.createElement('div');
                 item.className = 'news-item';
+
+                const articleId = extractArticleId(article.url);
+                const internalUrl = articleId ? `https://sahaafa.net/show${articleId}.html` : article.url;
+
                 item.innerHTML = `
                     <h3>${article.title}</h3>
                     <div class="meta">
@@ -17,7 +26,9 @@ function loadNews() {
                         <span class="date">${new Date(article.date).toLocaleString('ar-EG')}</span>
                     </div>
                 `;
-                item.addEventListener('click', () => viewArticle(article.url));
+                item.addEventListener('click', () => {
+                    window.location.href = internalUrl;
+                });
                 container.appendChild(item);
             });
         })
