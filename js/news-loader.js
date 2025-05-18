@@ -19,12 +19,12 @@ function loadNews() {
             
             // Display archived news in the archive column
             if (archiveContainer) {
-                archiveContainer.innerHTML = archivedNews.map(article => {
+                archiveContainer.innerHTML = archivedNews.map((article, index) => {
                     const articleId = extractArticleId(article.url);
                     const internalUrl = articleId ? `https://sahaafa.net/show${articleId}.html` : article.url;
                     
                     return `
-                        <div class="news-item archive-item">
+                        <div class="news-item archive-item" data-index="${index}">
                             <h4>${article.title}</h4>
                             <div class="meta">
                                 <span class="source">${article.source}</span>
@@ -36,7 +36,8 @@ function loadNews() {
                 
                 // Add click event to archive items
                 document.querySelectorAll('.archive-item').forEach(item => {
-                    const article = archivedNews[item.dataset.index];
+                    const index = item.getAttribute('data-index');
+                    const article = archivedNews[index];
                     item.addEventListener('click', () => {
                         const articleId = extractArticleId(article.url);
                         const internalUrl = articleId ? `https://sahaafa.net/show${articleId}.html` : article.url;
