@@ -317,39 +317,29 @@
             display: none;
         }
 
-        /* Archive Column Styles */
-        .archive-column {
-            position: fixed;
-            bottom: 40px;
-            right: 20px;
-            width: 300px;
-            max-height: 50vh;
-            background: #f9f9f9;
-            padding: 15px;
+        /* Archive Section Styles */
+        .archive-section {
+            display: none;
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
             border-radius: 5px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            overflow-y: auto;
-            z-index: 900;
-            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .archive-column h2 {
+        .archive-section h2 {
             color: #2c3e50;
             margin-bottom: 15px;
             padding-bottom: 10px;
             border-bottom: 2px solid #e74c3c;
             text-align: center;
-            font-size: 1.2rem;
-            position: sticky;
-            top: 0;
-            background: #f9f9f9;
-            z-index: 1;
         }
 
         .archive-item {
             padding: 10px;
             margin-bottom: 10px;
-            background: white;
+            background: #f9f9f9;
             border-radius: 3px;
             border-left: 2px solid #3498db;
             cursor: pointer;
@@ -378,17 +368,6 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .archive-column {
-                width: calc(100% - 40px);
-                right: 20px;
-                left: 20px;
-                max-height: 30vh;
-            }
-            
-            .archive-item h4 {
-                font-size: 0.8rem;
-            }
-
             .news-container {
                 grid-template-columns: 1fr;
             }
@@ -434,6 +413,7 @@
                 <li><a href="#" data-category="sports">رياضة</a></li>
                 <li><a href="#" data-category="economic">اقتصادية</a></li>
                 <li><a href="#" data-category="international">دولية</a></li>
+                <li><a href="#" data-category="archive" id="archive-link">الأرشيف</a></li>
             </ul>
         </nav>
     </header>
@@ -461,6 +441,12 @@
             </div>
         </div>
         
+        <!-- Archive Section -->
+        <div class="archive-section" id="archive-section">
+            <h2>الأرشيف</h2>
+            <div id="archive-content"></div>
+        </div>
+        
         <!-- Pagination -->
         <div class="pagination" id="pagination">
             <a href="#" class="page-nav" id="prev-page">السابق</a>
@@ -468,12 +454,6 @@
             <a href="#" class="page-nav" id="next-page">التالي</a>
         </div>
     </main>
-
-    <!-- Archive Column -->
-    <div id="archive-container" class="archive-column">
-        <h2>الأرشيف</h2>
-        <!-- Archived news will be loaded here -->
-    </div>
 
     <!-- Footer -->
     <footer id="site-footer">
@@ -524,7 +504,6 @@
             document.getElementById('main-content').style.display = 'none';
             document.getElementById('site-footer').style.display = 'none';
             document.querySelector('.breaking-news-container').style.display = 'none';
-            document.querySelector('.archive-column').style.display = 'none';
             
             // Load article in iframe
             document.getElementById('article-frame').src = url;
@@ -547,7 +526,6 @@
             document.getElementById('main-content').style.display = 'block';
             document.getElementById('site-footer').style.display = 'block';
             document.querySelector('.breaking-news-container').style.display = 'block';
-            document.querySelector('.archive-column').style.display = 'block';
             
             // Clear iframe
             document.getElementById('article-frame').src = '';
@@ -560,6 +538,50 @@
             
             // Scroll to top
             scrollToTop();
+        }
+
+        // Toggle archive section
+        function toggleArchive() {
+            const archiveSection = document.getElementById('archive-section');
+            const newsContainer = document.getElementById('news-container');
+            const pagination = document.getElementById('pagination');
+            
+            if (archiveSection.style.display === 'block') {
+                archiveSection.style.display = 'none';
+                newsContainer.style.display = 'block';
+                pagination.style.display = 'block';
+            } else {
+                archiveSection.style.display = 'block';
+                newsContainer.style.display = 'none';
+                pagination.style.display = 'none';
+                loadArchive();
+            }
+        }
+
+        // Load archive content
+        function loadArchive() {
+            const archiveContent = document.getElementById('archive-content');
+            const archivedNews = getArchivedNews();
+            
+            if (archivedNews.length === 0) {
+                archiveContent.innerHTML = '<p>لا توجد مقالات في الأرشيف حالياً.</p>';
+                return;
+            }
+            
+            archiveContent.innerHTML = archivedNews.map(article => {
+                const articleId = extractArticleId(article.url);
+                const internalUrl = articleId ? `https://sahaafa.net/show${articleId}.html` : article.url;
+                
+                return `
+                <div class="archive-item" onclick="window.location.href='${internalUrl}'">
+                    <h4>${article.title}</h4>
+                    <div class="meta">
+                        <span class="source">${article.source}</span>
+                        <span class="date">${formatDate(article.date)}</span>
+                    </div>
+                </div>
+                `;
+            }).join('');
         }
 
         // Handle back button
@@ -619,7 +641,6 @@
             const newsContainer = document.getElementById('news-container');
             const pagination = document.getElementById('pagination');
             const pageNumbers = document.getElementById('page-numbers');
-            const archiveContainer = document.getElementById('archive-container');
             
             if (!allArticles || allArticles.length === 0) {
                 newsContainer.innerHTML = `<div style="text-align:center;padding:20px;">
@@ -651,33 +672,6 @@
                 </div>
                 `;
             }).join('');
-
-            // Update archived news display
-            const archivedNews = getArchivedNews();
-            archiveContainer.innerHTML = '<h2>الأرشيف</h2>';
-            
-            archivedNews.forEach((article, index) => {
-                const archiveItem = document.createElement('div');
-                archiveItem.className = 'archive-item';
-                archiveItem.setAttribute('data-index', index);
-                
-                const articleId = extractArticleId(article.url);
-                const internalUrl = articleId ? `https://sahaafa.net/show${articleId}.html` : article.url;
-                
-                archiveItem.innerHTML = `
-                    <h4>${article.title}</h4>
-                    <div class="meta">
-                        <span class="source">${article.source}</span>
-                        <span class="date">${formatDate(article.date)}</span>
-                    </div>
-                `;
-                
-                archiveItem.addEventListener('click', () => {
-                    window.location.href = internalUrl;
-                });
-                
-                archiveContainer.appendChild(archiveItem);
-            });
 
             // Update pagination controls
             pageNumbers.innerHTML = '';
@@ -959,6 +953,32 @@
                 currentPage = 1;
                 updateNewsDisplay();
                 scrollToTop();
+            });
+            
+            // Archive link functionality
+            document.getElementById('archive-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                toggleArchive();
+                
+                // Update active state
+                document.querySelectorAll('.categories li a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+            
+            // Home link functionality
+            document.querySelector('[data-category="all"]').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('archive-section').style.display = 'none';
+                document.getElementById('news-container').style.display = 'block';
+                document.getElementById('pagination').style.display = 'block';
+                
+                // Update active state
+                document.querySelectorAll('.categories li a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
             });
             
             // Setup infinite scroll with debounce
