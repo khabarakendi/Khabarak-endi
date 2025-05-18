@@ -652,15 +652,37 @@
         // Load news from localStorage or initialize empty array
         function getArchivedNews() {
             try {
-                return JSON.parse(localStorage.getItem('archivedNews')) || [];
+                const archived = JSON.parse(localStorage.getItem('archivedNews')) || [];
+                // Remove duplicates from archive
+                const uniqueArchived = [];
+                const seenUrls = new Set();
+                
+                for (const article of archived) {
+                    if (!seenUrls.has(article.url)) {
+                        seenUrls.add(article.url);
+                        uniqueArchived.push(article);
+                    }
+                }
+                return uniqueArchived;
             } catch (e) {
                 return [];
             }
         }
 
         function saveArchivedNews(articles) {
-            // Keep only the last 500 articles to prevent localStorage overflow
-            const limitedArticles = articles.slice(0, 500);
+            // Keep only unique articles in archive
+            const uniqueArticles = [];
+            const seenUrls = new Set();
+            
+            for (const article of articles) {
+                if (!seenUrls.has(article.url)) {
+                    seenUrls.add(article.url);
+                    uniqueArticles.push(article);
+                }
+            }
+            
+            // Keep only the last 500 unique articles
+            const limitedArticles = uniqueArticles.slice(0, 500);
             localStorage.setItem('archivedNews', JSON.stringify(limitedArticles));
         }
 
@@ -790,13 +812,12 @@
             pagination.style.display = totalPages > 1 ? 'block' : 'none';
         }
 
-        // Load news from JSON with unlimited retrieval
+        // Load news from JSON with proper archiving
         async function loadNews(initialLoad = true) {
             try {
                 if (isLoadingMore) return;
                 isLoadingMore = true;
                 
-                // Show loading indicator only on initial load
                 if (initialLoad) {
                     document.getElementById('news-container').innerHTML = `
                         <div class="loading">
@@ -806,44 +827,58 @@
                     `;
                 }
 
-                // Load from your news source
                 const response = await fetch('data/news.json');
                 if (!response.ok) throw new Error('Network response was not ok');
                 
                 const newsData = await response.json();
                 if (!newsData.articles) throw new Error('Invalid news format');
                 
-                // On initial load, shuffle the articles for random order
+                // Remove duplicates from new articles
+                const uniqueNewArticles = [];
+                const seenUrls = new Set();
+                
+                for (const article of newsData.articles) {
+                    if (!seenUrls.has(article.url)) {
+                        seenUrls.add(article.url);
+                        uniqueNewArticles.push(article);
+                    }
+                }
+                
+                // Get current archive
+                const archivedNews = getArchivedNews();
+                
                 if (initialLoad) {
-                    allArticles = shuffleArray(newsData.articles);
+                    // On initial load, shuffle unique articles
+                    allArticles = shuffleArray(uniqueNewArticles);
                 } else {
-                    // Filter out duplicates and add new articles to the beginning
-                    const newArticles = newsData.articles.filter(newArticle => 
+                    // Filter out duplicates and add only truly new articles
+                    const newArticles = uniqueNewArticles.filter(newArticle => 
                         !allArticles.some(existingArticle => 
                             existingArticle.url === newArticle.url
                         )
                     );
                     
-                    // Add new articles to the beginning of the array
-                    allArticles = [...newArticles, ...allArticles];
+                    if (newArticles.length > 0) {
+                        // Archive current articles that are being replaced
+                        const articlesToArchive = allArticles.slice(0, newArticles.length);
+                        const updatedArchive = [...articlesToArchive, ...archivedNews];
+                        saveArchivedNews(updatedArchive);
+                        
+                        // Add new articles to the beginning
+                        allArticles = [...newArticles, ...allArticles];
+                    }
                 }
                 
                 // Store breaking news separately
-                breakingNews = newsData.articles.filter(article => article.isBreaking || false);
-                
-                // Archive current news if not already archived
-                const archivedNews = getArchivedNews();
-                const newArticles = newsData.articles.filter(newArticle => 
-                    !archivedNews.some(oldArticle => oldArticle.url === newArticle.url)
-                );
-                
-                if (newArticles.length > 0) {
-                    const updatedArchive = [...newArticles, ...archivedNews];
-                    saveArchivedNews(updatedArchive);
-                }
+                breakingNews = uniqueNewArticles.filter(article => article.isBreaking || false);
                 
                 // Trim the array if it gets too large
                 if (allArticles.length > maxArticlesToKeep) {
+                    // Archive the oldest articles being removed
+                    const articlesToArchive = allArticles.slice(maxArticlesToKeep);
+                    const updatedArchive = [...articlesToArchive, ...archivedNews];
+                    saveArchivedNews(updatedArchive);
+                    
                     allArticles = allArticles.slice(0, maxArticlesToKeep);
                 }
                 
