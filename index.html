@@ -569,14 +569,8 @@
             }
             
             archiveContent.innerHTML = archivedNews.map(article => {
-                // Use the article's URL directly if it's from your domain
-                // Otherwise, show the article in your iframe viewer
-                const articleUrl = article.url.includes(window.location.hostname) ? 
-                    article.url : 
-                    `article-viewer.html?url=${encodeURIComponent(article.url)}`;
-                
                 return `
-                <div class="archive-item" onclick="viewArticle('${escapeHtml(articleUrl)}', '${escapeHtml(article.title)}')">
+                <div class="archive-item" onclick="viewArticle('${escapeHtml(article.url)}', '${escapeHtml(article.title)}')">
                     <h4>${article.title}</h4>
                     <div class="meta">
                         <span class="source">${article.source}</span>
