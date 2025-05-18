@@ -569,11 +569,14 @@
             }
             
             archiveContent.innerHTML = archivedNews.map(article => {
-                const articleId = extractArticleId(article.url);
-                const internalUrl = articleId ? `https://sahaafa.net/show${articleId}.html` : article.url;
+                // Use the article's URL directly if it's from your domain
+                // Otherwise, show the article in your iframe viewer
+                const articleUrl = article.url.includes(window.location.hostname) ? 
+                    article.url : 
+                    `article-viewer.html?url=${encodeURIComponent(article.url)}`;
                 
                 return `
-                <div class="archive-item" onclick="window.location.href='${internalUrl}'">
+                <div class="archive-item" onclick="viewArticle('${escapeHtml(articleUrl)}', '${escapeHtml(article.title)}')">
                     <h4>${article.title}</h4>
                     <div class="meta">
                         <span class="source">${article.source}</span>
@@ -760,11 +763,6 @@
 
             // Show/hide pagination based on need
             pagination.style.display = totalPages > 1 ? 'block' : 'none';
-        }
-
-        function extractArticleId(url) {
-            const match = url.match(/(\d+)/);
-            return match ? match[1] : null;
         }
 
         // Load news from JSON with unlimited retrieval
