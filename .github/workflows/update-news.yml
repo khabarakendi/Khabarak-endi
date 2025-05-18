@@ -184,60 +184,60 @@ jobs:
               'https://www.adngad.net/feed',
               'https://crater-news.net/feed',
               'https://crater-sky.net/feed'
-                  ]
+          ]
           
           def get_feed(url):
-        try:
-            headers = {'User-Agent': 'Mozilla/5.0'}
-            response = requests.get(url, headers=headers, timeout=10)
-            return feedparser.parse(response.content)
-        except Exception as e:
-            print(f'Error fetching {url}: {str(e)}')
-            return None
-            
-    # Load existing news if available
-    existing_articles = []
-    if os.path.exists('data/news.json'):
-        with open('data/news.json', 'r', encoding='utf-8') as f:
-            try:
-                existing_data = json.load(f)
-                existing_articles = existing_data.get('articles', [])
-            except:
-                existing_articles = []
-    
-    new_articles = []
-    for feed_url in FEEDS:
-        feed = get_feed(feed_url)
-        if feed and feed.entries:
-            for entry in feed.entries[:30]:
-                try:
-                    new_article = {
-                        'title': BeautifulSoup(entry.title, 'html.parser').get_text(),
-                        'url': entry.link,
-                        'source': feed_url.split('//')[1].split('/')[0],
-                        'date': datetime.utcnow().isoformat() + 'Z'
-                    }
-                    
-                    # Only add if not already in existing articles
-                    if not any(a['url'] == new_article['url'] for a in existing_articles):
-                        new_articles.append(new_article)
-                except Exception as e:
-                    print(f'Error processing entry from {feed_url}: {str(e)}')
-                    continue
-                    
-    # Combine new and existing articles (new ones first)
-    all_articles = new_articles + existing_articles
-    
-    # Keep only the last 500 articles to prevent file size issues
-    all_articles = all_articles[:500]
-    
-    with open('data/news.json', 'w', encoding='utf-8') as f:
-        json.dump({
-            'lastUpdated': datetime.utcnow().isoformat() + 'Z',
-            'articles': all_articles
-        }, f, ensure_ascii=False, indent=2)
-    "
-      # Step 5: Commit and push changes (FIXED VERSION)
+              try:
+                  headers = {'User-Agent': 'Mozilla/5.0'}
+                  response = requests.get(url, headers=headers, timeout=10)
+                  return feedparser.parse(response.content)
+              except Exception as e:
+                  print(f'Error fetching {url}: {str(e)}')
+                  return None
+                  
+          # Load existing news if available
+          existing_articles = []
+          if os.path.exists('data/news.json'):
+              with open('data/news.json', 'r', encoding='utf-8') as f:
+                  try:
+                      existing_data = json.load(f)
+                      existing_articles = existing_data.get('articles', [])
+                  except:
+                      existing_articles = []
+          
+          new_articles = []
+          for feed_url in FEEDS:
+              feed = get_feed(feed_url)
+              if feed and feed.entries:
+                  for entry in feed.entries[:30]:
+                      try:
+                          new_article = {
+                              'title': BeautifulSoup(entry.title, 'html.parser').get_text(),
+                              'url': entry.link,
+                              'source': feed_url.split('//')[1].split('/')[0],
+                              'date': datetime.utcnow().isoformat() + 'Z'
+                          }
+                          
+                          # Only add if not already in existing articles
+                          if not any(a['url'] == new_article['url'] for a in existing_articles):
+                              new_articles.append(new_article)
+                      except Exception as e:
+                          print(f'Error processing entry from {feed_url}: {str(e)}')
+                          continue
+                          
+          # Combine new and existing articles (new ones first)
+          all_articles = new_articles + existing_articles
+          
+          # Keep only the last 500 articles to prevent file size issues
+          all_articles = all_articles[:500]
+          
+          with open('data/news.json', 'w', encoding='utf-8') as f:
+              json.dump({
+                  'lastUpdated': datetime.utcnow().isoformat() + 'Z',
+                  'articles': all_articles
+              }, f, ensure_ascii=False, indent=2)
+          "
+      # Step 5: Commit and push changes
       - name: Commit and push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
