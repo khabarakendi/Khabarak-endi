@@ -3,51 +3,38 @@ function extractArticleId(url) {
     return match ? match[1] : null;
 }
 
+// Load news from localStorage or initialize empty array
+function getArchivedNews() {
+    try {
+        return JSON.parse(localStorage.getItem('archivedNews')) || [];
+    } catch (e) {
+        return [];
+    }
+}
+
+function saveArchivedNews(articles) {
+    // Keep only the last 500 articles to prevent localStorage overflow
+    const limitedArticles = articles.slice(0, 500);
+    localStorage.setItem('archivedNews', JSON.stringify(limitedArticles));
+}
+
 function loadNews() {
     fetch('/data/news.json')
         .then(response => response.json())
         .then(data => {
             const container = document.getElementById('news-container');
             const archiveContainer = document.getElementById('archive-container');
+            
+            // Clear containers
             container.innerHTML = '';
+            archiveContainer.innerHTML = '<h2>الأرشيف</h2>';
             
-            // Load first 150 articles (new news)
-            const newsItems = data.articles.slice(0, 150);
-            
-            // Load archived news if available
-            const archivedNews = JSON.parse(localStorage.getItem('archivedNews') || [];
-            
-            // Display archived news in the archive column
-            if (archiveContainer) {
-                archiveContainer.innerHTML = archivedNews.map((article, index) => {
-                    const articleId = extractArticleId(article.url);
-                    const internalUrl = articleId ? `https://sahaafa.net/show${articleId}.html` : article.url;
-                    
-                    return `
-                        <div class="news-item archive-item" data-index="${index}">
-                            <h4>${article.title}</h4>
-                            <div class="meta">
-                                <span class="source">${article.source}</span>
-                                <span class="date">${new Date(article.date).toLocaleString('ar-EG')}</span>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-                
-                // Add click event to archive items
-                document.querySelectorAll('.archive-item').forEach(item => {
-                    const index = item.getAttribute('data-index');
-                    const article = archivedNews[index];
-                    item.addEventListener('click', () => {
-                        const articleId = extractArticleId(article.url);
-                        const internalUrl = articleId ? `https://sahaafa.net/show${articleId}.html` : article.url;
-                        window.location.href = internalUrl;
-                    });
-                });
-            }
-            
+            // Get current and archived news
+            const currentNews = data.articles.slice(0, 150);
+            let archivedNews = getArchivedNews();
+
             // Display current news in main container
-            newsItems.forEach(article => {
+            currentNews.forEach(article => {
                 const item = document.createElement('div');
                 item.className = 'news-item';
                 
@@ -66,16 +53,44 @@ function loadNews() {
                 });
                 container.appendChild(item);
             });
-            
+
             // Archive current news if not already archived
-            const newArticles = newsItems.filter(newArticle => 
+            const newArticles = currentNews.filter(newArticle => 
                 !archivedNews.some(oldArticle => oldArticle.url === newArticle.url)
             );
             
             if (newArticles.length > 0) {
-                const updatedArchive = [...newArticles, ...archivedNews];
-                // Keep only the last 500 archived items to prevent localStorage overflow
-                localStorage.setItem('archivedNews', JSON.stringify(updatedArchive.slice(0, 500)));
+                archivedNews = [...newArticles, ...archivedNews];
+                saveArchivedNews(archivedNews);
+            }
+
+            // Display archived news
+            archivedNews.forEach((article, index) => {
+                const archiveItem = document.createElement('div');
+                archiveItem.className = 'archive-item';
+                archiveItem.setAttribute('data-index', index);
+                
+                const articleId = extractArticleId(article.url);
+                const internalUrl = articleId ? `https://sahaafa.net/show${articleId}.html` : article.url;
+                
+                archiveItem.innerHTML = `
+                    <h4>${article.title}</h4>
+                    <div class="meta">
+                        <span class="source">${article.source}</span>
+                        <span class="date">${new Date(article.date).toLocaleString('ar-EG')}</span>
+                    </div>
+                `;
+                
+                archiveItem.addEventListener('click', () => {
+                    window.location.href = internalUrl;
+                });
+                
+                archiveContainer.appendChild(archiveItem);
+            });
+
+            // Update breaking news ticker if needed
+            if (typeof updateBreakingNews === 'function') {
+                updateBreakingNews();
             }
         })
         .catch(error => {
@@ -84,3 +99,15 @@ function loadNews() {
             container.innerHTML = '<div class="error">فشل تحميل الأخبار. الرجاء المحاولة لاحقًا.</div>';
         });
 }
+
+// Initialize news loading when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Load news
+    loadNews();
+    
+    // Set up periodic refresh (every 5 minutes)
+    setInterval(loadNews, 300000);
+});
