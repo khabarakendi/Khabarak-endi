@@ -575,6 +575,47 @@
             scrollToTop();
         }
 
+        // Toggle archive section
+        function toggleArchive() {
+            const archiveSection = document.getElementById('archive-section');
+            const newsContainer = document.getElementById('news-container');
+            const pagination = document.getElementById('pagination');
+            
+            if (archiveSection.style.display === 'block') {
+                archiveSection.style.display = 'none';
+                newsContainer.style.display = 'block';
+                pagination.style.display = 'block';
+            } else {
+                archiveSection.style.display = 'block';
+                newsContainer.style.display = 'none';
+                pagination.style.display = 'none';
+                loadArchive();
+            }
+        }
+
+        // Load archive content
+        function loadArchive() {
+            const archiveContent = document.getElementById('archive-content');
+            const archivedNews = getArchivedNews();
+            
+            if (archivedNews.length === 0) {
+                archiveContent.innerHTML = '<p>لا توجد مقالات في الأرشيف حالياً.</p>';
+                return;
+            }
+            
+            archiveContent.innerHTML = archivedNews.map(article => {
+                return `
+                <div class="archive-item" onclick="viewArticle('${escapeHtml(article.url)}', '${escapeHtml(article.title)}')">
+                    <h4>${article.title}</h4>
+                    <div class="meta">
+                        <span class="source">${article.source}</span>
+                        <span class="date">${formatDate(article.date)}</span>
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+
         // Function to handle direct article links
         function handleDirectArticleLink() {
             const path = window.location.pathname;
@@ -1042,13 +1083,6 @@
                     }
                 }
             });
-
-            // Check if we're viewing an article on page load
-            if (window.location.pathname.includes('/show/')) {
-                // You would need to implement logic to load the specific article here
-                // For now, we'll just show the main page
-                window.history.replaceState({}, '', '/');
-            }
         });
     </script>
 </body>
