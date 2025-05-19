@@ -489,9 +489,9 @@
     <!-- Footer -->
     <footer id="site-footer">
         <div class="footer-bottom">
-            <p>جميع الحقوق محفوظة لموقع <span class="footer-logo" onclick="window.location.href='/'"><span class="red">خبرك</span><span class="green"> عندي</span></span> © <span id="current-year">2025</span></p>
+            <p>جميع الحقوق محفوظة لموقع <span class="footer-logo" onclick="window.location.href='/'"><span class="red">خبرك</span><span class="green"> عندي</span></span> © <span id="current-year"><?php echo date('Y'); ?></span></p>
             <p>موقع خبرك عندي عبارة عن قارئ أخبار والمواد الواردة في الموقع لا تعبر عن رأي الموقع ولا يتحمل الموقع اي مسؤولية قانونية عنها</p>
-            <p>آخر تحديث: <span id="last-updated">جاري التحميل...</span></p>
+            <p>آخر تحديث: <span id="last-updated"><?php echo date('Y-m-d H:i:s'); ?></span></p>
         </div>
     </footer>
 
