@@ -526,7 +526,7 @@
         }
 
         // Article viewing function
-        function viewArticle(url, title) {
+        function viewArticle(url, title, fromHistory = false) {
             // Show article container and return button
             document.getElementById('article-container').style.display = 'block';
             document.querySelector('.return-main-btn').style.display = 'block';
@@ -542,13 +542,15 @@
             // Update page title
             document.title = `${title} - خبرك عندي`;
             
-            // Push to history
-            const articleId = url.match(/\d+/)?.[0] || Math.floor(Math.random() * 10000);
-            window.history.pushState({ article: true }, title, `/show/${articleId}.html`);
+            if (!fromHistory) {
+                // Push to history with clean URL
+                const articleId = url.match(/\d+/)?.[0] || Math.floor(Math.random() * 10000);
+                window.history.pushState({ article: true, url: url, title: title }, title, `/show/${articleId}.html`);
+            }
         }
 
         // Close article view
-        function closeArticle() {
+        function closeArticle(fromHistory = false) {
             // Hide article container and return button
             document.getElementById('article-container').style.display = 'none';
             document.querySelector('.return-main-btn').style.display = 'none';
@@ -564,58 +566,40 @@
             // Update page title
             document.title = 'خبرك عندي - Yemen News';
             
-            // Push to history
-            window.history.pushState({}, '', '/');
+            if (!fromHistory) {
+                // Push to history
+                window.history.pushState({}, '', '/');
+            }
             
             // Scroll to top
             scrollToTop();
         }
 
-        // Toggle archive section
-        function toggleArchive() {
-            const archiveSection = document.getElementById('archive-section');
-            const newsContainer = document.getElementById('news-container');
-            const pagination = document.getElementById('pagination');
-            
-            if (archiveSection.style.display === 'block') {
-                archiveSection.style.display = 'none';
-                newsContainer.style.display = 'block';
-                pagination.style.display = 'block';
-            } else {
-                archiveSection.style.display = 'block';
-                newsContainer.style.display = 'none';
-                pagination.style.display = 'none';
-                loadArchive();
+        // Function to handle direct article links
+        function handleDirectArticleLink() {
+            const path = window.location.pathname;
+            if (path.startsWith('/show/')) {
+                const articleId = path.match(/\/show\/(\d+)\.html/)?.[1];
+                if (articleId) {
+                    // Find the article in allArticles or archivedNews
+                    const allNews = [...allArticles, ...getArchivedNews()];
+                    const article = allNews.find(a => a.url.includes(articleId));
+                    
+                    if (article) {
+                        viewArticle(article.url, article.title, true);
+                        return true;
+                    }
+                }
             }
-        }
-
-        // Load archive content
-        function loadArchive() {
-            const archiveContent = document.getElementById('archive-content');
-            const archivedNews = getArchivedNews();
-            
-            if (archivedNews.length === 0) {
-                archiveContent.innerHTML = '<p>لا توجد مقالات في الأرشيف حالياً.</p>';
-                return;
-            }
-            
-            archiveContent.innerHTML = archivedNews.map(article => {
-                return `
-                <div class="archive-item" onclick="viewArticle('${escapeHtml(article.url)}', '${escapeHtml(article.title)}')">
-                    <h4>${article.title}</h4>
-                    <div class="meta">
-                        <span class="source">${article.source}</span>
-                        <span class="date">${formatDate(article.date)}</span>
-                    </div>
-                </div>
-                `;
-            }).join('');
+            return false;
         }
 
         // Handle back button
         window.addEventListener('popstate', function(event) {
             if (event.state && event.state.article) {
-                closeArticle();
+                viewArticle(event.state.url, event.state.title, true);
+            } else {
+                closeArticle(true);
             }
         });
 
@@ -1043,7 +1027,21 @@
             setupInfiniteScroll();
             
             // Initial load
-            loadNews(true);
+            loadNews(true).then(() => {
+                // After news are loaded, check for direct article link
+                if (!handleDirectArticleLink()) {
+                    // Check for hash-based URL (legacy format)
+                    const hash = window.location.hash;
+                    if (hash.startsWith('#show=')) {
+                        const articleId = hash.split('=')[1];
+                        const allNews = [...allArticles, ...getArchivedNews()];
+                        const article = allNews.find(a => a.url.includes(articleId));
+                        if (article) {
+                            viewArticle(article.url, article.title);
+                        }
+                    }
+                }
+            });
 
             // Check if we're viewing an article on page load
             if (window.location.pathname.includes('/show/')) {
