@@ -489,9 +489,9 @@
     <!-- Footer -->
     <footer id="site-footer">
         <div class="footer-bottom">
-            <p>جميع الحقوق محفوظة لموقع <span class="footer-logo" onclick="window.location.href='/'"><span class="red">خبرك</span><span class="green"> عندي</span></span> © <span id="current-year"><?php echo date('Y'); ?></span></p>
+            <p>جميع الحقوق محفوظة لموقع <span class="footer-logo" onclick="window.location.href='/'"><span class="red">خبرك</span><span class="green"> عندي</span></span> © <span id="current-year">2025</span></p>
             <p>موقع خبرك عندي عبارة عن قارئ أخبار والمواد الواردة في الموقع لا تعبر عن رأي الموقع ولا يتحمل الموقع اي مسؤولية قانونية عنها</p>
-            <p>آخر تحديث: <span id="last-updated"><?php echo date('Y-m-d H:i:s'); ?></span></p>
+            <p>آخر تحديث: <span id="last-updated">جاري التحميل...</span></p>
         </div>
     </footer>
 
@@ -590,32 +590,26 @@
         }
 
         // Load archive content
-        async function loadArchive() {
+        function loadArchive() {
             const archiveContent = document.getElementById('archive-content');
-            try {
-                const response = await fetch('get_archive.php');
-                const archivedNews = await response.json();
-                
-                if (archivedNews.length === 0) {
-                    archiveContent.innerHTML = '<p>لا توجد مقالات في الأرشيف حالياً.</p>';
-                    return;
-                }
-                
-                archiveContent.innerHTML = archivedNews.map(article => {
-                    return `
-                    <div class="archive-item" onclick="viewArticle('${escapeHtml(article.url)}', '${escapeHtml(article.title)}')">
-                        <h4>${article.title}</h4>
-                        <div class="meta">
-                            <span class="source">${article.source}</span>
-                            <span class="date">${formatDate(article.date)}</span>
-                        </div>
-                    </div>
-                    `;
-                }).join('');
-            } catch (error) {
-                console.error('Error loading archive:', error);
-                archiveContent.innerHTML = '<p>حدث خطأ في تحميل الأرشيف. يرجى المحاولة لاحقاً.</p>';
+            const archivedNews = getArchivedNews();
+            
+            if (archivedNews.length === 0) {
+                archiveContent.innerHTML = '<p>لا توجد مقالات في الأرشيف حالياً.</p>';
+                return;
             }
+            
+            archiveContent.innerHTML = archivedNews.map(article => {
+                return `
+                <div class="archive-item" onclick="viewArticle('${escapeHtml(article.url)}', '${escapeHtml(article.title)}')">
+                    <h4>${article.title}</h4>
+                    <div class="meta">
+                        <span class="source">${article.source}</span>
+                        <span class="date">${formatDate(article.date)}</span>
+                    </div>
+                </div>
+                `;
+            }).join('');
         }
 
         // Handle back button
@@ -653,6 +647,43 @@
                 [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
             }
             return newArray;
+        }
+
+        // Load news from localStorage or initialize empty array
+        function getArchivedNews() {
+            try {
+                const archived = JSON.parse(localStorage.getItem('archivedNews')) || [];
+                // Remove duplicates from archive
+                const uniqueArchived = [];
+                const seenUrls = new Set();
+                
+                for (const article of archived) {
+                    if (!seenUrls.has(article.url)) {
+                        seenUrls.add(article.url);
+                        uniqueArchived.push(article);
+                    }
+                }
+                return uniqueArchived;
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveArchivedNews(articles) {
+            // Keep only unique articles in archive
+            const uniqueArticles = [];
+            const seenUrls = new Set();
+            
+            for (const article of articles) {
+                if (!seenUrls.has(article.url)) {
+                    seenUrls.add(article.url);
+                    uniqueArticles.push(article);
+                }
+            }
+            
+            // Keep only the last 500 unique articles
+            const limitedArticles = uniqueArticles.slice(0, 500);
+            localStorage.setItem('archivedNews', JSON.stringify(limitedArticles));
         }
 
         // Update news display with pagination
@@ -796,7 +827,7 @@
                     `;
                 }
 
-                const response = await fetch('get_news.php');
+                const response = await fetch('data/news.json');
                 if (!response.ok) throw new Error('Network response was not ok');
                 
                 const newsData = await response.json();
@@ -813,6 +844,9 @@
                     }
                 }
                 
+                // Get current archive
+                const archivedNews = getArchivedNews();
+                
                 if (initialLoad) {
                     // On initial load, shuffle unique articles
                     allArticles = shuffleArray(uniqueNewArticles);
@@ -825,6 +859,11 @@
                     );
                     
                     if (newArticles.length > 0) {
+                        // Archive current articles that are being replaced
+                        const articlesToArchive = allArticles.slice(0, newArticles.length);
+                        const updatedArchive = [...articlesToArchive, ...archivedNews];
+                        saveArchivedNews(updatedArchive);
+                        
                         // Add new articles to the beginning
                         allArticles = [...newArticles, ...allArticles];
                     }
@@ -835,6 +874,11 @@
                 
                 // Trim the array if it gets too large
                 if (allArticles.length > maxArticlesToKeep) {
+                    // Archive the oldest articles being removed
+                    const articlesToArchive = allArticles.slice(maxArticlesToKeep);
+                    const updatedArchive = [...articlesToArchive, ...archivedNews];
+                    saveArchivedNews(updatedArchive);
+                    
                     allArticles = allArticles.slice(0, maxArticlesToKeep);
                 }
                 
