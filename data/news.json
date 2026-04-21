@@ -1,6 +1,414 @@
 {
-  "lastUpdated": "2026-04-21T09:09:50.440337Z",
+  "lastUpdated": "2026-04-21T10:46:05.682143Z",
   "articles": [
+    {
+      "title": "لاند كروزر 2026 في السعودية: مواصفات متطورة وأسعار تنافسية",
+      "url": "https://al-tagheer.com/news78589.html",
+      "source": "www.al-tagheer.com",
+      "date": "2026-04-21T10:44:04.805359Z"
+    },
+    {
+      "title": "دبي تكشف عن أهم ثلاثة مطاعم لعام 2025 في مشهد الطهي العالمي",
+      "url": "https://al-tagheer.com/news78582.html",
+      "source": "www.al-tagheer.com",
+      "date": "2026-04-21T10:44:04.805456Z"
+    },
+    {
+      "title": "أفضل ثلاثة مطاعم في دبي لعام 2025 تعكس تنوع المذاقات وروعة التجربة",
+      "url": "https://al-tagheer.com/news78583.html",
+      "source": "www.al-tagheer.com",
+      "date": "2026-04-21T10:44:04.805528Z"
+    },
+    {
+      "title": "سعر صرف الريال السعودي مقابل الجنيه السوداني اليوم وتطوراته في الأسواق المحلية",
+      "url": "https://al-tagheer.com/news78581.html",
+      "source": "www.al-tagheer.com",
+      "date": "2026-04-21T10:44:04.805601Z"
+    },
+    {
+      "title": "سعر صرف الجنيه المصري مقابل الريال السعودي يشهد استقراراً نسبياً وسط تقلبات السوق",
+      "url": "https://al-tagheer.com/news78580.html",
+      "source": "www.al-tagheer.com",
+      "date": "2026-04-21T10:44:04.805673Z"
+    },
+    {
+      "title": "كأس أمم أفريقيا 2025: انطلاق المنافسات",
+      "url": "https://alshahednews.net/article/africa-cup-of-nations-2025-competitions-begin/",
+      "source": "www.alshahednews.net",
+      "date": "2026-04-21T10:44:10.707627Z"
+    },
+    {
+      "title": "مباراة الجزائر والسودان في كأس أمم أفريقيا 2025",
+      "url": "https://alshahednews.net/article/algeria-and-sudan-match-in-the-2025-african-cup-/",
+      "source": "www.alshahednews.net",
+      "date": "2026-04-21T10:44:10.707745Z"
+    },
+    {
+      "title": "عَمّان: اجتماع عسكري لخفض التصعيد باليمن",
+      "url": "https://almushahid.net/139059/",
+      "source": "www.almushahid.net",
+      "date": "2026-04-21T10:44:15.034420Z"
+    },
+    {
+      "title": "باحث سعودي: قبائل الجوف قد تشكّل نقطة الانطلاق لتحرير اليمن من الحوثيين",
+      "url": "https://yemennownews.com/article/3318175",
+      "source": "yemennownews.com",
+      "date": "2026-04-21T10:45:38.515260Z"
+    },
+    {
+      "title": "عاجل:غرق زورق تابع لقوات العمالقة قبالة سواحل جزيرة ميون ووفاة عنصرين وفقدان آخرين(الاسماء)",
+      "url": "https://yemennownews.com/article/3318144",
+      "source": "yemennownews.com",
+      "date": "2026-04-21T10:45:38.515396Z"
+    },
+    {
+      "title": "صحافي سعودي بارز: مشاورات مغلقة في الرياض تمهد لمؤتمر جنوبي دون سقف محدد",
+      "url": "https://yemennownews.com/article/3318155",
+      "source": "yemennownews.com",
+      "date": "2026-04-21T10:45:38.515517Z"
+    },
+    {
+      "title": "وزير الصحة يناقش الوضع الوبائي والإجراءات الوقائية في عدن",
+      "url": "https://yemennownews.com/article/3318151",
+      "source": "yemennownews.com",
+      "date": "2026-04-21T10:45:38.515774Z"
+    },
+    {
+      "title": "إصابة مواطن أمريكي يمني بحادث مروري مروع",
+      "url": "https://yemennownews.com/article/3318157",
+      "source": "yemennownews.com",
+      "date": "2026-04-21T10:45:38.515891Z"
+    },
+    {
+      "title": "عاجل:أفراد حراسة مبنى التأمينات والمعاشات بعدن يمنعون مدير الفرع من دخول المبنى",
+      "url": "https://yemennownews.com/article/3318160",
+      "source": "yemennownews.com",
+      "date": "2026-04-21T10:45:38.515963Z"
+    },
+    {
+      "title": "وزير الكهرباء يصارح الشعب ويكشف أسباب انهيار الخدمة في عدن: عجز حاد وفساد وتهرب من السداد",
+      "url": "https://yemennownews.com/article/3318189",
+      "source": "yemennownews.com",
+      "date": "2026-04-21T10:45:38.516076Z"
+    },
+    {
+      "title": "حديث سعودي غير متوقع بشان اخر مستجدات الحوار الجنوبي بالرياض",
+      "url": "https://yemennownews.com/article/3318168",
+      "source": "yemennownews.com",
+      "date": "2026-04-21T10:45:38.516271Z"
+    },
+    {
+      "title": "مكافأة كبرى بانتظار منتخب اليمن للناشئين في حال التتويج بكأس آسيا .. تعرف عليها",
+      "url": "https://yemennownews.com/article/3318172",
+      "source": "yemennownews.com",
+      "date": "2026-04-21T10:45:38.516348Z"
+    },
+    {
+      "title": "توقف مفاجئ لصفقة تسليح بين باكستان والسودان بقيمة 1.5 مليار دولار لهذا السبب !!",
+      "url": "https://yemennownews.com/article/3318188",
+      "source": "yemennownews.com",
+      "date": "2026-04-21T10:45:38.516432Z"
+    },
+    {
+      "title": "تعز: السلطة المحلية تغرق في المصالح الخاصة والمواطن يدفع الثمن",
+      "url": "https://taiztoday.net/2026/04/20/%d8%aa%d8%b9%d8%b2-%d8%a7%d9%84%d8%b3%d9%84%d8%b7%d8%a9-%d8%a7%d9%84%d9%85%d8%ad%d9%84%d9%8a%d8%a9-%d8%aa%d8%ba%d8%b1%d9%82-%d9%81%d9%8a-%d8%a7%d9%84%d9%85%d8%b5%d8%a7%d9%84%d8%ad-%d8%a7%d9%84%d8%ae/",
+      "source": "taiztoday.net",
+      "date": "2026-04-21T10:45:45.337045Z"
+    },
+    {
+      "title": "مسؤول في سلطات تعز يتهجم على صحفي داخل مدرسة ​",
+      "url": "https://taiztoday.net/2026/04/20/%d9%85%d8%b3%d8%a4%d9%88%d9%84-%d9%81%d9%8a-%d8%b3%d9%84%d8%b7%d8%a7%d8%aa-%d8%aa%d8%b9%d8%b2-%d9%8a%d8%aa%d9%87%d8%ac%d9%85-%d8%b9%d9%84%d9%89-%d8%b5%d8%ad%d9%81%d9%8a-%d8%af%d8%a7%d8%ae%d9%84-%d9%85/",
+      "source": "taiztoday.net",
+      "date": "2026-04-21T10:45:45.337126Z"
+    },
+    {
+      "title": "فوضى أسعار تضرب صيدليات تعز عقب إقرار “تسعيرة جديدة” للأدوية",
+      "url": "https://taiztoday.net/2026/04/20/%d9%81%d9%88%d8%b6%d9%89-%d8%a3%d8%b3%d8%b9%d8%a7%d8%b1-%d8%aa%d8%b6%d8%b1%d8%a8-%d8%b5%d9%8a%d8%af%d9%84%d9%8a%d8%a7%d8%aa-%d8%aa%d8%b9%d8%b2-%d8%b9%d9%82%d8%a8-%d8%a5%d9%82%d8%b1%d8%a7%d8%b1/",
+      "source": "taiztoday.net",
+      "date": "2026-04-21T10:45:45.337199Z"
+    },
+    {
+      "title": "اغتيال ضابط بمكافحة الإرهاب يعيد شبح الفوضى لشوارع تعز",
+      "url": "https://taiztoday.net/2026/04/19/%d8%a7%d8%ba%d8%aa%d9%8a%d8%a7%d9%84-%d8%b6%d8%a7%d8%a8%d8%b7-%d8%a8%d9%85%d9%83%d8%a7%d9%81%d8%ad%d8%a9-%d8%a7%d9%84%d8%a5%d8%b1%d9%87%d8%a7%d8%a8-%d9%8a%d8%b9%d9%8a%d8%af-%d8%b4%d8%a8%d8%ad-%d8%a7/",
+      "source": "taiztoday.net",
+      "date": "2026-04-21T10:45:45.337338Z"
+    },
+    {
+      "title": "حملات الرقابة على صيدليات تعز.. ضبط للسوق أم غطاء لجبايات جديدة",
+      "url": "https://taiztoday.net/2026/04/19/%d8%ad%d9%85%d9%84%d8%a7%d8%aa-%d8%a7%d9%84%d8%b1%d9%82%d8%a7%d8%a8%d8%a9-%d8%b9%d9%84%d9%89-%d8%b5%d9%8a%d8%af%d9%84%d9%8a%d8%a7%d8%aa-%d8%aa%d8%b9%d8%b2-%d8%b6%d8%a8%d8%b7-%d9%84%d9%84%d8%b3%d9%88/",
+      "source": "taiztoday.net",
+      "date": "2026-04-21T10:45:45.337422Z"
+    },
+    {
+      "title": "احتجاجات لملاك مزارع ومحلات الدواجن أمام مقر محافظة تعز",
+      "url": "https://taiztoday.net/2026/04/19/%d8%a7%d8%ad%d8%aa%d8%ac%d8%a7%d8%ac%d8%a7%d8%aa-%d9%84%d9%85%d9%84%d8%a7%d9%83-%d9%85%d8%b2%d8%a7%d8%b1%d8%b9-%d9%88%d9%85%d8%ad%d9%84%d8%a7%d8%aa-%d8%a7%d9%84%d8%af%d9%88%d8%a7%d8%ac%d9%86-%d8%a3/",
+      "source": "taiztoday.net",
+      "date": "2026-04-21T10:45:45.337493Z"
+    },
+    {
+      "title": "نجاة قيادي عسكري من محاولة اغتيال وسط توترات أمنية في عدن",
+      "url": "https://taiztoday.net/2026/04/19/%d9%86%d8%ac%d8%a7%d8%a9-%d9%82%d9%8a%d8%a7%d8%af%d9%8a-%d8%b9%d8%b3%d9%83%d8%b1%d9%8a-%d9%85%d9%86-%d9%85%d8%ad%d8%a7%d9%88%d9%84%d8%a9-%d8%a7%d8%ba%d8%aa%d9%8a%d8%a7%d9%84-%d9%88%d8%b3%d8%b7-%d8%aa/",
+      "source": "taiztoday.net",
+      "date": "2026-04-21T10:45:45.337565Z"
+    },
+    {
+      "title": "عاجل: الاتحاد يُعيد ترتيب بيته… حمد المنتشري يستمر بينما مستقبل محمد نور يظل في الظلام!",
+      "url": "https://yemen-press.net/news180538.html",
+      "source": "yemen-press.net",
+      "date": "2026-04-21T10:45:49.592324Z"
+    },
+    {
+      "title": "عاجل: الأمن العام يكشف قراراً مروري جديداً… لن يتفق عليه السائقون أولاً لكن سيغير حياتك 2030!",
+      "url": "https://yemen-press.net/news180537.html",
+      "source": "yemen-press.net",
+      "date": "2026-04-21T10:45:49.592474Z"
+    },
+    {
+      "title": "صادم: أسعار الذهب في اليمن تنهار لأرقام مخيفة.. عدن تفقد نصف قيمتها مقابل صنعاء في يوم واحد!",
+      "url": "https://yemen-press.net/news180536.html",
+      "source": "yemen-press.net",
+      "date": "2026-04-21T10:45:49.592557Z"
+    },
+    {
+      "title": "إعلان: الزمالك يقدم مستندات تثبت عدم أحقية زيزو في المطالبات - توتر يصل إلى 80 مليون جنيه!",
+      "url": "https://yemen-press.net/news180535.html",
+      "source": "yemen-press.net",
+      "date": "2026-04-21T10:45:49.592634Z"
+    },
+    {
+      "title": "آخر تحديث: اكتشف ترددات نايل سات الجديدة لتوم وجيري وأطفالك 2026 - جودة فائقة",
+      "url": "https://yemen-press.net/news180534.html",
+      "source": "yemen-press.net",
+      "date": "2026-04-21T10:45:49.592710Z"
+    },
+    {
+      "title": "رسمي: السعودية للطاقة توقع اتفاقية بـ11.5 مليار ريال لبناء أكبر محطة غازية في رابغ… وهدف 2313 ميجاواط بتقنية الكربون!",
+      "url": "https://yemen-press.net/news180533.html",
+      "source": "yemen-press.net",
+      "date": "2026-04-21T10:45:49.592795Z"
+    },
+    {
+      "title": "عاجل: انهيار الذهب اليوم في الأردن... عيار 21 يسجل 97.30 دينارًا - هل تخسر استثماراتك؟",
+      "url": "https://yemen-press.net/news180532.html",
+      "source": "yemen-press.net",
+      "date": "2026-04-21T10:45:49.592884Z"
+    },
+    {
+      "title": "صادم: رونالدو يخاطر بفرصته التاريخية! الأهلي القطري يحاول منع نجم النصر السعودي من أول لقب آسيوي في مباراة مصيرية",
+      "url": "https://yemen-press.net/news180531.html",
+      "source": "yemen-press.net",
+      "date": "2026-04-21T10:45:49.592996Z"
+    },
+    {
+      "title": "عاجل: بنزيما يصدر صورة صادمة مع الأفيال مباشرة بعد إعلان الهلال إصابته… جماهير الهلال في حالة غضب!",
+      "url": "https://yemen-press.net/news180530.html",
+      "source": "yemen-press.net",
+      "date": "2026-04-21T10:45:49.593072Z"
+    },
+    {
+      "title": "عاجل: أمطار متوسطة إلى غزيرة تضرب الرياض و20 محافظة لأيام.. الدفاع المدني يطلق تحذيرًا عاجلاً للجميع!",
+      "url": "https://yemen-press.net/news180529.html",
+      "source": "yemen-press.net",
+      "date": "2026-04-21T10:45:49.593145Z"
+    },
+    {
+      "title": "عاجل: سامي الجابر يكشف المفاجأة المدوية… ما سيحدث بعد استحواذ الوليد بن طلال على الهلال سيقلب المعايير!",
+      "url": "https://yemen-press.net/news180528.html",
+      "source": "yemen-press.net",
+      "date": "2026-04-21T10:45:49.593217Z"
+    },
+    {
+      "title": "تصاريح الحج الجديدة تنتهي في 18 أبريل.. عقوبات تصل لـ10 آلاف ريال لمن يخالف النظام!",
+      "url": "https://yemen-press.net/news180527.html",
+      "source": "yemen-press.net",
+      "date": "2026-04-21T10:45:49.593290Z"
+    },
+    {
+      "title": "صادم: تأخر رواتب الموظفين 5 أشهر وسحب 50 دولار يومياً فقط... هل وصلت معاناة اليمنيين إلى مرحلة الانفجار؟",
+      "url": "https://yemen-press.net/news180526.html",
+      "source": "yemen-press.net",
+      "date": "2026-04-21T10:45:49.593375Z"
+    },
+    {
+      "title": "عاجل: الأهلي يفاجئ الجميع ويخطف إبراهيم عادل من بيراميدز.. الرقم الذي يحطم الأرقام في مصر!",
+      "url": "https://yemen-press.net/news180525.html",
+      "source": "yemen-press.net",
+      "date": "2026-04-21T10:45:49.593450Z"
+    },
+    {
+      "title": "عاجل: الدولار يصدم الذهب.. انخفاض مفاجئ وسط صعود قوي والمحادثات المرتقبة مع إيران قد تكون السبب",
+      "url": "https://yemen-press.net/news180524.html",
+      "source": "yemen-press.net",
+      "date": "2026-04-21T10:45:49.593524Z"
+    },
+    {
+      "title": "عاجل: رحلة إبستين تقتل سفيراً وتهدِّد رئيساً… هجوم المسيَّرات يقتل ويُلهب 'خطأ ستارمر' الذي كاد يغرق لندن!",
+      "url": "https://yemen-press.net/news180523.html",
+      "source": "yemen-press.net",
+      "date": "2026-04-21T10:45:49.593597Z"
+    },
+    {
+      "title": "عاجل: قرار صارم من الحكومة يحدد أجازة تحرير سيناء… الموظفون ينتظرون ردًا خطيراً عن البديل!",
+      "url": "https://yemen-press.net/news180522.html",
+      "source": "yemen-press.net",
+      "date": "2026-04-21T10:45:49.593672Z"
+    },
+    {
+      "title": "فعالية خطابية لصندوق النظافة في إب بالذكرى السنوية للصرخة",
+      "url": "https://www.ibb-news.com/193556",
+      "source": "www.ibb-news.com",
+      "date": "2026-04-21T10:45:57.496066Z"
+    },
+    {
+      "title": "انفجار غامض في الضالع ينهي حياة مواطن ويثير تساؤلات",
+      "url": "https://www.adngad.net/news/850663",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.818400Z"
+    },
+    {
+      "title": "وصول البعثة اليمنية الى مدينة سانيا الصينية للمشاركة في الدورة الآسيوية الشاطئية",
+      "url": "https://www.adngad.net/news/850662",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.818520Z"
+    },
+    {
+      "title": "جامعة العلوم والتكنولوجيا تنظم برنامجًا تدريبيًا لتعزيز كفاءة نظم المشتريات والمخازن في عدن",
+      "url": "https://www.adngad.net/news/850661",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.818599Z"
+    },
+    {
+      "title": "المحافظ بن الوزير يتسلّم درع الوفاء من طلاب الدراسات العليا بجامعة شبوة تقديراً لجهوده التنموية",
+      "url": "https://www.adngad.net/news/850660",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.818673Z"
+    },
+    {
+      "title": "جنون التذاكر يضرب دوري الأبطال.. مباراة باريس وبايرن للأغنياء فقط",
+      "url": "https://www.adngad.net/news/850659",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.818745Z"
+    },
+    {
+      "title": "إتلاف 5 أطنان من المواد المنتهية الصلاحية في عتق",
+      "url": "https://www.adngad.net/news/850658",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.818818Z"
+    },
+    {
+      "title": "لامين جمال يغازل تاريخ ميسي من قلب مدريد",
+      "url": "https://www.adngad.net/news/850657",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.818892Z"
+    },
+    {
+      "title": "حملة رقابية في مديرية الوادي بمأرب تكشف مواد منتهية الصلاحية في المحال التجارية",
+      "url": "https://www.adngad.net/news/850656",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.818967Z"
+    },
+    {
+      "title": "حقوقيون ينددون باعتقال الناشط \"عمرو العطار\" في عدن ويطالبون بالكشف الفوري عن مصيره",
+      "url": "https://www.adngad.net/news/850655",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.819040Z"
+    },
+    {
+      "title": "تأهيل 140 شاباً في الطاقة الشمسية ضمن مشروع تنموي بحضرموت",
+      "url": "https://www.adngad.net/news/850654",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.819114Z"
+    },
+    {
+      "title": "لحج: تدشين دورة تدريبية للمدربين حول تشغيل وإدارة وصيانة وحدات الزراعة المائية",
+      "url": "https://www.adngad.net/news/850653",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.819188Z"
+    },
+    {
+      "title": "وزير الصحة يناقش مستجدات الوضع الوبائي وإجراءات الحد من انتشار الحصبة",
+      "url": "https://www.adngad.net/news/850652",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.819260Z"
+    },
+    {
+      "title": "مركز الأطراف الصناعية وإعادة التأهيل بتعز يقدم أكثر من 1400 خدمة علاجية وتأهيلية خلال مارس الماضي",
+      "url": "https://www.adngad.net/news/850651",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.819333Z"
+    },
+    {
+      "title": "تصاعد مقلق للحصبة في المحافظات المحررة وسط ارتفاع الإصابات والوفيات",
+      "url": "https://www.adngad.net/news/850650",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.819415Z"
+    },
+    {
+      "title": "لحج .. تدشين دورة تنشيطية للمدربين حول تشغيل وإدارة وصيانة وحدات الزراعة المائية",
+      "url": "https://www.adngad.net/news/850649",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.819490Z"
+    },
+    {
+      "title": "القربي يتحدث عن مؤشرٍ مهمٍ بشأن الوضع في اليمن",
+      "url": "https://www.adngad.net/news/850647",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.819562Z"
+    },
+    {
+      "title": "بدعم مؤسسة رؤية عدن.. إنجاز المرحلة الأولى لإنارة كورنيش كود النمر",
+      "url": "https://www.adngad.net/news/850648",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.819633Z"
+    },
+    {
+      "title": "عاجل: غرق زورق عسكري قبالة سواحل جزيرة ميون",
+      "url": "https://www.adngad.net/news/850646",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.819704Z"
+    },
+    {
+      "title": "لحج.. تدشين دورة تنشيطية للمدربين حول تشغيل وإدارة وصيانة وحدات الزراعة المائية",
+      "url": "https://www.adngad.net/news/850645",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.819776Z"
+    },
+    {
+      "title": "عسكر: نجاح أي مسار للمشاورات الجنوبية مرهون بفهم دقيق لهذه الخصوصية",
+      "url": "https://www.adngad.net/news/850644",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.819847Z"
+    },
+    {
+      "title": "الذهب يتراجع مع صعود الدولار",
+      "url": "https://www.adngad.net/news/850643",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.820027Z"
+    },
+    {
+      "title": "بايرن ميونيخ يحرز لقب الدوري الألماني للمرة الـ35 في تاريخه",
+      "url": "https://www.adngad.net/news/850642",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.820103Z"
+    },
+    {
+      "title": "دوري أبطال آسيا للنخبة: الأهلي السعودي يُقصي فيسيل كوبي الياباني ويتأهل للنهائي",
+      "url": "https://www.adngad.net/news/850641",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.820175Z"
+    },
+    {
+      "title": "بدء تدشين العمل في ثلاثة مشاريع خدمية بمديرية رضوم",
+      "url": "https://www.adngad.net/news/850640",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.820248Z"
+    },
+    {
+      "title": "وكيل حضرموت يؤكد أهمية المشاريع المهنية المستدامة في تمكين الشباب",
+      "url": "https://www.adngad.net/news/850639",
+      "source": "www.adngad.net",
+      "date": "2026-04-21T10:46:00.820319Z"
+    },
     {
       "title": "وفيات بالحصبة في مأرب",
       "url": "https://almushahid.net/139030/",
@@ -2592,414 +3000,6 @@
       "url": "https://www.adngad.net/news/850546",
       "source": "www.adngad.net",
       "date": "2026-04-20T16:52:04.701943Z"
-    },
-    {
-      "title": "وكيل حضرموت الجيلاني يدشن ورشة عمل حول صياغة رؤية حضرموت في الدولة القادمة",
-      "url": "https://www.adngad.net/news/850545",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T16:52:04.702028Z"
-    },
-    {
-      "title": "تدشين الفعاليات والأنشطة الرياضية الخاصة باسبوع الطالب الجامعي بجامعة حضرموت",
-      "url": "https://www.adngad.net/news/850544",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T16:52:04.702113Z"
-    },
-    {
-      "title": "أول رد صيني على احتجاز البحرية الأمريكية سفينة شحن إيرانية قادمة من الصين",
-      "url": "https://www.adngad.net/news/850543",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T16:52:04.702226Z"
-    },
-    {
-      "title": "محافظ عدن يناقش تعزيز التنسيق لحماية أراضي الدولة والمخططات العمرانية",
-      "url": "https://www.adngad.net/news/850542",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T16:52:04.702314Z"
-    },
-    {
-      "title": "سفير بلادنا يبحث مع مسؤول اندونيسي سبل تعزيز التبادل التجاري بين البلدين",
-      "url": "https://www.adngad.net/news/850541",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T16:52:04.702400Z"
-    },
-    {
-      "title": "وزير الكهرباء يناقش مع الفريق الاقتصادي خطة تعافي وتعزيز قدرات قطاع الطاقة",
-      "url": "https://www.adngad.net/news/850540",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T16:52:04.702494Z"
-    },
-    {
-      "title": "قيادات “الثوري المنحل” تُجدد الولاء للمشروع الوطني وتُسقط شرعية السقاف عقب محاولات الانشقاق من الرياض",
-      "url": "https://crater-news.net/%d8%a7%d9%84%d8%ac%d9%86%d9%88%d8%a8-%d8%a7%d9%84%d8%b9%d8%b1%d8%a8%d9%8a/278959/",
-      "source": "crater-news.net",
-      "date": "2026-04-20T16:52:07.779098Z"
-    },
-    {
-      "title": "السلطة المحلية بعدن تؤكد دعمها لوحدة التدخل العسكرية الخاصة بالأراضي",
-      "url": "https://almushahid.net/139047/",
-      "source": "www.almushahid.net",
-      "date": "2026-04-20T15:47:22.025731Z"
-    },
-    {
-      "title": "تعز: بدء التحقيقات مع متهمين بقتل ضابط شرطة",
-      "url": "https://almushahid.net/139042/",
-      "source": "www.almushahid.net",
-      "date": "2026-04-20T15:47:22.025863Z"
-    },
-    {
-      "title": "حضرموت: خمس وفيات بمرض الحصبة ومكتب الصحة يطلق مناشدة",
-      "url": "https://almushahid.net/138982/",
-      "source": "www.almushahid.net",
-      "date": "2026-04-20T15:47:22.026507Z"
-    },
-    {
-      "title": "لجان عسكرية بقاعدة العند تبدأ استقبال جنود لواء بارشيد والدعم الامني",
-      "url": "https://yemennownews.com/article/3317530",
-      "source": "yemennownews.com",
-      "date": "2026-04-20T15:48:56.252428Z"
-    },
-    {
-      "title": "أول ظهور للعقيد صالح الحوشبي بعد تعيينه قائداً لكتيبة حماية الأراضي بعدن",
-      "url": "https://yemennownews.com/article/3317502",
-      "source": "yemennownews.com",
-      "date": "2026-04-20T15:48:56.252657Z"
-    },
-    {
-      "title": "الإعلان عن بدء صرف راتب شهر يناير لمنتسبي وزارة الدفاع",
-      "url": "https://yemennownews.com/article/3317557",
-      "source": "yemennownews.com",
-      "date": "2026-04-20T15:48:56.252908Z"
-    },
-    {
-      "title": "توجيهات من الرئيس العليمي لمحافظ أبين",
-      "url": "https://yemennownews.com/article/3317460",
-      "source": "yemennownews.com",
-      "date": "2026-04-20T15:48:56.253322Z"
-    },
-    {
-      "title": "عاجل: إغلاق مركز أشهر معالج بالأعشاب في إب",
-      "url": "https://yemennownews.com/article/3317362",
-      "source": "yemennownews.com",
-      "date": "2026-04-20T15:48:56.253588Z"
-    },
-    {
-      "title": "شاب يقتل والده بـ”حجر” في غياب الردع بتعز",
-      "url": "https://taiztoday.net/2026/04/20/%d8%b4%d8%a7%d8%a8-%d9%8a%d9%82%d8%aa%d9%84-%d9%88%d8%a7%d9%84%d8%af%d9%87-%d8%a8%d9%80%d8%ad%d8%ac%d8%b1-%d9%81%d9%8a-%d8%ba%d9%8a%d8%a7%d8%a8-%d8%a7%d9%84%d8%b1%d8%af%d8%b9-%d8%a8%d8%aa%d8%b9/",
-      "source": "taiztoday.net",
-      "date": "2026-04-20T15:49:01.276291Z"
-    },
-    {
-      "title": "أمن الإصلاح في تعز يعتقل الصحفي محمد أمين",
-      "url": "https://taiztoday.net/2026/04/19/%d8%a3%d9%85%d9%86-%d8%a7%d9%84%d8%a5%d8%b5%d9%84%d8%a7%d8%ad-%d9%81%d9%8a-%d8%aa%d8%b9%d8%b2-%d9%8a%d8%b9%d8%aa%d9%82%d9%84-%d8%a7%d9%84%d8%b5%d8%ad%d9%81%d9%8a-%d9%85%d8%ad%d9%85%d8%af-%d8%a3%d9%85/",
-      "source": "taiztoday.net",
-      "date": "2026-04-20T15:49:01.276551Z"
-    },
-    {
-      "title": "عاجل: الكلمة السرية التي ينتظرها محمد صلاح لتحديد النادي السعودي… الهلال في المقدمة لكن المفاجأة أكبر!",
-      "url": "https://yemen-press.net/news180362.html",
-      "source": "yemen-press.net",
-      "date": "2026-04-20T15:49:04.936904Z"
-    },
-    {
-      "title": "عاجل: هيئة تطوير محمية الملك عبدالعزيز تمنع الرعي وتفرض غرامة 500 ريال لكل رأس… هل أنت من المستثنى؟",
-      "url": "https://yemen-press.net/news180361.html",
-      "source": "yemen-press.net",
-      "date": "2026-04-20T15:49:04.937033Z"
-    },
-    {
-      "title": "صادم: نجم نيوم يعلن استعداده لللعب مجاناً في الهلال… قرار ناري سيُعيد التاريخ الرياضي!",
-      "url": "https://yemen-press.net/news180360.html",
-      "source": "yemen-press.net",
-      "date": "2026-04-20T15:49:04.937118Z"
-    },
-    {
-      "title": "عاجل: الاتحاد الآسيوي يُعيد رسم خريطة القوة في دوري الأبطال… السعودية واليابان تتصدران بـ 6 مقاعد والجميع يترقب يوم الجمعة!",
-      "url": "https://yemen-press.net/news180359.html",
-      "source": "yemen-press.net",
-      "date": "2026-04-20T15:49:04.937199Z"
-    },
-    {
-      "title": "عاجل: أسعار الصرف تنفجر اليوم… فجوة خطيرة بين عدن وصنعاء تكشف حقيقة الانهيار الاقتصادي!",
-      "url": "https://yemen-press.net/news180358.html",
-      "source": "yemen-press.net",
-      "date": "2026-04-20T15:49:04.937295Z"
-    },
-    {
-      "title": "عاجل: أمطار رعدية غزيرة وسيول تضرب الرياض والشرقية اليوم - تنبيهات شديدة!",
-      "url": "https://yemen-press.net/news180357.html",
-      "source": "yemen-press.net",
-      "date": "2026-04-20T15:49:04.937381Z"
-    },
-    {
-      "title": "وزارة التربية والتعليم تخرج لتُعلن رسمياً عن كارثة تغيير جذري ستغير حياتك: ماراثون امتحانات يغطي كل طفل في مصر لمدة 3 أشهر متتالية",
-      "url": "https://yemen-press.net/news180356.html",
-      "source": "yemen-press.net",
-      "date": "2026-04-20T15:49:04.937462Z"
-    },
-    {
-      "title": "عاجل: قرار تاريخي من النائب العام… الممتنعون عن النفقة على قوائم منع السفر مباشرة! هل توقف جريمة الانتحار التي هزت مصر؟",
-      "url": "https://yemen-press.net/news180355.html",
-      "source": "yemen-press.net",
-      "date": "2026-04-20T15:49:04.937538Z"
-    },
-    {
-      "title": "حـصري: قناة تـنقل مـباراة الأهلي و فـيسيل كوبي بـبلاش بـالـشرق الوسط (دوري ابـطال آسيا للنخبة)!",
-      "url": "https://yemen-press.net/news180354.html",
-      "source": "yemen-press.net",
-      "date": "2026-04-20T15:49:04.937615Z"
-    },
-    {
-      "title": "عاجل: السعودية تحطم الأرقام العالمية! 996 جائزة دولية للطلاب الموهوبين… \"موهبة\" تكشف سر التحول الاقتصادي الخطير",
-      "url": "https://yemen-press.net/news180353.html",
-      "source": "yemen-press.net",
-      "date": "2026-04-20T15:49:04.937693Z"
-    },
-    {
-      "title": "المفاجأة الكبرى: فوز النصر بالبطولة يُحوّل القادسية إلى النخبة الآسيوية مباشرة… السعودية تتفوق على اليابان بـ6 مقاعد!",
-      "url": "https://yemen-press.net/news180352.html",
-      "source": "yemen-press.net",
-      "date": "2026-04-20T15:49:04.937771Z"
-    },
-    {
-      "title": "عاجل: السعودية تكشف المدن التي تعاني من انهيار عقاري… المستثمرون يستعدون لاقتناص فرص تاريخية!",
-      "url": "https://yemen-press.net/news180351.html",
-      "source": "yemen-press.net",
-      "date": "2026-04-20T15:49:04.937848Z"
-    },
-    {
-      "title": "حصري: قرار مدرب الأهلي يثير الصدمة - ديميرال يعود أساسياً أمام فيسيل رغم إصابته التاريخية!",
-      "url": "https://yemen-press.net/news180350.html",
-      "source": "yemen-press.net",
-      "date": "2026-04-20T15:49:04.937923Z"
-    },
-    {
-      "title": "صراع القمة: الأهلي السعودي يواجه فيسيل كوبي في نصف نهائي دوري أبطال آسيا.. القنوات الناقلة وكل التفاصيل!",
-      "url": "https://yemen-press.net/news180349.html",
-      "source": "yemen-press.net",
-      "date": "2026-04-20T15:49:04.937998Z"
-    },
-    {
-      "title": "عاجل: أزمة سيولة خانقة تضرب اليمن… البنك المركزي يكشف السبب الصادم ويحذّر من كارثة اقتصادية وشيكة",
-      "url": "https://yemen-press.net/news180348.html",
-      "source": "yemen-press.net",
-      "date": "2026-04-20T15:49:04.938074Z"
-    },
-    {
-      "title": "مسيرة نسائية حاشدة بمحافظة إب بذكرى الصرخة ونصرةً لفلسطين ولبنان وإيران ..",
-      "url": "https://www.ibb-news.com/193580",
-      "source": "www.ibb-news.com",
-      "date": "2026-04-20T15:49:12.301258Z"
-    },
-    {
-      "title": "إب : فعاليتان لصندوق النظافة وجامعة جبلة في الذكرى السنوية للصرخة",
-      "url": "https://www.ibb-news.com/193574",
-      "source": "www.ibb-news.com",
-      "date": "2026-04-20T15:49:12.301382Z"
-    },
-    {
-      "title": "تهالك الخطاب الإعلامي للعدو بالتقادم… هل من أوراقٍ جديدة؟",
-      "url": "https://www.ibb-news.com/193569",
-      "source": "www.ibb-news.com",
-      "date": "2026-04-20T15:49:12.301465Z"
-    },
-    {
-      "title": "ندوة أكاديمية في جامعة إب بعنوان ” الصرخة .. سلاح وموقف ” ..",
-      "url": "https://www.ibb-news.com/193563",
-      "source": "www.ibb-news.com",
-      "date": "2026-04-20T15:49:12.301543Z"
-    },
-    {
-      "title": "اللجنة الوطنية للمرأة وبنك الأمل يوقعان اتفاقية لتعزيز التمكين الاقتصادي للنساء في عدن",
-      "url": "https://www.adngad.net/news/850539",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.060831Z"
-    },
-    {
-      "title": "وزير الخدمة المدنية يوجه باستكمال إجراءات صرف معاشات (6925) من العائدين المشمولين بالقرار رقم (7)",
-      "url": "https://www.adngad.net/news/850538",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.060951Z"
-    },
-    {
-      "title": "وزير التعليم العالي ورئيس جامعة عدن يشهدان احتفالية اليوم العالمي للغة الصينية بكلية اللغات والترجمة",
-      "url": "https://www.adngad.net/news/850537",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.061033Z"
-    },
-    {
-      "title": "بحضور نائب الوزير الميسري.. مراسم استلام وتسليم بين القيادة السابقة والجديدة للمؤسسة العامة للتأمينات الاجتماعية في عدن",
-      "url": "https://www.adngad.net/news/850536",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.061112Z"
-    },
-    {
-      "title": "مناقشة الأوضاع الصحية بمديرية ساه",
-      "url": "https://www.adngad.net/news/850535",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.061191Z"
-    },
-    {
-      "title": "ودياً.. الصقر واتحاد إب يكتفيان بالتعادل الإيجابي",
-      "url": "https://www.adngad.net/news/850534",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.061284Z"
-    },
-    {
-      "title": "قبائل دهم بالجوف تعلن النكف والنفير العام احتجاجًا على اعتقال الشيخ الحزمي",
-      "url": "https://www.adngad.net/news/850533",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.061360Z"
-    },
-    {
-      "title": "​مدير عام تبن يبحث مع المؤسسة الاجتماعية الحديثة إطلاق مشروع للدعم النفسي في قطاعي الصحة والتربية",
-      "url": "https://www.adngad.net/news/850532",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.061437Z"
-    },
-    {
-      "title": "اليوسفي يدشن المسابقة العلمية والرياضية لطلاب ثانويات خنفر",
-      "url": "https://www.adngad.net/news/850531",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.061513Z"
-    },
-    {
-      "title": "جامعة عدن تحتفي باليوم العالمي للغة الصينية بفعالية شاملة بعنوان “جسر الثقافة الصينية”",
-      "url": "https://www.adngad.net/news/850530",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.061589Z"
-    },
-    {
-      "title": "دلال حمزة: لا يجوز تحميل عدن أخطاء الأفراد.. والمدينة أكبر من أي شخص",
-      "url": "https://www.adngad.net/news/850529",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.061663Z"
-    },
-    {
-      "title": "المسالخ بتعز: لا تهاون مع الدواجن غير المفحوصة وصحة المواطنين خط أحمر",
-      "url": "https://www.adngad.net/news/850528",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.061742Z"
-    },
-    {
-      "title": "مدير عام مديرية دوعن يرعى لقاءً مجتمعيًا صحيًا تنظمة اللجنة المجتمعية بمدينة الهجرين لمناقشة مواجهة انتشار الحصبة",
-      "url": "https://www.adngad.net/news/850527",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.061827Z"
-    },
-    {
-      "title": "كلية اللغات والترجمة تحتفي باللغة الصينية لتعزيز جسور المعرفة بين الحضارات وآفاق المستقبل",
-      "url": "https://www.adngad.net/news/850526",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.061906Z"
-    },
-    {
-      "title": "فريق سنة ثانية يعزز رصيده بفوزه على فريق سنة أولى 4 مقابل ثلاثة أهداف بالدوري التنشيطي لثانوية رخمة بيافع",
-      "url": "https://www.adngad.net/news/850525",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.061983Z"
-    },
-    {
-      "title": "مدير معهد أمين ناشر ابين  يرأس اجتماعاً مع لجنة الحفل ويؤكد على أهمية إخراج الفعالية بالشكل الأمثل",
-      "url": "https://www.adngad.net/news/850524",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.062060Z"
-    },
-    {
-      "title": "الجاوي يطلع على مستجدات دراسة مشروع تصريف مياه الأمطار بالمعلا",
-      "url": "https://www.adngad.net/news/850523",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.062136Z"
-    },
-    {
-      "title": "لحج تشهد حفل الإشهار العام لحلف أبناء الحواشب",
-      "url": "https://www.adngad.net/news/850522",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.062222Z"
-    },
-    {
-      "title": "مؤسسة رؤيا المستقبل تنفذ فعالية توعوية بمجمع الفتح للبنات بقرية المسيمير بخنفر",
-      "url": "https://www.adngad.net/news/850521",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.062300Z"
-    },
-    {
-      "title": "بدء أعمال الصيانة الطارئة لقناة الراعبي بمديرية بيحان",
-      "url": "https://www.adngad.net/news/850520",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.062374Z"
-    },
-    {
-      "title": "الغُباري يكشف عن رؤية استراتيجية سابقة للرئيس هادي حول نفوذ إيران البحري",
-      "url": "https://www.adngad.net/news/850519",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.062592Z"
-    },
-    {
-      "title": "وزارة الصحة  تستعرض خطتها للترصد الشامل لأسباب الوفيات وتؤكد أهمية نظم المعلومات الصحية",
-      "url": "https://www.adngad.net/news/850518",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.062679Z"
-    },
-    {
-      "title": "انتخاب قيادة جديدة لنقابة هيئة الأراضي بالعاصمة عدن",
-      "url": "https://www.adngad.net/news/850517",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.062756Z"
-    },
-    {
-      "title": "إطلاق نظام وطني لترصد أسباب الوفيات وتعزيز البيانات الصحية في اليمن",
-      "url": "https://www.adngad.net/news/850516",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.062833Z"
-    },
-    {
-      "title": "تحت شعار \"بوابتك إلى سوق العمل\".. تدشين برنامج التوجيه المهني لطلاب الثانوية بالمكلا",
-      "url": "https://www.adngad.net/news/850515",
-      "source": "www.adngad.net",
-      "date": "2026-04-20T15:49:15.062908Z"
-    },
-    {
-      "title": "‏في الذكرى الـ 10 لتحرير ساحل حضرموت.. اللواء البحسني: معركة الخدمات لا تقل شرفاً عن معركة الأمن",
-      "url": "https://crater-news.net/%d8%a7%d9%84%d8%ac%d9%86%d9%88%d8%a8-%d8%a7%d9%84%d8%b9%d8%b1%d8%a8%d9%8a/278953/",
-      "source": "crater-news.net",
-      "date": "2026-04-20T15:49:17.470841Z"
-    },
-    {
-      "title": "السلطة المحلية بالضالع تتوعد منفذي اعتداء مسلح",
-      "url": "https://almushahid.net/139035/",
-      "source": "www.almushahid.net",
-      "date": "2026-04-20T14:14:25.000512Z"
-    },
-    {
-      "title": "SAL-262 – Binor Sangean Bispak Pantat Besarnya Goyang Digenjot",
-      "url": "https://terremotochile.com/film-semi/sal-262-binor-sangean-bispak-pantat-besarnya-goyang-digenjot/",
-      "source": "www.moragboonpress.net",
-      "date": "2026-04-20T14:14:48.575156Z"
-    },
-    {
-      "title": "REBD-1021 – Bikini Seksi JAV Bikin Crot Berkali-Kali",
-      "url": "https://terremotochile.com/film-semi/rebd-1021-bikini-seksi-jav-bikin-crot-berkali-kali/",
-      "source": "www.moragboonpress.net",
-      "date": "2026-04-20T14:14:48.575234Z"
-    },
-    {
-      "title": "NHDTC-178 – Cewek Nakal Ngetes Nafsu Om-Om di Kereta",
-      "url": "https://terremotochile.com/film-semi/nhdtc-178-cewek-nakal-ngetes-nafsu-om-om-di-kereta/",
-      "source": "www.moragboonpress.net",
-      "date": "2026-04-20T14:14:48.575307Z"
-    },
-    {
-      "title": "يمني يحصل على الجنسية العمانية بأمر من السلطان.. من هو؟",
-      "url": "https://yemennownews.com/article/3317391",
-      "source": "yemennownews.com",
-      "date": "2026-04-20T14:15:49.701791Z"
-    },
-    {
-      "title": "اللتر البنزين ب٣ الف ريال(تاريخي)",
-      "url": "https://yemennownews.com/article/3317394",
-      "source": "yemennownews.com",
-      "date": "2026-04-20T14:15:49.701879Z"
     }
   ]
 }
