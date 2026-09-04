@@ -1,6 +1,636 @@
 {
-  "lastUpdated": "2026-09-04T14:55:57.879322Z",
+  "lastUpdated": "2026-09-04T18:13:37.442412Z",
   "articles": [
+    {
+      "title": "الأهلي يبحث عن التعويض أمام الرياض في الجولة الخامسة من دوري روشن",
+      "url": "https://www.almashhad.news/news/493067",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-04T18:11:00.804295Z"
+    },
+    {
+      "title": "مجلس الشورى يدعو لمواجهة حاسمة مع الحوثيين بعد تصعيد تعز والساحل الغربي",
+      "url": "https://www.almashhad.news/news/493066",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-04T18:11:00.804444Z"
+    },
+    {
+      "title": "الحوثيون يستهدفون جنوب الحديدة بصاروخين باليستيين",
+      "url": "https://www.almashhad.news/news/493065",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-04T18:11:00.804543Z"
+    },
+    {
+      "title": "رعب في مسجد عدن.. عسكري يرتدي جعبة ذخيرة ويهدد بتفجير المصلين بالقنابل",
+      "url": "https://www.almashhad.news/news/493064",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-04T18:11:00.804636Z"
+    },
+    {
+      "title": "تطور خطير في الحديدة.. ضربة باليستية مزدوجة تشعل جبهات الساحل الغربي",
+      "url": "https://www.almashhad.news/news/493063",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-04T18:11:00.804725Z"
+    },
+    {
+      "title": "6 أنساق حوثية في حيس تكسرت وتناثرت أمام أبطال الجيش والمقاومة خلال 12 ساعة من المواجهات العنيفة",
+      "url": "https://www.almashhad.news/news/493062",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-04T18:11:00.804814Z"
+    },
+    {
+      "title": "عاجل.. قائد المنطقة العسكرية الرابعة اللواء حمدي شكري يصل المخا لمواكبة المعارك مع في جبهات الساحل الغربي",
+      "url": "https://www.almashhad.news/news/493061",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-04T18:11:00.804982Z"
+    },
+    {
+      "title": "عاجل: الحوثيون يستهدفون طريق الكدحة–المعافر بمسيّرات أثناء مرور نازحين",
+      "url": "https://www.almashhad.news/news/493060",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-04T18:11:00.805086Z"
+    },
+    {
+      "title": "الزنداني: معركتنا دفاع عن مقدرات الدولة.. وطارق صالح يؤكد جاهزية القوات في تعز",
+      "url": "https://www.almashhad.news/news/493059",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-04T18:11:00.805177Z"
+    },
+    {
+      "title": "اتفاقية ثلاثية لتنفيذ 4 مخيمات طبية مجانية في 4 محافظات يمنية.. تعرف على التفاصيل",
+      "url": "https://www.almashhad.news/news/493058",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-04T18:11:00.805265Z"
+    },
+    {
+      "title": "سباق مع الزمن في المكلا.. عائلة تناشد لإنقاذ ابنها بعد غرق مرعب أمام شاليهات العطاس",
+      "url": "https://www.almashhad.news/news/493057",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-04T18:11:00.805352Z"
+    },
+    {
+      "title": "القوات المسلحة اليمنية تدعو المواطنين للابتعاد عن مواقع وتجمعات مليشيا الحـوثي من البرح حتى الحوبان",
+      "url": "https://www.almashhad.news/news/493056",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-04T18:11:00.805440Z"
+    },
+    {
+      "title": "الجبواني: الحكومة الشرعية تواجه \"كابوساً مزدوجاً\" في عدن والمخا.. وعدن على صفيح ساخن",
+      "url": "https://www.almashhad.news/news/493055",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-04T18:11:00.805525Z"
+    },
+    {
+      "title": "\"من البطالة إلى المهارة\".. 90 شاباً وشابة يخرجون من برنامج تمكين غيّر مسارهم في العاصمة عدن",
+      "url": "https://www.almashhad.news/news/493054",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-04T18:11:00.805618Z"
+    },
+    {
+      "title": "الوزير الشرجبي يشيد بصمود تعز وبطولات القوات المسلحة في محور تعز والمقاومة الوطنية",
+      "url": "https://www.almashhad.news/news/493053",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-04T18:11:00.805705Z"
+    },
+    {
+      "title": "قائد محور الحديدة: نخوض معارك سبتمبرية مقدسة في الساحل الغربي والحوثيون يتكبدون خسائر فادحة",
+      "url": "https://www.almashhad.news/news/493052",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-04T18:11:00.805791Z"
+    },
+    {
+      "title": "ضربة جديدة.. الجيش ينتزع تبتين استراتيجيتين من الحوثيين في جبل حبشي",
+      "url": "https://www.almashhad.news/news/493051",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-04T18:11:00.805876Z"
+    },
+    {
+      "title": "مدير شرطة الحديدة يتجول في شوارع حيس رداً على شائعات سقوط المدينة ويؤكد: تحرير صنعاء أقرب من أي وقت مضى (فيديو)",
+      "url": "https://www.almashhad.news/news/493050",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-04T18:11:00.805986Z"
+    },
+    {
+      "title": "مجلس الشورى يشيد ببطولات القوات المسلحة والمقاومة الوطنية في تعز والساحل الغربي",
+      "url": "https://albiladn.net/news/102402/",
+      "source": "www.albiladn.net",
+      "date": "2026-09-04T18:11:18.964269Z"
+    },
+    {
+      "title": "القوات المسلحة تستعيد تبة الخزان بجبل حبشي وسط معارك عنيفة غربي مدينة تعز",
+      "url": "https://albiladn.net/news/102398/",
+      "source": "www.albiladn.net",
+      "date": "2026-09-04T18:11:18.964397Z"
+    },
+    {
+      "title": "الإعلام العسكري للمقاومة الوطنية: الالتفاف الشعبي سند لمعركة الخلاص الوطني",
+      "url": "https://albiladn.net/news/102395/",
+      "source": "www.albiladn.net",
+      "date": "2026-09-04T18:11:18.964491Z"
+    },
+    {
+      "title": "انطلاق منافسات دور الـ32 من كأس خادم الحرمين بثلاث مواجهات اليوم",
+      "url": "https://al-tagheer.com/news456207.html",
+      "source": "www.al-tagheer.com",
+      "date": "2026-09-04T18:11:20.204375Z"
+    },
+    {
+      "title": "مواجهات عسكرية متواصلة غرب تعز وقتلى مدنيين بقصفٍ حوثي",
+      "url": "https://almushahid.net/143445/",
+      "source": "www.almushahid.net",
+      "date": "2026-09-04T18:11:31.656412Z"
+    },
+    {
+      "title": "“شباب اليمن” يتجاوز الكويت بثلاثية ويعزز حظوظ التأهل",
+      "url": "https://almushahid.net/143411/",
+      "source": "www.almushahid.net",
+      "date": "2026-09-04T18:11:31.656593Z"
+    },
+    {
+      "title": "موجه نزوح جديدة غرب تعز",
+      "url": "https://almushahid.net/143397/",
+      "source": "www.almushahid.net",
+      "date": "2026-09-04T18:11:31.656681Z"
+    },
+    {
+      "title": "تعرّف على اليمنية “وفاء السامعي” بطلة الناشئات في هولندا",
+      "url": "https://almushahid.net/143370/",
+      "source": "www.almushahid.net",
+      "date": "2026-09-04T18:11:31.656849Z"
+    },
+    {
+      "title": "لحج: صعوبات تهدد بتوقف تدريس معاقي طور الباحة",
+      "url": "https://almushahid.net/143375/",
+      "source": "www.almushahid.net",
+      "date": "2026-09-04T18:11:31.656934Z"
+    },
+    {
+      "title": "توقعات حالة الطقس اليوم باليمن",
+      "url": "https://almushahid.net/143361/",
+      "source": "www.almushahid.net",
+      "date": "2026-09-04T18:11:31.657042Z"
+    },
+    {
+      "title": "مسؤول عسكري: الحوثيون يعززون قواتهم العسكرية غرب تعز",
+      "url": "https://almushahid.net/143305/",
+      "source": "www.almushahid.net",
+      "date": "2026-09-04T18:11:31.657331Z"
+    },
+    {
+      "title": "توقف ميناء المخا.. تكاليف مضاعفة لنقل البضائع",
+      "url": "https://almushahid.net/143288/",
+      "source": "www.almushahid.net",
+      "date": "2026-09-04T18:11:31.657415Z"
+    },
+    {
+      "title": "مع تواصل المعارك.. المقاومة الوطنية تأسر عناصر حوثية في خطوط النار",
+      "url": "https://nashwannews.com/270377",
+      "source": "www.nashwannews.com",
+      "date": "2026-09-04T18:12:07.048283Z"
+    },
+    {
+      "title": "هل تعلمنا الدرس يا تعز؟",
+      "url": "https://nashwannews.com/270376",
+      "source": "www.nashwannews.com",
+      "date": "2026-09-04T18:12:07.048410Z"
+    },
+    {
+      "title": "المعارك كر وفر.. ولا يجب التسرع!",
+      "url": "https://nashwannews.com/270375",
+      "source": "www.nashwannews.com",
+      "date": "2026-09-04T18:12:07.048503Z"
+    },
+    {
+      "title": "معارك عنيفة مع محاولات تقدم حوثية غرب تعز",
+      "url": "https://nashwannews.com/270373",
+      "source": "www.nashwannews.com",
+      "date": "2026-09-04T18:12:07.048678Z"
+    },
+    {
+      "title": "ندوى الدوسري.. إحاطة قوية ورؤية واضحة",
+      "url": "https://nashwannews.com/270372",
+      "source": "www.nashwannews.com",
+      "date": "2026-09-04T18:12:07.048768Z"
+    },
+    {
+      "title": "أمن الدولة اليمني يعلن القضاء على متحدث \"داعش\" في عملية مشتركة بحضرموت",
+      "url": "https://nashwannews.com/270369",
+      "source": "www.nashwannews.com",
+      "date": "2026-09-04T18:12:07.049066Z"
+    },
+    {
+      "title": "الإعلام العسكري: الحاضنة الشعبية ركيزة أساسية لحسم معركة الساحل الغربي",
+      "url": "https://www.newsyemen.net/news105936.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-04T18:12:08.887672Z"
+    },
+    {
+      "title": "«نفط ليبيا في خطر».. من يستهدف منشآت الطاقة؟",
+      "url": "https://www.newsyemen.net/news105935.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-04T18:12:08.887802Z"
+    },
+    {
+      "title": "حوادث السير تقتل 65 شخصاً وتصيب 411 آخرين في أغسطس",
+      "url": "https://www.newsyemen.net/news105934.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-04T18:12:08.887897Z"
+    },
+    {
+      "title": "نزيف حوثي على الساحل الغربي.. مستشفيات الحديدة تختنق بالقتلى والجرحى",
+      "url": "https://www.newsyemen.net/news105933.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-04T18:12:08.888046Z"
+    },
+    {
+      "title": "ياسين سعيد نعمان: لا خيار سوى هزيمة الحوثيين ودفن مشروعهم",
+      "url": "https://www.newsyemen.net/news105932.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-04T18:12:08.888153Z"
+    },
+    {
+      "title": "المنتخب اليمني للشباب يكتسح الكويت بثلاثية ويحيي آماله في التأهل إلى نهائيات كأس آسيا",
+      "url": "https://www.newsyemen.net/news105924.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-04T18:12:08.888628Z"
+    },
+    {
+      "title": "إنسانية المقاومة الوطنية تعيد الأمان لـ26 أسرة نازحة من ريف موزع",
+      "url": "https://www.newsyemen.net/news105923.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-04T18:12:08.888713Z"
+    },
+    {
+      "title": "تعز.. قناص حوثي يقتل مدنيًا أمام منزله في مقبنة",
+      "url": "https://www.newsyemen.net/news105922.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-04T18:12:08.888798Z"
+    },
+    {
+      "title": "\"الحرب الناعمة\" شماعة حوثية لاحتواء الغضب الشعبي قبيل 26 سبتمبر",
+      "url": "https://www.newsyemen.net/news105921.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-04T18:12:08.888895Z"
+    },
+    {
+      "title": "تقرير: هجمات الحوثيين على ميناء المخا تضرب الاقتصاد وتزيد مخاطر الجوع",
+      "url": "https://www.newsyemen.net/news105920.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-04T18:12:08.889015Z"
+    },
+    {
+      "title": "تكثيف صاروخي وتفجير زورق مفخخ في المخا.. معارك عنيفة على امتداد جبهة الساحل وغرب تعز",
+      "url": "https://www.newsyemen.net/news105919.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-04T18:12:08.889110Z"
+    },
+    {
+      "title": "طارق صالح يبحث مع السفيرة الفرنسية مواجهة التهريب وأمن الملاحة",
+      "url": "https://www.newsyemen.net/news105913.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-04T18:12:08.889567Z"
+    },
+    {
+      "title": "الحوثيون يساومون على باب المندب.. \"ممرات آمنة\" لحلفاء وتهديدات للآخرين",
+      "url": "https://www.newsyemen.net/news105912.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-04T18:12:08.889653Z"
+    },
+    {
+      "title": "واشنطن وطهران.. استعراض قوة يعيد المنطقة إلى حافة التصعيد",
+      "url": "https://www.newsyemen.net/news105911.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-04T18:12:08.889739Z"
+    },
+    {
+      "title": "قصف حوثي يروّع طلاب تعز ويستهدف الأحياء السكنية",
+      "url": "https://www.newsyemen.net/news105910.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-04T18:12:08.889827Z"
+    },
+    {
+      "title": "الجيش الجنوبي.. 55 عاماً على تأسيس مؤسسة حملت راية السيادة والانضباط",
+      "url": "https://www.newsyemen.net/news105909.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-04T18:12:08.889913Z"
+    },
+    {
+      "title": "تحالف حوثي مع «الشباب الصومالي».. السلاح والتدريب مقابل المال والنفوذ",
+      "url": "https://www.newsyemen.net/news105908.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-04T18:12:08.890043Z"
+    },
+    {
+      "title": "سباق حوثي محموم لنهب المحاصيل.. المزارعون تحت سكين الجبايات",
+      "url": "https://www.newsyemen.net/news105907.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-04T18:12:08.890162Z"
+    },
+    {
+      "title": "تصعيد الحوثيين يدفع 917 أسرة للنزوح من ريف تعز الغربي",
+      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/180921?utm_source=rss&utm_medium=rss&utm_campaign=%25d8%25aa%25d8%25b5%25d8%25b9%25d9%258a%25d8%25af-%25d8%25a7%25d9%2584%25d8%25ad%25d9%2588%25d8%25ab%25d9%258a%25d9%258a%25d9%2586-%25d9%258a%25d8%25af%25d9%2581%25d8%25b9-917-%25d8%25a3%25d8%25b3%25d8%25b1%25d8%25a9-%25d9%2584%25d9%2584%25d9%2586%25d8%25b2%25d9%2588%25d8%25ad-%25d9%2585%25d9%2586-%25d8%25b1%25d9%258a",
+      "source": "www.yemenmonitor.com",
+      "date": "2026-09-04T18:12:43.339033Z"
+    },
+    {
+      "title": "حوادث السير تحصد 65 شخصاً وتصيب 411 في اليمن خلال أغسطس",
+      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/180919?utm_source=rss&utm_medium=rss&utm_campaign=%25d8%25ad%25d9%2588%25d8%25a7%25d8%25af%25d8%25ab-%25d8%25a7%25d9%2584%25d8%25b3%25d9%258a%25d8%25b1-%25d8%25aa%25d8%25ad%25d8%25b5%25d8%25af-65-%25d8%25b4%25d8%25ae%25d8%25b5%25d8%25a7%25d9%258b-%25d9%2588%25d8%25aa%25d8%25b5%25d9%258a%25d8%25a8-411-%25d9%2581%25d9%258a-%25d8%25a7%25d9%2584%25d9%258a%25d9%2585%25d9%2586",
+      "source": "www.yemenmonitor.com",
+      "date": "2026-09-04T18:12:43.339160Z"
+    },
+    {
+      "title": "جرحى مواجهات مقبنة ومدنيون يتلقون العلاج في مستشفى الثورة بتعز",
+      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/180915?utm_source=rss&utm_medium=rss&utm_campaign=%25d8%25ac%25d8%25b1%25d8%25ad%25d9%2589-%25d9%2585%25d9%2588%25d8%25a7%25d8%25ac%25d9%2587%25d8%25a7%25d8%25aa-%25d9%2585%25d9%2582%25d8%25a8%25d9%2586%25d8%25a9-%25d9%2588%25d9%2585%25d8%25af%25d9%2586%25d9%258a%25d9%2588%25d9%2586-%25d9%258a%25d8%25aa%25d9%2584%25d9%2582%25d9%2588%25d9%2586-%25d8%25a7%25d9%2584%25d8%25b9",
+      "source": "www.yemenmonitor.com",
+      "date": "2026-09-04T18:12:43.339251Z"
+    },
+    {
+      "title": "الوطن والوحدة إلى المربع الذهبي في تصفيات الدرجة الثالثة بمأرب",
+      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/180912?utm_source=rss&utm_medium=rss&utm_campaign=%25d8%25a7%25d9%2584%25d9%2588%25d8%25b7%25d9%2586-%25d9%2588%25d8%25a7%25d9%2584%25d9%2588%25d8%25ad%25d8%25af%25d8%25a9-%25d8%25a5%25d9%2584%25d9%2589-%25d8%25a7%25d9%2584%25d9%2585%25d8%25b1%25d8%25a8%25d8%25b9-%25d8%25a7%25d9%2584%25d8%25b0%25d9%2587%25d8%25a8%25d9%258a-%25d9%2581%25d9%258a-%25d8%25aa%25d8%25b5%25d9%2581",
+      "source": "www.yemenmonitor.com",
+      "date": "2026-09-04T18:12:43.339338Z"
+    },
+    {
+      "title": "سلام الغرفة يهزم أهلي عدن ويتأهل إلى ربع نهائي كأس الجمهورية",
+      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/180909?utm_source=rss&utm_medium=rss&utm_campaign=%25d8%25b3%25d9%2584%25d8%25a7%25d9%2585-%25d8%25a7%25d9%2584%25d8%25ba%25d8%25b1%25d9%2581%25d8%25a9-%25d9%258a%25d9%2587%25d8%25b2%25d9%2585-%25d8%25a3%25d9%2587%25d9%2584%25d9%258a-%25d8%25b9%25d8%25af%25d9%2586-%25d9%2588%25d9%258a%25d8%25aa%25d8%25a3%25d9%2587%25d9%2584-%25d8%25a5%25d9%2584%25d9%2589-%25d8%25b1%25d8%25a8",
+      "source": "www.yemenmonitor.com",
+      "date": "2026-09-04T18:12:43.339424Z"
+    },
+    {
+      "title": "مجلس الشورى يشيد ببطولات القوات المسلحة والمقاومة الوطنية في تعز والساحل الغربي",
+      "url": "https://albiladn.net/news/102402/",
+      "source": "albiladn.net",
+      "date": "2026-09-04T18:12:46.160341Z"
+    },
+    {
+      "title": "القوات المسلحة تستعيد تبة الخزان بجبل حبشي وسط معارك عنيفة غربي مدينة تعز",
+      "url": "https://albiladn.net/news/102398/",
+      "source": "albiladn.net",
+      "date": "2026-09-04T18:12:46.160467Z"
+    },
+    {
+      "title": "الإعلام العسكري للمقاومة الوطنية: الالتفاف الشعبي سند لمعركة الخلاص الوطني",
+      "url": "https://albiladn.net/news/102395/",
+      "source": "albiladn.net",
+      "date": "2026-09-04T18:12:46.160558Z"
+    },
+    {
+      "title": "حافيَ القدمين : بخطواتٍ لا تعرف التراجع، يكتب الكرامةَ على صخورٍ تعز الملتهبة",
+      "url": "https://yemennownews.com/article/3452556",
+      "source": "yemennownews.com",
+      "date": "2026-09-04T18:12:50.949410Z"
+    },
+    {
+      "title": "ضربة موجعة للحوثيين غرب تعز.. القوات الحكومية تستعيد جبل النعمان بالكامل وتكبد الميليشيا خسائر فادحة",
+      "url": "https://yemennownews.com/article/3452508",
+      "source": "yemennownews.com",
+      "date": "2026-09-04T18:12:50.949664Z"
+    },
+    {
+      "title": "الجبواني: الحكومة الشرعية تواجه \"كابوساً مزدوجاً\" في عدن والمخا.. وعدن على صفيح ساخن",
+      "url": "https://yemennownews.com/article/3452551",
+      "source": "yemennownews.com",
+      "date": "2026-09-04T18:12:50.976038Z"
+    },
+    {
+      "title": "6 أنساق حوثية في حيس تكسرت وتناثرت أمام أبطال الجيش والمقاومة خلال 12 ساعة من المواجهات العنيفة",
+      "url": "https://yemennownews.com/article/3452613",
+      "source": "yemennownews.com",
+      "date": "2026-09-04T18:12:50.976341Z"
+    },
+    {
+      "title": "مدير عام شرطة الحديدة يتجول في شوارع حيس بالتزامن مع انكسارات الحوثيين في جبل دباس(صورة)",
+      "url": "https://yemennownews.com/article/3452476",
+      "source": "yemennownews.com",
+      "date": "2026-09-04T18:12:50.976498Z"
+    },
+    {
+      "title": "قيادي مؤتمري: الحوثيون ورطوا أنفسهم في تعز.. «قلعة الجمهورية»",
+      "url": "https://yemennownews.com/article/3452471",
+      "source": "yemennownews.com",
+      "date": "2026-09-04T18:12:50.976585Z"
+    },
+    {
+      "title": "15 دقيقة بـ100 ألف ريال.. أسعار الرقية الشرعية تشعل الجدل",
+      "url": "https://yemennownews.com/article/3452568",
+      "source": "yemennownews.com",
+      "date": "2026-09-04T18:12:50.976670Z"
+    },
+    {
+      "title": "عاجل:ترقب صرف مرتبات القوات العسكرية",
+      "url": "https://yemennownews.com/article/3452495",
+      "source": "yemennownews.com",
+      "date": "2026-09-04T18:12:50.976756Z"
+    },
+    {
+      "title": "حجة.. الحوثيون يفككون شبكة الهاتف الثابت في الشاهل",
+      "url": "https://yemennownews.com/article/3452560",
+      "source": "yemennownews.com",
+      "date": "2026-09-04T18:12:50.977121Z"
+    },
+    {
+      "title": "وصول قوات من «درع الوطن» و«العمالقة» إلى جبهة حيس",
+      "url": "https://yemennownews.com/article/3452511",
+      "source": "yemennownews.com",
+      "date": "2026-09-04T18:12:50.977266Z"
+    },
+    {
+      "title": "عاجل :معارك عنيفة وتبادل للقصف المدفعي بين قوات درع الوطن وميليشيا الحوثي في جبهة الحلحل بأبين",
+      "url": "https://yemennownews.com/article/3452609",
+      "source": "yemennownews.com",
+      "date": "2026-09-04T18:12:50.977409Z"
+    },
+    {
+      "title": "قوات محور تعز تستعيد مواقع في جبل حبشي وتكبد مليشيا الحوثي خسائر كبيرة",
+      "url": "https://yemennownews.com/article/3452461",
+      "source": "yemennownews.com",
+      "date": "2026-09-04T18:12:50.977496Z"
+    },
+    {
+      "title": "تشييع جثمان رجل الأعمال عبدالرحمن جلب في مديرية ريف إب",
+      "url": "https://www.ibb-news.com/196154",
+      "source": "www.ibb-news.com",
+      "date": "2026-09-04T18:13:25.591134Z"
+    },
+    {
+      "title": "سيادة الميدان وترسيخ معادلات الردع في وجه العدوان الأمريكي",
+      "url": "https://www.ibb-news.com/196151",
+      "source": "www.ibb-news.com",
+      "date": "2026-09-04T18:13:25.591259Z"
+    },
+    {
+      "title": "وقفات شعبية في محافظة إب تحت عنوان ” كالجسد الواحد ” ..",
+      "url": "https://www.ibb-news.com/196145",
+      "source": "www.ibb-news.com",
+      "date": "2026-09-04T18:13:25.591350Z"
+    },
+    {
+      "title": "تأهل الوطن والوحدة إلى مربع تصفيات الدرجة الثالثة بمأرب",
+      "url": "https://www.adngad.net/news/878429",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.896034Z"
+    },
+    {
+      "title": "السفير علي منصر يستضيف الميسري ومحمد علي أحمد ويتفقان على وحدة الصف والحوار الجنوبي",
+      "url": "https://www.adngad.net/news/878428",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.896162Z"
+    },
+    {
+      "title": "أهلي عدن يودع كأس الجمهورية من دور الـ16 بالخسارة أمام سلام الغرفة",
+      "url": "https://www.adngad.net/news/878427",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.896254Z"
+    },
+    {
+      "title": "العميد خالد مقيلب يعزّي الشيخ أحمد العيسي في وفاة عيدروس صالح العيسي",
+      "url": "https://www.adngad.net/news/878426",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.896341Z"
+    },
+    {
+      "title": "وديع منصور: مشكلتنا ليست مع الشعب بل مع من يستغل قضيته لمصالحه الخاصة",
+      "url": "https://www.adngad.net/news/878424",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.896430Z"
+    },
+    {
+      "title": "غدا السبت.. نادي التنس العدني يشهد حفل إختتام البطولة الرابعة عشر",
+      "url": "https://www.adngad.net/news/878425",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.896518Z"
+    },
+    {
+      "title": "وزارة الصحة والصحة العالمية تختتمان دورة تدريب المدربين لرفع قدرات اللوائح الصحية الدولية بالمنافذ الحدودية",
+      "url": "https://www.adngad.net/news/878423",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.896604Z"
+    },
+    {
+      "title": "وزير التعليم الفني يبحث إنشاء منصة محلية للتدريب التقني بالشراكة مع «إيسيسكو»",
+      "url": "https://www.adngad.net/news/878422",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.896691Z"
+    },
+    {
+      "title": "مدرسة حذة بيافع رُصد تكرم أوائل الطلاب والطالبات",
+      "url": "https://www.adngad.net/news/878421",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.896776Z"
+    },
+    {
+      "title": "وفاة الشيخ عيدروس العيسي في الأردن",
+      "url": "https://www.adngad.net/news/878420",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.896860Z"
+    },
+    {
+      "title": "الطليعة حبان يُسقط حامل اللقب شباب مرخة ويعتلي عرش المجموعة الرابعة .. 9 نقاط كاملة بلا رحمة!",
+      "url": "https://www.adngad.net/news/878419",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.896945Z"
+    },
+    {
+      "title": "د. بن إسحاق: من يسيطر على الكدحة والبرح وموزع لا يسيطر على المخا فقط.. بل يقترب من مفتاح باب المندب",
+      "url": "https://www.adngad.net/news/878418",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.897054Z"
+    },
+    {
+      "title": "أسرة فكري المسبحي تطالب الخارجية اليمنية بالتدخل لتسريع التحقيق في مقتله بمقديشو",
+      "url": "https://www.adngad.net/news/878417",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.897142Z"
+    },
+    {
+      "title": "عصر غدا الحفل الختامي التكريمي للبطولة الرابعة عشرة لنادي التنس العدني",
+      "url": "https://www.adngad.net/news/878416",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.897228Z"
+    },
+    {
+      "title": "مدير عام شرطة أبين لـ«للإعلام الأمني»: أحبطنا مخططاً حوثياً يهدف لزعزعة الأمن واستهداف قيادات أمنية وعسكرية",
+      "url": "https://www.adngad.net/news/878415",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.897315Z"
+    },
+    {
+      "title": "هند تميم ومرام زكريا بطلات محافظة تعز في بطولة الشطرنج",
+      "url": "https://www.adngad.net/news/878414",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.897402Z"
+    },
+    {
+      "title": "عاجل :معارك عنيفة وتبادل للقصف المدفعي بين قوات درع الوطن وميليشيا الحوثي في جبهة الحلحل بأبين",
+      "url": "https://www.adngad.net/news/878413",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.897502Z"
+    },
+    {
+      "title": "غرق معلم وطالب في \"حاجز الدموم\" بتعز أثناء محاولة إنقاذ ودعوات بمنع السباحة في السدود",
+      "url": "https://www.adngad.net/news/878412",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.897586Z"
+    },
+    {
+      "title": "حمدي شكري يصل المخا لمواكبة العمليات العسكرية في جبهات الساحل الغربي",
+      "url": "https://www.adngad.net/news/878411",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.897672Z"
+    },
+    {
+      "title": "القوات المسلحة تستعيد تبة الخزان بجبل حبشي وسط معارك عنيفة غربي مدينة تعز",
+      "url": "https://www.adngad.net/news/878410",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.897756Z"
+    },
+    {
+      "title": "السفير طريق يشارك في لقاء السفراء العرب مع رئيس مجلس التعليم العالي التركي",
+      "url": "https://www.adngad.net/news/878409",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.897851Z"
+    },
+    {
+      "title": "الوفاق يحسم صدارة المجموعة الأولى بخماسية في شباك أهلي تعز",
+      "url": "https://www.adngad.net/news/878408",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.897934Z"
+    },
+    {
+      "title": "وزير التخطيط يحدد أولويات المرحلة ويكشف التوجيهات الرئاسية باستكمال المشاريع المتعثرة والتركيز على العاجلة ويحذر من الفساد",
+      "url": "https://www.adngad.net/news/878407",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.898043Z"
+    },
+    {
+      "title": "حافيَ القدمين : بخطواتٍ لا تعرف التراجع، يكتب الكرامةَ على صخورٍ تعز الملتهبة",
+      "url": "https://www.adngad.net/news/878406",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.898128Z"
+    },
+    {
+      "title": "وزارة حقوق الإنسان تدين استهداف مليشيات الحوثي المدنيين والنازحين والمنشآت التعليمية في تعز",
+      "url": "https://www.adngad.net/news/878405",
+      "source": "www.adngad.net",
+      "date": "2026-09-04T18:13:33.898217Z"
+    },
+    {
+      "title": "لماذا اختفى عرفان السيئوني؟",
+      "url": "https://crater-news.net/%d9%85%d9%86%d9%88%d8%b9%d8%a7%d8%aa/%d8%a2%d8%af%d8%a7%d8%a8-%d9%88%d9%81%d9%86%d9%88%d9%86/289845/",
+      "source": "crater-news.net",
+      "date": "2026-09-04T18:13:35.946346Z"
+    },
+    {
+      "title": "عين بامعبد تحت رحمة المزاجية التجارية: صرخة مواطن وبحث عن حلول",
+      "url": "https://crater-news.net/%d9%85%d9%82%d8%a7%d9%84%d8%a7%d8%aa-%d9%88%d8%a2%d8%b1%d8%a7%d8%a1/289843/",
+      "source": "crater-news.net",
+      "date": "2026-09-04T18:13:35.946483Z"
+    },
+    {
+      "title": "القيادة العامة للاتحاد العام لقبائل الجنوب العربي ترفض الزج بالقوات الجنوبية في معارك داخل الأراضي اليمنية",
+      "url": "https://crater-news.net/%d8%a7%d9%84%d8%ac%d9%86%d9%88%d8%a8-%d8%a7%d9%84%d8%b9%d8%b1%d8%a8%d9%8a/289840/",
+      "source": "crater-news.net",
+      "date": "2026-09-04T18:13:35.946576Z"
+    },
     {
       "title": "هجوم للجيش على مواقع الحوثيين في قهبان غربي تعز وسط تصاعد المعارك",
       "url": "https://www.almashhad.news/news/493049",
@@ -2370,636 +3000,6 @@
       "url": "https://www.almashhad.news/news/492950",
       "source": "www.almashhad-alyemeni.com",
       "date": "2026-09-03T21:12:46.073513Z"
-    },
-    {
-      "title": "القوات الحكومية تقلب الطاولة وتوجه ضربة قاصمة للحوثيين في تعز (تفاصيل ميدانية)",
-      "url": "https://www.almashhad.news/news/492949",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.073588Z"
-    },
-    {
-      "title": "انفراجة كبرى.. رفع القطاع القبلي في مأرب وعودة مقطورات الغاز إلى هذه المحافظة!",
-      "url": "https://www.almashhad.news/news/492948",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.073658Z"
-    },
-    {
-      "title": "الجفاف يضرب بيحان.. الأوقاف تصدر توجيهاً طارئاً لجميع المواطنين وهذا ما سيحدث السبت",
-      "url": "https://www.almashhad.news/news/492947",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.073726Z"
-    },
-    {
-      "title": "كارثة تهدد قلب مدينة عتق.. حريق ضخم ومخاوف من امتداد النيران للمباني السكنية (تفاصيل)",
-      "url": "https://www.almashhad.news/news/492946",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.073791Z"
-    },
-    {
-      "title": "رعب في صنعاء.. تقارير استخباراتية تفضح المخطط العسكري الجديد لمليشيا الحوثي",
-      "url": "https://www.almashhad.news/news/492945",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.073879Z"
-    },
-    {
-      "title": "كارثة صامتة في أبين.. هل يختفي \"شريان الحياة\" لأشهر مناطق زراعة البن اليافعي للأبد؟",
-      "url": "https://www.almashhad.news/news/492944",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.073948Z"
-    },
-    {
-      "title": "مصر ترفض عرض إماراتي للاستحواذ في مجال التجارة رغم رفع السعر",
-      "url": "https://www.almashhad.news/news/492943",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.074015Z"
-    },
-    {
-      "title": "\"شلل مفاجئ وعودة تدريجية\".. عطل عالمي متزامن يضرب ChatGPT وClaude وGemini!",
-      "url": "https://www.almashhad.news/news/492942",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.074081Z"
-    },
-    {
-      "title": "دراسة تربط بين أدوية إنقاص الوزن وزيادة خطر الصلع الوراثي",
-      "url": "https://www.almashhad.news/news/492941",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.074145Z"
-    },
-    {
-      "title": "مفاجأة مدوية.. طرابزون سبور يمنح محمد صلاح \"شريكاً مرعباً\" في خط الهجوم!",
-      "url": "https://www.almashhad.news/news/492940",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.074209Z"
-    },
-    {
-      "title": "أكاديمية جديدة لتوظيف 20 ألف سعودي وهذه التخصصات المطلوبة",
-      "url": "https://www.almashhad.news/news/492939",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.074274Z"
-    },
-    {
-      "title": "أسعار الذهب والريال السعودي والدولار الأمريكي في عدن وصنعاء اليوم الخميس 3 سبتمبر /آيلول 2026",
-      "url": "https://www.almashhad.news/news/492938",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.074340Z"
-    },
-    {
-      "title": "لماذا تعمّر النساء أكثر من الرجال؟",
-      "url": "https://www.almashhad.news/news/492937",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.074406Z"
-    },
-    {
-      "title": "ناطق القوات المشتركة يكشف تفاصيل 15 ساعة من المواجهات الضارية مع الحوثيين على بوابة المخا",
-      "url": "https://www.almashhad.news/news/492936",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.074472Z"
-    },
-    {
-      "title": "تقييم أولي: 15 ساعة من المعارك العنيفة في جبهات غرب تعز.. واستعادة المواقع التي تقدمت فيها مليشيا الحوثي",
-      "url": "https://www.almashhad.news/news/492935",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.074538Z"
-    },
-    {
-      "title": "قائد محور تعز يصدر تعليمات للقوات بشأن حماية المدنيين أثناء العمليات العسكرية",
-      "url": "https://www.almashhad.news/news/492934",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.074603Z"
-    },
-    {
-      "title": "عاجل: وصول تعزيزات عسكرية ضخمة من ألوية العمالقة ودرع الوطن إلى جبهتي تعز والساحل الغربي",
-      "url": "https://www.almashhad.news/news/492933",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.074667Z"
-    },
-    {
-      "title": "الرئيس العليمي يتابع مع طارق صالح والشراجي وحمدي شكري مجريات التصعيد الحوثي في تعز",
-      "url": "https://www.almashhad.news/news/492932",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.074735Z"
-    },
-    {
-      "title": "عاجل : قطع الاتصالات يعزل مناطق واسعة غربي تعز.. ومطالبات بإعادة الخدمة فوراً",
-      "url": "https://www.almashhad.news/news/492931",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.074821Z"
-    },
-    {
-      "title": "نجاة عشرات المدنيين بمعجزة.. تفاصيل مرعبة للقصف الباليستي الحوثي على سوق مفرق المخا",
-      "url": "https://www.almashhad.news/news/492930",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.074891Z"
-    },
-    {
-      "title": "خبير في أمن المعلومات: الحوثيون يوظفون منصات التواصل لنشر الدعاية والتضليل والحشد",
-      "url": "https://www.almashhad.news/news/492929",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.074956Z"
-    },
-    {
-      "title": "الباحث والمحلل الشميري: لا قدرة لمليشيا الحوثي على مواجهة قوات الجيش",
-      "url": "https://www.almashhad.news/news/492928",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.075023Z"
-    },
-    {
-      "title": "الأهلي يهزم سموحة بهدف صاروخي ويحقق انتصاره الثالث تواليًا في الدوري المصري",
-      "url": "https://www.almashhad.news/news/492927",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-03T21:12:46.075087Z"
-    },
-    {
-      "title": "وزير الداخلية اليمني: القوات المسلحة والأمن موحدان ضد ميليشيا الحوثي",
-      "url": "https://al-tagheer.com/news456209.html",
-      "source": "www.al-tagheer.com",
-      "date": "2026-09-03T21:13:14.391637Z"
-    },
-    {
-      "title": "مستشارة حقوق الإنسان: الحوثيون يحتجزون 163 موظفاً دولياً في اليمن",
-      "url": "https://al-tagheer.com/news456208.html",
-      "source": "www.al-tagheer.com",
-      "date": "2026-09-03T21:13:14.391702Z"
-    },
-    {
-      "title": "الحكومة تناقش خطط مواجهة تهديدات الحوثيين للملاحة في البحر الأحمر",
-      "url": "https://al-tagheer.com/news456194.html",
-      "source": "www.al-tagheer.com",
-      "date": "2026-09-03T21:13:14.392574Z"
-    },
-    {
-      "title": "ترددات قنوات الكأس القطرية الرياضية",
-      "url": "https://alshahednews.net/article/frequencies-of-al-kass-qatar-sports-channels/",
-      "source": "www.alshahednews.net",
-      "date": "2026-09-03T21:13:22.367796Z"
-    },
-    {
-      "title": "مبابي يعادل رقم رونالدو التاريخي في ريال مدريد",
-      "url": "https://alshahednews.net/article/mbappe-equals-ronaldo-s-historic-number-at-real-/",
-      "source": "www.alshahednews.net",
-      "date": "2026-09-03T21:13:22.367910Z"
-    },
-    {
-      "title": "مستقبل غوارديولا مع مانشستر سيتي",
-      "url": "https://alshahednews.net/article/guardiola-s-future-is-with-manchester-city/",
-      "source": "www.alshahednews.net",
-      "date": "2026-09-03T21:13:22.368106Z"
-    },
-    {
-      "title": "حكيمي يتطلع للتتويج بكأس إفريقيا للمغرب",
-      "url": "https://alshahednews.net/article/hakimi-is-looking-forward-to-winning-the-african/",
-      "source": "www.alshahednews.net",
-      "date": "2026-09-03T21:13:22.368174Z"
-    },
-    {
-      "title": "مستجدات المواجهات العسكرية “المستمرة” غرب تعز",
-      "url": "https://almushahid.net/143425/",
-      "source": "www.almushahid.net",
-      "date": "2026-09-03T21:13:27.652445Z"
-    },
-    {
-      "title": "وفاة مسن بسبب التعذيب في الحديدة",
-      "url": "https://almushahid.net/143348/",
-      "source": "www.almushahid.net",
-      "date": "2026-09-03T21:13:27.652795Z"
-    },
-    {
-      "title": "لحج: طلاب متفوقون يتظلمون من نتائج الثانوية",
-      "url": "https://almushahid.net/143274/",
-      "source": "www.almushahid.net",
-      "date": "2026-09-03T21:13:27.653075Z"
-    },
-    {
-      "title": "حريق يلحق أضرارًا بمصنع الإسفنج بتعز",
-      "url": "https://almushahid.net/143259/",
-      "source": "www.almushahid.net",
-      "date": "2026-09-03T21:13:27.653145Z"
-    },
-    {
-      "title": "وزير الدفاع من مأرب: قواتنا على أهبة الاستعداد لاستكمال التحرير مالم تجنح الميليشيا للسلام",
-      "url": "https://marib360.com/news/1236/",
-      "source": "www.marib360.com",
-      "date": "2026-09-03T21:13:50.505966Z"
-    },
-    {
-      "title": "يا حكومة الشرعية: آن أوان المبادرة",
-      "url": "https://nashwannews.com/270374",
-      "source": "www.nashwannews.com",
-      "date": "2026-09-03T21:13:56.529915Z"
-    },
-    {
-      "title": "كيف تحولت المناهج إلى كبسولات تعبوية في مناطق الحوثيين؟",
-      "url": "https://nashwannews.com/270371",
-      "source": "www.nashwannews.com",
-      "date": "2026-09-03T21:13:56.530132Z"
-    },
-    {
-      "title": "بالفيديو.. المقاومة الوطنية تكشف اعترافات خلية تهريب حوثية: زوارق انتحارية إيرانية",
-      "url": "https://nashwannews.com/270370",
-      "source": "www.nashwannews.com",
-      "date": "2026-09-03T21:13:56.530198Z"
-    },
-    {
-      "title": "أزمة الوطنية لدى جماعات الدين السياسي",
-      "url": "https://nashwannews.com/270368",
-      "source": "www.nashwannews.com",
-      "date": "2026-09-03T21:13:56.530301Z"
-    },
-    {
-      "title": "البحرية اليمنية.. إمكانيات محدودة ومعركة نيابة عن العالم!",
-      "url": "https://nashwannews.com/270367",
-      "source": "www.nashwannews.com",
-      "date": "2026-09-03T21:13:56.530365Z"
-    },
-    {
-      "title": "البحرية اليمنية تضبط شحنة معدات إيرانية للطائرات المسيرة في طريقها إلى الحوثيين",
-      "url": "https://nashwannews.com/270366",
-      "source": "www.nashwannews.com",
-      "date": "2026-09-03T21:13:56.530428Z"
-    },
-    {
-      "title": "الحرب الأميركية الإيرانية… الطريق إلى جولة جديدة",
-      "url": "https://nashwannews.com/270365",
-      "source": "www.nashwannews.com",
-      "date": "2026-09-03T21:13:56.530490Z"
-    },
-    {
-      "title": "رئيس مجلس القيادة يوجه بالنظر في تظلمات نتائج الثانوية العامة",
-      "url": "https://nashwannews.com/270364",
-      "source": "www.nashwannews.com",
-      "date": "2026-09-03T21:13:56.530554Z"
-    },
-    {
-      "title": "مسؤولون.. وجواسيس.. ولكن ليس لصالح بلدهم!",
-      "url": "https://nashwannews.com/270363",
-      "source": "www.nashwannews.com",
-      "date": "2026-09-03T21:13:56.530617Z"
-    },
-    {
-      "title": "الحديدة: عودة عشرات الصيادين بعد نجاتهم من قصف حوثي في البحر الأحمر",
-      "url": "https://nashwannews.com/270362",
-      "source": "www.nashwannews.com",
-      "date": "2026-09-03T21:13:56.530680Z"
-    },
-    {
-      "title": "هل يستطيع الحوثي تبديل هوية اليمنيين؟",
-      "url": "https://nashwannews.com/270361",
-      "source": "www.nashwannews.com",
-      "date": "2026-09-03T21:13:56.530743Z"
-    },
-    {
-      "title": "عن زيارة الأمير محمد بن سلمان إلى فرنسا",
-      "url": "https://nashwannews.com/270360",
-      "source": "www.nashwannews.com",
-      "date": "2026-09-03T21:13:56.530817Z"
-    },
-    {
-      "title": "من اتفاق مكة إلى باب المندب: نحو بنية أمنية إقليمية جديدة",
-      "url": "https://nashwannews.com/270359",
-      "source": "www.nashwannews.com",
-      "date": "2026-09-03T21:13:56.530886Z"
-    },
-    {
-      "title": "إطلاق GLM-5.3-Flash: أحدث عمالقة الذكاء الاصطناعي الصيني بكلفة شديدة الانخفاض",
-      "url": "https://nashwannews.com/270358",
-      "source": "www.nashwannews.com",
-      "date": "2026-09-03T21:13:56.530950Z"
-    },
-    {
-      "title": "البحرية اليمنية تحبط محاولة تهريب إيرانية أعقبها هجوم للحوثيين",
-      "url": "https://nashwannews.com/270357",
-      "source": "www.nashwannews.com",
-      "date": "2026-09-03T21:13:56.531014Z"
-    },
-    {
-      "title": "وزارة التربية والتعليم اليمنية تعلن نتائج امتحانات الثانوية العامة غداً الخميس",
-      "url": "https://nashwannews.com/270356",
-      "source": "www.nashwannews.com",
-      "date": "2026-09-03T21:13:56.531082Z"
-    },
-    {
-      "title": "بالفيديو.. المقاومة الوطنية تنفذ ضربات مواقع حوثية جنوب الحديدة",
-      "url": "https://nashwannews.com/270355",
-      "source": "www.nashwannews.com",
-      "date": "2026-09-03T21:13:56.531148Z"
-    },
-    {
-      "title": "أمن عدن يطيح بخلايا إرهابية تلقت تدريبات عسكرية في مناطق الحوثيين",
-      "url": "https://www.newsyemen.net/news105926.html",
-      "source": "www.newsyemen.net",
-      "date": "2026-09-03T21:13:58.171367Z"
-    },
-    {
-      "title": "المقاومة الوطنية تكسر التصعيد الحوثي.. معارك عنيفة تمتد 15 ساعة",
-      "url": "https://www.newsyemen.net/news105925.html",
-      "source": "www.newsyemen.net",
-      "date": "2026-09-03T21:13:58.171496Z"
-    },
-    {
-      "title": "الإمارات: إيران تهدد حرية الملاحة وتحاول توظيف هرمز كورقة ضغط",
-      "url": "https://www.newsyemen.net/news105914.html",
-      "source": "www.newsyemen.net",
-      "date": "2026-09-03T21:13:58.172052Z"
-    },
-    {
-      "title": "فشل حكومي في تحسين أوضاع المناطق المحررة رغم تضاعف الإيرادات والمنح",
-      "url": "https://www.newsyemen.net/news105900.html",
-      "source": "www.newsyemen.net",
-      "date": "2026-09-03T21:13:58.172742Z"
-    },
-    {
-      "title": "استحداث خنادق ومخابئ حوثية في جبهات لحج والضالع بعد ضربة موجعة",
-      "url": "https://www.newsyemen.net/news105899.html",
-      "source": "www.newsyemen.net",
-      "date": "2026-09-03T21:13:58.172810Z"
-    },
-    {
-      "title": "خبير في أمن المعلومات: الحوثيون يوظفون منصات التواصل لنشر الدعاية والتضليل والحشد",
-      "url": "https://yafa-news.net/archives/646734",
-      "source": "www.yafa-news.net",
-      "date": "2026-09-03T21:14:29.321866Z"
-    },
-    {
-      "title": "الإعلام العسكري يكشف تفاصيل المواجهات على جبهات الساحل الغربي.. انهيار هجمات حوثية وإعطاب آليات",
-      "url": "https://yafa-news.net/archives/646732",
-      "source": "www.yafa-news.net",
-      "date": "2026-09-03T21:14:29.322009Z"
-    },
-    {
-      "title": "وزير التربية العبادي يبحث اوجه التعاون المشترك مع برنامج الأغذية العالمي بعدن",
-      "url": "https://yafa-news.net/archives/646730",
-      "source": "www.yafa-news.net",
-      "date": "2026-09-03T21:14:29.322083Z"
-    },
-    {
-      "title": "تعزيزات عسكرية تصل إلى جبهات تعز الغربية بقيادة حمدي شكري الصبيحي",
-      "url": "https://yafa-news.net/archives/646727",
-      "source": "www.yafa-news.net",
-      "date": "2026-09-03T21:14:29.322150Z"
-    },
-    {
-      "title": "تسليم مواقع عسكرية في غرب تعز للحوثيين خلال هجوم مباغت",
-      "url": "https://yafa-news.net/archives/646724",
-      "source": "www.yafa-news.net",
-      "date": "2026-09-03T21:14:29.322215Z"
-    },
-    {
-      "title": "الزامكي يدشّن عمل 5 لجان محلية جديدة في مديرية الشيخ عثمان ويؤكد أهمية تعزيز الوعي بالهوية الجنوبية",
-      "url": "https://yafa-news.net/archives/646723",
-      "source": "www.yafa-news.net",
-      "date": "2026-09-03T21:14:29.322285Z"
-    },
-    {
-      "title": "قراءة في المشهد السياسي والعسكري المتسارع ..الجنوب على طاولة لم تُعلن عنها",
-      "url": "https://yafa-news.net/archives/646719",
-      "source": "www.yafa-news.net",
-      "date": "2026-09-03T21:14:29.322355Z"
-    },
-    {
-      "title": "الإفراج عن رجل الأعمال كمال صلاح بن شعيلة بعد اختطافه بالأمس",
-      "url": "https://yafa-news.net/archives/646717",
-      "source": "www.yafa-news.net",
-      "date": "2026-09-03T21:14:29.322421Z"
-    },
-    {
-      "title": "“الانتقالي” يرفع ملف الانتهاكات في الجنوب إلى مجلس حقوق الإنسان بجنيف",
-      "url": "https://yafa-news.net/archives/646715",
-      "source": "www.yafa-news.net",
-      "date": "2026-09-03T21:14:29.322488Z"
-    },
-    {
-      "title": "الأعراس الجماعية بعدن…الوكيل سالم: ابناء وأهالي عدن يتعشمون من المحافظ شيخ بمواصلة صناعة الأمال وتحقيق تطلعاتهم",
-      "url": "https://yafa-news.net/archives/646712",
-      "source": "www.yafa-news.net",
-      "date": "2026-09-03T21:14:29.322556Z"
-    },
-    {
-      "title": "الرئيس اليمني يحذر الحوثيين من “سوء قراءة” صبر الدولة مع تصاعد معارك تعز",
-      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/180865?utm_source=rss&utm_medium=rss&utm_campaign=%25d8%25a7%25d9%2584%25d8%25b1%25d8%25a6%25d9%258a%25d8%25b3-%25d8%25a7%25d9%2584%25d9%258a%25d9%2585%25d9%2586%25d9%258a-%25d9%258a%25d8%25ad%25d8%25b0%25d8%25b1-%25d8%25a7%25d9%2584%25d8%25ad%25d9%2588%25d8%25ab%25d9%258a%25d9%258a%25d9%2586-%25d9%2585%25d9%2586-%25d8%25b3%25d9%2588%25d8%25a1-%25d9%2582%25d8%25b1%25d8%25a7",
-      "source": "www.yemenmonitor.com",
-      "date": "2026-09-03T21:14:32.210161Z"
-    },
-    {
-      "title": "مصدران لـ«يمن مونيتور»: يوسف المداني وقادة حوثيون ينتقلون إلى الحديدة للإشراف على معارك الساحل الغربي",
-      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/180868?utm_source=rss&utm_medium=rss&utm_campaign=%25d9%2585%25d8%25b5%25d8%25af%25d8%25b1%25d8%25a7%25d9%2586-%25d9%2584%25d9%2580%25d9%258a%25d9%2585%25d9%2586-%25d9%2585%25d9%2588%25d9%2586%25d9%258a%25d8%25aa%25d9%2588%25d8%25b1-%25d9%258a%25d9%2588%25d8%25b3%25d9%2581-%25d8%25a7%25d9%2584%25d9%2585%25d8%25af%25d8%25a7%25d9%2586%25d9%258a-%25d9%2588",
-      "source": "www.yemenmonitor.com",
-      "date": "2026-09-03T21:14:32.210300Z"
-    },
-    {
-      "title": "ما وراء الهجوم الحوثي غربي تعز؟",
-      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/180850?utm_source=rss&utm_medium=rss&utm_campaign=%25d9%2585%25d8%25a7-%25d9%2588%25d8%25b1%25d8%25a7%25d8%25a1-%25d8%25a7%25d9%2584%25d9%2587%25d8%25ac%25d9%2588%25d9%2585-%25d8%25a7%25d9%2584%25d8%25ad%25d9%2588%25d8%25ab%25d9%258a-%25d8%25ba%25d8%25b1%25d8%25a8%25d9%258a-%25d8%25aa%25d8%25b9%25d8%25b2%25d8%259f",
-      "source": "www.yemenmonitor.com",
-      "date": "2026-09-03T21:14:32.210375Z"
-    },
-    {
-      "title": "رئيس الوزراء اليمني: سنوفر الدعم لقواتنا في تعز والحديدة لمواجهة التصعيد الحوثي",
-      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/180864?utm_source=rss&utm_medium=rss&utm_campaign=%25d8%25b1%25d8%25a6%25d9%258a%25d8%25b3-%25d8%25a7%25d9%2584%25d9%2588%25d8%25b2%25d8%25b1%25d8%25a7%25d8%25a1-%25d8%25a7%25d9%2584%25d9%258a%25d9%2585%25d9%2586%25d9%258a-%25d8%25b3%25d9%2586%25d9%2588%25d9%2581%25d8%25b1-%25d8%25a7%25d9%2584%25d8%25af%25d8%25b9%25d9%2585-%25d9%2584%25d9%2582%25d9%2588%25d8%25a7%25d8%25aa",
-      "source": "www.yemenmonitor.com",
-      "date": "2026-09-03T21:14:32.210444Z"
-    },
-    {
-      "title": "نزوح 387 أسرة من الكدحة غربي تعز بفعل التصعيد الحوثي",
-      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/180856?utm_source=rss&utm_medium=rss&utm_campaign=%25d9%2586%25d8%25b2%25d9%2588%25d8%25ad-387-%25d8%25a3%25d8%25b3%25d8%25b1%25d8%25a9-%25d9%2585%25d9%2586-%25d8%25a7%25d9%2584%25d9%2583%25d8%25af%25d8%25ad%25d8%25a9-%25d8%25ba%25d8%25b1%25d8%25a8%25d9%258a-%25d8%25aa%25d8%25b9%25d8%25b2-%25d8%25a8%25d9%2581%25d8%25b9%25d9%2584-%25d8%25a7%25d9%2584%25d8%25aa%25d8%25b5",
-      "source": "www.yemenmonitor.com",
-      "date": "2026-09-03T21:14:32.210511Z"
-    },
-    {
-      "title": "على وقع التصعيد الحوثي.. قائد محور تعز يوجه الجيش بحماية المدنيين",
-      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/180854?utm_source=rss&utm_medium=rss&utm_campaign=%25d9%2582%25d8%25a7%25d8%25a6%25d8%25af-%25d9%2585%25d8%25ad%25d9%2588%25d8%25b1-%25d8%25aa%25d8%25b9%25d8%25b2-%25d9%258a%25d8%25b4%25d8%25af%25d8%25af-%25d8%25b9%25d9%2584%25d9%2589-%25d8%25ad%25d9%2585%25d8%25a7%25d9%258a%25d8%25a9-%25d8%25a7%25d9%2584%25d9%2585%25d8%25af%25d9%2586%25d9%258a%25d9%258a%25d9%2586-%25d9%2581",
-      "source": "www.yemenmonitor.com",
-      "date": "2026-09-03T21:14:32.210578Z"
-    },
-    {
-      "title": "انفراجة اقتصادية قادمة.. رئيس الوزراء يكشف تفاصيل الدعم السعودي الجديد للبنك المركزي وتأثيره على أسعار الصرف",
-      "url": "https://yemennownews.com/article/3451865",
-      "source": "yemennownews.com",
-      "date": "2026-09-03T21:15:13.328621Z"
-    },
-    {
-      "title": "مسؤول عسكري يكشف آخر مستجدات المعارك الضارية بين القوات المسلحة اليمنية والحوثيين غربي تعز",
-      "url": "https://yemennownews.com/article/3451888",
-      "source": "yemennownews.com",
-      "date": "2026-09-03T21:15:13.328752Z"
-    },
-    {
-      "title": "لماذا يركز الحوثيون على تعز الآن؟.. باب المندب في قلب المعركة... تحليل سيلسي خاص",
-      "url": "https://yemennownews.com/article/3451797",
-      "source": "yemennownews.com",
-      "date": "2026-09-03T21:15:13.350035Z"
-    },
-    {
-      "title": "عاجل: سماع دوي انفجار كبير في الضالع",
-      "url": "https://yemennownews.com/article/3451873",
-      "source": "yemennownews.com",
-      "date": "2026-09-03T21:15:13.350158Z"
-    },
-    {
-      "title": "عاجل: المقاومة الوطنية تستعيد مواقع سقطت بهجوم الحو ثي",
-      "url": "https://yemennownews.com/article/3451781",
-      "source": "yemennownews.com",
-      "date": "2026-09-03T21:15:13.350266Z"
-    },
-    {
-      "title": "عاجل: وصول تعزيزات عسكرية ضخمة من ألوية العمالقة ودرع الوطن إلى جبهتي تعز والساحل الغربي",
-      "url": "https://yemennownews.com/article/3451969",
-      "source": "yemennownews.com",
-      "date": "2026-09-03T21:15:13.350585Z"
-    },
-    {
-      "title": "مصدر عسكري لـ«عدن الغد»: قوات من ألوية درع الوطن والعمالقة تصل الساحل الغربي وفي طريقها إلى تعز",
-      "url": "https://yemennownews.com/article/3451985",
-      "source": "yemennownews.com",
-      "date": "2026-09-03T21:15:13.350729Z"
-    },
-    {
-      "title": "عاجل: محاولة ا غتيال داخل السجن المركزي",
-      "url": "https://yemennownews.com/article/3451705",
-      "source": "yemennownews.com",
-      "date": "2026-09-03T21:15:13.350790Z"
-    },
-    {
-      "title": "السعودية تقدم دعمًا جديدًا للبنك المركزي اليمني لتعزيز الاستقرار الاقتصادي والمالي",
-      "url": "https://yemennownews.com/article/3451749",
-      "source": "yemennownews.com",
-      "date": "2026-09-03T21:15:13.350867Z"
-    },
-    {
-      "title": "دعم سعودي جديد للبنك المركزي لتعزيز الاستقرار الاقتصادي باليمن",
-      "url": "https://yemennownews.com/article/3451466",
-      "source": "yemennownews.com",
-      "date": "2026-09-03T21:15:13.350973Z"
-    },
-    {
-      "title": "عاجل: المضادات الجوية تفتح نيرانها في معاشيق بعدن",
-      "url": "https://yemennownews.com/article/3451661",
-      "source": "yemennownews.com",
-      "date": "2026-09-03T21:15:13.351036Z"
-    },
-    {
-      "title": "4 أشهر على انسحاب القوات المسلحة الجنوبية من حضرموت: ما الذي تحقق؟",
-      "url": "https://almahranews.com/archives/27478",
-      "source": "almahranews.com",
-      "date": "2026-09-03T21:15:15.604887Z"
-    },
-    {
-      "title": "كيف نجح المجلس الانتقالي الجنوبي في تثبيت قواعده رغم محاولات التفكيك",
-      "url": "https://almahranews.com/archives/27476",
-      "source": "almahranews.com",
-      "date": "2026-09-03T21:15:15.605025Z"
-    },
-    {
-      "title": "تنفيذية انتقالي المهرة تعقد اجتماعها الدوري لشهر مارس",
-      "url": "https://almahranews.com/archives/27474",
-      "source": "almahranews.com",
-      "date": "2026-09-03T21:15:15.605097Z"
-    },
-    {
-      "title": "المجلس الانتقالي الجنوبي ورهانات المرحلة المقبلة في حماية أمن المنطقة",
-      "url": "https://almahranews.com/archives/27460",
-      "source": "almahranews.com",
-      "date": "2026-09-03T21:15:15.605344Z"
-    },
-    {
-      "title": "ناقش إبرز المستجدات السياسية وترتيبات اللقاء الموسع .. الزامكي يرأس اجتماعاً استثنائياً لرؤساء القيادة المحلية بمديريات العاصمة عدن",
-      "url": "https://almahranews.com/archives/27458",
-      "source": "almahranews.com",
-      "date": "2026-09-03T21:15:15.605412Z"
-    },
-    {
-      "title": "الأمانة العامة تعاود عملها من مقرها وتحذر من تمكين قوى الإرهاب",
-      "url": "https://almahranews.com/archives/27455",
-      "source": "almahranews.com",
-      "date": "2026-09-03T21:15:15.605476Z"
-    },
-    {
-      "title": "بيان صادر عن الهيئة التنفيذية للقيادة المحلية للمجلس الانتقالي الجنوبي بمحافظة المهرة",
-      "url": "https://almahranews.com/archives/27452",
-      "source": "almahranews.com",
-      "date": "2026-09-03T21:15:15.605541Z"
-    },
-    {
-      "title": "عاجل: تجدد الاشتباكات بمختلف الأسلحة في محوري البرح والحديدة",
-      "url": "https://www.adngad.net/news/878301",
-      "source": "www.adngad.net",
-      "date": "2026-09-03T21:15:53.943400Z"
-    },
-    {
-      "title": "بعد تهديد بتفجير جامع النور.. خطيب المسجد يروي لعدن الغد تفاصيل الواقعة وتحرك الأجهزة الأمنية",
-      "url": "https://www.adngad.net/news/878300",
-      "source": "www.adngad.net",
-      "date": "2026-09-03T21:15:53.943534Z"
-    },
-    {
-      "title": "الإرياني: تعزيزات العمالقة ودرع الوطن إلى تعز والساحل الغربي تؤكد جاهزية القوات المسلحة",
-      "url": "https://www.adngad.net/news/878299",
-      "source": "www.adngad.net",
-      "date": "2026-09-03T21:15:53.943610Z"
-    },
-    {
-      "title": "وزارة حقوق الإنسان تدين التصعيد الحوثي الخطير في تعز واستهداف المدنيين",
-      "url": "https://www.adngad.net/news/878298",
-      "source": "www.adngad.net",
-      "date": "2026-09-03T21:15:53.943682Z"
-    },
-    {
-      "title": "مدير عام شحن: تدخل حكومي عاجل لضمان استمرار مستشفى السلطان قابوس ودعم مشاريع التنمية",
-      "url": "https://www.adngad.net/news/878297",
-      "source": "www.adngad.net",
-      "date": "2026-09-03T21:15:53.943749Z"
-    },
-    {
-      "title": "مؤسسة اليمن للتدريب تختتم برنامج «مهارات الاستعداد المهني في عصر الذكاء الاصطناعي",
-      "url": "https://www.adngad.net/news/878296",
-      "source": "www.adngad.net",
-      "date": "2026-09-03T21:15:53.943857Z"
-    },
-    {
-      "title": "عدن تحتفي بتأهيل 90 شاباً وشابة لسوق العمل",
-      "url": "https://www.adngad.net/news/878295",
-      "source": "www.adngad.net",
-      "date": "2026-09-03T21:15:53.943927Z"
-    },
-    {
-      "title": "قائد اللواء 111 مشاة يعزي في وفاة الشاب طارق علي سالم أمبسطي",
-      "url": "https://www.adngad.net/news/878294",
-      "source": "www.adngad.net",
-      "date": "2026-09-03T21:15:53.943994Z"
-    },
-    {
-      "title": "أبناء جبل ردفان يثمنون جهود قيادة المحافظة في إنجاح مشروع مياه صمعان",
-      "url": "https://www.adngad.net/news/878293",
-      "source": "www.adngad.net",
-      "date": "2026-09-03T21:15:53.944060Z"
-    },
-    {
-      "title": "وزير التربية نموذجاً للتواضع والوفاء...زيارة إنسانية لبطلة أبين قطوف",
-      "url": "https://www.adngad.net/news/878292",
-      "source": "www.adngad.net",
-      "date": "2026-09-03T21:15:53.944125Z"
-    },
-    {
-      "title": "مصدر عسكري لـ«عدن الغد»: قوات من ألوية درع الوطن والعمالقة تصل الساحل الغربي وفي طريقها إلى تعز",
-      "url": "https://www.adngad.net/news/878291",
-      "source": "www.adngad.net",
-      "date": "2026-09-03T21:15:53.944191Z"
-    },
-    {
-      "title": "خفر السواحل اليمنية تختتم حزمة دورات تخصصية لتعزيز قدرات منتسبيها في الأمن والسلامة البحرية",
-      "url": "https://www.adngad.net/news/878290",
-      "source": "www.adngad.net",
-      "date": "2026-09-03T21:15:53.944258Z"
-    },
-    {
-      "title": "في يومها الثالث.. ورشة العدالة الانتقالية في اليمن تناقش حماية العقارات، ومصير المعتقلين، وإعادة هيكلة الجيش، وسرديات الذاكرة الوطنية",
-      "url": "https://www.adngad.net/news/878289",
-      "source": "www.adngad.net",
-      "date": "2026-09-03T21:15:53.944325Z"
-    },
-    {
-      "title": "الوطن يعبر العمود برباعية ويتأهل إلى مربع تصفيات الدرجة الثالثة بمأرب",
-      "url": "https://www.adngad.net/news/878288",
-      "source": "www.adngad.net",
-      "date": "2026-09-03T21:15:53.944390Z"
     }
   ]
 }
