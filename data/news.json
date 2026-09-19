@@ -1,6 +1,504 @@
 {
-  "lastUpdated": "2026-09-19T05:02:48.904120Z",
+  "lastUpdated": "2026-09-19T09:27:49.168425Z",
   "articles": [
+    {
+      "title": "مركز الأطراف الصناعية بتعز يقدم أكثر من 17 ألف خدمة مجانية لـ5704 مستفيدين خلال 8 أشهر",
+      "url": "https://www.almashhad.news/news/495456",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-19T09:25:35.326489Z"
+    },
+    {
+      "title": "الأوقاف اليمنية ترد على تصريحات مفتي عمان وموقفه من الحوثيين",
+      "url": "https://www.almashhad.news/news/495455",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-19T09:25:35.326615Z"
+    },
+    {
+      "title": "حقوق الإنسان تدين اعتداءات حوثية على منشآت ومشاريع إنسانية في الخوخة والمخا",
+      "url": "https://www.almashhad.news/news/495454",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-19T09:25:35.326713Z"
+    },
+    {
+      "title": "الأرصاد يتوقع طقساً شديد الحرارة وأمطاراً رعدية واضطراباً ملاحياً في عدة محافظات",
+      "url": "https://www.almashhad.news/news/495453",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-19T09:25:35.326804Z"
+    },
+    {
+      "title": "تسجيل 3 إصابات كل يومين.. ناشط إعلامي يكشف عن اتساع رقعة السرطان في صعدة",
+      "url": "https://www.almashhad.news/news/495452",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-19T09:25:35.326893Z"
+    },
+    {
+      "title": "مخاطر صحية صامتة داخل مطبخك... هكذا تتجنبها",
+      "url": "https://www.almashhad.news/news/495451",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-19T09:25:35.326980Z"
+    },
+    {
+      "title": "القوات الحكومية تصد هجوماً حوثياً جنوب مأرب وتدك مواقع المليشيا في جبال العمري بغارات جوية مكثفة",
+      "url": "https://www.almashhad.news/news/495450",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-19T09:25:35.327091Z"
+    },
+    {
+      "title": "إسقاط طائرة حوثية مسيرة في الجوف - [فيديو]",
+      "url": "https://www.almashhad.news/news/495449",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-19T09:25:35.327178Z"
+    },
+    {
+      "title": "شرطة السير: وفاة 25 شخصا وإصابة 181 آخرين جراء حوادث مرورية خلال 15 يوما بالمحافظات المحررة",
+      "url": "https://www.almashhad.news/news/495448",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-19T09:25:35.327264Z"
+    },
+    {
+      "title": "فنان العرب محمد عبده: تمنيت تقديم \"دويتو\" مع أم كلثوم... لكن في الآخرة ان شاء الله",
+      "url": "https://www.almashhad.news/news/495447",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-19T09:25:35.327350Z"
+    },
+    {
+      "title": "أمن وادي حضرموت بشأن التحفظ على عودة اللواء 101 للشرطة الجوية: اجتهاد شخصي",
+      "url": "https://www.almashhad.news/news/495446",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-19T09:25:35.327435Z"
+    },
+    {
+      "title": "دراسة حديثة: ارتفاع السكر يُحفّز خلايا الكلى مباشرة على إطلاق استجابات التهابية ضارة",
+      "url": "https://www.almashhad.news/news/495445",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-19T09:25:35.327543Z"
+    },
+    {
+      "title": "الاتحاد الأوروبي يدين تصعيد الحوثيين ويعلن رفع جاهزية \"أسبيدس\" لحماية الملاحة",
+      "url": "https://www.almashhad.news/news/495444",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-19T09:25:35.327638Z"
+    },
+    {
+      "title": "جدول مواعيد مباريات اليوم السبت 19 سبتمبر 2026 والقنوات الناقلة: قمم نارية في أوروبا (برشلونة ضد إشبيلية وطرابزون سبور ضد جلطة سراي)",
+      "url": "https://www.almashhad.news/news/495443",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-19T09:25:35.327735Z"
+    },
+    {
+      "title": "مستشار وزير النقل يكشف انتهاكات بحق أبناء الشمال في سجن \"بئر أحمد\" بعدن ويطالب بالتدخل العاجل",
+      "url": "https://www.almashhad.news/news/495442",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-19T09:25:35.327821Z"
+    },
+    {
+      "title": "موقع امريكي: نتنياهو يقود جهودًا سريعة مستغلًا التطورات في اليمن لـ التطبيع مع السعودية",
+      "url": "https://www.almashhad.news/news/495441",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-09-19T09:25:35.327953Z"
+    },
+    {
+      "title": "أعضاء مجلس الأمن يشددون على ضرورة التطبيق الكامل للقرار رقم 2216 ويجددون دعمهم للحكومة اليمنية",
+      "url": "https://albiladn.net/news/102915/",
+      "source": "www.albiladn.net",
+      "date": "2026-09-19T09:25:51.812935Z"
+    },
+    {
+      "title": "مركز الملك سلمان للإغاثة يموّل توزيع 362 كرتونًا غذائيًا لـ1,849 نازحًا في لحج",
+      "url": "https://albiladn.net/news/102897/",
+      "source": "www.albiladn.net",
+      "date": "2026-09-19T09:25:51.813428Z"
+    },
+    {
+      "title": "مباراة الجزائر والسودان في كأس أمم أفريقيا 2025",
+      "url": "https://alshahednews.net/article/algeria-and-sudan-match-in-the-2025-african-cup-/",
+      "source": "www.alshahednews.net",
+      "date": "2026-09-19T09:25:56.516974Z"
+    },
+    {
+      "title": "الزمالك يستعد لمواجهة سموحة في كأس عاصمة مصر",
+      "url": "https://alshahednews.net/article/zamalek-is-preparing-to-face-smouha-in-the-egypt/",
+      "source": "www.alshahednews.net",
+      "date": "2026-09-19T09:25:56.517091Z"
+    },
+    {
+      "title": "غزل المحلة يتفوق على الأهلي في كأس مصر",
+      "url": "https://alshahednews.net/article/ghazl-el-mahalla-beats-al-ahly-in-the-egypt-cup/",
+      "source": "www.alshahednews.net",
+      "date": "2026-09-19T09:25:56.517182Z"
+    },
+    {
+      "title": "مباراة الأهلي وغزل المحلة تنتهي بالتعادل",
+      "url": "https://alshahednews.net/article/the-al-ahly-and-ghazl-el-mahalla-match-ends-in-a/",
+      "source": "www.alshahednews.net",
+      "date": "2026-09-19T09:25:56.517271Z"
+    },
+    {
+      "title": "مباريات اليوم في البطولات المختلفة",
+      "url": "https://alshahednews.net/article/today-s-matches-in-various-tournaments-4/",
+      "source": "www.alshahednews.net",
+      "date": "2026-09-19T09:25:56.517358Z"
+    },
+    {
+      "title": "مباراة أرسنال وكريستال بالاس في كأس الرابطة",
+      "url": "https://alshahednews.net/article/arsenal-and-crystal-palace-match-in-the-league-c/",
+      "source": "www.alshahednews.net",
+      "date": "2026-09-19T09:25:56.517444Z"
+    },
+    {
+      "title": "السنغال تبدأ مشوارها في كأس أفريقيا 2025",
+      "url": "https://alshahednews.net/article/senegal-begins-its-campaign-in-the-2025-african-/",
+      "source": "www.alshahednews.net",
+      "date": "2026-09-19T09:25:56.517531Z"
+    },
+    {
+      "title": "مصر تحقق إنجازات رائعة في رفع الأثقال",
+      "url": "https://alshahednews.net/article/egypt-achieves-remarkable-achievements-in-weight/",
+      "source": "www.alshahednews.net",
+      "date": "2026-09-19T09:25:56.517618Z"
+    },
+    {
+      "title": "كأس أمم أفريقيا 2025: القنوات الناقلة والمزيد",
+      "url": "https://alshahednews.net/article/africa-cup-of-nations-2025-broadcast-channels-an/",
+      "source": "www.alshahednews.net",
+      "date": "2026-09-19T09:25:56.517703Z"
+    },
+    {
+      "title": "مواعيد المباريات اليوم في مختلف المسابقات",
+      "url": "https://alshahednews.net/article/today-s-match-schedules-in-various-competitions/",
+      "source": "www.alshahednews.net",
+      "date": "2026-09-19T09:25:56.517789Z"
+    },
+    {
+      "title": "السلطة المحلية بعدن تشكل لجنة خاصة بالنازحين",
+      "url": "https://almushahid.net/144028/",
+      "source": "www.almushahid.net",
+      "date": "2026-09-19T09:25:59.842300Z"
+    },
+    {
+      "title": "من هرمز إلى باب المندب.. التمدد الإيراني عبر المليشيا الحوثية وابتزاز أمن الملاحة",
+      "url": "https://nashwannews.com/270392",
+      "source": "www.nashwannews.com",
+      "date": "2026-09-19T09:26:32.979579Z"
+    },
+    {
+      "title": "المخا ليست نهاية المعركة.. لكنها يجب أن تكون نهاية الأعذار",
+      "url": "https://nashwannews.com/270391",
+      "source": "www.nashwannews.com",
+      "date": "2026-09-19T09:26:32.979671Z"
+    },
+    {
+      "title": "المنتخب اليمني يواصل سلسلة اللاهزيمة بانتصار تاريخي على الكويت",
+      "url": "https://www.newsyemen.net/news106109.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-19T09:26:33.664224Z"
+    },
+    {
+      "title": "الإعلام العسكري: ما جرى في الساحل الغربي حرب كسر عظم بأهداف إيرانية",
+      "url": "https://www.newsyemen.net/news106108.html",
+      "source": "www.newsyemen.net",
+      "date": "2026-09-19T09:26:33.664346Z"
+    },
+    {
+      "title": "موعد مباراة منتخب مصر أمام أنجولا بتصفيات أمم أفريقيا",
+      "url": "https://yafa-news.net/archives/647500",
+      "source": "www.yafa-news.net",
+      "date": "2026-09-19T09:26:55.218223Z"
+    },
+    {
+      "title": "عدن المستقلة: صوت الجنوب الذي لا ينكسر",
+      "url": "https://yafa-news.net/archives/647498",
+      "source": "www.yafa-news.net",
+      "date": "2026-09-19T09:26:55.218348Z"
+    },
+    {
+      "title": "دفاعات القوات الحكومية تُسقط مسيرة حوثية في سماء الجوف",
+      "url": "https://yafa-news.net/archives/647496",
+      "source": "www.yafa-news.net",
+      "date": "2026-09-19T09:26:55.218439Z"
+    },
+    {
+      "title": "الحالمي: احترام القرار الجنوبي مدخل أساسي لأي تسوية سياسية مستدامة",
+      "url": "https://yafa-news.net/archives/647494",
+      "source": "www.yafa-news.net",
+      "date": "2026-09-19T09:26:55.218527Z"
+    },
+    {
+      "title": "مسيرة حوثية تهوي بنيران القوات الجنوبية في جبهات الحد بيافع",
+      "url": "https://yafa-news.net/archives/647492",
+      "source": "www.yafa-news.net",
+      "date": "2026-09-19T09:26:55.218615Z"
+    },
+    {
+      "title": "جيميناي يخترق أنظمة شركات أثناء اختبار لقدراته",
+      "url": "https://yafa-news.net/archives/647490",
+      "source": "www.yafa-news.net",
+      "date": "2026-09-19T09:26:55.218702Z"
+    },
+    {
+      "title": "كاتيوشا القوات الجنوبية تدك تجمعات وآليات حوثية في شمال الضالع",
+      "url": "https://yafa-news.net/archives/647488",
+      "source": "www.yafa-news.net",
+      "date": "2026-09-19T09:26:55.218788Z"
+    },
+    {
+      "title": "مجلس الأمن يصعد لهجته ضد الحوثيين.. إدانة لهجمات السعودية ودعوة لقطع شريان السلاح",
+      "url": "https://yafa-news.net/archives/647486",
+      "source": "www.yafa-news.net",
+      "date": "2026-09-19T09:26:55.218873Z"
+    },
+    {
+      "title": "أحوال الطقس باليمن… الأرصاد يحذر من تدفق السيول وتدني الرؤية بسبب الأمطار",
+      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/182415?utm_source=rss&utm_medium=rss&utm_campaign=%25d8%25a3%25d8%25ad%25d9%2588%25d8%25a7%25d9%2584-%25d8%25a7%25d9%2584%25d8%25b7%25d9%2582%25d8%25b3-%25d8%25a8%25d8%25a7%25d9%2584%25d9%258a%25d9%2585%25d9%2586-%25d8%25a7%25d9%2584%25d8%25a3%25d8%25b1%25d8%25b5%25d8%25a7%25d8%25af-%25d9%258a%25d8%25ad%25d8%25b0%25d8%25b1-%25d9%2585%25d9%2586-%25d8%25aa%25d8%25af",
+      "source": "www.yemenmonitor.com",
+      "date": "2026-09-19T09:27:16.999608Z"
+    },
+    {
+      "title": "بعد لقاء مسقط.. مركز دراسات يرصد 3 مسارات محتملة للتفاهم الأمريكي الحوثي",
+      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/182410?utm_source=rss&utm_medium=rss&utm_campaign=%25d8%25b9%25d8%25af-%25d9%2584%25d9%2582%25d8%25a7%25d8%25a1-%25d9%2585%25d8%25b3%25d9%2582%25d8%25b7-%25d9%2585%25d8%25b1%25d9%2583%25d8%25b2-%25d8%25af%25d8%25b1%25d8%25a7%25d8%25b3%25d8%25a7%25d8%25aa-%25d9%258a%25d8%25b1%25d8%25b5%25d8%25af-3-%25d9%2585%25d8%25b3%25d8%25a7%25d8%25b1%25d8%25a7%25d8%25aa-%25d9%2585",
+      "source": "www.yemenmonitor.com",
+      "date": "2026-09-19T09:27:16.999735Z"
+    },
+    {
+      "title": "الزواج المؤجل في اليمن.. 12 عامًا من الانتظار وسط تراجع الدخل وارتفاع التكاليف",
+      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/182404?utm_source=rss&utm_medium=rss&utm_campaign=%25d8%25a7%25d9%2584%25d8%25b2%25d9%2588%25d8%25a7%25d8%25ac-%25d8%25a7%25d9%2584%25d9%2585%25d8%25a4%25d8%25ac%25d9%2584-%25d9%2581%25d9%258a-%25d8%25a7%25d9%2584%25d9%258a%25d9%2585%25d9%2586-12-%25d8%25b9%25d8%25a7%25d9%2585%25d9%258b%25d8%25a7-%25d9%2585%25d9%2586-%25d8%25a7%25d9%2584%25d8%25a7%25d9%2586%25d8%25aa",
+      "source": "www.yemenmonitor.com",
+      "date": "2026-09-19T09:27:16.999829Z"
+    },
+    {
+      "title": "منظمات دولية تدق ناقوس الخطر بشأن النزوح والأوضاع الصحية في اليمن",
+      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/182401?utm_source=rss&utm_medium=rss&utm_campaign=%25d9%2585%25d9%2586%25d8%25b8%25d9%2585%25d8%25a7%25d8%25aa-%25d8%25af%25d9%2588%25d9%2584%25d9%258a%25d8%25a9-%25d8%25aa%25d8%25af%25d9%2582-%25d9%2586%25d8%25a7%25d9%2582%25d9%2588%25d8%25b3-%25d8%25a7%25d9%2584%25d8%25ae%25d8%25b7%25d8%25b1-%25d8%25a8%25d8%25b4%25d8%25a3%25d9%2586-%25d8%25a7%25d9%2584%25d9%2586%25d8%25b2",
+      "source": "www.yemenmonitor.com",
+      "date": "2026-09-19T09:27:16.999919Z"
+    },
+    {
+      "title": "مجلس الأمن يدين هجمات الحوثيين على السعودية ويطالب بوقف التصعيد فوراً",
+      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/182398?utm_source=rss&utm_medium=rss&utm_campaign=%25d9%2585%25d8%25ac%25d9%2584%25d8%25b3-%25d8%25a7%25d9%2584%25d8%25a3%25d9%2585%25d9%2586-%25d9%258a%25d8%25af%25d9%258a%25d9%2586-%25d9%2587%25d8%25ac%25d9%2585%25d8%25a7%25d8%25aa-%25d8%25a7%25d9%2584%25d8%25ad%25d9%2588%25d8%25ab%25d9%258a%25d9%258a%25d9%2586-%25d8%25b9%25d9%2584%25d9%2589-%25d8%25a7%25d9%2584%25d8%25b3",
+      "source": "www.yemenmonitor.com",
+      "date": "2026-09-19T09:27:17.000026Z"
+    },
+    {
+      "title": "أعضاء مجلس الأمن يشددون على ضرورة التطبيق الكامل للقرار رقم 2216 ويجددون دعمهم للحكومة اليمنية",
+      "url": "https://albiladn.net/news/102915/",
+      "source": "albiladn.net",
+      "date": "2026-09-19T09:27:19.158440Z"
+    },
+    {
+      "title": "مركز الملك سلمان للإغاثة يموّل توزيع 362 كرتونًا غذائيًا لـ1,849 نازحًا في لحج",
+      "url": "https://albiladn.net/news/102897/",
+      "source": "albiladn.net",
+      "date": "2026-09-19T09:27:19.158916Z"
+    },
+    {
+      "title": "أزمة سيولة وتدافع أمام البنوك تعطل الحركة التجارية في تعز",
+      "url": "https://taiztoday.net/2026/09/13/%d8%a3%d8%b2%d9%85%d8%a9-%d8%b3%d9%8a%d9%88%d9%84%d8%a9-%d9%88%d8%aa%d8%af%d8%a7%d9%81%d8%b9-%d8%a3%d9%85%d8%a7%d9%85-%d8%a7%d9%84%d8%a8%d9%86%d9%88%d9%83-%d8%aa%d8%b9%d8%b7%d9%84-%d8%a7%d9%84%d8%ad/",
+      "source": "taiztoday.net",
+      "date": "2026-09-19T09:27:26.232796Z"
+    },
+    {
+      "title": "مجلس الأمن يدين تصعيد الحوثيين ويحذر من تهديد الملاحة الدولية",
+      "url": "https://www.adngad.net/news/882101",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.815365Z"
+    },
+    {
+      "title": "الامطار تخلف أضرار في طريق النقبة – عزان بشبوة",
+      "url": "https://www.adngad.net/news/882100",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.815487Z"
+    },
+    {
+      "title": "جنيف: الأمم المتحدة تطالب بـ5.1 مليون دولار لدعم اللاجئين اليمنيين في جيبوتي",
+      "url": "https://www.adngad.net/news/882099",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.815579Z"
+    },
+    {
+      "title": "أمين عام محلي الشحر يقدم واجب العزاء لأسرة المقدم ناصر بن سالم السعيدي",
+      "url": "https://www.adngad.net/news/882098",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.815668Z"
+    },
+    {
+      "title": "أكثر من 10 ملايين شخص تلقوا مساعدات إنسانية منذ مطلع 2026",
+      "url": "https://www.adngad.net/news/882097",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.815757Z"
+    },
+    {
+      "title": "غارات جوية تستهدف تجمعات وآليات حوثية جنوب مأرب",
+      "url": "https://www.adngad.net/news/882096",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.815845Z"
+    },
+    {
+      "title": "في الذكرى الأولى لاغتيال افتهان المشهري.. مرصد حقوقي يطالب باستكمال إجراءات العدالة وتنفيذ الأحكام في تعز",
+      "url": "https://www.adngad.net/news/882095",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.815931Z"
+    },
+    {
+      "title": "31 قتيلا حصيلة ضحايا هجوم على مقر للشرطة في باكستان",
+      "url": "https://www.adngad.net/news/882094",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.816038Z"
+    },
+    {
+      "title": "النفط الكويتي ينخفض بأكثر من 5 دولارات للبرميل",
+      "url": "https://www.adngad.net/news/882093",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.816128Z"
+    },
+    {
+      "title": "المجر: نرفض الاعتداءات الحوثية واستهداف المدنيين والبنية التحتية والأماكن المقدسة",
+      "url": "https://www.adngad.net/news/882092",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.816217Z"
+    },
+    {
+      "title": "اجتماع بعدن يناقش ادماج التغذية في خطط التعافي والتنمية الاقتصادية",
+      "url": "https://www.adngad.net/news/882091",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.816304Z"
+    },
+    {
+      "title": "الأرصاد تتوقّع طقساً شديد الحرارة في السواحل والصحاري ومعتدلاً وأمطاراً رعدية في المرتفعات الجبلية",
+      "url": "https://www.adngad.net/news/882090",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.816392Z"
+    },
+    {
+      "title": "الوكيل الشبحي يدشن ورشة مناقشة وإقرار المكونات الأساسية لتحديث برنامج القبالة التقنية",
+      "url": "https://www.adngad.net/news/882089",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.816479Z"
+    },
+    {
+      "title": "مكتب مؤتمر حضرموت الجامع والسلطة المحلية في دوعن يناقشان عددًا من القضايا الخدمية والأمنية بالمديرية",
+      "url": "https://www.adngad.net/news/882088",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.816565Z"
+    },
+    {
+      "title": "الغيثي: الجنوب لا يحتاج إلى تطمينات الحوثيين واستعدادات المواجهة تجري على قدم وساق",
+      "url": "https://www.adngad.net/news/882087",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.816651Z"
+    },
+    {
+      "title": "السقلدي: الحوثيون أمام جبهة جديدة في صنعاء ولم يعودوا آمنين",
+      "url": "https://www.adngad.net/news/882086",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.816744Z"
+    },
+    {
+      "title": "غدًا الأحد.. انطلاق اختبارات القبول والمفاضلة\nنحو 1000 طالب وطالبة يتنافسون على مقاعد التعليم الفني بالعاصمة عدن",
+      "url": "https://www.adngad.net/news/882085",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.816828Z"
+    },
+    {
+      "title": "قوات درع الوطن تعلن إسقاط طائرة مسيّرة حوثية في الجوف",
+      "url": "https://www.adngad.net/news/882084",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.816915Z"
+    },
+    {
+      "title": "وزارة الأوقاف ترد على تصريحات مفتي سلطنة عمان بشأن الوضع في اليمن",
+      "url": "https://www.adngad.net/news/882082",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.817017Z"
+    },
+    {
+      "title": "الزرقة يرد على «نيوزويك»: اليمن ليس فيتنام.. والسعودية ليست أميركا والحوثيون لا يمثلون اليمنيين",
+      "url": "https://www.adngad.net/news/882083",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.817110Z"
+    },
+    {
+      "title": "وزير الدولة لشؤون المرأة تؤكد من كوريا الجنوبية أن مشاركة المرأة في صناعة السلام حق وشراكة أساسية لبناء السلام المستدام",
+      "url": "https://www.adngad.net/news/882081",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.817199Z"
+    },
+    {
+      "title": "بدعوة من السفارة الصينية وفد اتحاد طلاب جامعة عدن يغادر إلى جمهورية الصين الشعبية في رحلة ثقافية وشبابية",
+      "url": "https://www.adngad.net/news/882080",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.817288Z"
+    },
+    {
+      "title": "الاتحاد الأوروبي يرفع جاهزية «أسبيدس» ويدين التصعيد الحوثي ضد السعودية",
+      "url": "https://www.adngad.net/news/882079",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.817374Z"
+    },
+    {
+      "title": "مهنا الحبيل: خلافات القوى اليمنية تؤذي الجبهات.. وفرص الشرعية كبيرة في مواجهة الحوثيين",
+      "url": "https://www.adngad.net/news/882078",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.817461Z"
+    },
+    {
+      "title": "البيضاني: بيان يحيى سريع يكشف تهديدًا داخل الدائرة الأمنية للحوثيين وتصاعد الخلافات بين أجنحتها",
+      "url": "https://www.adngad.net/news/882077",
+      "source": "www.adngad.net",
+      "date": "2026-09-19T09:27:46.817548Z"
+    },
+    {
+      "title": "6 خرافات شائعة عن فحص سرطان البروستاتا",
+      "url": "https://crater-news.net/%d9%85%d9%86%d9%88%d8%b9%d8%a7%d8%aa/%d8%b7%d8%a8-%d9%88%d8%b5%d8%ad%d8%a9/290826/",
+      "source": "crater-news.net",
+      "date": "2026-09-19T09:27:47.555631Z"
+    },
+    {
+      "title": "تنفيذية انتقالي المحفد تقف أمام التحديات الأمنية والخدمية بالمديرية",
+      "url": "https://crater-news.net/%d8%a7%d9%84%d8%ac%d9%86%d9%88%d8%a8-%d8%a7%d9%84%d8%b9%d8%b1%d8%a8%d9%8a/290821/",
+      "source": "crater-news.net",
+      "date": "2026-09-19T09:27:47.555756Z"
+    },
+    {
+      "title": "الفضاء.. مصنع للدواء في المستقبل",
+      "url": "https://crater-news.net/%d9%85%d9%86%d9%88%d8%b9%d8%a7%d8%aa/%d8%a2%d8%af%d8%a7%d8%a8-%d9%88%d9%81%d9%86%d9%88%d9%86/290819/",
+      "source": "crater-news.net",
+      "date": "2026-09-19T09:27:47.555849Z"
+    },
+    {
+      "title": "انهيار شبكة الكهرباء في كوبا مجدداً والظلام يعم الجزيرة",
+      "url": "https://crater-news.net/%d8%b9%d8%b1%d8%a8%d9%8a%d8%a9-%d9%88%d8%af%d9%88%d9%84%d9%8a%d8%a9/%d8%af%d9%88%d9%84%d9%8a%d8%a9/290817/",
+      "source": "crater-news.net",
+      "date": "2026-09-19T09:27:47.555938Z"
+    },
+    {
+      "title": "بعد عقوبات روسيا.. زيلينسكي يشكر ترامب وأعضاء الكونغرس",
+      "url": "https://crater-news.net/%d8%b9%d8%b1%d8%a8%d9%8a%d8%a9-%d9%88%d8%af%d9%88%d9%84%d9%8a%d8%a9/%d8%af%d9%88%d9%84%d9%8a%d8%a9/290815/",
+      "source": "crater-news.net",
+      "date": "2026-09-19T09:27:47.556046Z"
+    },
+    {
+      "title": "غزة.. عودة 700 ألف طالب إلى التعليم بعد 3 سنوات من الحرب",
+      "url": "https://crater-news.net/%d8%b9%d8%b1%d8%a8%d9%8a%d8%a9-%d9%88%d8%af%d9%88%d9%84%d9%8a%d8%a9/%d8%b9%d8%b1%d8%a8%d9%8a%d8%a9/290813/",
+      "source": "crater-news.net",
+      "date": "2026-09-19T09:27:47.556135Z"
+    },
+    {
+      "title": "ترامب يدافع عن مساهمة ملياردير روسي في تكاليف حفل زفاف ابنه",
+      "url": "https://crater-news.net/%d8%b9%d8%b1%d8%a8%d9%8a%d8%a9-%d9%88%d8%af%d9%88%d9%84%d9%8a%d8%a9/%d8%af%d9%88%d9%84%d9%8a%d8%a9/290811/",
+      "source": "crater-news.net",
+      "date": "2026-09-19T09:27:47.556223Z"
+    },
+    {
+      "title": "الصين تفاجئ العالم.. سلاح خارق لحماية مقاتلة J-36 من الصواريخ",
+      "url": "https://crater-news.net/%d8%b9%d8%b1%d8%a8%d9%8a%d8%a9-%d9%88%d8%af%d9%88%d9%84%d9%8a%d8%a9/%d8%af%d9%88%d9%84%d9%8a%d8%a9/290808/",
+      "source": "crater-news.net",
+      "date": "2026-09-19T09:27:47.556311Z"
+    },
+    {
+      "title": "سوريا.. قتلى ومصابون جراء انفجار مخزن أسلحة في دير الزور",
+      "url": "https://crater-news.net/%d8%b9%d8%b1%d8%a8%d9%8a%d8%a9-%d9%88%d8%af%d9%88%d9%84%d9%8a%d8%a9/%d8%b9%d8%b1%d8%a8%d9%8a%d8%a9/290805/",
+      "source": "crater-news.net",
+      "date": "2026-09-19T09:27:47.556397Z"
+    },
     {
       "title": "إفتاء ليبيا تدين تصريحات \"الغرياني\" المؤيدة للحوثيين وتؤكد عزلَه شرعاً وقانوناً",
       "url": "https://www.almashhad.news/news/495440",
@@ -2502,504 +3000,6 @@
       "url": "https://www.adngad.net/news/881929",
       "source": "www.adngad.net",
       "date": "2026-09-18T09:38:47.022876Z"
-    },
-    {
-      "title": "القوات المسلحة والمقاومة تتصدى لهجوم حوثي في جبهة الأغبرة بالصبيحة وتسيطر على جبل استراتيجي",
-      "url": "https://www.adngad.net/news/881928",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T09:38:47.022980Z"
-    },
-    {
-      "title": "رد يمني قوي على مفتي ليبيا بشأن الحوثيين وحرب اليمن",
-      "url": "https://www.adngad.net/news/881927",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T09:38:47.023047Z"
-    },
-    {
-      "title": "وزير الأوقاف ينتقد تصريحات مفتي ليبيا بشأن الحوثيين ويدعوه إلى مراجعة موقفه",
-      "url": "https://www.adngad.net/news/881926",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T09:38:47.023168Z"
-    },
-    {
-      "title": "محمد الحميري يوجه رسالة حادة إلى سلطان السامعي: «أي سلطة تمارسها وأنت لا تستطيع إطلاق سجين؟»",
-      "url": "https://www.adngad.net/news/881925",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T09:38:47.023254Z"
-    },
-    {
-      "title": "الإصلاح اليمني في مرمى الفكر الإيراني.. مهنا الحبيل يفتح أخطر ملفات الصراع على الجمهورية والوطن",
-      "url": "https://www.adngad.net/news/881924",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T09:38:47.023324Z"
-    },
-    {
-      "title": "439 أسرة نازحة تستفيد من مساعدات طارئة نفذتها المؤسسة الطبية الميدانية في عدن وأبين",
-      "url": "https://www.adngad.net/news/881923",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T09:38:47.023389Z"
-    },
-    {
-      "title": "لماذا سقطت المخا؟ نصر طه مصطفى يكشف ما وراء المعركة ويحذّر من حرب طويلة",
-      "url": "https://www.adngad.net/news/881922",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T09:38:47.023449Z"
-    },
-    {
-      "title": "وفاة سعيد شيباني الأمين العام للمجلس المحلي بمديرية التواهي",
-      "url": "https://www.adngad.net/news/881921",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T09:38:47.023508Z"
-    },
-    {
-      "title": "السلطة المحلية بزنجبار تبحث مع «دوركاس» احتياجات قطاعات الزراعة والمياه",
-      "url": "https://www.adngad.net/news/881920",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T09:38:47.023570Z"
-    },
-    {
-      "title": "الغيثي: لا تطمينات حوثية تنطلي على الجنوب.. المعركة مستمرة وهزيمة الميليشيا مسؤولية لا تحتمل التردد",
-      "url": "https://www.adngad.net/news/881919",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T09:38:47.023631Z"
-    },
-    {
-      "title": "تصعيد واسع في تعز والساحل.. معارك محتدمة في الوازعية وكهبوب وغارات على مواقع الحوثيين",
-      "url": "https://www.adngad.net/news/881918",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T09:38:47.023692Z"
-    },
-    {
-      "title": "عبدالرحمن الراشد: تواصل واشنطن مع الحوثيين وإيران مقلق.. ومواجهة الحوثي مسؤولية دولية",
-      "url": "https://www.adngad.net/news/881917",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T09:38:47.023750Z"
-    },
-    {
-      "title": "الداخلية الفرنسية تمنع جماهير سان جيرمان من السفر إلى مارسيليا",
-      "url": "https://crater-news.net/%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a%d8%a9/290791/",
-      "source": "crater-news.net",
-      "date": "2026-09-18T09:38:48.076733Z"
-    },
-    {
-      "title": "مشجعون لريال مدريد يطالبون مبابي بالاعتذار بسبب قميص دعم سبتة",
-      "url": "https://crater-news.net/%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a%d8%a9/290788/",
-      "source": "crater-news.net",
-      "date": "2026-09-18T09:38:48.076839Z"
-    },
-    {
-      "title": "رئيس الاتحاد الإسباني يكشف سبب نقل بطولة كأس السوبر من السعودية إلى تركيا",
-      "url": "https://crater-news.net/%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a%d8%a9/290785/",
-      "source": "crater-news.net",
-      "date": "2026-09-18T09:38:48.076905Z"
-    },
-    {
-      "title": "بيراميدز يهزم الشرقية إنبي ويستعيد صدارة الدوري المصري",
-      "url": "https://crater-news.net/%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a%d8%a9/290782/",
-      "source": "crater-news.net",
-      "date": "2026-09-18T09:38:48.076969Z"
-    },
-    {
-      "title": "قرعة الدور الرابع لكأس الرابطة الإنجليزية تسفر عن مواجهة سهلة لأرسنال واختبار حقيقي لليفربول",
-      "url": "https://crater-news.net/%d8%b1%d9%8a%d8%a7%d8%b6%d9%8a%d8%a9/290779/",
-      "source": "crater-news.net",
-      "date": "2026-09-18T09:38:48.077034Z"
-    },
-    {
-      "title": "جدول مباريات اليوم الجمعة 18 سبتمبر 2026: المواجهات والمواعيد والقنوات الناقلة",
-      "url": "https://www.almashhad.news/news/495296",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.204023Z"
-    },
-    {
-      "title": "أصوات الانفجارات والمضادات تتواصل في صنعاء... ماذا يجري؟ - [فيديو]",
-      "url": "https://www.almashhad.news/news/495295",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.204132Z"
-    },
-    {
-      "title": "\"فخ ومكيدة وسقوط خطير\".. خبير عسكري مصري يكشف أسباب وتداعيات سيطرة الحوثيين على المخا ويفتح النار على \"طارق صالح\" - [فيديو]",
-      "url": "https://www.almashhad.news/news/495294",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.204201Z"
-    },
-    {
-      "title": "اتهامات بالتجسس تهز صفوف الحوثيين.. اعتقال قيادات وسحب هواتفها بالساحل الغربي",
-      "url": "https://www.almashhad.news/news/495293",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.204281Z"
-    },
-    {
-      "title": "وزارة الاوقاف توجه بتخصيص خطبة الجمعة لبيان حرمة الاعتداء على مكة المكرمة",
-      "url": "https://www.almashhad.news/news/495292",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.204346Z"
-    },
-    {
-      "title": "أكاديمي مقرب من رئيس الامارات يفتح النار على القوات الحكومية بعد سقوط الساحل الغربي: بيت من ورق لم تقاوم على الاطلاق",
-      "url": "https://www.almashhad.news/news/495291",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.204407Z"
-    },
-    {
-      "title": "مقتل 3 أطفال بقصف حوثي على قرية غربي تعز",
-      "url": "https://www.almashhad.news/news/495290",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.204467Z"
-    },
-    {
-      "title": "الحوثيون يواصلون الهجوم الانتحاري على جبل كهبوب للسيطرة النارية على محافظة لحج",
-      "url": "https://www.almashhad.news/news/495289",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.204526Z"
-    },
-    {
-      "title": "بيان أوروبي شديد اللهجة ضد الحوثيين",
-      "url": "https://www.almashhad.news/news/495288",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.204585Z"
-    },
-    {
-      "title": "مصرع أمير سابق لأنصار الشريعة في حادث غامض غربي صنعاء بعد انضمامه للحوثيين",
-      "url": "https://www.almashhad.news/news/495287",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.204646Z"
-    },
-    {
-      "title": "مشهد صادم في \"كهبوب\".. حوثي يجرّد جثث زملائه من السلاح ويفِر عقب ضربة مسيّرة [فيديو]",
-      "url": "https://www.almashhad.news/news/495286",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.204704Z"
-    },
-    {
-      "title": "\"وديانها مقبرة لفلوله\".. العمالقة تكشف سر اندفاع الحوثي ونواياه في باب المندب",
-      "url": "https://www.almashhad.news/news/495285",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.204761Z"
-    },
-    {
-      "title": "واشنطن توافق على بيع 48 مقاتلة \"إف-35\" للسعودية بصفقة تتجاوز 24 مليار دولار",
-      "url": "https://www.almashhad.news/news/495284",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.204817Z"
-    },
-    {
-      "title": "مستشار قائد الفرقة الثالثة وركن الطبية يتفقدان جرحى الفرقة في مأرب",
-      "url": "https://www.almashhad.news/news/495283",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.204874Z"
-    },
-    {
-      "title": "\"ثوري إيران\" يعلن استهداف ناقلة نفط حاولت عبور مضيق هرمز",
-      "url": "https://www.almashhad.news/news/495282",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.204931Z"
-    },
-    {
-      "title": "أسعار الذهب اليوم في مصر الجمعة 18 سبتمبر 2026.. استقرار الأعيرة وعيار 21 يسجل هذا الرقم",
-      "url": "https://www.almashhad.news/news/495281",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.204988Z"
-    },
-    {
-      "title": "قائد مقاومة الجوف يوجه رسالة هامة بشأن اجتماع قبلي عقد في صنعاء لـ اسقاط مارب",
-      "url": "https://www.almashhad.news/news/495280",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.205044Z"
-    },
-    {
-      "title": "القوات المسلحة تكبد مليشيا الحوثي أكثر من 90 قتيلاً وجريحاً وتدمر آلياتها غربي تعز",
-      "url": "https://www.almashhad.news/news/495279",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.205103Z"
-    },
-    {
-      "title": "أنساق متتالية وقصف مدفعي كثيف.. قوات العمالقة ودرع الوطن تحبط أعنف هجوم حوثي في جبهة كهبوب",
-      "url": "https://www.almashhad.news/news/495278",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.205163Z"
-    },
-    {
-      "title": "أسعار الذهب في الأسواق اليمنية اليوم الجمعة 18 سبتمبر 2026",
-      "url": "https://www.almashhad.news/news/495277",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.205223Z"
-    },
-    {
-      "title": "أسعار صرف العملات الأجنبية مقابل الريال اليمني اليوم الجمعة 18 سبتمبر 2026",
-      "url": "https://www.almashhad.news/news/495276",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.205290Z"
-    },
-    {
-      "title": "اشتباكات وتحليق مكثف للطيران الحربي في سماء صنعاء - (فيديو)",
-      "url": "https://www.almashhad.news/news/495275",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T04:57:18.205347Z"
-    },
-    {
-      "title": "عاجل: عدوان إيراني جديد بالصواريخ والمسيرات على دولة خليجية قبل قليل",
-      "url": "https://al-tagheer.com/news456190.html",
-      "source": "www.al-tagheer.com",
-      "date": "2026-09-18T04:57:33.560609Z"
-    },
-    {
-      "title": "عاجل: اول ناقلة نفط سعودية تتحدى قرصنة الحوثيين وتعبر باب المندب بسلام",
-      "url": "https://al-tagheer.com/news456189.html",
-      "source": "www.al-tagheer.com",
-      "date": "2026-09-18T04:57:33.560665Z"
-    },
-    {
-      "title": "نصر طه مصطفى يكشف المصير الذي تنتظره عواصم الخليج وإيران",
-      "url": "https://al-tagheer.com/news456188.html",
-      "source": "www.al-tagheer.com",
-      "date": "2026-09-18T04:57:33.560723Z"
-    },
-    {
-      "title": "عاجل: مكتب المبعوث الأممي يكشف الطرف الذي عطل صفقة التبادل التي كانت مقرره اليوم",
-      "url": "https://al-tagheer.com/news456187.html",
-      "source": "www.al-tagheer.com",
-      "date": "2026-09-18T04:57:33.560781Z"
-    },
-    {
-      "title": "كأس أمم أفريقيا 2025: انطلاق المنافسات",
-      "url": "https://alshahednews.net/article/africa-cup-of-nations-2025-competitions-begin/",
-      "source": "www.alshahednews.net",
-      "date": "2026-09-18T04:57:41.633946Z"
-    },
-    {
-      "title": "الفريق سلطان العرادة: لا شيء سيثنينا عن استعادة الدولة والعاصمة صنعاء",
-      "url": "https://marib360.com/news/1301/",
-      "source": "www.marib360.com",
-      "date": "2026-09-18T04:58:18.072617Z"
-    },
-    {
-      "title": "العرادة: ميليشيا “الحوثي”  لا تؤمن إلا بخيار الحرب والمعركة الوطنية مصيرية للدفاع عن الجمهورية",
-      "url": "https://marib360.com/news/1276/",
-      "source": "www.marib360.com",
-      "date": "2026-09-18T04:58:18.072722Z"
-    },
-    {
-      "title": "اللواء حمد بن صالح بن وهيط",
-      "url": "https://marib360.com/faces/1269/",
-      "source": "www.marib360.com",
-      "date": "2026-09-18T04:58:18.072786Z"
-    },
-    {
-      "title": "اللواء سلطان العرادة يؤكد على حرية الرأي والصحافة في مأرب",
-      "url": "https://marib360.com/news/1263/",
-      "source": "www.marib360.com",
-      "date": "2026-09-18T04:58:18.072846Z"
-    },
-    {
-      "title": "إعادة تشغيل محطة مأرب الغازية بعد ساعات من خروجها عن الخدمة",
-      "url": "https://marib360.com/news/1261/",
-      "source": "www.marib360.com",
-      "date": "2026-09-18T04:58:18.072907Z"
-    },
-    {
-      "title": "شرطة مأرب: “أطباء بلاحدود”  أبلغتنا بعدم حاجتها لأي مرافقة أمنية لموظفيها",
-      "url": "https://marib360.com/news/1256/",
-      "source": "www.marib360.com",
-      "date": "2026-09-18T04:58:18.072967Z"
-    },
-    {
-      "title": "ضمن صفقة تبادل الأسرى.. المقاومة الشعبية تتسلم جثتي أسيرين لدى ميليشيا الحوثي",
-      "url": "https://marib360.com/news/1252/",
-      "source": "www.marib360.com",
-      "date": "2026-09-18T04:58:18.073026Z"
-    },
-    {
-      "title": "مقتل وإصابة 327 مدنياً في محافظة مأرب خلال 7 سنوات جراء ألغام الحوثيين",
-      "url": "https://marib360.com/news/1247/",
-      "source": "www.marib360.com",
-      "date": "2026-09-18T04:58:18.073085Z"
-    },
-    {
-      "title": "مدير مشروع سد مأرب: 21 مليون متر مكعب من المياه دخلت حوض السد خلال يومين",
-      "url": "https://marib360.com/news/1245/",
-      "source": "www.marib360.com",
-      "date": "2026-09-18T04:58:18.073145Z"
-    },
-    {
-      "title": "الفرق الفنية في منشأة صافر تنجح في إصلاح خلل جراء تسرب في أحد أنابيب الغاز",
-      "url": "https://marib360.com/news/1240/",
-      "source": "www.marib360.com",
-      "date": "2026-09-18T04:58:18.073203Z"
-    },
-    {
-      "title": "متحدث المقاومة الوطنية: هذا ما حدث في معارك الساحل في اليمن",
-      "url": "https://nashwannews.com/270390",
-      "source": "www.nashwannews.com",
-      "date": "2026-09-18T04:58:23.001202Z"
-    },
-    {
-      "title": "الصندوق الأسود لمعركة الساحل.. المقاومة الوطنية تكشف حجم الهجوم الحوثي",
-      "url": "https://www.newsyemen.net/news106067.html",
-      "source": "www.newsyemen.net",
-      "date": "2026-09-18T04:58:24.067326Z"
-    },
-    {
-      "title": "مكاسب الحوثيين في البحر الأحمر تعقّد حملة ترامب للضغط على إيران",
-      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/182344?utm_source=rss&utm_medium=rss&utm_campaign=%25d9%2585%25d9%2583%25d8%25a7%25d8%25b3%25d8%25a8-%25d8%25a7%25d9%2584%25d8%25ad%25d9%2588%25d8%25ab%25d9%258a%25d9%258a%25d9%2586-%25d9%2581%25d9%258a-%25d8%25a7%25d9%2584%25d8%25a8%25d8%25ad%25d8%25b1-%25d8%25a7%25d9%2584%25d8%25a3%25d8%25ad%25d9%2585%25d8%25b1-%25d8%25aa%25d8%25b9%25d9%2582%25d9%2591%25d8%25af-%25d8%25ad",
-      "source": "www.yemenmonitor.com",
-      "date": "2026-09-18T04:59:08.001697Z"
-    },
-    {
-      "title": "في أول في أول موقف.. الاتحاد الأفريقي يحذر الحوثيين من تهديد باب المندب ويدين هجماتهم على السعودية",
-      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/182342?utm_source=rss&utm_medium=rss&utm_campaign=%25d9%2581%25d9%258a-%25d8%25a3%25d9%2588%25d9%2584-%25d9%2581%25d9%258a-%25d8%25a3%25d9%2588%25d9%2584-%25d9%2585%25d9%2588%25d9%2582%25d9%2581-%25d9%2584%25d9%2587-%25d9%2585%25d9%2586-%25d8%25a7%25d9%2584%25d8%25aa%25d8%25b5%25d8%25b9%25d9%258a%25d8%25af-%25d8%25a7%25d9%2584%25d8%25a3%25d8%25ae%25d9%258a%25d8%25b1",
-      "source": "www.yemenmonitor.com",
-      "date": "2026-09-18T04:59:08.001800Z"
-    },
-    {
-      "title": "«تركنا كل شيء خلفنا»: نزوح 125 ألف شخص بعد سيطرة الحوثيين على الساحل الغربي لليمن",
-      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/182338?utm_source=rss&utm_medium=rss&utm_campaign=%25d8%25aa%25d8%25b1%25d9%2583%25d9%2586%25d8%25a7-%25d9%2583%25d9%2584-%25d8%25b4%25d9%258a%25d8%25a1-%25d8%25ae%25d9%2584%25d9%2581%25d9%2586%25d8%25a7-%25d9%2586%25d8%25b2%25d9%2588%25d8%25ad-125-%25d8%25a3%25d9%2584%25d9%2581-%25d8%25b4%25d8%25ae%25d8%25b5-%25d8%25a8%25d8%25b9%25d8%25af-%25d8%25b3",
-      "source": "www.yemenmonitor.com",
-      "date": "2026-09-18T04:59:08.001868Z"
-    },
-    {
-      "title": "إلى أي مدى ستذهب مصر لمساعدة السعودية في تأمين البحر الأحمر؟",
-      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/182334?utm_source=rss&utm_medium=rss&utm_campaign=%25d8%25a5%25d9%2584%25d9%2589-%25d8%25a3%25d9%258a-%25d9%2585%25d8%25af%25d9%2589-%25d8%25b3%25d8%25aa%25d8%25b0%25d9%2587%25d8%25a8-%25d9%2585%25d8%25b5%25d8%25b1-%25d9%2584%25d9%2585%25d8%25b3%25d8%25a7%25d8%25b9%25d8%25af%25d8%25a9-%25d8%25a7%25d9%2584%25d8%25b3%25d8%25b9%25d9%2588%25d8%25af%25d9%258a%25d8%25a9-%25d9%2581",
-      "source": "www.yemenmonitor.com",
-      "date": "2026-09-18T04:59:08.001934Z"
-    },
-    {
-      "title": "4 أشهر على انسحاب القوات المسلحة الجنوبية من حضرموت: ما الذي تحقق؟",
-      "url": "https://almahranews.com/archives/27478",
-      "source": "almahranews.com",
-      "date": "2026-09-18T04:59:20.938070Z"
-    },
-    {
-      "title": "كيف نجح المجلس الانتقالي الجنوبي في تثبيت قواعده رغم محاولات التفكيك",
-      "url": "https://almahranews.com/archives/27476",
-      "source": "almahranews.com",
-      "date": "2026-09-18T04:59:20.938172Z"
-    },
-    {
-      "title": "تنفيذية انتقالي المهرة تعقد اجتماعها الدوري لشهر مارس",
-      "url": "https://almahranews.com/archives/27474",
-      "source": "almahranews.com",
-      "date": "2026-09-18T04:59:20.938239Z"
-    },
-    {
-      "title": "المجلس الانتقالي الجنوبي ورهانات المرحلة المقبلة في حماية أمن المنطقة",
-      "url": "https://almahranews.com/archives/27460",
-      "source": "almahranews.com",
-      "date": "2026-09-18T04:59:20.938472Z"
-    },
-    {
-      "title": "ناقش إبرز المستجدات السياسية وترتيبات اللقاء الموسع .. الزامكي يرأس اجتماعاً استثنائياً لرؤساء القيادة المحلية بمديريات العاصمة عدن",
-      "url": "https://almahranews.com/archives/27458",
-      "source": "almahranews.com",
-      "date": "2026-09-18T04:59:20.938532Z"
-    },
-    {
-      "title": "الأمانة العامة تعاود عملها من مقرها وتحذر من تمكين قوى الإرهاب",
-      "url": "https://almahranews.com/archives/27455",
-      "source": "almahranews.com",
-      "date": "2026-09-18T04:59:20.938591Z"
-    },
-    {
-      "title": "بيان صادر عن الهيئة التنفيذية للقيادة المحلية للمجلس الانتقالي الجنوبي بمحافظة المهرة",
-      "url": "https://almahranews.com/archives/27452",
-      "source": "almahranews.com",
-      "date": "2026-09-18T04:59:20.938650Z"
-    },
-    {
-      "title": "وزير الخدمة المدنية والتامينات يبحث مع محافظ لحج معالجة أوضاع المتعاقدين والاحتياج الوظيفي.",
-      "url": "https://www.adngad.net/news/881916",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T04:59:56.688518Z"
-    },
-    {
-      "title": "جامعة سيئون تتجه نحو توفير  مظلة للتأمين الصحي لمنتسبيها وأسرهم",
-      "url": "https://www.adngad.net/news/881915",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T04:59:56.688622Z"
-    },
-    {
-      "title": "الغذاء العالمي يطلب 274 مليون دولار لمواصلة مساعداته في اليمن",
-      "url": "https://www.adngad.net/news/881914",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T04:59:56.688689Z"
-    },
-    {
-      "title": "كلية الحاسبات بجامعة سيئون تبحث مع إدارة التوجيه المعنوي بشرطة الوادي والصحراء توظيف التكنولوجيا في خدمة العمل الأمني والمجتمع",
-      "url": "https://www.adngad.net/news/881913",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T04:59:56.688752Z"
-    },
-    {
-      "title": "العرش بطلاً لتصفيات الدرجة الثالثة لكرة القدم بمأرب بعد فوزه على الوحدة بخماسية",
-      "url": "https://www.adngad.net/news/881912",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T04:59:56.688813Z"
-    },
-    {
-      "title": "مدير عام تريم يلتقي مدير عام حماية البيئة لمناقشة منع استخدام مياه الصرف الصحي في ري المزروعات",
-      "url": "https://www.adngad.net/news/881911",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T04:59:56.688874Z"
-    },
-    {
-      "title": "الوكيل بارباع يطلع على نتائج نزول الوحدة التنفيذية وحصر احتياجات النازحين بمديرية العبر",
-      "url": "https://www.adngad.net/news/881910",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T04:59:56.688934Z"
-    },
-    {
-      "title": "وكيل المحافظة يلتقي فريق الروبوت والذكاء الاصطناعي بثانوية سيف بن ذي يزن بالقطن",
-      "url": "https://www.adngad.net/news/881909",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T04:59:56.688994Z"
-    },
-    {
-      "title": "الأردن وفرنسا يطالبان إسرائيل بالانسحاب من أراضي سوريا",
-      "url": "https://www.adngad.net/news/881908",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T04:59:56.689054Z"
-    },
-    {
-      "title": "ميركل: ثروة بيل غيتس منحته نفوذا سياسيا ومكنته من الضغط على الحكومات",
-      "url": "https://www.adngad.net/news/881907",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T04:59:56.689112Z"
-    },
-    {
-      "title": "علماء روس يطورون دواء من الشيح لمواجهة سلالات خطيرة من فيروس الإنفلونزا",
-      "url": "https://www.adngad.net/news/881906",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T04:59:56.689173Z"
-    },
-    {
-      "title": "السيسي يحذر المصريين : ما حدث في 2011 لم ينته بعد .. ومصر الناجي الوحيد بالمنطقة",
-      "url": "https://www.adngad.net/news/881905",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T04:59:56.689232Z"
-    },
-    {
-      "title": "مسؤول أممي: الانتهاكات الإسرائيلية للسيادة السورية يجب أن تتوقف",
-      "url": "https://www.adngad.net/news/881904",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T04:59:56.689303Z"
-    },
-    {
-      "title": "ترامب يعلن عن قرار كبير وحاسم بشأن إيران ينوي مناقشته مع قادة الخليج العرب",
-      "url": "https://www.adngad.net/news/881903",
-      "source": "www.adngad.net",
-      "date": "2026-09-18T04:59:56.689363Z"
-    },
-    {
-      "title": "مجزرة مروعة.. طائرة حوثية مسيرة تبيد أسرة كاملة أثناء نزوحها في حيس بالحديدة",
-      "url": "https://www.almashhad.news/news/495274",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T00:20:13.748742Z"
-    },
-    {
-      "title": "محافظ صعدة: الحوثي لا يمثل أبناء المحافظة ويحوّلها إلى مركز لإدارة الحروب وتهديد دول الجوار والملاحة الدولية",
-      "url": "https://www.almashhad.news/news/495273",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-09-18T00:20:13.748873Z"
     }
   ]
 }
