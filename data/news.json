@@ -1,6 +1,354 @@
 {
-  "lastUpdated": "2026-10-18T22:01:05.028960Z",
+  "lastUpdated": "2026-10-19T00:10:43.179098Z",
   "articles": [
+    {
+      "title": "أمن عدن ينفذ انتشاراً واسعاً لضبط المخالفين وتعزيز الاستقرار",
+      "url": "https://www.almashhad.news/news/501205",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-10-19T00:08:29.410092Z"
+    },
+    {
+      "title": "المقاومة الوطنية تكشف حقيقة الإفراج الحوثي عن أسرى \"الساحل الغربي\"",
+      "url": "https://www.almashhad.news/news/501204",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-10-19T00:08:29.410197Z"
+    },
+    {
+      "title": "أنباء عن منع دخول الوقود عبر نقطة «سوق نجد قسيم» بتعز.. ومواطنون يطالبون بحلول عاجلة",
+      "url": "https://www.almashhad.news/news/501203",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-10-19T00:08:29.410264Z"
+    },
+    {
+      "title": "تحذيرات من رفد خزينة الجماعة.. صحفي يمني ينبه لخطورة تدفق السلع عبر الموانئ لسياسة ميليشيا الحوثي",
+      "url": "https://www.almashhad.news/news/501202",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-10-19T00:08:29.410328Z"
+    },
+    {
+      "title": "تصعيد عسكري شرقي تعز.. القوات الحكومية تشن هجوماً على مواقع مليشيا الحوثي في صبر",
+      "url": "https://www.almashhad.news/news/501201",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-10-19T00:08:29.410389Z"
+    },
+    {
+      "title": "قرار وزاري بتعيين العقيد أحمد أمعبد مساعداً لمدير الدائرة المالية بوزارة الدفاع",
+      "url": "https://www.almashhad.news/news/501200",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-10-19T00:08:29.410469Z"
+    },
+    {
+      "title": "مواجهات حاسمة بباب المندب.. أسر قيادات من مليشيا الحوثي وتقدم ميداني واسع",
+      "url": "https://www.almashhad.news/news/501199",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-10-19T00:08:29.410530Z"
+    },
+    {
+      "title": "خطط جديدة للحد من الاختناقات المرورية في عدن.. اجتماع لقيادات الطرق وشرطة السير يُقر إشارات جديدة",
+      "url": "https://www.almashhad.news/news/501198",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-10-19T00:08:29.410590Z"
+    },
+    {
+      "title": "شرطة عدن تضبط باصاً تسبب بحادث دهس أودى بحياة أم وابنتها في لحج",
+      "url": "https://www.almashhad.news/news/501197",
+      "source": "www.almashhad-alyemeni.com",
+      "date": "2026-10-19T00:08:29.410648Z"
+    },
+    {
+      "title": "ياسر اليافعي يكاشف الجنوبيين وهذا ما فعلته الضالع وسبب الكارثة",
+      "url": "https://al-tagheer.com/news456199.html",
+      "source": "www.al-tagheer.com",
+      "date": "2026-10-19T00:08:45.013284Z"
+    },
+    {
+      "title": "عاجل: الفضائح تتوالى في ملف الابتعاث وارقام جديدة واسماء عائلات دمرت مستقبل شباب اليمن",
+      "url": "https://al-tagheer.com/news456198.html",
+      "source": "www.al-tagheer.com",
+      "date": "2026-10-19T00:08:45.013347Z"
+    },
+    {
+      "title": "عاجل: هجمات على منشئات نفطية سعودية لكن هذه المرة ليست من إيران ولا اليمن",
+      "url": "https://al-tagheer.com/news456197.html",
+      "source": "www.al-tagheer.com",
+      "date": "2026-10-19T00:08:45.013406Z"
+    },
+    {
+      "title": "عاجل: بيانات ملاحية تكشف مصير ناقلة نفط ضخمة بعد مغادرة موانئ السعودية اليوم",
+      "url": "https://al-tagheer.com/news456196.html",
+      "source": "www.al-tagheer.com",
+      "date": "2026-10-19T00:08:45.013478Z"
+    },
+    {
+      "title": "قوة عسكرية تقتحم مبنى نقابة عمال الجنوب في عدن دون توضيح الأسباب",
+      "url": "https://al-tagheer.com/news456195.html",
+      "source": "www.al-tagheer.com",
+      "date": "2026-10-19T00:08:45.013538Z"
+    },
+    {
+      "title": "الحكومة تناقش خطط مواجهة تهديدات الحوثيين للملاحة في البحر الأحمر",
+      "url": "https://al-tagheer.com/news456194.html",
+      "source": "www.al-tagheer.com",
+      "date": "2026-10-19T00:08:45.013596Z"
+    },
+    {
+      "title": "تسريبات تكشف عن خطة سلام جديدة مقترحة للتهدئة في اليمن",
+      "url": "https://al-tagheer.com/news456192.html",
+      "source": "www.al-tagheer.com",
+      "date": "2026-10-19T00:08:45.013655Z"
+    },
+    {
+      "title": "ثلاثة نقاط هامة في قرارات رشاد العليمي خلال الساعات الماضية",
+      "url": "https://al-tagheer.com/news456193.html",
+      "source": "www.al-tagheer.com",
+      "date": "2026-10-19T00:08:45.013712Z"
+    },
+    {
+      "title": "خليجي الناشئين: اليمن يتجاوز العراق",
+      "url": "https://almushahid.net/145219/",
+      "source": "www.almushahid.net",
+      "date": "2026-10-19T00:08:54.325717Z"
+    },
+    {
+      "title": "سلطات عدن: استهداف الأعيان المدنية يجعل السلام مع الحوثيين مستحيلًا",
+      "url": "https://almushahid.net/145173/",
+      "source": "www.almushahid.net",
+      "date": "2026-10-19T00:08:54.325917Z"
+    },
+    {
+      "title": "فيديو: تعز.. موعد يتجدد مع الحصار",
+      "url": "https://almushahid.net/145159/",
+      "source": "www.almushahid.net",
+      "date": "2026-10-19T00:08:54.325972Z"
+    },
+    {
+      "title": "تحذير من نفاد المخزون الغذائي في تعز",
+      "url": "https://almushahid.net/145154/",
+      "source": "www.almushahid.net",
+      "date": "2026-10-19T00:08:54.326027Z"
+    },
+    {
+      "title": "مساجد بلا مصلين.. رفض شعبي لمحاولات الحوثيين توظيف المنابر في ريف تعز",
+      "url": "https://almushahid.net/145149/",
+      "source": "www.almushahid.net",
+      "date": "2026-10-19T00:08:54.326084Z"
+    },
+    {
+      "title": "حرب الشائعات والتضليل على تعز",
+      "url": "https://almushahid.net/145124/",
+      "source": "www.almushahid.net",
+      "date": "2026-10-19T00:08:54.326139Z"
+    },
+    {
+      "title": "استذكروا دوركم في مأساة تعز اليوم",
+      "url": "https://nashwannews.com/270427",
+      "source": "www.nashwannews.com",
+      "date": "2026-10-19T00:09:44.770784Z"
+    },
+    {
+      "title": "كلمة وشهادة حق لموقف الرئيس",
+      "url": "https://nashwannews.com/270421",
+      "source": "www.nashwannews.com",
+      "date": "2026-10-19T00:09:44.771068Z"
+    },
+    {
+      "title": "تقدم متوصل للقوات الحكومية في أول أيام عملية فجر اليمن",
+      "url": "https://nashwannews.com/270420",
+      "source": "www.nashwannews.com",
+      "date": "2026-10-19T00:09:44.771126Z"
+    },
+    {
+      "title": "بيان قبلي في مأرب يدعم النفير العام ويدين الهجمات الحوثية على السعودية",
+      "url": "https://nashwannews.com/270419",
+      "source": "www.nashwannews.com",
+      "date": "2026-10-19T00:09:44.771183Z"
+    },
+    {
+      "title": "بعد إعلان العليمي بدء العمليات العسكرية.. اليمنيون يخوضون معركتهم الأخيرة مع مشروع الإمامة!",
+      "url": "https://nashwannews.com/270418",
+      "source": "www.nashwannews.com",
+      "date": "2026-10-19T00:09:44.771239Z"
+    },
+    {
+      "title": "قوات الجيش اليمني تستعيد السيطرة على المخا بعد تحرير باب المندب",
+      "url": "https://nashwannews.com/270417",
+      "source": "www.nashwannews.com",
+      "date": "2026-10-19T00:09:44.771294Z"
+    },
+    {
+      "title": "التحالف يعلن عملية فجر اليمن: إسناد متواصل للقوات الحكومية",
+      "url": "https://nashwannews.com/270416",
+      "source": "www.nashwannews.com",
+      "date": "2026-10-19T00:09:44.771349Z"
+    },
+    {
+      "title": "الثابتون.. في لحظة عصيبة!",
+      "url": "https://nashwannews.com/270415",
+      "source": "www.nashwannews.com",
+      "date": "2026-10-19T00:09:44.771404Z"
+    },
+    {
+      "title": "لا تخذلوا تعز بسوء التقدير!",
+      "url": "https://nashwannews.com/270410",
+      "source": "www.nashwannews.com",
+      "date": "2026-10-19T00:09:44.771550Z"
+    },
+    {
+      "title": "قمة سعودية إماراتية في أبوظبي تناقش الأوضاع الإقليمية وأولويات المرحلة",
+      "url": "https://www.yemenmonitor.com/Details/ArtMID/908/ArticleID/185247?utm_source=rss&utm_medium=rss&utm_campaign=%25d9%2582%25d9%2585%25d8%25a9-%25d8%25b3%25d8%25b9%25d9%2588%25d8%25af%25d9%258a%25d8%25a9-%25d8%25a5%25d9%2585%25d8%25a7%25d8%25b1%25d8%25a7%25d8%25aa%25d9%258a%25d8%25a9-%25d9%2581%25d9%258a-%25d8%25a3%25d8%25a8%25d9%2588%25d8%25b8%25d8%25a8%25d9%258a-%25d8%25aa%25d9%2586%25d8%25a7%25d9%2582%25d8%25b4-%25d8%25a7%25d9%2584",
+      "source": "www.yemenmonitor.com",
+      "date": "2026-10-19T00:10:12.178088Z"
+    },
+    {
+      "title": "الطيران المسيّر لقوات دفاع شبوة يستهدف مواقع للحوثيين في أربع جبهات",
+      "url": "https://www.adngad.net/news/889858",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.892362Z"
+    },
+    {
+      "title": "مركز الملك سلمان للإغاثة يواصل تقديم المساعدات الإيوائية العاجلة في مخيمات العبر بحضرموت",
+      "url": "https://www.adngad.net/news/889857",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.892487Z"
+    },
+    {
+      "title": "مدير عام الشحر يناقش مع وكيل وصية الراشد التدخلات التنموية وتعزيز الشراكة مع السلطة المحلية",
+      "url": "https://www.adngad.net/news/889856",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.892556Z"
+    },
+    {
+      "title": "هبوط اضطراري لطائرة نمساوية قادمة من تل أبيب في صوفيا للاشتباه بوجود عبوة ناسفة",
+      "url": "https://www.adngad.net/news/889855",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.892620Z"
+    },
+    {
+      "title": "خطوة عسكرية إسرائيلية خطيرة على قمة جبل العرب في عمق الجنوب السوري",
+      "url": "https://www.adngad.net/news/889854",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.892681Z"
+    },
+    {
+      "title": "قتلى وجرحى في حادث خطير بقاعدة عسكرية في كندا",
+      "url": "https://www.adngad.net/news/889853",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.892740Z"
+    },
+    {
+      "title": "الخارجية السورية تستنكر تصاعد التوغلات الإسرائيلية في القنيطرة ودرعا",
+      "url": "https://www.adngad.net/news/889852",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.892800Z"
+    },
+    {
+      "title": "ترامب يدعو السلطات الفرنسية للسيطرة على الاحتجاجات قبل فوات الأوان",
+      "url": "https://www.adngad.net/news/889851",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.892859Z"
+    },
+    {
+      "title": "عدد المعتقلين في احتجاجات فرنسا يتجاوز 2000 شخص",
+      "url": "https://www.adngad.net/news/889850",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.892917Z"
+    },
+    {
+      "title": "لافروف : الوضع في الشرق الأوسط يقف على حافة حرب شاملة",
+      "url": "https://www.adngad.net/news/889849",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.892975Z"
+    },
+    {
+      "title": "وفاة عسكري أمريكي إثر سقوطه من سقف ملعب خلال عرض استعراضي قبل مباراة كرة قدم",
+      "url": "https://www.adngad.net/news/889848",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.893032Z"
+    },
+    {
+      "title": "وفاة كاهن بعد سقوط صليب ضخم عليه خلال بث مباشر للقداس",
+      "url": "https://www.adngad.net/news/889847",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.893091Z"
+    },
+    {
+      "title": "العميد أحمد علي الدماني يعزي آل العيسي بوفاة اللواء الدكتور سالم صالح العيسي",
+      "url": "https://www.adngad.net/news/889846",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.893156Z"
+    },
+    {
+      "title": "وزيرا خارجية روسيا والسعودية يبحثان العلاقات الثنائية بين البلدين وأمن الملاحة في الخليج",
+      "url": "https://www.adngad.net/news/889845",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.893217Z"
+    },
+    {
+      "title": "دبي: الناتج المحلي الإجمالي قارب نصف تريليون درهم في النصف الأول من 2026",
+      "url": "https://www.adngad.net/news/889844",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.893275Z"
+    },
+    {
+      "title": "روبيو: واشنطن تتفق مع تصريحات لندن حول مسؤولية طهران عن الهجوم على قاعدة \"فيرفورد\"",
+      "url": "https://www.adngad.net/news/889843",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.893333Z"
+    },
+    {
+      "title": "الحكومة الفرنسية واقعة بين مطرقة الاحتجاجات الواسعة وسندان الإجراءات التقشفية",
+      "url": "https://www.adngad.net/news/889842",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.893391Z"
+    },
+    {
+      "title": "عدوى فرنسية .. أحداث شغب ونهب بمدينة ميلانو الإيطالية تسفر عن عشرات المصابين وتوقيف 50 شخصا",
+      "url": "https://www.adngad.net/news/889841",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.893460Z"
+    },
+    {
+      "title": "ماكرون يتوعد بملاحقة ومعاقبة المتورطين في أعمال شغب ونهب خلال الاحتجاجات في فرنسا",
+      "url": "https://www.adngad.net/news/889840",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.893519Z"
+    },
+    {
+      "title": "البيت الأبيض يوضح سبب رفض ترامب تطبيق العقوبات المقررة ضد روسيا",
+      "url": "https://www.adngad.net/news/889839",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.893577Z"
+    },
+    {
+      "title": "مجلس الشورى اليمني يرحب بموقف القيادة المصرية الداعم لأمن المملكة العربية السعودية",
+      "url": "https://www.adngad.net/news/889838",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.893634Z"
+    },
+    {
+      "title": "افتتاح مكتب الأحوال المدنية والسجل المدني في التواهي بعدن",
+      "url": "https://www.adngad.net/news/889837",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.893691Z"
+    },
+    {
+      "title": "سفيرة اليمن تبحث مع مساعد وزير الخارجية الأمريكي مستجدات الأوضاع في ظل التصعيد الحوثي المستمر",
+      "url": "https://www.adngad.net/news/889836",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.893748Z"
+    },
+    {
+      "title": "\"عُشيش\" يهنئ \"جرفوش\" بمناسبة نيله ثقة قيادة السلطة المحلية وتكليفه مديراً عاماً لمديرية المحفد",
+      "url": "https://www.adngad.net/news/889835",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.893805Z"
+    },
+    {
+      "title": "لاتسيو يواصل مزاحمة الإنتر في صدارة الكالتشيو بفوز ساحق على مستضيفه يوفنتوس",
+      "url": "https://www.adngad.net/news/889834",
+      "source": "www.adngad.net",
+      "date": "2026-10-19T00:10:40.893861Z"
+    },
     {
       "title": "مدير أمن شبوة يطلع على الأوضاع الأمنية في جردان ويشدد على رفع الجاهزية",
       "url": "https://www.almashhad.news/news/501196",
@@ -2652,354 +3000,6 @@
       "url": "https://www.adngad.net/news/889626",
       "source": "www.adngad.net",
       "date": "2026-10-18T11:42:27.540711Z"
-    },
-    {
-      "title": "مجلس الدفاع المصري يقرر تقديم الدعم اللازم للسعودية دفاعاً عن أمنها واستقرارها وصون مقدراتها",
-      "url": "https://www.adngad.net/news/889625",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T11:42:27.540796Z"
-    },
-    {
-      "title": "رئيس مجلس القيادة يهنئ بذكرى استقلال اذربيجان",
-      "url": "https://www.adngad.net/news/889624",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T11:42:27.540893Z"
-    },
-    {
-      "title": "التحالف: سقوط وتحطم طائرة عمودية استطلاعية بمنطقة نجران واستشهاد طاقمها الجوي.",
-      "url": "https://www.adngad.net/news/889623",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T11:42:27.540975Z"
-    },
-    {
-      "title": "عشرات المستعمرين يقتحمون المسجد الأقصى",
-      "url": "https://www.adngad.net/news/889622",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T11:42:27.541060Z"
-    },
-    {
-      "title": "مدير تربية ساحل حضرموت الشنيني يناقش مع مؤسسة صلة للتنمية تدخلاتها في قطاع التعليم",
-      "url": "https://www.adngad.net/news/889621",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T11:42:27.541144Z"
-    },
-    {
-      "title": "رئيس مجلس الوزراء العراقي يستقبل وزيرة الخارجية",
-      "url": "https://www.adngad.net/news/889620",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T11:42:27.541246Z"
-    },
-    {
-      "title": "الخنبشي يشيد بتدخلات برنامج الأمم المتحدة الإنمائي في حضرموت ويؤكد أهمية توسيع المشاريع التنموية والخدمية",
-      "url": "https://www.adngad.net/news/889619",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T11:42:27.541334Z"
-    },
-    {
-      "title": "السفير الإرياني يؤكد تعزيز التعاون اليمني الهندي في مجالات التعليم والبحث العلمي والتدريب الطبي خلال ملتقى «حوار الدبلوماسيين 2026» في غوجارات",
-      "url": "https://www.adngad.net/news/889618",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T11:42:27.541419Z"
-    },
-    {
-      "title": "الهجرة الدولية تطلق مشروعاً بمليوني دولار لإغاثة 18,200 نازح في اليمن",
-      "url": "https://www.adngad.net/news/889617",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T11:42:27.541501Z"
-    },
-    {
-      "title": "صالح جمعة: الذكرى الأولى لمجزرة الإدارة الأهلية للمجانين في السودان تجدد المطالبة بالعدالة ومحاسبة المسؤولين",
-      "url": "https://crater-news.net/%d8%b9%d8%b1%d8%a8%d9%8a%d8%a9-%d9%88%d8%af%d9%88%d9%84%d9%8a%d8%a9/%d8%b9%d8%b1%d8%a8%d9%8a%d8%a9/293094/",
-      "source": "crater-news.net",
-      "date": "2026-10-18T11:42:28.415976Z"
-    },
-    {
-      "title": "هل استوعب المجتمعان الإقليمي والدولي أهمية عودة دولة الجنوب؟",
-      "url": "https://crater-news.net/%d9%85%d9%82%d8%a7%d9%84%d8%a7%d8%aa-%d9%88%d8%a2%d8%b1%d8%a7%d8%a1/293092/",
-      "source": "crater-news.net",
-      "date": "2026-10-18T11:42:28.416093Z"
-    },
-    {
-      "title": "من ميناء عدن إلى دمت.. كيف تموًن وتموّل الشرعية خصمها الحوثي؟",
-      "url": "https://crater-news.net/%d9%85%d9%82%d8%a7%d9%84%d8%a7%d8%aa-%d9%88%d8%a2%d8%b1%d8%a7%d8%a1/293089/",
-      "source": "crater-news.net",
-      "date": "2026-10-18T11:42:28.416185Z"
-    },
-    {
-      "title": "الرئاسة المصرية: مجلس الدفاع الوطني يقرر تقديم كافة أشكال الدعم الممكنة للسعودية دفاعًا عن أمنها واستقرارها",
-      "url": "https://crater-news.net/%d8%b9%d8%b1%d8%a8%d9%8a%d8%a9-%d9%88%d8%af%d9%88%d9%84%d9%8a%d8%a9/%d8%b9%d8%b1%d8%a8%d9%8a%d8%a9/293087/",
-      "source": "crater-news.net",
-      "date": "2026-10-18T11:42:28.416303Z"
-    },
-    {
-      "title": "حريق يحول شاحنة أسماك إلى رماد",
-      "url": "https://crater-news.net/%d8%a7%d9%84%d8%ac%d9%86%d9%88%d8%a8-%d8%a7%d9%84%d8%b9%d8%b1%d8%a8%d9%8a/293083/",
-      "source": "crater-news.net",
-      "date": "2026-10-18T11:42:28.416391Z"
-    },
-    {
-      "title": "القوات المسلحة مسنودة بالطيران الحربي تطلق عملية واسعة باتجاه الوازعية وتحقق مكاسب ميدانية",
-      "url": "https://www.almashhad.news/news/501058",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.993982Z"
-    },
-    {
-      "title": "بن دغر: الحوثيون يدمرون اليمن دولة ومجتمعاً ويهدرون كافة فرص السلام والعنف لن يبني وطناً",
-      "url": "https://www.almashhad.news/news/501057",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.994112Z"
-    },
-    {
-      "title": "هيئة بريطانية: تعرض قاطرة بحرية لهجوم شمال شرق خورفكان في الامارات",
-      "url": "https://www.almashhad.news/news/501056",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.994207Z"
-    },
-    {
-      "title": "الحوثيون يشيعون مشرف محافظة الحديدة و10 من مرافقيه قتلوا في معارك تعز",
-      "url": "https://www.almashhad.news/news/501055",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.994298Z"
-    },
-    {
-      "title": "في يوم واحد.. مليشيا الحوثي تشيع 37 قتيلاً من عناصرها بينهم 12 قيادياً ميدانياً",
-      "url": "https://www.almashhad.news/news/501054",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.994388Z"
-    },
-    {
-      "title": "تنبيه هام للقنصلية اليمنية في السعودية بشأن تصحيح الأوضاع",
-      "url": "https://www.almashhad.news/news/501053",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.994476Z"
-    },
-    {
-      "title": "الحوثيون يهددون بقطع الاتصالات في اليمن.. و 902 محطة وموقع تخرج عن الخدمة",
-      "url": "https://www.almashhad.news/news/501052",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.994563Z"
-    },
-    {
-      "title": "استشهد قبل زفافه بأسبوع.. نعي مؤلم لأحد ضابطي طائرة نجران المنكوبة",
-      "url": "https://www.almashhad.news/news/501051",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.994666Z"
-    },
-    {
-      "title": "تعز.. انتهاكات واسعة واقتحامات حوثية في الصلو والمعافر بعد نكث وعود \"العفو العام\"",
-      "url": "https://www.almashhad.news/news/501050",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.994807Z"
-    },
-    {
-      "title": "مقتل طفل بآلة حادة على يد مختل عقليا في وصاب السافل بمحافظة ذمار",
-      "url": "https://www.almashhad.news/news/501049",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.994906Z"
-    },
-    {
-      "title": "اللواء تركي المالكي يكذّب ادعاء حوثي بشأن \"الجنية السوداء\" ويؤكد: ستدخل الميدان قريباً.. تذكر شكلها فلا تنسى",
-      "url": "https://www.almashhad.news/news/501048",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.994996Z"
-    },
-    {
-      "title": "شبكة حقوقية: 170 انتهاكاً حوثياً خلال 48 ساعة ومطالب بإعلان تعز مدينة منكوبة",
-      "url": "https://www.almashhad.news/news/501047",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.995082Z"
-    },
-    {
-      "title": "جدول مباريات اليوم الأحد 18 أكتوبر 2026.. المواعيد والقنوات الناقلة للدوريات الأوروبية ودوري روشن",
-      "url": "https://www.almashhad.news/news/501046",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.995167Z"
-    },
-    {
-      "title": "ابتداء من اليوم الاحد... القنصلية اليمنية في جدة تصدر إعلانًا هامًا بشأن تجديد جوازات السفر",
-      "url": "https://www.almashhad.news/news/501045",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.995252Z"
-    },
-    {
-      "title": "الأرصاد يتوقع هطول أمطار متفرقة ويحذر من التواجد في ممرات السيول والأودية",
-      "url": "https://www.almashhad.news/news/501044",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.995341Z"
-    },
-    {
-      "title": "تحالف دعم الشرعية: استشهاد ضابطين في تحطم طائرة عمودية بنجران جراء عطل فني",
-      "url": "https://www.almashhad.news/news/501043",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.995428Z"
-    },
-    {
-      "title": "العمالقة ودرع الوطن تخوض اشتباكات عنيفة بالمدفعية والكاتيوشا عقب محاولة تسلل حوثية باتجاه منطقة جنوبي البلاد",
-      "url": "https://www.almashhad.news/news/501042",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.995513Z"
-    },
-    {
-      "title": "مشاركة نسائية بارزة في إسناد المرابطين بجبهات تعز لمواجهة الحصار الحوثي - [فيديوهات]",
-      "url": "https://www.almashhad.news/news/501041",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.995602Z"
-    },
-    {
-      "title": "دبلوماسي أمريكي: السعودية  تتجه نحو مسار من مرحلتين لمواجهة الحوثيين واستراتيجية التهدئة السابقة لم تعد مقبولة",
-      "url": "https://www.almashhad.news/news/501040",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.995714Z"
-    },
-    {
-      "title": "صحيفة بريطانية تفجر مفاجأة بشأن دور جديد لـ الإمارات في حرب اليمن وتتحدث عن شرط لـ الانتقالي مقابل قتال الحوثيين",
-      "url": "https://www.almashhad.news/news/501039",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.995807Z"
-    },
-    {
-      "title": "شركة استخبارات أمريكية تضع 4 سيناريوهات أمام السعودية لمواجهة الحوثيين أحدها الأكثر ترجيحًا... ماهي؟",
-      "url": "https://www.almashhad.news/news/501038",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.995892Z"
-    },
-    {
-      "title": "إخماد حريق في منزل قديم بعتق دون خسائر بشرية - [فيديو]",
-      "url": "https://www.almashhad.news/news/501037",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.995977Z"
-    },
-    {
-      "title": "مصرع 100 حوثي وإصابة 190 آخرين وتدمير معدات للمليشيا بمعارك محتدمة وغارات جوية في جبهات تعز",
-      "url": "https://www.almashhad.news/news/501036",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.996061Z"
-    },
-    {
-      "title": "اشتباكات عنيفة في جبهة الشقب جنوب تعز وهجمات حوثية من أربعة محاور وسط تصاعد المواجهات غرب المدينة",
-      "url": "https://www.almashhad.news/news/501035",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.996145Z"
-    },
-    {
-      "title": "أول رد حوثي على تحركات مصر لدعم السعودية",
-      "url": "https://www.almashhad.news/news/501034",
-      "source": "www.almashhad-alyemeni.com",
-      "date": "2026-10-18T06:31:31.996229Z"
-    },
-    {
-      "title": "تقدم لقوات العمالقة ودرع الوطن في باب المندب بإسناد جوي مكثف للتحالف",
-      "url": "https://www.adngad.net/news/889576",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T06:33:25.243012Z"
-    },
-    {
-      "title": "مصادر: الحوثيون يطالبون مدارس في تعز بتجنيد 50 طفلًا من كل مدرسة",
-      "url": "https://www.adngad.net/news/889575",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T06:33:25.243142Z"
-    },
-    {
-      "title": "بالتزامن مع خطاب السيسي..باذيب يستحضر دراسة مصرية استشرفت دور القاهرة في اليمن وأمن باب المندب",
-      "url": "https://www.adngad.net/news/889574",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T06:33:25.243234Z"
-    },
-    {
-      "title": "منفذ الوديعة بين جدل التعيينات ومعيار الكفاءة.. هل تنتصر المعايير الوطنية على الحسابات المناطقية؟",
-      "url": "https://www.adngad.net/news/889573",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T06:33:25.243322Z"
-    },
-    {
-      "title": "فيصل المجيدي: السلام مع بقاء المليشيا فوق الدولة ليس سوى تأجيل لجولة جديدة من الصراع",
-      "url": "https://www.adngad.net/news/889572",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T06:33:25.243409Z"
-    },
-    {
-      "title": "مانع المطري: إيران طرف في الحرب باليمن عبر دعم وتسليح الحوثيين ووساطتها مرفوضة",
-      "url": "https://www.adngad.net/news/889571",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T06:33:25.243495Z"
-    },
-    {
-      "title": "صدام أبو عاصم: الحوثيون استنفدوا أوراقهم التصعيدية.. وما يقومون به اليوم أقصى ما يملكون",
-      "url": "https://www.adngad.net/news/889570",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T06:33:25.243581Z"
-    },
-    {
-      "title": "صالح البيضاني يدعو إلى مراجعة أساليب مواجهة الحوثيين في تعز ويطرح خيار الاستنزاف طويل الأمد",
-      "url": "https://www.adngad.net/news/889569",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T06:33:25.243689Z"
-    },
-    {
-      "title": "روبيو: أمريكا تريد من إسرائيل \"ردع\" عنف المستوطنين في الضفة الغربية",
-      "url": "https://www.adngad.net/news/889568",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T06:33:25.243779Z"
-    },
-    {
-      "title": "وزير الدولة لشؤون المرأة تهنئ نجوى كوكوس بمناسبة تعيينها وزيرة للأسرة والتنمية الاجتماعية والمساواة بالمغرب",
-      "url": "https://www.adngad.net/news/889567",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T06:33:25.243872Z"
-    },
-    {
-      "title": "علي الجرادي: حين يرانا أشقاؤنا بعيون إيرانية.. من يدافع عن اليمن لا يتخلى عن فلسطين",
-      "url": "https://www.adngad.net/news/889566",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T06:33:25.243957Z"
-    },
-    {
-      "title": "الإجابة بين يامال ومبابي.. كيف أفلت برشلونة من مأساة ريال مدريد في بيتيس؟",
-      "url": "https://www.adngad.net/news/889565",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T06:33:25.244047Z"
-    },
-    {
-      "title": "وزير الدولة لشؤون المرأة: تكريم جوهرة قاسم من «الفاو» إنجاز يضاف إلى سجل المرأة اليمنية",
-      "url": "https://www.adngad.net/news/889564",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T06:33:25.244142Z"
-    },
-    {
-      "title": "لحج.. البدء بتركيب خيم إيوائية للنازحين بطور الباحة",
-      "url": "https://www.adngad.net/news/889563",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T06:33:25.244227Z"
-    },
-    {
-      "title": "العيسي يهنئ بعثة منتخب الناشئين بالفوز على العراق ويحث اللاعبين على مواصلة العروض القوية",
-      "url": "https://www.adngad.net/news/889562",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T06:33:25.244312Z"
-    },
-    {
-      "title": "منتصر المسبحي.. شابٌ من لودر اختار الشهادة في البقع دفاعاً عن الوطن والعقيدة",
-      "url": "https://www.adngad.net/news/889561",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T06:33:25.244396Z"
-    },
-    {
-      "title": "مشروع نظافة مديرية مدينة المكلا ينفذ حملة لقطع وإزالة أشجار السيسبان بطريق جول مسحة",
-      "url": "https://www.adngad.net/news/889560",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T06:33:25.244481Z"
-    },
-    {
-      "title": "لحج.. افتتاح مخيم جديد للنازحين في منطقة \"بئر عمر\" وتدخلات إنسانية واسعة لدعم لنازحي المدارس",
-      "url": "https://www.adngad.net/news/889559",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T06:33:25.244569Z"
-    },
-    {
-      "title": "مؤسسة مواهب تحتفي بالذكرى الـ 15 لتأسيسها وتكرم 144 خريجاً من طلابها",
-      "url": "https://www.adngad.net/news/889558",
-      "source": "www.adngad.net",
-      "date": "2026-10-18T06:33:25.244684Z"
     }
   ]
 }
